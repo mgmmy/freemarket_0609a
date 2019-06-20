@@ -1,25 +1,23 @@
 .body
   .products-container
+    //ヘッダー部分
     .index-header
       .index-header--top
+        //メルカリロゴ部分
         %h1.mercari-logo
           = image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2479985427')
-          
-        .list
-          .li.icon-info
-            = fa_icon 'bell', class: 'icon-info'
-          .li.icon-todo
-            = fa_icon 'check', class: 'icon-todo'
-          .li.icon-mypage ●
-
-      -# .index-header--middle
-      -#   .search-bar
-      -#     .input-box
-      -#       = form_for 
-      -#         = f.text_field :text, class: 'input-box__text', placeholder: '何かお探しですか？'
-      -#         = f.label :search, class: 'search-label' 
-      -#         = f.file_field :search, class: 'hidden'
-      -# .index-header--bottom
-      -#   .nav-list
-      -#     .category-nav カテゴリーから探す
-      -#     .brand-nav ブランドから探す
+        //検索キーワード入力部分
+        .index-header--search
+          %label.search-keyword
+            %input{:type => :search, :name => :search, :placeholder => :" 何かお探しですか？", :class => :searchKeyword}
+          //虫眼鏡アイコン
+          .icon-search--box
+            .icon-search--icon
+              =fa_icon 'search'
+        -# .list
+        -#   .li.icon-info
+        -#     = fa_icon 'bell', class: 'icon-info'
+        -#   .li.icon-todo
+        -#     = fa_icon 'check', class: 'icon-todo'
+        -#   .li.icon-mypage ●
+      

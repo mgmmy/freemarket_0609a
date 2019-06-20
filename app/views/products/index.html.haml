@@ -2,22 +2,34 @@
   .products-container
     //ヘッダー部分
     .index-header
-      .index-header--top
+      .index-header__top
         //メルカリロゴ部分
         %h1.mercari-logo
           = image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2479985427')
         //検索キーワード入力部分
-        .index-header--search
+        .index-header__search
           %label.search-keyword
             %input{:type => :search, :name => :search, :placeholder => :" 何かお探しですか？", :class => :searchKeyword}
           //虫眼鏡アイコン
-          .icon-search--box
-            .icon-search--icon
+          .icon-search__box
+            .icon-search__box__icon
               =fa_icon 'search'
-        -# .list
-        -#   .li.icon-info
-        -#     = fa_icon 'bell', class: 'icon-info'
-        -#   .li.icon-todo
-        -#     = fa_icon 'check', class: 'icon-todo'
-        -#   .li.icon-mypage ●
-      
+
+      //ヘッダー部分の２段目
+      .index-header__bottom
+        %ul.index-header__bottom__left
+          //カテゴリーから探す
+          .li.index-header__bottom__left__category カテゴリーから探す
+              
+          //ブランドから探す
+          .li.index-header__bottom__left__brand ブランドから探す
+              
+        %ul.index-header__bottom__right
+          //お知らせ
+          .li.index-header__bottom__right__info お知らせ
+              
+          //やることリスト
+          .li.index-header__bottom__right__todo やることリスト
+              
+          //マイページ
+          .li.index-header__bottom__right__mypage マイページ

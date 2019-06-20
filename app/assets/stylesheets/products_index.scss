@@ -7,7 +7,7 @@
   //ヘッダー部分
   .index-header {
     align-items: center;
-    &--top{
+    &__top{
       display: flex;
       align-items: center;
       //メルカリロゴ部分
@@ -17,7 +17,7 @@
         padding-right: 80px;
       }
       //検索キーワード入力部分
-      .index-header--search {
+      .index-header__search {
         display: flex;
         height: 40px;
         .searchKeyword {
@@ -34,13 +34,13 @@
           border: 1px solid #3399ff;
         }
         //虫眼鏡アイコンクリック部分
-        .icon-search--box {
+        .icon-search__box {
           background-color: rgb(102, 102, 102);
           width: 46px;
           border-top-right-radius: 4px;
           border-bottom-right-radius: 4px;
           position: relative;
-          .icon-search--icon {
+          .icon-search__box__icon {
             font-size: 15px;
             color: white;
             text-align: center;
@@ -55,18 +55,35 @@
         }
       }
     }
-  }
-  .list {
-    color: #ccc;
-    
-    
-    display: inline-flex;
-    justify-content: flex-end;
-    .li {
-      // font-weight: 400;
-      height: 32px;
-      width: 32px;
-      font-size: 20px;
+    &__bottom {
+      display: flex;
+      font-family: FontAwesome;
+      &__left {
+        display: flex;
+        &__category::before {
+          content: '\f0ca';
+          color: red;
+        }
+        &__brand::before {
+          content: '\f02b';
+          color: red;
+        }
+      }
+      &__right {
+        display: flex;
+        &__info::before {
+          content: '\f0f3';
+          color: #ccc;
+        }
+        &__todo::before {
+          content: '\f00c';
+          color: #ccc;
+        }
+        &__mypage::before {
+          content: '\f599';
+          color: #ccc;
+        }
+      }
     }
   }
 }

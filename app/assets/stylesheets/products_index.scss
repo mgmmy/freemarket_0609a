@@ -1,9 +1,9 @@
 .products-container {
-  width:700px;
-  margin: 0 auto;
   min-height: 100%;
   //ヘッダー部分
   .index-header {
+    width:700px;
+    margin: 0 auto;
     align-items: center;
     &__top{
       display: flex;
@@ -110,6 +110,22 @@
           color: #ccc;
           font-size: 20px;
         }
+      }
+    }
+  }
+  //メイン部分（仮置き）
+  .index-main {
+    height: 800px;
+  }
+  //フッター部分
+  .index-footer {
+    padding: 0 20px 10px 20px;
+    background-color: #212121;
+    color: #fff;
+    width: 100%;
+    .footer-cell {
+      .footer-cell__head {
+        display: flex;
       }
     }
   }

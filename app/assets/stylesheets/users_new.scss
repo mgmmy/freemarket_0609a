@@ -2,20 +2,20 @@
   min-height: 100%;
   margin: 0;
   padding: 0;
+  //ヘッダー部分
   .new-member_registration__container {
     background-color: #EEEEEE;
     padding: 0 0 220px;
     width: 100%;
+    text-align: center;
     .new-member_registration__header {
       height: 128px;
-      text-align: center;
       .new-member_registration__header__logo {
         width: 185px;
         height: 49px;
-        text-align: center;
-        margin: 0 auto;
       }
     }
+    //メイン部分
     .new-member_registration__main {
       display: block;
       .new-member_registration__main__box {
@@ -50,6 +50,30 @@
               }
             }
           }
+        }
+      }
+    }
+    //フッター部分
+    .new-member_registration__footer {
+      width: 456px;
+      height: 220px;
+      margin: 0 auto;
+      padding: 40px 0;
+      .new-member_registration__footer__nav {
+        cursor: pointer;
+        font-size: 12px;
+        .li {
+          display: inline-block;
+          padding: 0 8px;
+        }
+        .new-member_registration__footer__logo {
+          width: 80px;
+          height: 65px;
+          margin: 40px auto 0;
+        }
+        .new-member_registration__footer__mercari {
+          font-size: 12px;
+          margin: 8px 0 0;
         }
       }
     }

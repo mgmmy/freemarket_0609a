@@ -13,6 +13,7 @@
       .new-member_registration__header__logo {
         width: 185px;
         height: 49px;
+        margin: 0 auto;
       }
     }
     //メイン部分
@@ -65,6 +66,9 @@
         .li {
           display: inline-block;
           padding: 0 8px;
+        }
+        .li:hover {
+          text-decoration: underline;
         }
         .new-member_registration__footer__logo {
           width: 80px;

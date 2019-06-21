@@ -119,7 +119,7 @@
   }
   //フッター部分
   .index-footer {
-    padding: 0 20px 10px 20px;
+    padding: 0;
     background-color: #212121;
     color: #fff;
     width: 100%;
@@ -155,6 +155,7 @@
             font-weight: 400px;
             .footer-cell__left__list__icons__facebook {
               padding-right: 20px;
+              font-weight: 900;
             }
           }
           .footer-cell__left__list__icons:hover {
@@ -236,6 +237,20 @@
           .li:hover {
             text-decoration: underline; 
           }
+        }
+      }
+      //メルカリロゴ
+      .footer-cell-bottom {
+        grid-row: 4 / 5;
+        grid-column: 1 / 2;
+        display: flex; 
+        padding-top: 36px;
+        .footer-cell-bottom__mercari {
+          padding-right: 10px;
+        }
+        .footer-cell-bottom__mercari__c {
+          font-size: 8px;
+          margin: 8px 0 0;
         }
       }
     }

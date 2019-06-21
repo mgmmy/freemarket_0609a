@@ -1,256 +1,260 @@
-.products-container {
+* {
+  padding: 0;
+  margin: 0;
+  .products-container {
   min-height: 100%;
   //ヘッダー部分
-  .index-header {
-    width:700px;
-    margin: 0 auto;
-    align-items: center;
-    &__top{
-      display: flex;
-      align-items: center;
-      margin-bottom: 0;
-      padding-bottom: 0;
-      //メルカリロゴ部分
-      .mercari-logo {
-        width: 134px;
-        height: 15px;
-        padding-right: 50px;
-      }
-      //検索キーワード入力部分
-      .index-header__search {
-        display: flex;
-        height: 40px;
-        .searchKeyword {
-          background-color: #f5f5f5;
-          width: 430px;
-          height: 40px;
-          border-top-left-radius: 4px;
-          border-bottom-left-radius: 4px;
-          font-size: 16px;
-          border: 1px solid #ccc
-        }
-        .searchKeyword:focus{
-          outline: 0;
-          border: 1px solid #3399ff;
-        }
-        //虫眼鏡アイコンクリック部分
-        .icon-search__box {
-          background-color: rgb(102, 102, 102);
-          width: 46px;
-          border-top-right-radius: 4px;
-          border-bottom-right-radius: 4px;
-          position: relative;
-          .icon-search__box__icon {
-            font-size: 15px;
-            color: white;
-            text-align: center;
-            .fa-search {
-              position: absolute;
-              top: 10px;
-              bottom: 10px;
-              right: 0;
-              left: 0;
-            }
-          }
-        }
-      }
-    }
-    //ヘッダーの下側
-    &__bottom {
-      display: flex;
-      width: 100%;
-      font-family: FontAwesome;
-      //左側
-      &__left {
-        display: flex;
-        font-size: 14px;
-        font-weight: bold;
-        color: #333;
-        margin-right: 10px;
-        padding-left: 10px;
-        //カテゴリーから探す
-        &__category::before {
-          content: '\f0ca';
-          color: red;
-        }
-        &__category {
-          margin-right: 20px;
-        }
-        //ブランドから探す
-        &__brand::before {
-          content: '\f02b';
-          color: red;
-        }
-      }
-      //右側
-      &__right {
-        display: flex;
-        font-size: 14px;
-        //お知らせ
-        &__info::before {
-          content: '\f0f3';
-          color: #ccc;
-          font-size: 20px;
-        }
-        &__info {
-          margin-right: 20px;
-        }
-        //やることリスト
-        &__todo::before {
-          content: '\f00c';
-          color: #ccc;
-          font-size: 20px;
-        }
-        &__todo {
-          margin-right: 15px;
-        }
-        //マイページ
-        &__mypage::before {
-          content: '\f599';
-          color: #ccc;
-          font-size: 20px;
-        }
-      }
-    }
-  }
-  //メイン部分（仮置き）
-  .index-main {
-    height: 200px;
-  }
-  //フッター部分
-  .index-footer {
-    padding: 0;
-    background-color: #212121;
-    color: #fff;
-    width: 100%;
-    .index-footer-nav {
-      width: 700px;
+    .index-header {
+      width:700px;
       margin: 0 auto;
-      display: grid;
-      // grid-template-rows: 350px 350px;
-      grid-template-columns: 350px 350px;
-      //メルカリについて
-      .footer-cell__head__left {
-        padding: 0 20px 10px 20px;
-        grid-row: 1 / 2;
-        grid-column: 1 / 2;
-        .footer-cell__head__left__title {
-          font-size: 16px;
-          line-height: 1.4rem;
-          padding-top: 18px;
+      align-items: center;
+      &__top{
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        //メルカリロゴ部分
+        .mercari-logo {
+          width: 134px;
+          height: 15px;
+          padding-right: 50px;
         }
-        .footer-cell__left__list {
-          font-size: 12px;
-          padding-left: 0;
-          .li {
-            margin: 16px 0 0;
+        //検索キーワード入力部分
+        .index-header__search {
+          display: flex;
+          height: 40px;
+          .searchKeyword {
+            background-color: #f5f5f5;
+            width: 430px;
+            height: 40px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            font-size: 16px;
+            border: 1px solid #ccc
           }
-          .li:hover {
-            text-decoration: underline; 
+          .searchKeyword:focus{
+            outline: 0;
+            border: 1px solid #3399ff;
           }
-          .footer-cell__left__list__icons {
-            display: flex;
-            margin: 20px 18px 0 0;
-            font-size: 30px;
-            font-weight: 400px;
-            .footer-cell__left__list__icons__facebook {
-              padding-right: 20px;
-              font-weight: 900;
+          //虫眼鏡アイコンクリック部分
+          .icon-search__box {
+            background-color: rgb(102, 102, 102);
+            width: 46px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            position: relative;
+            .icon-search__box__icon {
+              font-size: 15px;
+              color: white;
+              text-align: center;
+              .fa-search {
+                position: absolute;
+                top: 10px;
+                bottom: 10px;
+                right: 0;
+                left: 0;
+              }
             }
           }
-          .footer-cell__left__list__icons:hover {
-            cursor: pointer;
-          }
         }
       }
-      //ヘルプ＆ガイド
-      .footer-cell__head__right {
-        padding: 0 20px 10px 20px;
-        grid-row: 1 / 2;
-        grid-column: 2 / 3;
-        .footer-cell__head__right__title {
-          font-size: 16px;
-          line-height: 1.4rem;
-          padding-top: 18px;
-        }
-        .footer-cell__right__list {
-        font-size: 12px;
-        padding-left: 0;
-          .li {
-            margin: 16px 0 0;
-          }
-          .li:hover {
-            text-decoration: underline; 
-          }
-        }
-      }
-      //プライバシーと利用規約
-      .footer-cell-middle__left {
-        grid-row: 2 / 3;
-        grid-column: 1 / 2;
-        .footer-cell-middle__left__title {
-          font-size: 16px;
-          line-height: 1.4rem;
-          padding-top: 18px;
-        }
-        .footer-cell-middle__left__list {
-          font-size: 12px;
-          padding-left: 0;
-          .li {
-            margin: 16px 0 0;
-          }
-          .li:hover {
-            text-decoration: underline; 
-          }
-        }
-      }
-      .footer-cell-middle__right {
-        .footer-cell-middle____right__title {
-          height: 40px;
-        }
-        .footer-cell-middle__right__list {
-          font-size: 12px;
-          padding-left: 0;
-          .li {
-            margin: 16px 0 0;
-          }
-          .li:hover {
-            text-decoration: underline; 
-          }
-        }
-      }
-      //国
-      .footer-cell-third {
-        .footer-cell-third__title {
-          font-size: 16px;
-          line-height: 1.4rem;
-          padding-top: 18px;
-        }
-        .footer-cell-third__country {
-          font-size: 12px;
-          padding-left: 0;
+      //ヘッダーの下側
+      &__bottom {
+        display: flex;
+        width: 100%;
+        font-family: FontAwesome;
+        //左側
+        &__left {
           display: flex;
-          .li {
-            margin: 16px 0 0;
-            padding-right: 40px;
+          font-size: 14px;
+          font-weight: bold;
+          color: #333;
+          margin-right: 10px;
+          padding-left: 10px;
+          //カテゴリーから探す
+          &__category::before {
+            content: '\f0ca';
+            color: red;
           }
-          .li:hover {
-            text-decoration: underline; 
+          &__category {
+            margin-right: 20px;
+          }
+          //ブランドから探す
+          &__brand::before {
+            content: '\f02b';
+            color: red;
+          }
+        }
+        //右側
+        &__right {
+          display: flex;
+          font-size: 14px;
+          //お知らせ
+          &__info::before {
+            content: '\f0f3';
+            color: #ccc;
+            font-size: 20px;
+          }
+          &__info {
+            margin-right: 20px;
+          }
+          //やることリスト
+          &__todo::before {
+            content: '\f00c';
+            color: #ccc;
+            font-size: 20px;
+          }
+          &__todo {
+            margin-right: 15px;
+          }
+          //マイページ
+          &__mypage::before {
+            content: '\f599';
+            color: #ccc;
+            font-size: 20px;
           }
         }
       }
-      //メルカリロゴ
-      .footer-cell-bottom {
-        grid-row: 4 / 5;
-        grid-column: 1 / 2;
-        display: flex; 
-        padding-top: 36px;
-        .footer-cell-bottom__mercari {
-          padding-right: 10px;
+    }
+    //メイン部分（仮置き）
+    .index-main {
+      height: 200px;
+    }
+    //フッター部分
+    .index-footer {
+      padding: 0;
+      background-color: #212121;
+      color: #fff;
+      width: 100%;
+      .index-footer-nav {
+        width: 700px;
+        margin: 0 auto;
+        display: grid;
+        // grid-template-rows: 350px 350px;
+        grid-template-columns: 350px 350px;
+        //メルカリについて
+        .footer-cell__head__left {
+          padding: 0 20px 10px 20px;
+          grid-row: 1 / 2;
+          grid-column: 1 / 2;
+          .footer-cell__head__left__title {
+            font-size: 16px;
+            line-height: 1.4rem;
+            padding-top: 18px;
+          }
+          .footer-cell__left__list {
+            font-size: 12px;
+            padding-left: 0;
+            .li {
+              margin: 16px 0 0;
+            }
+            .li:hover {
+              text-decoration: underline; 
+            }
+            .footer-cell__left__list__icons {
+              display: flex;
+              margin: 20px 18px 0 0;
+              font-size: 30px;
+              font-weight: 400px;
+              .footer-cell__left__list__icons__facebook {
+                padding-right: 20px;
+                font-weight: 900;
+              }
+            }
+            .footer-cell__left__list__icons:hover {
+              cursor: pointer;
+            }
+          }
         }
-        .footer-cell-bottom__mercari__c {
-          font-size: 8px;
-          margin: 8px 0 0;
+        //ヘルプ＆ガイド
+        .footer-cell__head__right {
+          padding: 0 20px 10px 20px;
+          grid-row: 1 / 2;
+          grid-column: 2 / 3;
+          .footer-cell__head__right__title {
+            font-size: 16px;
+            line-height: 1.4rem;
+            padding-top: 18px;
+          }
+          .footer-cell__right__list {
+          font-size: 12px;
+          padding-left: 0;
+            .li {
+              margin: 16px 0 0;
+            }
+            .li:hover {
+              text-decoration: underline; 
+            }
+          }
+        }
+        //プライバシーと利用規約
+        .footer-cell-middle__left {
+          grid-row: 2 / 3;
+          grid-column: 1 / 2;
+          .footer-cell-middle__left__title {
+            font-size: 16px;
+            line-height: 1.4rem;
+            padding-top: 18px;
+          }
+          .footer-cell-middle__left__list {
+            font-size: 12px;
+            padding-left: 0;
+            .li {
+              margin: 16px 0 0;
+            }
+            .li:hover {
+              text-decoration: underline; 
+            }
+          }
+        }
+        .footer-cell-middle__right {
+          .footer-cell-middle____right__title {
+            height: 40px;
+          }
+          .footer-cell-middle__right__list {
+            font-size: 12px;
+            padding-left: 0;
+            .li {
+              margin: 16px 0 0;
+            }
+            .li:hover {
+              text-decoration: underline; 
+            }
+          }
+        }
+        //国
+        .footer-cell-third {
+          .footer-cell-third__title {
+            font-size: 16px;
+            line-height: 1.4rem;
+            padding-top: 18px;
+          }
+          .footer-cell-third__country {
+            font-size: 12px;
+            padding-left: 0;
+            display: flex;
+            .li {
+              margin: 16px 0 0;
+              padding-right: 40px;
+            }
+            .li:hover {
+              text-decoration: underline; 
+            }
+          }
+        }
+        //メルカリロゴ
+        .footer-cell-bottom {
+          grid-row: 4 / 5;
+          grid-column: 1 / 2;
+          display: flex; 
+          padding-top: 36px;
+          .footer-cell-bottom__mercari {
+            padding-right: 10px;
+          }
+          .footer-cell-bottom__mercari__c {
+            font-size: 8px;
+            margin: 8px 0 0;
+          }
         }
       }
     }

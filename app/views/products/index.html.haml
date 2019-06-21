@@ -38,24 +38,57 @@
 
     //フッター部分
     .index-footer
-      .footer-cell
-        .footer-cell__head
-          .footer-cell__head__left メルカリについて
+      .index-footer-nav
+        //メルカリについて
+        .footer-cell__head__left
+          .footer-cell__head__left__title メルカリについて
           %ul.footer-cell__left__list
-            .li.footer-cell__left__list__company 会社概要（運営会社）
-            .li.footer-cell__left__list__recruitment 採用情報
-            .li.footer-cell__left__list__prerelease プレリリース
-            .li.footer-cell__left__list__blog 公式ブログ
-            .li.footer-cell__left__list__guidelines ガイドライン
-          .footer-cell__head__right ヘルプ&ガイド
+            .li 会社概要（運営会社）
+            .li 採用情報
+            .li プレリリース
+            .li 公式ブログ
+            .li ガイドライン
+            .footer-cell__left__list__icons
+              .footer-cell__left__list__icons__twitter
+              =fa_icon 'twitter'
+              .footer-cell__left__list__icons__facebook
+              =fa_icon 'facebook'
+        //ヘルプ＆ガイド
+        .footer-cell__head__right
+          .footer-cell__head__right__title ヘルプ&ガイド
           %ul.footer-cell__right__list
-            .li.footer-cell__right__list__mercari-guide メルカリガイド
-            .li.footer-cell__right__list__rakuraku らくらくメルカリ便
-            .li.footer-cell__right__list__yuyu ゆうゆうメルカリ便
-            .li.footer-cell__right__list__big 大型メルカリ便
-            .li.footer-cell__right__list__cars-transaction 車体取引ガイド
-            .li.footer-cell__right__list__safe-announcement メルカリ安心・安全宣言！
-            .li.footer-cell__right__list__lie-approach 偽ブランド品撲滅への取り組み
-            .li.footer-cell__right__list__mercari-box メルカリボックス
+            .li メルカリガイド
+            .li らくらくメルカリ便
+            .li ゆうゆうメルカリ便
+            .li 大型メルカリ便
+            .li 車体取引ガイド
+            .li メルカリ安心・安全宣言！
+            .li 偽ブランド品撲滅への取り組み
+            .li メルカリボックス
+        //プライバシーと利用規約
+        .footer-cell-middle__left
+          .footer-cell-middle__left__title プライバシーと利用規約
+          %ul.footer-cell-middle__left__list
+            .li プライバシーポリシー
+            .li メルカリ利用規約
+            .li あんしんスマートサポート制度に関する特約
+            .li コンプライアンスポリシー
+          
+        .footer-cell-middle__right
+          .footer-cell-middle____right__title
+          %ul.footer-cell-middle__right__list
+            .li 個人データの安全に係る基本方針
+            .li 特定商取引に関する表記
+            .li 資金決済法に基づく表示
+            .li 法令遵守と犯罪防止のために
+            .li 返品・返金ポリシー
+        
+        .footer-cell-third
+          .footer-cell-third__title 国
+          %ul.footer-cell-third__country 
+            .li 日本
+            .li United States
+
+
 
 

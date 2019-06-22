@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'mypage#index'
+  root 'mypages#index'
 end

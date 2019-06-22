@@ -1,8 +1,10 @@
+@import "./reset";
 @import "font-awesome";
-@import "./modules/sidebar";
+@import "./config/colour";
 @import "./user-main";
+@import "./modules/sidebar";
 @import "./modules/mypage";
 @import "./modules/mypage-tab";
 @import "./modules/purchase-tab";
-@import "./config/colour";
-@import "./reset";
+
+

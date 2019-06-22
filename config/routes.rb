@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   root "products#index"
   resources :products, only: [:show]
 <<<<<<< HEAD
+<<<<<<< HEAD
   resources :users, only: [:new, :show]
+=======
+  resources :users
+>>>>>>> master
 =======
   resources :users
 >>>>>>> master

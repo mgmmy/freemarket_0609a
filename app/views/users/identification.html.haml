@@ -1,0 +1,72 @@
+=render partial:"products/header"
+.user-menu
+  .user-content
+    =render partial:"sidebar"
+    .personal_info
+      %h1.personal_headTitle
+        本人情報の登録
+      .personal_form
+        %p.personal_form_explainText
+          お客さまの本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.personal_form_linkUp
+          =link_to "本人確認書類のアップロードについて", class: 'personal_info_link'
+          %i.fa.fa-chevron-right
+        %p.personal_details
+          %p.personal_title.personal_name
+            お名前
+          %p.persol_content 
+            井津 小百合
+        %p.personal_details
+          %p.personal_title.personal_kananame
+            お名前カナ
+          %p.persol_content 
+            イヅ サユリ
+        %p.personal_details
+          %p.personal_title.personal_birthday
+            生年月日
+          %p.persol_content 
+            1988/10/16
+        %p.personal_details
+          %p.personal_title.personal_zipcode
+            郵便番号
+          %span.font-arbitary
+            任意
+          %input.personal_input
+
+        %p.personal_details
+          %p.personal_title.personal_prefecture
+            都道府県
+          %span.font-arbitary
+            任意
+          .personal_select_wrap
+            %input.personal_select
+              %i.fa.fa-chevron-down
+
+        %p.personal_details
+          %p.personal_title.personal_city
+            市区町村
+          %span.font-arbitary
+            任意
+          %input.personal_input
+        %p.personal_details
+          %p.personal_title.personal_block
+            番地
+          %span.font-arbitary
+            任意
+          %input.personal_input
+        %p.personal_details
+          %p.personal_title.personal_building
+            建物名
+          %span.font-arbitary
+            任意
+          %input.personal_input
+        .register_btn
+          登録する
+        %p.personal_details
+          %p.personal_form_linkUp
+            =link_to "本人情報の登録について", class:'personal_info_link'
+            %i.fa.fa-chevron-right
+
+=render partial:'products/footer'

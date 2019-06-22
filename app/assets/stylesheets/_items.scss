@@ -1,0 +1,109 @@
+.main-wrapper{
+  width:100vw;
+  padding:40px 0;
+  margin:auto;
+  background-color: #f5f5f5;
+  color:#333;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &_title{
+    font-size: 28px;
+    font-weight:bold;
+    text-align: center;
+  }
+  .section-wrapper{
+    width:933px;
+    height:442px;
+    margin:0 auto;
+    .section-wrapper-title{
+      font-size:22px;
+      margin:26px 11px;
+      text-align: center;
+      .section-title{
+        font-weight: bold;
+      }
+    }
+    .items-wrapper{
+      width:933px;
+      height:330px;
+      .item-wrapper{
+        width:213px;
+        margin: 0 0 0 20px;
+        float:left;
+        cursor: pointer;
+        .item-image{
+          width: 100%;
+          height: 220px;
+          overflow: hidden;
+          position: relative;
+          &_photo{
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+          }
+        }
+        .item-text-wrapper{
+          width:213px -16px;
+          height:110px -16px;
+          padding:16px;
+          background-color:#fff;
+          .item-title{
+            width:181px;
+            height:48px;
+            font-size:16px;
+            font-weight:400;
+            height:3em;
+            line-height:1.5;
+            overflow: hidden;
+              overflow-x: hidden;
+              overflow-y: hidden;
+            position: relative;
+          }
+          .item-num{
+            width:181px;
+            height:16px;
+            .item-price{
+              font-size: 16px;
+              font-weight:600;
+              margin:0;
+              padding:0;
+              float:left;
+            }
+            .item-like{
+              width:28.59px;
+              height:16px;
+              font-weight:400;
+              margin:0;
+              padding:0;
+              float:right;
+              .fa-heart-o{
+                color:#ccc;
+                display: inline-block;
+                float:left;
+              }
+              .like-num{
+                float:right;
+              }
+            }
+          }
+          .item-price-tax{
+            width:181px;
+            height:10px;
+            font-size:10px;
+            clear: both;
+          }
+        }
+      }
+    }
+    .view-all{
+      width:99.5%;
+      padding:20px 0 30px;
+      text-align: right;
+      &_message{
+        font-size:14px;
+        margin:0;
+        padding:0;
+      }
+    }

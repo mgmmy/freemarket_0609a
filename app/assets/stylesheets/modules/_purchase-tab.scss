@@ -1,0 +1,72 @@
+.purchase-tab {
+  margin-top: 40px;
+  background-color: $bg-white;
+  width: 100%;
+
+  &_head {
+    line-height: 72px;
+    font-weight: bold;
+    padding-left: 16px;
+    background-color: #fafafa;
+  }
+
+  &_area {
+    display: flex;
+    height: 72px;
+  }
+
+  &_area li {
+    width: 50%;
+  }
+
+  &_link {
+    line-height: 72px;
+    background-color: $right-gray;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    color: black;
+  }
+
+  .active-tab {
+    background-color: $bg-white;
+    border-top: 2px solid $tab-border;
+    line-height: 72px;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    color: black;
+  }
+
+  &_link:hover {
+    opacity: 0.6;
+  }
+
+  &_contents{
+
+    .tab_item{
+      display: none;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+    }
+
+    .no-item {
+      background: url("/assets/images/logo-gray-icon.svg");
+      background-repeat: no-repeat;
+      background-position: center 40px;
+      padding: 160px 0 60px 0;
+      background-size: 75px;
+      color: $right-gray;
+    }
+
+
+    .active-item{
+      display: block;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+}
+
+  

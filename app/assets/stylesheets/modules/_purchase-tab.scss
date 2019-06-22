@@ -21,7 +21,7 @@
 
   &_link {
     line-height: 72px;
-    background-color: $right-gray;
+    background-color: $light-gray;
     text-align: center;
     display: block;
     font-weight: bold;
@@ -30,7 +30,7 @@
 
   .active-tab {
     background-color: $bg-white;
-    border-top: 2px solid $tab-border;
+    border-top: 2px solid $mercari-red;
     line-height: 72px;
     text-align: center;
     display: block;
@@ -57,7 +57,7 @@
       background-position: center 40px;
       padding: 160px 0 60px 0;
       background-size: 75px;
-      color: $right-gray;
+      color: $light-gray;
     }
 
 

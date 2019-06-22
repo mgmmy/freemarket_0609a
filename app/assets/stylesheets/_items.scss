@@ -10,9 +10,9 @@
     font-weight:bold;
     text-align: center;
   }
+  // カテゴリー単位のアイテムビュー
   .section-wrapper{
     width:933px;
-    height:442px;
     margin:0 auto;
     .section-wrapper-title{
       font-size:22px;
@@ -22,9 +22,11 @@
         font-weight: bold;
       }
     }
+    // アイテムビュー
     .items-wrapper{
       width:933px;
       height:330px;
+
       .item-wrapper{
         width:213px;
         margin: 0 0 0 20px;
@@ -97,6 +99,7 @@
         }
       }
     }
+    // すべての商品を見る
     .view-all{
       width:99.5%;
       padding:20px 0 30px;
@@ -108,4 +111,11 @@
       }
     }
   }
+}
+
+// あとでreset.scssに書く
+a{
+  text-decoration: none;
+  color: #0099e8;
+  cursor: pointer;
 }

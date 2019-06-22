@@ -1,0 +1,48 @@
+@import "./config/colour.scss";
+
+
+.mypage {
+  width: 700px;
+  margin-bottom: 40px;
+
+  &-link {
+    width: 100%;
+  }
+
+  a:visited {
+    color: black;
+  }
+
+  &-user {
+    display: flex;
+    height: 200px;
+    text-align: center;
+    justify-content: center; 
+    align-items: center;  
+    font-size: 14px;
+    background-image: url('/assets/images/user-bg.jpg');
+
+
+    &_name {
+      font-weight: bold;
+    }
+
+    &_foto {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    &_info {
+      display: flex;
+      justify-content: center; 
+      align-items: center;  
+      
+      &--item {
+        margin-left: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+.user-menu
+  .user-content
+    = render partial: "sidebar"
+    .mypage
+      .mypage-user
+        = link_to '#', class: 'mypage-link' do
+          = image_tag("https://octodex.github.com/images/gangnamtocat.png", class: "mypage-user_foto")
+          %h2.mypage-user_name Bourne
+          .mypage-user_info
+            .mypage-user_info--rate
+              評価
+              %span.user-rate 3
+            .mypage-user_info--item
+              出品数
+              %span.user-rate 5
+      .mypage-tab
+        %ul.mypage-tab_area
+          %li
+            = link_to "#tab_notification", class: 'mypage-tab_link active-tab' do
+              お知らせ
+          %li
+            = link_to "#tab_todo", class: 'mypage-tab_link' do
+              やることリスト
+        %ul.mypage-tab_contents
+          #tab_notification.tab_panel.active-item
+            %li  
+              = link_to "#", class: "tab_panel-link" do
+                = image_tag("/assets/images/mercari_profile.png", class: "tab_panel-image")
+                .tab-body
+                  .tab-body_message
+                    事務局から個別メッセージ「《このお知らせを受け取った方限定》セブン-イレブンからの発送でP150プレゼント！」
+                  .tab-body_time
+                    = fa_icon("clock-o")
+                    %span 23時間前
+                = fa_icon("chevron-right")
+            %li 
+              = link_to "#", class: "tab_panel-link" do
+                = image_tag("/assets/images/mercari_profile.png", class: "tab_panel-image")
+                .tab-body
+                  .tab-body_message
+                    事務局から個別メッセージ「《このお知らせを受け取った方限定》セブン-イレブンからの発送でP150プレゼント！」
+                  .tab-body_time
+                    = fa_icon("clock-o")
+                    %span 23時間前
+                = fa_icon("chevron-right")
+            %li.tab-to
+              = link_to "#", class: "tab-to-list" do
+                一覧を見る
+
+
+          %li#tab_todo.tab_panel.no-item
+            現在、やることリストはありません
+      .purchase-tab
+        %h2.purchase-tab_head
+          購入した商品
+        %ul.purchase-tab_area
+          %li
+            = link_to "#tab-purchase_now", class: 'purchase-tab_link active-tab' do
+              取引中
+          %li
+            = link_to "#tab-purchase_past", class: 'purchase-tab_link' do
+              過去の取引
+        %ul.purchase-tab_contents
+          %li#tab-purchase_now.tab_item.no-item.active-item
+            取引中の商品がありません
+          %li#tab-purchase_past.no-item.tab_item
+            購入した商品がありません
+
+

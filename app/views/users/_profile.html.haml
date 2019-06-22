@@ -1,0 +1,13 @@
+.contener
+  .content
+    %section.content__setting-profile
+      %h2.content__setting-profile__head
+        プロフィール
+      %form.content__setting-profile__form#content__setting-profile__form
+        .content__setting-profile__form__icon
+          %figure
+            = image_tag("member_photo_noimage_thumb.png", size: '60x60')
+          %input.content__setting-profile__form__icon__nickname.input-default{ type: 'text', name: 'nickname', value: "ニックネーム" }
+        .content__setting-profile__form__introduction
+          %textarea.textarea-default{ placeholder: " 例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" }
+          = button_tag("変更する", type: 'submit', class: 'content__setting-profile__form__introduction__update btn-default btn-red')

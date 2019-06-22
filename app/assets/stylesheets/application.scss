@@ -1,6 +1,8 @@
 @import "./reset";
 @import "font-awesome";
+@import "./default";
 @import "./config/colour";
+@import "./modules/sell-btn";
 @import "./user-main";
 @import "./modules/sidebar";
 @import "./modules/mypage";
@@ -10,3 +12,5 @@
 @import "./footer";
 @import "./item";
 @import "./modules/identification";
+@import "./profile";
+

@@ -1,0 +1,67 @@
+.sidebar {
+  display: flex;
+  margin-right: 40px ;
+  width: 280px;
+  background-color: $bg-white;
+
+    &-content_head {
+      background-color: $off-white;
+      font-weight: bold;
+      padding-top: 40px;
+    
+    }
+
+  &-list {
+    list-style: none;
+   
+
+    &_contents {
+      width: 248px;
+      display: block;
+      line-height: 16px;
+      border-bottom: 3px solid $off-white;
+      position: relative;
+      text-align: left;
+      font-size: 14px;
+      min-height: 16px;
+      padding: 16px;
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all  0.2s ease;
+      
+    }
+
+    &_contents:visited {
+      color: $black;
+    }
+
+    &_contents .fa-chevron-right {
+      top: 16px;
+      right: 16px;
+      position: absolute;
+      color: $right-gray;
+      -webkit-transition: all 0.3s ease;
+      -moz-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all  0.3s ease;
+    }
+
+    &_contents:hover {
+      background-color: $hover-gray;
+    }
+
+    &_contents:hover .fa-chevron-right{
+      color: $black;
+      transform: translate(5px,0);
+    }
+
+    &_contents:active {
+      background: $active-gray;
+      font-weight: 600;
+    }
+  }    
+}
+
+
+

@@ -1,0 +1,125 @@
+.mypage-tab {
+  background-color: $bg-white;
+  width: 100%;
+
+  &_area {
+    display: flex;
+    height: 72px;
+  }
+
+  &_area li {
+    width: 50%;
+  }
+
+  &_link {
+    line-height: 72px;
+    background-color: $right-gray;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    color: black;
+    position: relative;
+  }
+
+  .active-tab {
+    background-color: $bg-white;
+    border-top: 2px solid $tab-border;
+    line-height: 72px;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    color: black;
+  }
+
+  &_link:hover {
+    opacity: 0.6;
+  }
+
+  &_contents{
+
+    .tab_panel{
+      display: none;
+      
+      &-link {
+        border-bottom: 1px solid $off-white; 
+        display: block;
+        position: relative;
+        padding: 16px;
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all  0.3s ease;
+      }
+
+      &-link:hover {
+        background-color: $hover-gray;
+      }
+
+      &-image {
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        top: 18%;
+        left: 10px;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+      }
+
+      .tab-body {
+        margin: 0 40px 0 68px;
+
+        &_message {
+          font-size: 14px;
+        }
+        
+        &_time {
+          color: $dark-gray;
+          font-size: 13px;
+        }
+
+        &_time .fa-clock-o {
+          font-size: 20px;
+          margin-right: 10px;
+        }
+      }
+
+      &-link .fa-chevron-right {
+        position: absolute;
+        top: 40%;
+        right: 15px;
+      }
+
+      .tab-to {
+        text-align: center;
+        padding: 16px;
+        
+        &-list {
+          background-color: $active-gray;
+          line-height: 72px;
+          height: 100%;
+          display: block;
+        }
+
+        &-list:hover {
+          opacity: .6;
+        }
+      }
+    }
+
+    .no-item {
+      background: url("/assets/images/logo-gray-icon.svg");
+      padding: 160px 0 60px 0;
+      background-repeat: no-repeat;
+      background-position: center 40px;
+      background-size: 75px;
+      font-weight: bold;
+      text-align: center;
+      color: $right-gray;
+    }
+
+    .active-item{
+      display: block;  
+    }
+  }  
+}

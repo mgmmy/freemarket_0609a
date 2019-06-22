@@ -28,12 +28,12 @@
         .li:hover {
           text-decoration: underline; 
         }
-        .&__icons {
+        &__icons {
           display: flex;
           margin: 20px 18px 0 0;
           font-size: 30px;
           font-weight: 400px;
-          .&__facebook {
+          &__facebook {
             padding-right: 20px;
             font-weight: 900;
           }
@@ -48,7 +48,7 @@
       padding: 0 20px 10px 20px;
       grid-row: 1 / 2;
       grid-column: 2 / 3;
-      .&__title {
+      &__title {
         font-size: 16px;
         line-height: 1.4rem;
         padding-top: 18px;
@@ -68,12 +68,12 @@
     .footer-cell-middle__left {
       grid-row: 2 / 3;
       grid-column: 1 / 2;
-      .&__title {
+      &__title {
         font-size: 16px;
         line-height: 1.4rem;
         padding-top: 18px;
       }
-      .&__list {
+      &__list {
         font-size: 12px;
         padding-left: 0;
         .li {
@@ -88,7 +88,7 @@
       &__title {
         height: 40px;
       }
-      .&__list {
+      &__list {
         font-size: 12px;
         padding-left: 0;
         .li {
@@ -106,7 +106,7 @@
         line-height: 1.4rem;
         padding-top: 18px;
       }
-      .&__country {
+      &__country {
         font-size: 12px;
         padding-left: 0;
         display: flex;
@@ -125,7 +125,7 @@
       grid-column: 1 / 2;
       display: flex; 
       padding-top: 36px;
-      .&__mercari {
+      &__mercari {
         padding-right: 10px;
       }
       &__c {

@@ -1,5 +1,6 @@
 .notice-top{
-  width:100%;
+  height:390px; 
+  width: 1440px;
   margin:0;
   padding:0;
   &_image{
@@ -9,6 +10,8 @@
 }
 
 .notice-bottom{
+  height:260px; 
+  width:1440px;
   background-image: url(download_bg_pc.jpg);
   background-position: center;
   background-size: cover;
@@ -37,24 +40,44 @@
         margin: 10px 0 0;
       }
       .app-left-icon{
+        width:420px;
+        height:68px;
         margin:20px 0 0;
         position: relative;
         .mercari-minibox{
+          width:68px;
+          height:68px;
           position: absolute;
-           top: 30%;
-           left:0;
+            top: 0;
+            left:0;
         }
-        .store_btn{
+        .store-btn{
+          width:282px; 
+          height:68px;
           margin: 0 0 0 24px;
-          line-height: 68px;
-          position: absolute;
-           top: 20%;
-           right:10%;
+          &_app{
+            width:133px;
+            height:40px;
+            position: absolute;
+              top: 10%;
+              right:45%;
+          }
+          &_google{
+            width:133px;
+            height:40px;
+            position: absolute;
+              top: 10%;
+              right:10%;
+          }
         }
       }
     }
     &_right{
       float:right;
+      .phone-image{
+        width:300px;
+        height:262.63px;
+      }
     }
   }
 }

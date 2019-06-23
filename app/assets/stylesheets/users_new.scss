@@ -2,65 +2,75 @@
   min-height: 100%;
   margin: 0;
   padding: 0;
-  //ヘッダー部分
   .new-member_registration__container {
     background-color: #EEEEEE;
     padding: 0 0 220px;
     width: 100%;
     text-align: center;
+    //ヘッダー部分
     .new-member_registration__header {
       height: 128px;
-      .new-member_registration__header__logo {
+      &__logo {
         width: 185px;
         height: 49px;
         margin: 0 auto;
       }
     }
     //メイン部分
-    .new-member_registration__main {
+    .newmember__main {
       display: block;
-      .new-member_registration__main__box {
+      .newmember__mainbox {
         width: 700px;
         margin: 0 auto;
         background-color: white;
-        .new-member_registration__main__box__upper {
+        .newmember__mainbox__upper {
           border-bottom: 1px solid #EEEEEE;
-          .new-member_registration__main__box__upper__title {
+          .newmember__mainbox__upper__title {
             font-size: 22px;
             padding: 32px 16px;
             text-align: center;
             font-weight: bold;
           }
         }
-        .new-member_registration__main__box__main {
+        //メイン下部分
+        .newmember__mainbox__main {
           height: 311px;
-          .new-member_registration__main__box__main__contents {
+          .newmember__mainbox__main__contents {
             max-width: 320px;
             margin: 0 auto;
             padding: 64px;
-            font-size: 14px;
-            font-family: "Font Awesome 5 Free";
-            .new-member_registration__main__box__main__contents__email {
-              display: flex;
-              position: relative;
-              background-color: #EEEEEE;
-              cursor: pointer;
-              height: 50px;
-              .new-member_registration__main__box__main__contents__email__name {
-                margin: auto;
+            //メールアドレスで登録
+            .newmember__mainbox__main__contents__email {
+              .email__registration_btn::before {
+                font-family: "FontAwesome";
+                font-weight: 900;
+                content: '\f0da';
               }
+              .email__registration_btn {
+                background-color: #eeeeee;
+                height: 50px;
+                font-size: 14px;
+                cursor: pointer;
+              }
+            }
+            .new-member__main__contents__facebook {
+              color: red;
+              .fa-facebook-square {
+                color: red;
+              }
+              
             }
           }
         }
       }
     }
     //フッター部分
-    .new-member_registration__footer {
+    .new-member__footer {
       width: 456px;
       height: 220px;
       margin: 0 auto;
       padding: 40px 0;
-      .new-member_registration__footer__nav {
+      .new-member__footer__nav {
         cursor: pointer;
         font-size: 12px;
         .li {
@@ -70,12 +80,12 @@
         .li:hover {
           text-decoration: underline;
         }
-        .new-member_registration__footer__logo {
+        .new-member__footer__logo {
           width: 80px;
           height: 65px;
           margin: 40px auto 0;
         }
-        .new-member_registration__footer__mercari {
+        .new-member__footer__mercari {
           font-size: 12px;
           margin: 8px 0 0;
         }

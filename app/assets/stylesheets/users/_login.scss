@@ -1,0 +1,20 @@
+*{
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  .new-member_registration__container {
+    background-color: #EEEEEE;
+    padding: 0 0 220px;
+    width: 100%;
+    text-align: center;
+    //ヘッダー部分
+    .new-member_registration__header {
+      height: 128px;
+      &__logo {
+        width: 185px;
+        height: 49px;
+        margin: 0 auto;
+      }
+    }
+  }
+}

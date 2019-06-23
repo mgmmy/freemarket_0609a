@@ -1,0 +1,14 @@
+//ヘッダー部分
+.new-member_registration__container
+  .new-member_registration__header
+    %h1.new-member_registration__header__logo
+      = image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696')
+
+
+.login
+  .login--email
+    %input{:name => "email", :autofocus => true, :autocomplete => "email"}
+  .login--password
+    %input{:name => "password", :autocomplete => "current-password"}
+
+

@@ -2,18 +2,79 @@
   min-height: 100%;
   margin: 0;
   padding: 0;
-  .new-member_registration__container {
+  .registration__container {
     background-color: #EEEEEE;
     padding: 0 0 220px;
     width: 100%;
     text-align: center;
     //ヘッダー部分
-    .new-member_registration__header {
+    .registration__header {
       height: 128px;
-      &__logo {
+      &--logo {
         width: 185px;
         height: 49px;
+        line-height: 49px;
         margin: 0 auto;
+        cursor: pointer;
+      }
+    }
+    //メイン部分
+    .login__main {
+      display: block;
+      .login__mainbox {
+        width: 456px;
+        margin: 0 auto;
+        background-color: white;
+        //メインの上の段
+        .login__mainbox__upper {
+          font-size: 14px;
+          border-bottom: 1px solid #EEEEEE;
+          padding: 40px 64px;
+          .login__upper--message {
+            padding-bottom: 5px;
+          }
+          .login__upper--registration {
+            background-color: #0099e8;
+            .btn-login {
+              height: 46px;
+              background-color: #0099e8;
+              margin: 8px 0 0;
+              color: white;
+              border: 1px solid #0099e8;
+              line-height: 40px;
+            }
+          }
+        }
+        //メイン部分の下の段
+        .lonin_mainbox__bottom {
+          padding: 32px 64px;
+          font-size: 14px;
+          //facebookでログイン
+          .login__bottom--first {
+            background: #385185;
+            height: 46px;
+            .btn-registration--facebook {
+              color: white;
+              cursor: pointer;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+          //googleでログイン
+          .login__bottom--second {
+            margin: 16px 0 0;
+            border: #979797 solid 1px;
+            height: 46px;
+            .btn-registration--google {
+              color: #333;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            
+          }
+        }
       }
     }
   }

@@ -18,12 +18,12 @@
             //リンク先はfacebookに変える
             = link_to edit_user_registration_path,class: "btn btn-registration--facebook fa-2x" do
               %i.fa.fa-facebook-square 
-              %p.facebook--text Facebookでログイン
+              %a.facebook--text Facebookでログイン
           .login__bottom--second
             //リンク先はgoogleにか変える
             = link_to edit_user_registration_path, class: "btn btn-registration--google fa-2x" do
               %i.fa.fa-google 
-              %p.google--text Googleでログイン
+              %a.google--text Googleでログイン
         //入力欄
         .login--form
           .login--form--inner
@@ -36,7 +36,7 @@
                 %input.login-checkbox{ type: 'checkbox' }
                 %label.login-checkbox--text{ for: 'checkbox-id' } 私はロボットではありません
                 .login__check--img 
-                  %img{:src => "https://www.gstatic.com/recaptcha/api2/logo_48.png", :class => "login--img"}
+                  = image_tag("https://www.gstatic.com/recaptcha/api2/logo_48.png", class: "login--img")
                   .login__img--text reCAPTCHA
               .login__ckeck--rule 
                 .login__ckeck--rule--first プライバシー

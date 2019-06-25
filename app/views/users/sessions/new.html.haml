@@ -12,20 +12,42 @@
         .login__upper--registration
           =link_to '新規会員登録', new_user_registration_path, class: "btn btn-login"
       //メイン部分の下の段
-      .lonin_mainbox__bottom
-        .login__bottom--first
-          //リンク先はfacebookに変える
-          = link_to edit_user_registration_path,class: "btn btn-registration--facebook" do
-            %i.fa.fa-facebook-square Facebookでログイン
-        .login__bottom--second
-          //リンク先はgoogleにか変える
-          = link_to edit_user_registration_path, class: "btn btn-registration--google" do
-            %i.fa.fa-google Googleでログイン
+      .login--panel
+        .lonin_mainbox__bottom
+          .login__bottom--first
+            //リンク先はfacebookに変える
+            = link_to edit_user_registration_path,class: "btn btn-registration--facebook" do
+              %i.fa.fa-facebook-square Facebookでログイン
+          .login__bottom--second
+            //リンク先はgoogleにか変える
+            = link_to edit_user_registration_path, class: "btn btn-registration--google" do
+              %i.fa.fa-google Googleでログイン
         //入力欄
-        .login__inputbox
-          .login--email
-            %input{:name => "email", :autofocus => true, :autocomplete => "email"}
-          .login--password
-            %input{:name => "password", :autocomplete => "current-password"}
+        .login--form
+          .login--form--inner
+            .login--email
+              %input{:name => "email", :autofocus => true, :autocomplete => "email", :class => "inputbox--email", :placeholder => "  メールアドレス"}
+            .login--password
+              %input{:name => "password", :autocomplete => "current-password", :class => "inputbox--password", :placeholder => "  パスワード"}
+            .login__check
+              .login__check--box
+                %input.login-checkbox{ type: 'checkbox' }
+                %label.login-checkbox--text{ for: 'checkbox-id' } 私はロボットではありません
+                .login__check--img 
+                  %img{:src => "https://www.gstatic.com/recaptcha/api2/logo_48.png", :class => "login--img"}
+                  .login__img--text reCAPTCHA
+              .login__ckeck--rule 
+                .login__ckeck--rule--first プライバシー
+                .login__ckeck--rule--second 利用規約
+
+            //ログイン
+            .login--login
+              //ログインパスは変更する
+              = link_to edit_user_registration_path, class: "btn btn--login" do
+                ログイン
+
+
+  .login--footer 
+    = render partial: 'users/shared/registraion-footer'
 
 

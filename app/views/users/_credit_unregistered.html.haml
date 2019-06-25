@@ -1,0 +1,22 @@
+.contener
+  .content
+    %section.content__setting-credit
+      %h2.content__setting-credit__head
+        支払い方法
+      .content__setting-credit__main
+        %section
+          .content__setting-credit__main__title.single-content
+            %h3
+              クレジットカード一覧
+          %ul.content__setting-credit__main--payment-list
+        %section.content__setting-credit__main--add-card
+          .single-content
+            = link_to "" do
+              .btn-default.btn-red.submit_button.single-content
+                %i.fa.fa-credit-card
+                クレジットカードを追加する
+        .setting-not-regist
+          = link_to "",{ target: "_blank" } do
+            %span
+              支払い方法について
+              %i.fa.fa-chevron-right

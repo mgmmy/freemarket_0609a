@@ -18,19 +18,19 @@
             //リンク先はfacebookに変える
             = link_to edit_user_registration_path,class: "btn btn-registration--facebook fa-2x" do
               %i.fa.fa-facebook-square 
-              %a.facebook--text Facebookでログイン
+              %p.facebook--text Facebookでログイン
           .login__bottom--second
             //リンク先はgoogleにか変える
             = link_to edit_user_registration_path, class: "btn btn-registration--google fa-2x" do
               %i.fa.fa-google 
-              %a.google--text Googleでログイン
+              %p.google--text Googleでログイン
         //入力欄
         .login--form
           .login--form--inner
             .login--email
-              %input{:name => "email", :autofocus => true, :autocomplete => "email", :class => "inputbox--email", :placeholder => "  メールアドレス"}
+              %input{name: "email", autofocus: true, autocomplete: "email", class: "inputbox--email", placeholder: "  メールアドレス"}
             .login--password
-              %input{:name => "password", :autocomplete => "current-password", :class => "inputbox--password", :placeholder => "  パスワード"}
+              %input{name: "password", autocomplete: "current-password", class: "inputbox--password", placeholder: "  パスワード"}
             .login__check
               .login__check--box
                 %input.login-checkbox{ type: 'checkbox' }

@@ -54,12 +54,24 @@
             .login__bottom--first {
               background: #385185;
               height: 46px;
+              display: flex;
+              position: relative;
               .btn-registration--facebook {
-                color: white;
                 cursor: pointer;
-                display: flex;
                 justify-content: center;
                 align-items: center;
+                color: white;
+                position: absolute;
+                top: 1px;
+                left: 20px;
+              }
+              .facebook--text {
+                color: white;
+                cursor: pointer;
+                font-size: 14px;
+                position: absolute;
+                top: 15px;
+                left: 100px;
               }
             }
             //googleでログイン
@@ -67,11 +79,23 @@
               margin: 16px 0 0;
               border: #979797 solid 1px;
               height: 46px;
+              position: relative;
               .btn-registration--google {
                 color: #333;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                position: absolute;
+                top: -1px;
+                left: 20px;
+              }
+              .google--text {
+                color:#333;
+                cursor: pointer;
+                font-size: 14px;
+                position: absolute;
+                top: 15px;
+                left: 100px;
               }
             } 
           }
@@ -190,6 +214,10 @@
                   top: 15px;
                   left: 136px;
                 }
+              }
+              .login--forget {
+                margin: 40px 0 0;
+                font-size: 14px;
               }
             }
           }

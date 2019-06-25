@@ -39,26 +39,74 @@
             max-width: 320px;
             margin: 0 auto;
             padding: 64px;
+            font-size: 14px;
             //メールアドレスで登録
-            .newmember__mainbox__main__contents__email {
-              .email__registration_btn::before {
-                font-family: "FontAwesome";
-                font-weight: 900;
-                content: '\f0da';
+            .newmember__mainbox--email {
+              border: solid 1px red;
+              border-radius: 4px;
+              background-color: red;
+              cursor: pointer;
+              height: 50px;
+              position: relative;
+              .fa-envelope {
+                position: absolute;
+                color: white;
+                font-size: 20px;
+                top: 15px;
+                left: 15px;
               }
-              .email__registration_btn {
-                background-color: #eeeeee;
-                height: 50px;
-                font-size: 14px;
-                cursor: pointer;
+              .mail--text {
+                color: white;
+                position: absolute;
+                top: 15px;
+                left: 90px;
               }
             }
-            .new-member__main__contents__facebook {
-              color: red;
-              .fa-facebook-square {
-                color: red;
-              }
+            .newmember__main__contents--facebook {
+              background: #385185;
+              border: solid 1px #385185;
+              border-radius: 4px;
+              cursor: pointer;
+              height: 50px;
+              position: relative;
+              margin: 16px 0 0;
               
+              .fa-facebook-square {
+                position: absolute;
+                color: white;
+                font-size: 25px;
+                top: 15px;
+                left: 15px;
+                
+              }
+              .facebook--text {
+                color: white;
+                position: absolute;
+                top: 15px;
+                left: 90px;
+              }
+            }
+            .newmember__main__contents--google {
+              background: white;
+              border: solid 1px #979797;
+              border-radius: 4px;
+              cursor: pointer;
+              height: 50px;
+              position: relative;
+              margin: 16px 0 0;
+              .fa-google {
+                position: absolute;
+                color: #333;
+                font-size: 25px;
+                top: 15px;
+                left: 15px;
+              }
+              .google--text {
+                color: #333;
+                position: absolute;
+                top: 15px;
+                left: 110px;
+              }
             }
           }
         }

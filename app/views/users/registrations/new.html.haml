@@ -13,18 +13,22 @@
         .newmember__mainbox__main
           .newmember__mainbox__main__contents
             //メールアドレスで登録
-            .newmember__mainbox__main__contents__email
-              %button.btn.btn-primary メールアドレスで登録
+            .newmember__mainbox--email
+              = link_to new_user_registration_path do
+                %i.fa.fa-envelope
+                %a.mail--text メールアドレスで登録
                 
-            .new-member__main__contents__facebook
-              = link_to "#" do
-                = fa_icon 'facebook-square'
-                フェイスブックで登録
+            //フェイスブックで登録
+            .newmember__main__contents--facebook
+              = link_to new_user_registration_path do
+                %i.fa.fa-facebook-square
+                %a.facebook--text フェイスブックで登録
               
-              
-            .new-member__main__contents__google
-              = button_to('Googleで登録') 
-              
+            //グーグルで登録
+            .newmember__main__contents--google
+              = link_to new_user_registration_path do
+                %i.fa.fa-google
+                %a.google--text Googleで登録
               
 
 

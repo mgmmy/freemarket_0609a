@@ -1,7 +1,9 @@
 @import "./reset";
+@import "owl.carousel";
+@import "owl.theme.default";
+@import "./config/colour";
 @import "font-awesome";
 @import "./default";
-@import "./config/colour";
 @import "./modules/sell-btn";
 @import "./user-main";
 @import "./modules/sidebar";
@@ -13,4 +15,5 @@
 @import "./item";
 @import "./modules/identification";
 @import "./profile";
+@import "./modules/item-detail";
 

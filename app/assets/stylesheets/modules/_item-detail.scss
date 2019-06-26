@@ -1,0 +1,236 @@
+.item-background {
+  background-color: $off-white;
+
+  @media screen and (min-width: 768px){
+    .item-container {
+      padding: 24px 40px 40px !important;
+      width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  .item-container {
+    background-color: $bg-white;
+    margin: 40px auto 0;
+    padding: 24px 16px 55px 16px;
+    
+    &_name {
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+      word-wrap: break-word;
+      line-height: 1.4;
+    }
+
+    .item-info {
+      margin-top: 16px;
+      clear: both;
+
+      @media screen and (min-width: 768px) {
+        &__image {
+          float: left;
+          min-width: 300px;
+          max-width: 300px !important;
+          min-height: 375px !important;
+        }
+      }
+
+      &__image {
+        position: relative;
+        min-width: 280px;
+        max-width: 360px;
+        min-height: 280px;
+        margin: 0 auto;
+        background: $empty-gray;
+
+        .image-carousel {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .image-slide {
+          line-height: 0;
+
+          .image-select {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: auto;
+            height: 100%;
+            -webkit-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+          }
+          
+        }
+      }
+
+      &__price {
+        margin-top: 24px;
+        text-align: center;
+  
+        .price-yen {
+          font-size: 32px;
+          font-weight: bold;
+          margin-right: 8px;
+        }
+
+        .price-tax {
+          font-size: 10px;
+        }
+
+        .price-fee {
+          font-size: 16px;
+          display: inline-block;
+        }
+      }
+
+      @media screen and (min-width: 768px) {
+        .vanish {
+          display: none;
+        }
+      }
+
+      
+
+      .buy-btn__link {
+        margin-top: 16px;
+        line-height: 60px;
+      }
+
+      @media screen and (min-width: 768px){
+        .item-info__detail {
+          max-width: 300px !important;
+          height: 300px !important;
+          margin: 0 auto;
+        }
+      }
+        
+
+      &__detail {
+        width: 100%;
+        max-width: 360px;
+        margin: 8px auto 0;
+        border-collapse: collapse;
+        border: 1px solid $off-white;
+        font-size: 14px;
+        
+        tr {
+          border: 1px solid #f5f5f5;
+          padding: 16px 8px;
+        }
+
+        @media screen and (min-width: 768px) {
+          tr th {
+            padding: 8px;
+          }
+        }
+
+        th {
+          width: 39%;
+          text-align: left;
+          font-weight: 400;
+          background: #fafafa;
+          border: 1px solid #f5f5f5;
+          padding: 16px 8px;
+        }
+
+        td {
+          width: 61%;
+          background: $bg-white;
+          padding: 16px 12px;
+          border: 1px solid #f5f5f5;
+    
+          
+
+          .user-rating {
+            display: inline-block;
+            
+
+            &_icon:first-child {
+              margin: 0;
+            }
+
+            &__icon {
+              margin: 8px 0 0 5px;
+            }
+
+            .fa-smile-o {
+              color:  #ef5185;
+            }
+
+            .fa-meh-o {
+              color: #fba933;
+            }
+
+            .fa-frown-o {
+              color: #6ab5d8;
+            }
+         
+            span {
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+
+      &__description {
+        padding: 24px 0 0;
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+
+      &__button {
+        margin: 16px 0 0;
+        font-size: 0;
+
+        &-like {
+          display: inline-block;
+        }
+
+        &-report {
+          display: inline-block;
+        }
+
+        .item-button {
+          display: inline-block;
+          padding: 8px 16px;
+          border-radius: 40px;
+          -webkit-transition: all ease-out .3s;
+          transition: all ease-out .3s;
+        }
+
+        .like-button {
+          color: $black;
+          border: 1px solid $off-white;
+          background: $off-white;
+        }
+
+        .report-button {
+          margin-left: 8px;
+          color: $black;
+          background: $off-white;
+          border: 1px solid $off-white;
+        }
+
+        .item-info__policy {
+          margin-top: 16px;
+          font-size: 16px;
+        }
+
+        @media screen and (min-width: 768px) {
+          .item-info__policy{
+            display: inline-block;
+            margin-left: 160px;
+          }
+         
+        }
+
+        
+      }
+      
+      
+    }
+
+    
+  }
+}

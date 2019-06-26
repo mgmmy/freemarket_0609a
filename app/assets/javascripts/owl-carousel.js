@@ -26,7 +26,6 @@ $(function() {
       grab = $(this).data('info');
 
       slidegrab = $('.slidenumber'+ grab +' img').attr('src');
-      console.log(slidegrab);
 
       $(this).css("background-image", "url("+slidegrab+")");  
 

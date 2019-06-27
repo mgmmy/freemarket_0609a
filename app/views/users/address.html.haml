@@ -41,14 +41,14 @@
               .address--name--red 必須
             %input{type: "name", placeholder: "例）山田"}
             %input{type: "name", placeholder: "例）彩"}
-            .address--kana
-              .address--kana--name お名前
-              .address--kana--red 必須
+            .address--name
+              .address--name--name お名前
+              .address--name-red 必須
             %input{type: "name", placeholder: "例）ヤマダ"}
             %input{type: "name", placeholder: "例）アヤ"}
-            .address--number
-              .address--number--name 郵便番号
-              .address--number--red 必須
+            .address--name
+              .address--name--name 郵便番号
+              .address--name--red 必須
             %input{type: "number", placeholder: "例）123-4567"}
             .address--prefecture
               .address--prefecture--name 都道府県
@@ -56,13 +56,13 @@
               //非同期で選択できるようにする
             %input{type: "text", placeholder: "北海道"}
 
-            .address--city
-              .address--city--name 市町村
-              .address--city--red 必須
+            .address--name
+              .address--name--name 市町村
+              .address--name--red 必須
             %input{type: "text", placeholder: "例）横浜市緑区"}
-            .address--address
-              .address--address--name 番地
-              .address--address--red 必須
+            .address--name
+              .address--name--name 番地
+              .address--name--red 必須
             %input{type: "number", placeholder: "例）青山1-1-1"}
             .address--building
               .address--building--name 建物名

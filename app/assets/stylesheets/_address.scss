@@ -73,87 +73,8 @@
             font-size: 16px;
             margin: 8px 0 0;
           }
-          .address--kana {
-            font-size: 13px;
-            margin: 40px 0 0;
-            &--name {
-              display: inline-block;
-              font-weight: 600;
-            }
-            &--red {
-              display: inline-block;
-              color: $bg-white;
-              background-color: $mercari-red;
-              margin: 0 0 0 8px;
-              padding: 2px 4px;
-              font-size: 12px;
-              border-radius: 2px;
-              height: 14px;
-              width: 25px;
-              line-height: 12px;
-            }
-          }
-          .address--number {
-            font-size: 13px;
-            margin: 40px 0 0;
-            &--name {
-              display: inline-block;
-              font-weight: 600;
-            }
-            &--red {
-              display: inline-block;
-              color: $bg-white;
-              background-color: $mercari-red;
-              margin: 0 0 0 8px;
-              padding: 2px 4px;
-              font-size: 12px;
-              border-radius: 2px;
-              height: 14px;
-              width: 25px;
-              line-height: 12px;
-            }
-          }
+          //非同期にする
           .address--prefecture {
-            font-size: 13px;
-            margin: 40px 0 0;
-            &--name {
-              display: inline-block;
-              font-weight: 600;
-            }
-            &--red {
-              display: inline-block;
-              color: $bg-white;
-              background-color: $mercari-red;
-              margin: 0 0 0 8px;
-              padding: 2px 4px;
-              font-size: 12px;
-              border-radius: 2px;
-              height: 14px;
-              width: 25px;
-              line-height: 12px;
-            }
-          }
-          .address--city {
-            font-size: 13px;
-            margin: 40px 0 0;
-            &--name {
-              display: inline-block;
-              font-weight: 600;
-            }
-            &--red {
-              display: inline-block;
-              color: $bg-white;
-              background-color: $mercari-red;
-              margin: 0 0 0 8px;
-              padding: 2px 4px;
-              font-size: 12px;
-              border-radius: 2px;
-              height: 14px;
-              width: 25px;
-              line-height: 12px;
-            }
-          }
-          .address--address {
             font-size: 13px;
             margin: 40px 0 0;
             &--name {
@@ -191,26 +112,6 @@
               height: 14px;
               width: 25px;
               line-height: 12px;
-            }
-            .address--building {
-              font-size: 13px;
-              margin: 40px 0 0;
-              &--name {
-                display: inline-block;
-                font-weight: 600;
-              }
-              &--grey {
-                display: inline-block;
-                color: $bg-white;
-                background-color: grey;
-                margin: 0 0 0 8px;
-                padding: 2px 4px;
-                font-size: 12px;
-                border-radius: 2px;
-                height: 14px;
-                width: 25px;
-                line-height: 12px;
-              }
             }
           }
           .address--next {

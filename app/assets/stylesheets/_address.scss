@@ -92,46 +92,34 @@
       }
     }
   }
-  .information--main {
+  //↑ここまで書かなくていいかも・・・
+  .address--main {
     display: inline;
+    
     //メイン部分
-    .information__mainbox {
+    .address__mainbox {
       width: 700px;
       margin: 0 auto;
       background-color: white;
       text-align: left;
       color: #333;
-      .information__mainbox__upper {
+      .address__mainbox__upper {
         font-size: 14px;
         border-bottom: 1px solid #EEEEEE;
-        .inromation__upper--message {
+        .address__upper--message {
           padding: 32px 16px;
           font-size: 22px;
           font-weight: bold;
+          text-align: center;
+        }
+      }
+      &__main {
+        background-color: #eee;
+        display: inline;
+        .address__main {
+          
         }
       }
     }
-  }
-    //↑ここまで書かなくていいかも・・・
-    //メインの下の段
-  .address--main {
-    background-color: #eee;
-    display: inline;
-    .address__mainbox {
-      width: 700px;
-      margin: 0 auto;
-      background-color: white;
-      .address__mainbox__upper {
-        font-size: 14px;
-        height: 50px;
-        border-bottom: 1px solid #EEEEEE;
-        .address__upper--message {
-          padding: 8px 24px;
-          font-size: 24px;
-          font-weight: bold;
-        }
-      } 
-    }
-
   }
 }

@@ -36,12 +36,50 @@
         //メインの下の段
         .information__mainbox__main
           .information__main
+            //ニックネーム
             .information--nickname
               .information--nickname--name ニックネーム
               .information--nickname--red 必須
-              %input{name: "infomation--name",}
-
-
-
-
-          
+            %input{type: "nickname", placeholder: "例）メルカリ太郎"}
+            //メールアドレス
+            .information--email
+              .information--email--name メールアドレス
+              .information--email--red 必須
+            %input{type: "email", placeholder: "PC・携帯どちらでも可"}
+            //パスワード
+            .information--pass
+              .information--pass--name パスワード
+              .information--pass--red 必須
+            %input{type: "pass", placeholder: "６文字以上"}
+            //パスワード（確認）
+            .information--pass
+              .information--pass--name パスワード (確認)
+              .information--pass--red 必須
+            %input{type: "pass", placeholder: "６文字以上"}
+            //本人確認
+            .forsafe 本人確認
+            .forsafe--text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            //姓
+            .information--lastname
+              .information--lastname--name 姓（全角）
+              .information--lastname--red 必須
+            %input{placeholder: "例)山田"}
+            //名
+            .information--firstname
+              .information--firstname--name 名（全角）
+              .information--firstname--red 必須
+            %input{placeholder: "例)彩"}
+            //姓カナ
+            .information--lastname--kana
+              .information--lastname--kana--name 姓カナ（全角）
+              .information--lastname--kana--red 必須
+            %input{placeholder: "例)ヤマダ"}
+            //名カナ
+            .information--firstname--kana
+              .information--firstname--kana--name 名カナ（全角）
+              .information--firstname--kana--red 必須
+            %input{placeholder: "例)アヤ"}
+            //生年月日
+            .information--birthday
+              .information--birthday--name 生年月日
+              .information--birthday--red 必須

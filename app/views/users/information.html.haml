@@ -83,3 +83,29 @@
             .information--birthday
               .information--birthday--name 生年月日
               .information--birthday--red 必須
+              //ここに非同期通信を書く
+              .information--birthday--select
+                %select{name: "year", id: "year"}
+                %select{name: "month", id: "month"}
+                %select{name: "day", id: "day"}
+              .information--select--text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+            //私はロボットではありません
+            .information__check
+              .information__check--box
+                %input.information-checkbox{ type: 'checkbox' }
+                %label.information-checkbox--text{ for: 'checkbox-id' } 私はロボットではありません
+                .information__check--img 
+                  = image_tag("https://www.gstatic.com/recaptcha/api2/logo_48.png", class: "login--img")
+                  .information__img--text reCAPTCHA
+              .information__ckeck--rule 
+                .information__ckeck--rule--first プライバシー
+                .information__ckeck--rule--second 利用規約
+            
+            .information__rule 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+            .information--next 
+              =link_to "次へ進む", phonemumber_users_path, class: "btn btn--information--next"
+
+            //本人情報の登録について
+            .information--about 本人情報の登録について〉
+                

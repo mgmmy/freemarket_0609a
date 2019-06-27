@@ -93,22 +93,81 @@
     }
   }
   //メイン部分
-  .information--main {
+  .phonenumber--main {
     display: inline;
-    .information__mainbox {
+    .phonenumber__mainbox {
       width: 700px;
       margin: 0 auto;
       background-color: white;
-      .information__mainbox__upper {
-        font-size: 14px;
+      //メイン上の段
+      .phonenumber__mainbox__upper {
         border-bottom: 1px solid #EEEEEE;
-        .inromation__upper--message {
+        .phonenumber__upper--message {
           padding: 32px 16px;
-          font-size: 22px;
+          font-size: 18px;
           font-weight: bold;
         }
       }
+      //メイン下の段
+      .phonenumber__mainbox__main {
+        max-width: 320px;
+        padding: 40px 16px;
+        margin: 0 auto;
+        .phonenumber__main {
+          text-align: left;
+          .phonenumber--phonenumber {
+            font-size: 13px;
+            .phonenumber--number {
+              display: inline-block;
+              font-weight: 600;
+              
+            }
+          }
+          input {
+            width: 300px;
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            margin: 8px 0 0;
+          }
+          .phonenumber--text {
+            margin: 8px 0 0;
+            line-height: 1.5;
+            font-size: 14px;
+          }
+          .phonenumber--next {
+            background-color: #ea352d;
+            height: 50px;
+            position: relative;
+            margin: 40px 0 0;
+            .btn-phonenumber--next {
+              color: white;
+              position: absolute;
+              font-size: 14px;
+              top: 15px;
+              left: 110px;
+            }
+          }
+          .phonenumber--test--second {
+            margin: 8px 0 0;
+            line-height: 1.5;
+            font-size: 14px;
+          }
+          .phonenumber--test--thied {
+            font-size: 14px;
+            color: #0099e8;
+            text-align: right;
+            margin: 40px 0 0;
+          }
+          .phonenumber--test--thied:hover {
+            text-decoration: underline;
+          }
+        }
+      }
     }
-    
   }
 }

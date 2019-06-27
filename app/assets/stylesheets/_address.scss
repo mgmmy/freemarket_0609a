@@ -114,10 +114,32 @@
         }
       }
       &__main {
+        text-align: center;
         background-color: #eee;
         display: inline;
         .address__main {
-          
+          max-width: 320px;
+          margin: 0 auto;
+          .address--name {
+            font-size: 13px;
+            margin: 40px 0 0;
+            &--name {
+              display: inline-block;
+              font-weight: 600;
+            }
+            &--red {
+              display: inline-block;
+              color: white;
+              background-color: #ea352d;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              font-size: 12px;
+              border-radius: 2px;
+              height: 14px;
+              width: 25px;
+              line-height: 12px;
+            }
+          }
         }
       }
     }

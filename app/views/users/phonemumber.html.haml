@@ -1,0 +1,36 @@
+%body
+  .information-container
+    .infomation-header
+      .infomation-header--logo
+        = link_to image_tag(src= "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1905591235", class: "header--mercari"), root_path
+          
+      //配送状況
+      .progress-bar
+        %ul.progress-bar--bar
+          %li.active#active 
+            会員情報
+            .progress-status
+            .progress-status_bar
+          %li.number#number 
+            電話番号認証
+            .progress-status
+            .progress-status_bar
+          %li.address#address 
+            お届け住所入力
+            .progress-status
+            .progress-status_bar
+          %li.payment#payment 
+            支払い情報
+            .progress-status
+            .progress-status_bar--last
+          %li.end#end 
+            完了
+            .progress-status
+            
+
+    .information--main
+      .information__mainbox
+        //メインの上のだん
+        .information__mainbox__upper
+          .inromation__upper--message 会員情報入力
+        //メインの下の段

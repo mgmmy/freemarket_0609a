@@ -1,0 +1,48 @@
+%body
+  .information-container
+    .infomation-header
+      .infomation-header--logo
+        = link_to image_tag(src= "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1905591235", class: "header--mercari"), root_path
+          
+      //配送状況
+      .progress-bar
+        %ul.progress-bar--bar
+          %li.through#through
+            会員情報
+            .progress-status
+            .progress-status_bar
+          %li.active#active
+            電話番号認証
+            .progress-status
+            .progress-status_bar
+          %li.address#address 
+            お届け住所入力
+            .progress-status
+            .progress-status_bar
+          %li.payment#payment 
+            支払い情報
+            .progress-status
+            .progress-status_bar--last
+          %li.end#end 
+            完了
+            .progress-status
+            
+
+    .phonenumber--main
+      .phonenumber__mainbox
+        //メインの上のだん
+        .phonenumber__mainbox__upper
+          .phonenumber__upper--message 電話番号の確認
+        //メインの下の段
+        .phonenumber__mainbox__main
+          .phonenumber__main
+            .phonenumber--phonenumber
+              .phonenumber--number 携帯電話の番号
+            %input{type: "phonenumber", placeholder: "携帯電話の番号を入力"}
+            .phonenumber--text 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            .phonenumber--next
+              = link_to "SNSを送信する", address_users_path, class: "btn btn-phonenumber--next"
+            .phonenumber--test--second ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+            .phonenumber--test--thied 電話番号の確認が必要な理由〉
+    .phonenumber--footer
+      = render partial: 'users/shared/registraion-footer'

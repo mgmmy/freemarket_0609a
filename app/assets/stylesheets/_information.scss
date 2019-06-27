@@ -92,80 +92,222 @@
       }
     }
   }
-  //メイン部分
-  .phonenumber--main {
+  .address--main {
     display: inline;
-    .phonenumber__mainbox {
+    //メイン部分
+    .address__mainbox {
       width: 700px;
       margin: 0 auto;
       background-color: white;
-      //メイン上の段
-      .phonenumber__mainbox__upper {
+      text-align: left;
+      color: #333;
+      .address__mainbox__upper {
+        font-size: 14px;
         border-bottom: 1px solid #EEEEEE;
-        .phonenumber__upper--message {
+        .address__upper--message {
           padding: 32px 16px;
-          font-size: 18px;
+          font-size: 22px;
           font-weight: bold;
         }
       }
-      //メイン下の段
-      .phonenumber__mainbox__main {
-        max-width: 320px;
-        padding: 40px 16px;
-        margin: 0 auto;
-        .phonenumber__main {
-          text-align: left;
-          .phonenumber--phonenumber {
-            font-size: 13px;
-            .phonenumber--number {
-              display: inline-block;
-              font-weight: 600;
-              
-            }
+    }
+    //メインの下の段
+    .address__mainbox__main {
+      max-width: 320px;
+      margin: 0 auto;
+      .address__main {
+        padding-bottom: 40px;
+        //ニックネーム
+        .address--name {
+          float: left;
+          font-size: 13px;
+          &--name {
+            display: inline-block;
+            font-weight: 600;
           }
-          input {
-            width: 300px;
-            height: 30px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: #fff;
-            line-height: 1.5;
-            padding: 10px 16px 8px;
-            font-size: 16px;
-            margin: 8px 0 0;
-          }
-          .phonenumber--text {
-            margin: 8px 0 0;
-            line-height: 1.5;
-            font-size: 14px;
-          }
-          .phonenumber--next {
+          &--red {
+            display: inline-block;
+            color: white;
             background-color: #ea352d;
-            height: 50px;
-            position: relative;
-            margin: 40px 0 0;
-            .btn-phonenumber--next {
-              color: white;
-              position: absolute;
-              font-size: 14px;
-              top: 15px;
-              left: 110px;
-            }
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 14px;
+            width: 25px;
+            line-height: 12px;
           }
-          .phonenumber--test--second {
-            margin: 8px 0 0;
-            line-height: 1.5;
-            font-size: 14px;
-          }
-          .phonenumber--test--thied {
-            font-size: 14px;
-            color: #0099e8;
-            text-align: right;
-            margin: 40px 0 0;
-          }
-          .phonenumber--test--thied:hover {
-            text-decoration: underline;
-          }
+        }
+        input {
+          width: 300px;
+          height: 30px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          padding: 10px 16px 8px;
+          font-size: 16px;
+          margin: 8px 0 0;
+        }
+      }
+      .address--kana {
+        float: left;
+        font-size: 13px;
+        margin: 40px 0 0;
+        &--name {
+          display: inline-block;
+          font-weight: 600;
+        }
+        &--red {
+          display: inline-block;
+          color: white;
+          background-color: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          font-size: 12px;
+          border-radius: 2px;
+          height: 14px;
+          width: 25px;
+          line-height: 12px;
+        }
+      }
+      .address--number {
+        float: left;
+        font-size: 13px;
+        margin: 40px 0 0;
+        &--name {
+          display: inline-block;
+          font-weight: 600;
+        }
+        &--red {
+          display: inline-block;
+          color: white;
+          background-color: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          font-size: 12px;
+          border-radius: 2px;
+          height: 14px;
+          width: 25px;
+          line-height: 12px;
+        }
+      }
+      .address--prefecture {
+        float: left;
+        font-size: 13px;
+        margin: 40px 0 0;
+        &--name {
+          display: inline-block;
+          font-weight: 600;
+        }
+        &--red {
+          display: inline-block;
+          color: white;
+          background-color: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          font-size: 12px;
+          border-radius: 2px;
+          height: 14px;
+          width: 25px;
+          line-height: 12px;
+        }
+        
+      }
+      .address--city {
+        float: left;
+        font-size: 13px;
+        margin: 40px 0 0;
+        &--name {
+          display: inline-block;
+          font-weight: 600;
+        }
+        &--red {
+          display: inline-block;
+          color: white;
+          background-color: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          font-size: 12px;
+          border-radius: 2px;
+          height: 14px;
+          width: 25px;
+          line-height: 12px;
+        }
+      }
+      .address--address {
+        float: left;
+        font-size: 13px;
+        margin: 40px 0 0;
+        &--name {
+          display: inline-block;
+          font-weight: 600;
+        }
+        &--red {
+          display: inline-block;
+          color: white;
+          background-color: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          font-size: 12px;
+          border-radius: 2px;
+          height: 14px;
+          width: 25px;
+          line-height: 12px;
+        }
+      }
+      .address--building {
+        float: left;
+        font-size: 13px;
+        margin: 40px 0 0;
+        &--name {
+          display: inline-block;
+          font-weight: 600;
+        }
+        &--grey {
+          display: inline-block;
+          color: white;
+          background-color: grey;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          font-size: 12px;
+          border-radius: 2px;
+          height: 14px;
+          width: 25px;
+          line-height: 12px;
+        }
+      }
+      .address--phone {
+        float: left;
+        font-size: 13px;
+        margin: 40px 0 0;
+        &--name {
+          display: inline-block;
+          font-weight: 600;
+        }
+        &--grey {
+          display: inline-block;
+          color: white;
+          background-color: grey;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          font-size: 12px;
+          border-radius: 2px;
+          height: 14px;
+          width: 25px;
+          line-height: 12px;
+        }
+      }
+      .address--next {
+        background-color: #ea352d;
+        height: 50px;
+        margin: 40px 0 0;
+        position: relative;
+        .btn-address--next {
+          color: white;
+          position: absolute;
+          top: 15px;
+          left: 120px;
         }
       }
     }

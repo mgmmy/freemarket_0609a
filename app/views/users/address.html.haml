@@ -39,7 +39,47 @@
             .address--name
               .address--name--name お名前
               .address--name--red 必須
-            %input{type: "firstname", placeholder: "例）山田"}
+            %input{type: "name", placeholder: "例）山田"}
+            %input{type: "name", placeholder: "例）彩"}
+            .address--kana
+              .address--kana--name お名前
+              .address--kana--red 必須
+            %input{type: "name", placeholder: "例）ヤマダ"}
+            %input{type: "name", placeholder: "例）アヤ"}
+            .address--number
+              .address--number--name 郵便番号
+              .address--number--red 必須
+            %input{type: "number", placeholder: "例）123-4567"}
+            .address--prefecture
+              .address--prefecture--name 都道府県
+              .address--prefecture--red 必須
+              //非同期で選択できるようにする
+            %input{type: "text", placeholder: "北海道"}
+
+            .address--city
+              .address--city--name 市町村
+              .address--city--red 必須
+            %input{type: "text", placeholder: "例）横浜市緑区"}
+            .address--address
+              .address--address--name 番地
+              .address--address--red 必須
+            %input{type: "number", placeholder: "例）青山1-1-1"}
+            .address--building
+              .address--building--name 建物名
+              .address--building--grey 任意
+            %input{type: "text", placeholder: "例）柳ビル 103"}
+            .address--phone
+              .address--phone--name 電話
+              .address--phone--grey 任意
+            %input{type: "number", placeholder: "例）09012345678"}
+
+            //次へ進む
+            .address--next
+              = link_to "次へ進む", howtopay_users_path, class: "btn btn-address--next"
             
+
+
+
+
     .address--footer
       = render partial: 'users/shared/registraion-footer'

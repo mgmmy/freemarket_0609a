@@ -31,28 +31,7 @@
           text-align: center;
         }
       }
+      .phonenumber__mainbox__main
     }
-  }
-    //↑ここまで書かなくていいかも・・・
-    //メインの下の段
-  .phonenumber--main {
-    background-color: #eee;
-    display: inline;
-    .phonenumber__mainbox {
-      width: 700px;
-      margin: 0 auto;
-      background-color: white;
-      .phonenumber__mainbox__upper {
-        font-size: 14px;
-        height: 50px;
-        border-bottom: 1px solid #EEEEEE;
-        .phonenumber__upper--message {
-          padding: 8px 24px;
-          font-size: 24px;
-          font-weight: bold;
-        }
-      } 
-    }
-
   }
 }

@@ -1,0 +1,137 @@
+.information-container {
+  background-color: #eee;
+  text-align: center;
+  .infomation-header {
+    height: 128px;
+    .infomation-header--logo {
+      display: inline-block;
+      .header--mercari {
+        width: 185px;
+        height: 49px;
+        margin: 40px 0 0;
+      }
+    }
+    //配送状況
+    .progress-bar {
+      padding: 40px 0 0 44px;
+      border: 0;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 0;
+      text-align: center;
+      
+      &--bar {
+        margin: 0;
+        display: flex;
+        height: 1px;
+        li {
+          margin: 0 40px 0 0;
+          padding: 0;
+          position: relative;
+          z-index: 40;
+          display: inline-block;
+          min-width: 60px;
+          font-size: 12px;
+          color: #888;
+          .progress-status{
+            position: absolute;
+            left: 40%;
+            width: 12px;
+            height: 12px;
+            margin: 3px auto 0;
+            background: #888;
+            border-radius: 50%;
+            z-index: 30;
+          }
+          .progress-status_bar {
+            position: absolute;
+            left: 50%;
+            top: 25px;
+            bottom: 5px;
+            display: block;
+            width: 110px;
+            height: 2px;
+            background: #888;
+            z-index: 10;
+          }
+          .progress-status_bar--last {
+            position: absolute;
+            left: 50%;
+            top: 25px;
+            bottom: 5px;
+            display: block;
+            width: 100px;
+            height: 2px;
+            background: #888;
+            z-index: 10;
+          }
+        }
+      }
+    }
+    .end .progress-status_bar {
+      width: 0px;
+    }
+    .payment .progress-status_bar {
+      width: 100px;
+    }
+    #through{
+      color: #ea352d;
+      .progress-status{
+        background: #ea352d;
+      }
+    }
+    #through .progress-status_bar{
+      background: #ea352d;
+    }
+    #active{
+      color: #ea352d;
+      font-weight: bold;
+      .progress-status{
+        background: #ea352d;
+        
+      }
+    }
+  }
+  .information--main {
+    display: inline;
+    //メイン部分
+    .information__mainbox {
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      text-align: left;
+      color: #333;
+      .information__mainbox__upper {
+        font-size: 14px;
+        border-bottom: 1px solid #EEEEEE;
+        .inromation__upper--message {
+          padding: 32px 16px;
+          font-size: 22px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+    //↑ここまで書かなくていいかも・・・
+    //メインの下の段
+  .address--main {
+    background-color: #eee;
+    display: inline;
+    .address__mainbox {
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      .address__mainbox__upper {
+        font-size: 14px;
+        height: 50px;
+        border-bottom: 1px solid #EEEEEE;
+        .address__upper--message {
+          padding: 8px 24px;
+          font-size: 24px;
+          font-weight: bold;
+        }
+      } 
+    }
+
+  }
+}

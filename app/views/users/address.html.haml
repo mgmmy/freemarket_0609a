@@ -1,0 +1,45 @@
+%body
+  .information-container
+    .infomation-header
+      .infomation-header--logo
+        = link_to image_tag(src= "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1905591235", class: "header--mercari"), root_path
+          
+      //配送状況
+      .progress-bar
+        %ul.progress-bar--bar
+          %li.through#through
+            会員情報
+            .progress-status
+            .progress-status_bar
+          %li.through#through
+            電話番号認証
+            .progress-status
+            .progress-status_bar
+          %li.active#active
+            お届け住所入力
+            .progress-status
+            .progress-status_bar
+          %li.payment#payment 
+            支払い情報
+            .progress-status
+            .progress-status_bar--last
+          %li.end#end 
+            完了
+            .progress-status
+            
+
+    .address--main
+      .address__mainbox
+        //メインの上のだん
+        .address__mainbox__upper
+          .address__upper--message 配送元・お届け先住所入力
+        //メインの下の段
+        .address__mainbox__main
+          .address__main
+            .address--name
+              .address--name--name お名前
+              .address--name--red 必須
+            %input{type: "firstname", placeholder: "例）山田"}
+            
+    .address--footer
+      = render partial: 'users/shared/registraion-footer'

@@ -1,0 +1,35 @@
+%ul.comment-contents
+  %li
+    = link_to "#", class: "comment-user" do
+      .comment-user__avatar
+        =image_tag("member_photo_noimage_thumb.png", class: "comment-user__avatar-img")
+      .comment-user__name
+        おにぎり
+
+    .comment-box
+      .comment-box__text
+        値下げできませんか？
+      .comment-box__icon
+        .comment-box__icon-time
+          = fa_icon("clock-o")
+          %span 23時間前
+        .comment-box__icon-flag
+          = fa_icon("flag-o")
+
+  %li
+    = link_to "#", class: "comment-user" do
+      .comment-user__avatar
+        =image_tag("member_photo_noimage_thumb.png", class: "comment-user__avatar-img")
+      .comment-user__name
+        Sumeshi 
+
+    .comment-box
+      .comment-box__text
+        嫌です
+      .comment-box__icon
+        .comment-box__icon-time
+          = fa_icon("clock-o")
+          %span 23時間前
+        .comment-box__icon-flag
+          = fa_icon("flag-o")
+

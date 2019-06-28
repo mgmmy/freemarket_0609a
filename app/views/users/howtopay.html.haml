@@ -1,0 +1,44 @@
+%body
+  .information-container
+    .infomation-header
+      .infomation-header--logo
+        = link_to image_tag(src= "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1905591235", class: "header--mercari"), root_path
+          
+      //配送状況
+      .progress-bar
+        %ul.progress-bar--bar
+          %li.through#through
+            会員情報
+            .progress-status
+            .progress-status_bar
+          %li.through#through
+            電話番号認証
+            .progress-status
+            .progress-status_bar
+          %li.through#through
+            お届け住所入力
+            .progress-status
+            .progress-status_bar
+          %li.active#active
+            支払い情報
+            .progress-status
+            .progress-status_bar--last
+          %li.end#end 
+            完了
+            .progress-status
+            
+
+    .howtopay--main
+      .howtopay__mainbox
+        //メインの上のだん
+        .howtopay__mainbox__upper
+          .howtopay__upper--message 支払い方法
+        //メインの下の段
+        .howtopay__mainbox__main
+          .howtopay__main
+            .howtopay--name
+              .howtopay--name--name カード番号
+              .howtopay--name--red 必須
+            %input{type: "name", placeholder: "半角数字のみ"}
+            .
+            

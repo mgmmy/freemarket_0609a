@@ -43,6 +43,7 @@
             .phonenumber--next
               = link_to "SNSを送信する", address_users_path, class: "btn btn-phonenumber--next"
             .phonenumber--test--second ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-            .phonenumber--test--thied 電話番号の確認が必要な理由〉
+            .phonenumber--test--thied 電話番号の確認が必要な理由
+              = fa_icon("chevron-right") 
     .phonenumber--footer
       = render partial: 'users/shared/registraion-footer'

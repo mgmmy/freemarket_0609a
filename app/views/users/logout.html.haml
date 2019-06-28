@@ -3,8 +3,9 @@
   .user-content
     =render partial:"sidebar"
     .logout_wrapper
-      .logout_wrapper_content
-        %button{type: 'submit', class:'logout_btn'}
-          ログアウト
+      %form{action:"#", method:"POST"}
+        .logout_wrapper_content
+          %button{type: 'submit', class:'logout_btn'}
+            ログアウト
 =render partial: "layouts/sell-btn" 
 =render partial:'products/footer'

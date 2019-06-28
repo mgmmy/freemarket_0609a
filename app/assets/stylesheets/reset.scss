@@ -129,6 +129,10 @@ a {
   cursor: pointer;
 }
 
+* {
+  background-repeat: no-repeat;
+}
+
 
 /* YUI CSS Detection Stamp */
 #yui3-css-stamp.cssreset { display: none; }

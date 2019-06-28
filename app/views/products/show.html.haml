@@ -2,7 +2,7 @@
 
 .item-background
   .item-container
-    %h1.item-container_name　Ipad pro 11インチ
+    %h1.item-container_name Ipad pro 11インチ
     .item-info 
       .item-info__image
         .slide-cont 
@@ -11,7 +11,8 @@
             = image_tag("img_noImage_300x300.jpg", class: "image-select")
             = image_tag("/assets/images/mercari_profile.png", class: "image-select")
             = image_tag("/assets/images/mercari_profile.png", class: "image-select")
-
+            = image_tag("/assets/images/mercari_profile.png", class: "image-select")
+      
       .item-info__price.vanish
         %span.price-yen ¥92,000 
         %span.price-tax (税込)
@@ -22,7 +23,7 @@
           %tr
             %th 出品者
             %td 
-              = link_to 'Bourne', "#"
+              = link_to 'Sumeshi', "#"
               .user-rating
                 = fa_icon 'smile-o', class: "user-rating__icon"
                 %span 99
@@ -131,7 +132,19 @@
             = fa_icon 'lock'
             %span あんしん・あんぜんへの取り組み
 
-    
+  .comment
+    .comment-container
+      .comment-container__field
+        = render partial: "item-comment"
+      
 
+      .comment-container__post
+        %form.comment-form#comment-form
+          .comment-form__notice
+            相手のことを考え丁寧なコメントを心がけましょう。
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %text_area.comment-form__text.textarea-default{ type: "text", name: "comment" }
+          = button_tag("コメントする", type: 'submit', class: 'comment-form__btn btn-default')
+              
      
 

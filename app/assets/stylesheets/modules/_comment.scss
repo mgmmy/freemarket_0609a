@@ -1,0 +1,112 @@
+.comment {
+    
+  @media screen and (min-width: 768px){
+    &-container {
+      padding: 24px 40px 40px !important;
+      width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  &-container {
+    background-color: #fff;
+    margin: 8px auto 0;
+
+    &__field {
+      padding: 24px 7.5%;
+      background: $bg-white;
+      
+      .comment-contents li:first-child{
+        margin-top: 1.5em;
+      }
+
+      .comment-contents li{
+        margin-top: 60px;
+
+        .comment-user {
+          position: relative;
+          top: -20px;
+          display: inline-block;
+          color: #333;
+         
+
+          &__avatar{
+            width: 40px; 
+            height: 40px;
+            overflow: hidden;
+            border-radius: 50%;
+            
+
+            &-img {
+              width: 40px;
+              height: 40px;
+            }
+          }
+
+          &__name {
+            overflow: hidden;
+            position: absolute;
+            top: 0px;
+            left: 56px;
+            max-width: 100%;
+            min-width: 214px;
+            height: 1.2em;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-weight: bold;
+          } 
+        }
+
+        .comment-box {
+          position: relative;
+          width: calc(100% - 86px);
+          top: -40px;
+          left: 60px;
+          padding: 16px;
+          background: #eef0f4;
+          border-radius: 15px;
+          line-height: 1.5;
+          word-break: break-all;
+
+          &__icon {
+            color: $icon-gray;
+            margin-top: 8px;
+            display: flex;
+            justify-content: space-between;  
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      .comment-container__post {
+      padding: 24px !important;
+      }
+    }
+
+    .comment-container__post {
+      padding: 24px 7.5%;
+      background: $bg-white;
+
+      .comment-form {
+
+        &__notice {
+          padding: 8px;
+          font-size: 14px;
+          background: #fff6de;
+        }
+
+        &__text {
+          margin-top: 8px;
+          width: initial;
+        }
+
+        &__btn {
+          margin-top: 8px;
+          color: $bg-white;
+          background: $icon-gray;
+        }
+      }
+    }
+  }
+}

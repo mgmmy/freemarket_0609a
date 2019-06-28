@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get 'address' 
       get 'howtopay' 
       get 'complete'
+      get 'logout'
     end
   end
   

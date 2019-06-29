@@ -50,9 +50,7 @@
               .howtopay__card
                 .howtopay__card--month
                   %select{:required => ""}
-                  = fa_icon("chevron-right")
                     %option{:value => "1"} 01
-                    = fa_icon("chevron-right")
                     %option{:value => "2"} 02
                     %option{:value => "3"} 03
                     %option{:value => "4"} 04
@@ -65,5 +63,36 @@
                     %option{:value => "11"} 11
                     %option{:value => "12"} 12
                   .card__month--icon
-                    
+                    = fa_icon("chevron-down") 
                   .card__month--month 月
+                .howtopay__card--month
+                  %select{:required => ""}
+                    %option{:value => "1"} 19
+                    %option{:value => "2"} 20
+                    %option{:value => "3"} 21
+                    %option{:value => "4"} 22
+                    %option{:value => "5"} 23
+                    %option{:value => "6"} 24
+                    %option{:value => "7"} 25
+                    %option{:value => "8"} 26
+                    %option{:value => "9"} 27 
+                    %option{:value => "10"} 28
+                    %option{:value => "11"} 29
+                    %option{:value => "12"} 30
+                  .card__year--icon
+                    = fa_icon("chevron-down") 
+                  .card__year--month 年
+            //セキュリティコード
+            .howtopay--name
+              .howtopay--name--name セキュリティコード
+              .howtopay--name--red 必須
+            %input{type: "number", placeholder: "カード背面4桁もしくは3桁の番号"}
+            //カード背面の番号とは
+            .howtopay--what カード背面の番号とは
+            //次へ進む
+            .howtopay--next
+              = link_to "次へ進む", complete_users_path, class: "btn btn-howtopay--next"
+            
+    .howtopay--footer
+      = render partial: 'users/shared/registraion-footer'
+

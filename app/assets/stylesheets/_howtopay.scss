@@ -62,37 +62,96 @@
             margin: 8px 0 0;
           }
           .card {
+            margin-top: 5px;
             height: 50px;
             width: 300px;
           }
-          .howtopay__card--month {
-            overflow: hidden;
-            width: 150px;
-            margin: 2em auto;
-            text-align: center;
-            display: flex;
-            select {
-              width: 100%;
-              padding-right: 1em;
-              padding-left: 10px;
-              cursor: pointer;
-              text-indent: 0.01px;
-              text-overflow: ellipsis;
-              border: 1px solid $light-gray;
-              height: 50px;
-              border-radius: 4px;
-              outline: none;
-              background: transparent;
-              background-image: url(./images/icon_arrow.svg);
-              background-repeat: no-repeat;
-              background-size: 12px 10px;
-              background-position: right 10px center;
-              box-shadow: none;
-              -webkit-appearance: none;
-              appearance: none;
-              .card--month--icon {
-                color: red;
+          //プルダウン
+          .howtopay__card {
+            position: relative;
+            padding-left: 0;
+            &--month {
+              overflow: hidden;
+              width: 120px;
+              margin-top: 8px;
+              text-align: center;
+              display: flex;
+              select {
+                width: 100%;
+                padding-right: 1em;
+                padding-left: 10px;
+                cursor: pointer;
+                text-indent: 0.01px;
+                text-overflow: ellipsis;
+                border: 1px solid $light-gray;
+                height: 50px;
+                border-radius: 4px;
+                outline: none;
+                background: transparent;
+                background-image: url(./images/icon_arrow.svg);
+                background-repeat: no-repeat;
+                background-size: 12px 10px;
+                background-position: right 10px center;
+                box-shadow: none;
+                -webkit-appearance: none;
+                appearance: none;
               }
+              .card__month--icon {
+                color: $icon-gray;
+                position: absolute;
+                left: 80px;
+                top: 5px;
+                font-size: 1.5rem;
+                font-weight: 100;
+                cursor: pointer;
+              }
+              .card__month--month {
+                position: absolute;
+                top: 15px;
+                left: 130px;
+              }
+              .card__year--icon {
+                color: $icon-gray;
+                position: absolute;
+                left: 80px;
+                top: 65px;
+                font-size: 1.5rem;
+                font-weight: 100;
+                cursor: pointer;
+              }
+              .card__year--month {
+                position: absolute;
+                top: 75px;
+                left: 130px;
+              }
+            }
+          }
+          //セキュリティコード
+          //カード背面の番号とは
+          .howtopay--what {
+            color: #0099e8;
+            text-align: right;
+            font-size: 14px;
+            margin-top: 8px;
+          }
+          .howtopay--what::before {
+            font-family: FontAwesome;
+            content: '\f059'
+          }
+          .howtopay--what:hover {
+            text-decoration:underline;
+          }
+          //次へ進む
+          .howtopay--next {
+            background-color: $mercari-red;
+            height: 50px;
+            position: relative;
+            margin: 40px 0 0;
+            .btn-howtopay--next {
+              color: $bg-white;
+              position: absolute;
+              top: 15px;
+              left: 120px;
             }
           }
         }

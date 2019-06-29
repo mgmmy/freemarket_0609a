@@ -73,10 +73,11 @@
             font-size: 16px;
             margin: 8px 0 0;
           }
-          //非同期にする
+          //都道府県
           .address--prefecture {
             font-size: 13px;
             margin: 40px 0 0;
+            position: relative;
             &--name {
               display: inline-block;
               font-weight: 600;
@@ -93,7 +94,40 @@
               width: 25px;
               line-height: 12px;
             }
+            &--choice {
+              overflow: hidden;
+              width: 334px;
+              margin-top: 8px;
+              text-align: center;
+              display: flex;
+              select {
+                width: 100%;
+                padding-right: 1em;
+                padding-left: 10px;
+                cursor: pointer;
+                text-indent: 0.01px;
+                text-overflow: ellipsis;
+                border: 1px solid $light-gray;
+                height: 50px;
+                border-radius: 4px;
+                outline: none;
+                background: transparent;
+                box-shadow: none;
+                -webkit-appearance: none;
+                appearance: none;
+              }
+            }
+            .address--icon {
+              color: $icon-gray;
+              position: absolute;
+              right: 10px;
+              top: 35px;
+              font-size: 1.5rem;
+              font-weight: 100;
+              cursor: pointer;
+            }
           }
+          //ビルの名前
           .address--building {
             font-size: 13px;
             margin: 40px 0 0;

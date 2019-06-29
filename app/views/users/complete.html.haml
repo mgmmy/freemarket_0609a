@@ -27,22 +27,24 @@
             完了
             .progress-status
             
+            
 
-    .c--main
-      .howtopay__mainbox
+    .comp--main
+      .comp__mainbox
         //メインの上のだん
-        .howtopay__mainbox__upper
-          .howtopay__upper--message 会員登録完了
+        .comp__mainbox__upper
+          .comp__upper--message 会員登録完了
         //メインの下の段
-        .howtopay__mainbox__main
-          .howtopay__main
-            .howtopay--name
-              .howtopay--name--name カード番号
-              .howtopay--name--red 必須
+        .comp__mainbox__main
+          .comp__text1 ありがとうございます。
+          .comp--text2 会員登録が完了しました。
+              
 
         //次へ進む
-            .howtopay--next
-              = link_to "次へ進む", complete_users_path, class: "btn btn-howtopay--next"
+        .comp--next
+          = link_to "メルカリを始める", root_path, class: "btn btn-comp--next"
             
-    .howtopay--footer
+    .comp--bar 
+      
+    .comp--footer
       = render partial: 'users/shared/registraion-footer'

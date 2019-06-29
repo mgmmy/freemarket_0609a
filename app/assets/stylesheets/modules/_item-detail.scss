@@ -1,11 +1,12 @@
 .item-background {
   background-color: $off-white;
   height: 100%;
-
+  padding-top: 24px;
+  
   @media screen and (min-width: 768px){
     .item-container {
       padding: 24px 40px 40px !important;
-      width: 700px;
+      width: 620px;
       margin: 0 auto;
     }
   }
@@ -195,7 +196,7 @@
         }
       }
 
-      .mercari-app-link a{
+      .mercari-app-link {
         color: $blue-link;
       }
 
@@ -241,6 +242,7 @@
 
         .item-info__policy {
           margin-top: 16px;
+          
           font-size: 16px;
 
           &-link {
@@ -251,7 +253,7 @@
         @media screen and (min-width: 768px) {
           .item-info__policy{
             display: inline-block;
-            margin-left: 160px;
+            margin-left: 97px;
           }
          
         }

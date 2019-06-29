@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-
   
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  }
   
   root "products#index"
   resources :products, only: [:show]
@@ -12,6 +15,7 @@ Rails.application.routes.draw do
       get 'address' 
       get 'howtopay' 
       get 'complete'
+      get 'logout'
     end
   end
   

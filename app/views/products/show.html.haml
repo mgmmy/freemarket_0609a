@@ -83,7 +83,7 @@
         = link_to "#", class: "buy-btn__link btn-default btn-red" do
           購入画面に進む
 
-      = link_to 'アプリで買う', class: "mercari-app-link"
+      = link_to 'アプリで買う', "#", class: "mercari-app-link"
 
       .item-info__description
         大幅値下げしました！◎新品・未開封・保証開始品◎Apple/アップル iPadPro 512GB Wi-Fiモデル タブレット MTXU2J/A シルバー 2018年秋モデル 11インチ 第3世代
@@ -146,5 +146,38 @@
           %text_area.comment-form__text.textarea-default{ type: "text", name: "comment" }
           = button_tag("コメントする", type: 'submit', class: 'comment-form__btn btn-default')
               
-     
+  .item-link 
+    .item-link--prev  
+      = link_to '#' do
+        = fa_icon "chevron-left", class: "item-link--prev_left"
+        NIKE 限定品 airmax 97'
+    .item-link--next
+      = link_to '#' do
+        NIKE 限定品 airmax 90'
+        = fa_icon "chevron-right", class: "item-link--next_right"
 
+  .social-media
+    %ul.social-media--container 
+      %li.social-media--container__icon
+        = link_to image_tag("facebook.png"), "#" 
+      %li.social-media--container__icon
+        = link_to image_tag("twitter.png"), "#" 
+      %li.social-media--container__icon.hidden-icon
+        = link_to image_tag("square-default.png"), "#" 
+      %li.social-media--container__icon
+        = link_to image_tag("pinterest.png"), "#" 
+      
+  .user-item--others
+    .other-items.items-box--overflow
+      .other-items--head
+        = link_to "Sumeshiさんのその他の出品", "#"
+      = render partial: "users-other-items"
+
+  .same-brand-items
+    .other-items.items-box--overflow
+      .other-items--head
+        = link_to "ジュエルナローズ　その他の出品", "#"
+      = render partial: "brands-other-items"
+      
+
+= render partial: "footer"

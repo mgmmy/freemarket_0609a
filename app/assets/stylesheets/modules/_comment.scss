@@ -3,7 +3,7 @@
   @media screen and (min-width: 768px){
     &-container {
       padding: 24px 40px 40px !important;
-      width: 700px;
+      width: 620px;
       margin: 0 auto;
     }
   }
@@ -11,6 +11,12 @@
   &-container {
     background-color: #fff;
     margin: 8px auto 0;
+
+    @media screen and (min-width: 768px) {
+      &__field {
+        padding: 24px !important;
+      }
+    }
 
     &__field {
       padding: 24px 7.5%;

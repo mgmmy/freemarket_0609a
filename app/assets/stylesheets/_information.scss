@@ -345,8 +345,8 @@
               }
               &--text {
                 position: absolute;
-                left: 55px;
-                top: 38px;
+                left: 85px;
+                top: 45px;
               }
             }
             //月
@@ -376,7 +376,7 @@
               &--icon {
                 color: $icon-gray;
                 position: absolute;
-                left: 155px;
+                left: 165px;
                 top: 38px;
                 font-size: 1.2rem;
                 font-weight: 100;
@@ -384,8 +384,8 @@
               }
               &--text {
                 position: absolute;
-                left: 155px;
-                top: 38px;
+                left: 195px;
+                top: 45px;
               }
             }
             //日
@@ -415,11 +415,16 @@
               &--icon {
                 color: $icon-gray;
                 position: absolute;
-                left: 255px;
+                left: 275px;
                 top: 38px;
                 font-size: 1.3rem;
                 font-weight: 100;
                 cursor: pointer;
+              }
+              &--text {
+                position: absolute;
+                left: 305px;
+                top: 45px;
               }
             }
           }

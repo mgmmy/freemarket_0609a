@@ -83,11 +83,26 @@
             .information--birthday
               .information--birthday--name 生年月日
               .information--birthday--red 必須
-              //ここに非同期通信を書く
+              //プルダウン
               .information--birthday--select
-                %select{name: "year", id: "year"}
-                %select{name: "month", id: "month"}
-                %select{name: "day", id: "day"}
+                //年
+                .information--year
+                  = select_tag 'birthday[year]', options_for_select(["1", "2", "3", "4", "5"])
+                .information--year--icon
+                  = fa_icon("chevron-down") 
+                .information--year--text 年
+                //月
+                .information--month
+                  = select_tag 'birthday[month]', options_for_select(["1", "2", "3", "4", "5"])
+                .information--month--icon
+                  = fa_icon("chevron-down") 
+                .information--month--text 月
+                //日
+                .information--day
+                  = select_tag 'birthday[day]', options_for_select(["1", "2", "3", "4", "5"])
+                .information--day--icon
+                  = fa_icon("chevron-down") 
+                .information--day--month 日
               .information--select--text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
             //私はロボットではありません

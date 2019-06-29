@@ -1,0 +1,50 @@
+%body
+  .information-container
+    .infomation-header
+      .infomation-header--logo
+        = link_to image_tag(src= "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1905591235", class: "header--mercari"), root_path
+          
+      //配送状況
+      .progress-bar
+        %ul.progress-bar--bar
+          %li.through#through
+            会員情報
+            .progress-status
+            .progress-status_bar
+          %li.through#through
+            電話番号認証
+            .progress-status
+            .progress-status_bar
+          %li.through#through
+            お届け住所入力
+            .progress-status
+            .progress-status_bar
+          %li.through#through
+            支払い情報
+            .progress-status
+            .progress-status_bar--last
+          %li.active#active
+            完了
+            .progress-status
+            
+            
+
+    .comp--main
+      .comp__mainbox
+        //メインの上のだん
+        .comp__mainbox__upper
+          .comp__upper--message 会員登録完了
+        //メインの下の段
+        .comp__mainbox__main
+          .comp__text1 ありがとうございます。
+          .comp--text2 会員登録が完了しました。
+              
+
+        //次へ進む
+        .comp--next
+          = link_to "メルカリを始める", root_path, class: "btn btn-comp--next"
+            
+    .comp--bar 
+      
+    .comp--footer
+      = render partial: 'users/shared/registraion-footer'

@@ -11,7 +11,7 @@
       text-align: left;
       color: #333;
       padding-bottom: 40px;
-      .comp__mainbox__upper {
+      &__upper {
         font-size: 14px;
         border-bottom: 1px solid $active-gray;
         .comp__upper--message {
@@ -21,7 +21,7 @@
           text-align: center;
         }
       }
-      .comp__mainbox__main {
+      &__main {
         text-align: center;
         margin: 40px 0 0;
       }

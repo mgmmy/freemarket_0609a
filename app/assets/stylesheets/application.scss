@@ -13,7 +13,6 @@
 @import "./modules/purchase-tab";
 @import "./header";
 @import "./footer";
-@import "./item";
 @import "./modules/identification";
 @import "./profile";
 @import "./modules/item-detail";
@@ -28,10 +27,11 @@
 @import "./address";
 @import "./howtopay";
 @import "./modules/detail-footer";
-@import "./modules/logout";
+@import "./users/logout";
+@import "./products/item-list";
+@import "./products/item";
 @import "./modules/purchase";   
 @import "./complete";
-
 
 
 

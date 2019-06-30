@@ -1,0 +1,234 @@
+.clearfix {
+  content: "";
+  clear: both;
+  display: block;
+}
+.mid-main-wrapper{
+  background-color: $off-white;
+  width:100%;
+  height:100%;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  .all-list-wrapper{
+    width:1020px;
+    margin:0 auto;
+    padding:0 0 40px;
+    .navi-item-wrapper{
+      display:block;
+      width:1020px;
+      height:60px;
+      padding-top:40px;
+      li{
+        float:left;
+        margin:14px 16px 0 0;
+        a{
+          color:#0099e8;
+          text-decoration: none;
+          font-size:14px;
+          line-height:1.0;
+          &:hover{
+            color:#b3d4fc;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .items-list-wrapper{
+      width:1040px;
+      margin:0;
+      padding:0;
+      h1{
+        font-size:22px;
+        line-height:1.4;
+        font-weight: bold;
+        margin:24px 0 8px;
+      }
+      // アイテムビュー
+      .items-wrapper{
+        width:1040x;
+        height:8268px;
+        .item-wrapper{
+          width:188px;
+          height:298px;
+          margin: 0 20px 20px 0;
+          float:left;
+          cursor: pointer;
+          .item-image{
+            width: 100%;
+            height: 188px;
+            overflow: hidden;
+            position: relative;
+            &_photo{
+              width: 100%;
+              height: auto;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translateY(-50%) translateX(-50%);
+            }
+          }
+          .item-text-wrapper{
+            width:188px -16px;
+            height:110px -16px;
+            padding:16px;
+            background-color:#fff;
+            .item-title{
+              width:156px;
+              height:48px;
+              font-size:16px;
+              font-weight:400;
+              height:3em;
+              line-height:1.5;
+              overflow: hidden;
+                overflow-x: hidden;
+                overflow-y: hidden;
+              position: relative;
+            }
+            .item-num{
+              width:156px;
+              height:17px;
+              margin:8px 0 0;
+              .item-price{
+                font-size: 17px;
+                font-weight:600;
+                margin:0;
+                padding:0;
+                float:left;
+              }
+              .item-like{
+                width:28.59px;
+                height:16px;
+                font-weight:400;
+                margin:0;
+                padding:0;
+                float:right;
+                .fa-heart-o{
+                  color:#ccc;
+                  display: inline-block;
+                  float:left;
+                }
+                .like-num{
+                  float:right;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .item-list-page{
+      margin:40px 0 0;
+      position: relative;
+      font-size: 0;
+      text-align: center;
+      // 前のページに戻る
+      .item-list-page_prev{
+        display:block;
+        left:0;
+        position: absolute;
+        top:0;
+      }
+      // 番号を押してページ移動
+      .item-list-page_num{
+        max-width: 230px;
+        margin:0 auto;
+      }
+      // 次のページに進む
+      .item-list-page_next{
+        display: block;
+        right:0;
+        position: absolute;
+        top:0;
+      }
+      // 前へ、次へボックス
+      .progress-box{
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 42px;
+        cursor: pointer;
+        &:hover{
+          background: $off-white;
+        }
+        a{
+          display:block;
+          color:#333;
+          .icon-double{
+            position: relative;
+            top:.15em;
+            font-size: 25px;
+          }
+          .icon-single{
+            position: relative;
+            top:.15em;
+            font-size: 17px;
+          }
+        }
+      }
+
+      //ページボックス
+      .box{
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 42px;
+        cursor: pointer;
+        &:hover{
+          background: $off-white;
+        }
+        a{
+          display:block;
+          color:#333;
+          .icon-double{
+            position: relative;
+            top:.15em;
+            font-size: 25px;
+          }
+          .icon-single{
+            position: relative;
+            top:.15em;
+            font-size: 17px;
+          }
+        }
+
+      }
+      // アクティブ時のページボックス
+      .active{
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 42px;
+        color: #fff;
+        background: #ea352d;
+        cursor:text;
+      }
+    }
+    .item-list-footer{
+      margin-top:30px;   
+      overflow: hidden;
+      border-radius: 4px;
+      .item-list-name_box{
+        height:54px;
+        text-align: center;
+        background-color: $mercari-red;
+        h3{
+          padding:9px 8px;
+          color:$bg-white;
+          font-size: 22px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

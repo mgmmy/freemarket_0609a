@@ -1,9 +1,10 @@
 //ヘッダー部分
 .index-header {
-  width:700px;
+  width:1020px;
   margin: 0 auto;
   align-items: center;
-  
+  margin-top: 10px;
+  margin-bottom: 30px;
   &__top{
     display: flex;
     align-items: center;
@@ -23,7 +24,7 @@
     height: 40px;
     .searchKeyword {
       background-color: #f5f5f5;
-      width: 430px;
+      width: 800px;
       height: 40px;
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
@@ -57,18 +58,17 @@
   }
   //ヘッダーの下側
   &__bottom {
-    display: flex;
     width: 100%;
     font-family: FontAwesome;
     padding: 10px 0;
     //左側
     &__left {
+      float: left;
       display: flex;
       font-size: 14px;
       font-weight: bold;
       color: #333;
       margin-right: 10px;
-      padding-left: 10px;
       //カテゴリーから探す
       &__category::before {
         content: '\f0ca';
@@ -82,9 +82,13 @@
         content: '\f02b';
         color: red;
       }
+      &__brand {
+        
+      }
     }
     //右側
     &__right {
+      float: right;
       display: flex;
       font-size: 14px;
       //お知らせ
@@ -94,6 +98,7 @@
         font-size: 20px;
       }
       &__info {
+        
         margin-right: 20px;
       }
       //やることリスト
@@ -103,6 +108,7 @@
         font-size: 20px;
       }
       &__todo {
+        
         margin-right: 15px;
       }
       //マイページ
@@ -111,6 +117,16 @@
         color: #ccc;
         font-size: 20px;
       }
+
+      &__mypage {
+        
+      }
     }
+  }
+}
+//レスポンシブ対応
+@media screen and (max-width:768px){
+  body{
+    color: #5bc0de;
   }
 }

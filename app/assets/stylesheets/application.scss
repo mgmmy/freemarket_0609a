@@ -12,7 +12,6 @@
 @import "./modules/purchase-tab";
 @import "./header";
 @import "./footer";
-@import "./item";
 @import "./modules/identification";
 @import "./profile";
 @import "./modules/item-detail";
@@ -25,8 +24,9 @@
 @import "./information";
 @import "./address";
 @import "./modules/detail-footer";
-@import "./modules/logout";
-@import "./modules/item-list";
+@import "./users/logout";
+@import "./products/item-list";
+@import "./products/item";
 
 
 

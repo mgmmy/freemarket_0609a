@@ -56,36 +56,31 @@
         %li.item-list-page_prev
           %ul
             %li.progress-box
-              =link_to '#'
-                %i.fa.fa-angle-double-left.icon-double
+              =link_to '#' do
+                =fa_icon 'angle-double-left', class:"icon-double"
             %li.progress-box
-              =link_to '#'
-                %i.fa.fa-chevron-left.icon-single
+              =link_to '#' do
+                =fa_icon 'chevron-left', class:"icon-single"
         %li.item-list-page_num
           %ul
             %li.page-btn.active
-              =link_to '#'
-              1
+              =link_to '1', '#'
             %li.page-btn.box
-              =link_to '#'
-              2
+              =link_to '2','#'
             %li.page-btn.box
-              =link_to '#'
-              3
+              =link_to '3','#'
             %li.page-btn.box
-              =link_to '#'
-              4
+              =link_to '4','#'
             %li.page-btn.box
-              =link_to '#'
-              5
+              =link_to '5','#'
         %li.item-list-page_next
           %ul
             %li.progress-box
-              =link_to '#'
-                %i.fa.fa-chevron-right.icon-single
+              =link_to '#' do
+                =fa_icon 'chevron-right',class: "icon-single"
             %li.progress-box
-              =link_to '#'
-                %i.fa.fa-angle-double-right.icon-double
+              =link_to '#' do
+                =fa_icon 'angle-double-right', class:"icon-double"
 
       .item-list-footer
         .item-list-name_box

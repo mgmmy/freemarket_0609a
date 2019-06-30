@@ -25,6 +25,10 @@
           text-decoration: none;
           font-size:14px;
           line-height:1.0;
+          &:hover{
+            color:#b3d4fc;
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -135,8 +139,8 @@
         position: absolute;
         top:0;
       }
-      //ページボックスの大きさ
-      .page-box{
+      // 前へ、次へボックス
+      .progress-box{
         display: inline-block;
         width: 44px;
         height: 44px;
@@ -145,6 +149,40 @@
         border: 1px solid #ccc;
         font-size: 14px;
         line-height: 42px;
+        cursor: pointer;
+        &:hover{
+          background: $off-white;
+        }
+        a{
+          display:block;
+          color:#333;
+          .icon-double{
+            position: relative;
+            top:.15em;
+            font-size: 25px;
+          }
+          .icon-single{
+            position: relative;
+            top:.15em;
+            font-size: 17px;
+          }
+        }
+      }
+
+      //ページボックス
+      .box{
+        display: inline-block;
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        background: #fff;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        line-height: 42px;
+        cursor: pointer;
+        &:hover{
+          background: $off-white;
+        }
         a{
           display:block;
           color:#333;
@@ -162,7 +200,7 @@
 
       }
       // アクティブ時のページボックス
-      .page-box_active{
+      .active{
         display: inline-block;
         width: 44px;
         height: 44px;
@@ -173,6 +211,7 @@
         line-height: 42px;
         color: #fff;
         background: #ea352d;
+        cursor:text;
       }
     }
     .item-list-footer{

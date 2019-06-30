@@ -2,7 +2,7 @@
 
 .item-background
   .item-container
-    %h1.item-container_name　Ipad pro 11インチ
+    %h1.item-container_name Ipad pro 11インチ
     .item-info 
       .item-info__image
         .slide-cont 
@@ -11,7 +11,8 @@
             = image_tag("img_noImage_300x300.jpg", class: "image-select")
             = image_tag("/assets/images/mercari_profile.png", class: "image-select")
             = image_tag("/assets/images/mercari_profile.png", class: "image-select")
-
+            = image_tag("/assets/images/mercari_profile.png", class: "image-select")
+      
       .item-info__price.vanish
         %span.price-yen ¥92,000 
         %span.price-tax (税込)
@@ -22,7 +23,7 @@
           %tr
             %th 出品者
             %td 
-              = link_to 'Bourne', "#"
+              = link_to 'Sumeshi', "#"
               .user-rating
                 = fa_icon 'smile-o', class: "user-rating__icon"
                 %span 99
@@ -82,7 +83,7 @@
         = link_to "#", class: "buy-btn__link btn-default btn-red" do
           購入画面に進む
 
-      = link_to 'アプリで買う', class: "mercari-app-link"
+      = link_to 'アプリで買う', "#", class: "mercari-app-link"
 
       .item-info__description
         大幅値下げしました！◎新品・未開封・保証開始品◎Apple/アップル iPadPro 512GB Wi-Fiモデル タブレット MTXU2J/A シルバー 2018年秋モデル 11インチ 第3世代
@@ -131,7 +132,52 @@
             = fa_icon 'lock'
             %span あんしん・あんぜんへの取り組み
 
-    
+  .comment
+    .comment-container
+      .comment-container__field
+        = render partial: "item-comment"
+      
 
-     
+      .comment-container__post
+        %form.comment-form#comment-form
+          .comment-form__notice
+            相手のことを考え丁寧なコメントを心がけましょう。
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          %text_area.comment-form__text.textarea-default{ type: "text", name: "comment" }
+          = button_tag("コメントする", type: 'submit', class: 'comment-form__btn btn-default')
+              
+  .item-link 
+    .item-link--prev  
+      = link_to '#' do
+        = fa_icon "chevron-left", class: "item-link--prev_left"
+        NIKE 限定品 airmax 97'
+    .item-link--next
+      = link_to '#' do
+        NIKE 限定品 airmax 90'
+        = fa_icon "chevron-right", class: "item-link--next_right"
 
+  .social-media
+    %ul.social-media--container 
+      %li.social-media--container__icon
+        = link_to image_tag("facebook.png"), "#" 
+      %li.social-media--container__icon
+        = link_to image_tag("twitter.png"), "#" 
+      %li.social-media--container__icon.hidden-icon
+        = link_to image_tag("square-default.png"), "#" 
+      %li.social-media--container__icon
+        = link_to image_tag("pinterest.png"), "#" 
+      
+  .user-item--others
+    .other-items.items-box--overflow
+      .other-items--head
+        = link_to "Sumeshiさんのその他の出品", "#"
+      = render partial: "users-other-items"
+
+  .same-brand-items
+    .other-items.items-box--overflow
+      .other-items--head
+        = link_to "ジュエルナローズ　その他の出品", "#"
+      = render partial: "brands-other-items"
+      
+
+= render partial: "footer"

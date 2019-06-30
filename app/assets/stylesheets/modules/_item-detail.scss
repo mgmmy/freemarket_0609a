@@ -1,10 +1,12 @@
 .item-background {
   background-color: $off-white;
-
+  height: 100%;
+  padding-top: 24px;
+  
   @media screen and (min-width: 768px){
     .item-container {
       padding: 24px 40px 40px !important;
-      width: 700px;
+      width: 620px;
       margin: 0 auto;
     }
   }
@@ -13,6 +15,7 @@
     background-color: $bg-white;
     margin: 40px auto 0;
     padding: 24px 16px 55px 16px;
+
     
     &_name {
       font-weight: bold;
@@ -42,6 +45,22 @@
         min-height: 280px;
         margin: 0 auto;
         background: $empty-gray;
+
+        .owl-dot {
+          position: relative;
+          overflow: hidden; 
+          display: inline-block;
+          width: 20%;
+          max-height: 90px;
+          opacity: .4;
+          cursor: pointer;
+        }
+
+        .owl-dot.active {
+          opacity: 1;
+          cursor: default;
+      
+        }
 
         .image-carousel {
           position: relative;
@@ -113,6 +132,10 @@
         border-collapse: collapse;
         border: 1px solid $off-white;
         font-size: 14px;
+
+        a {
+          color: $blue-link;
+        }
         
         tr {
           border: 1px solid #f5f5f5;
@@ -173,6 +196,11 @@
         }
       }
 
+      .mercari-app-link {
+        color: $blue-link;
+      }
+
+
       &__description {
         padding: 24px 0 0;
         line-height: 1.5;
@@ -214,13 +242,18 @@
 
         .item-info__policy {
           margin-top: 16px;
+          
           font-size: 16px;
+
+          &-link {
+            color: $blue-link;
+          }
         }
 
         @media screen and (min-width: 768px) {
           .item-info__policy{
             display: inline-block;
-            margin-left: 160px;
+            margin-left: 97px;
           }
          
         }

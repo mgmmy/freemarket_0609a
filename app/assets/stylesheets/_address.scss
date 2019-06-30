@@ -1,0 +1,167 @@
+.information-container {
+  background-color: $active-gray;
+  text-align: center;
+  .infomation-header {
+    height: 128px;
+    .infomation-header--logo {
+      display: inline-block;
+      .header--mercari {
+        width: 185px;
+        height: 49px;
+        margin: 40px 0 0;
+      }
+    }
+  }
+
+  .address--main {
+    display: inline;
+    
+    //メイン部分
+    .address__mainbox {
+      width: 700px;
+      margin: 0 auto;
+      background-color: $bg-white;
+      text-align: left;
+      color: #333;
+      .address__mainbox__upper {
+        font-size: 14px;
+        border-bottom: 1px solid $active-gray;
+        .address__upper--message {
+          padding: 32px 16px;
+          font-size: 22px;
+          font-weight: bold;
+          text-align: center;
+        }
+      }
+      &__main {
+        text-align: center;
+        background-color: $active-gray;
+        display: inline;
+        .address__main {
+          max-width: 320px;
+          margin: 0 auto;
+          text-align: left;
+          padding-bottom: 40px;
+          .address--name {
+            font-size: 13px;
+            margin: 40px 0 0;
+            &--name {
+              display: inline-block;
+              font-weight: 600;
+            }
+            &--red {
+              display: inline-block;
+              color: $bg-white;
+              background-color: $mercari-red;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              font-size: 12px;
+              border-radius: 2px;
+              height: 14px;
+              width: 25px;
+              line-height: 12px;
+            }
+          }
+          input {
+            width: 300px;
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid $light-gray;
+            background: $bg-white;
+            line-height: 1.5;
+            padding: 10px 16px 8px;
+            font-size: 16px;
+            margin: 8px 0 0;
+          }
+          //都道府県
+          .address--prefecture {
+            font-size: 13px;
+            margin: 40px 0 0;
+            position: relative;
+            &--name {
+              display: inline-block;
+              font-weight: 600;
+            }
+            &--red {
+              display: inline-block;
+              color: $bg-white;
+              background-color: $mercari-red;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              font-size: 12px;
+              border-radius: 2px;
+              height: 14px;
+              width: 25px;
+              line-height: 12px;
+            }
+            &--choice {
+              overflow: hidden;
+              width: 334px;
+              margin-top: 8px;
+              text-align: center;
+              display: flex;
+              select {
+                width: 100%;
+                padding-right: 1em;
+                padding-left: 10px;
+                cursor: pointer;
+                text-indent: 0.01px;
+                text-overflow: ellipsis;
+                border: 1px solid $light-gray;
+                height: 50px;
+                border-radius: 4px;
+                outline: none;
+                background: transparent;
+                box-shadow: none;
+                -webkit-appearance: none;
+                appearance: none;
+              }
+            }
+            .address--icon {
+              color: $icon-gray;
+              position: absolute;
+              right: 10px;
+              top: 35px;
+              font-size: 1.5rem;
+              font-weight: 100;
+              cursor: pointer;
+            }
+          }
+          //ビルの名前
+          .address--building {
+            font-size: 13px;
+            margin: 40px 0 0;
+            &--name {
+              display: inline-block;
+              font-weight: 600;
+            }
+            &--red {
+              display: inline-block;
+              color: $bg-white;
+              background-color: $mercari-red;
+              margin: 0 0 0 8px;
+              padding: 2px 4px;
+              font-size: 12px;
+              border-radius: 2px;
+              height: 14px;
+              width: 25px;
+              line-height: 12px;
+            }
+          }
+          .address--next {
+            background-color: $mercari-red;
+            height: 50px;
+            position: relative;
+            margin: 40px 0 0;
+            .btn-address--next {
+              color: $bg-white;
+              position: absolute;
+              top: 15px;
+              left: 120px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :show] do
     collection do
       get 'identification' 
+      get 'information' 
+      get 'phonemumber' 
+      get 'address' 
+      get 'howtopay' 
+      get 'complete'
+      get 'logout'
     end
   end
   

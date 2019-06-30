@@ -1,0 +1,416 @@
+.information-container {
+  background-color: #eee;
+  text-align: center;
+  .infomation-header {
+    height: 128px;
+    .infomation-header--logo {
+      display: inline-block;
+      .header--mercari {
+        width: 185px;
+        height: 49px;
+        margin: 40px 0 0;
+      }
+    }
+    //配送状況
+    .progress-bar {
+      padding: 40px 0 0 44px;
+      border: 0;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 0;
+      text-align: center;
+      
+      &--bar {
+        margin: 0;
+        display: flex;
+        height: 1px;
+        li {
+          margin: 0 40px 0 0;
+          padding: 0;
+          position: relative;
+          z-index: 40;
+          display: inline-block;
+          min-width: 60px;
+          font-size: 12px;
+          color: #888;
+          .progress-status{
+            position: absolute;
+            left: 40%;
+            width: 12px;
+            height: 12px;
+            margin: 3px auto 0;
+            background: #888;
+            border-radius: 50%;
+            z-index: 30;
+          }
+          .progress-status_bar {
+            position: absolute;
+            left: 50%;
+            top: 25px;
+            bottom: 5px;
+            display: block;
+            width: 110px;
+            height: 2px;
+            background: #888;
+            z-index: 10;
+          }
+          .progress-status_bar--last {
+            position: absolute;
+            left: 50%;
+            top: 25px;
+            bottom: 5px;
+            display: block;
+            width: 100px;
+            height: 2px;
+            background: #888;
+            z-index: 10;
+          }
+        }
+      }
+    }
+    .end .progress-status_bar {
+      width: 0px;
+    }
+    .payment .progress-status_bar {
+      width: 100px;
+    }
+    #through{
+      color: #ea352d;
+      .progress-status{
+        background: #ea352d;
+      }
+    }
+    #through .progress-status_bar{
+      background: #ea352d;
+    }
+    #through .progress-status_bar--last{
+      background: #ea352d;
+    }
+    #active{
+      color: #ea352d;
+      font-weight: bold;
+      .progress-status{
+        background: #ea352d;
+        
+      }
+    }
+  }
+  .information--main {
+    display: inline;
+    //メイン部分
+    .information__mainbox {
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      text-align: left;
+      color: #333;
+      .information__mainbox__upper {
+        font-size: 14px;
+        border-bottom: 1px solid #EEEEEE;
+        .inromation__upper--message {
+          padding: 32px 16px;
+          font-size: 22px;
+          font-weight: bold;
+        }
+      }
+    }
+    //メインの下の段
+    .information__mainbox__main {
+      max-width: 320px;
+      padding: 40px 16px;
+      margin: 0 auto;
+      .information__main {
+        //ニックネーム
+        .information--nickname {
+          font-size: 13px;
+          &--name {
+            display: inline-block;
+            font-weight: 600;
+          }
+          &--red {
+            display: inline-block;
+            color: white;
+            background-color: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 14px;
+            width: 25px;
+            line-height: 12px;
+          }
+        }
+        input {
+          width: 300px;
+          height: 30px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          padding: 10px 16px 8px;
+          font-size: 16px;
+          margin: 8px 0 0;
+        }
+        //メールアドレス
+        .information--email {
+          font-size: 13px;
+          margin: 40px 0 0;
+          &--name {
+            display: inline-block;
+            font-weight: 600;
+          }
+          &--red {
+            display: inline-block;
+            color: white;
+            background-color: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 14px;
+            width: 25px;
+            line-height: 12px;
+          }
+        }
+        //パスワード
+        .information--pass {
+          font-size: 13px;
+          margin: 40px 0 0;
+          &--name {
+            display: inline-block;
+            font-weight: 600;
+          }
+          &--red {
+            display: inline-block;
+            color: white;
+            background-color: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 14px;
+            width: 25px;
+            line-height: 12px;
+          }
+        }
+        //本人確認
+        .forsafe {
+          margin: 40px 0 0;
+          font-weight: bold;
+        }
+        .forsafe--text {
+          margin: 8px 0 0;
+          line-height: 1.5;
+          font-size: 14px;
+        }
+        //姓
+        .information--lastname {
+          font-size: 13px;
+          margin: 40px 0 0;
+          &--name {
+            display: inline-block;
+            font-weight: 600;
+          }
+          &--red {
+            display: inline-block;
+            color: white;
+            background-color: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 14px;
+            width: 25px;
+            line-height: 12px;
+          }
+        }
+        //名
+        .information--firstname {
+          font-size: 13px;
+          margin: 40px 0 0;
+          &--name {
+            display: inline-block;
+            font-weight: 600;
+          }
+          &--red {
+            display: inline-block;
+            color: white;
+            background-color: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 14px;
+            width: 25px;
+            line-height: 12px;
+          }
+        }
+        //姓カナ
+        .information--lastname--kana {
+          font-size: 13px;
+          margin: 40px 0 0;
+          &--name {
+            display: inline-block;
+            font-weight: 600;
+          }
+          &--red {
+            display: inline-block;
+            color: white;
+            background-color: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 14px;
+            width: 25px;
+            line-height: 12px;
+          }
+        }
+        //名カナ
+        .information--firstname--kana {
+          font-size: 13px;
+          margin: 40px 0 0;
+          &--name {
+            display: inline-block;
+            font-weight: 600;
+          }
+          &--red {
+            display: inline-block;
+            color: white;
+            background-color: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 14px;
+            width: 25px;
+            line-height: 12px;
+          }
+        }
+        //生年月日
+        .information--birthday {
+          font-size: 13px;
+          margin: 40px 0 0;
+          &--name {
+            display: inline-block;
+            font-weight: 600;
+          }
+          &--red {
+            display: inline-block;
+            color: white;
+            background-color: #ea352d;
+            margin: 0 0 0 8px;
+            padding: 2px 4px;
+            font-size: 12px;
+            border-radius: 2px;
+            height: 14px;
+            width: 25px;
+            line-height: 12px;
+          }
+          //ここに非同期通信
+
+          .information--select--text {
+            margin: 8px 0 0;
+            line-height: 1.5;
+          }
+        }
+        //私はロボットではありません
+        .information__check {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          display: inline-block;
+          background-color: #eee;
+          margin: 40px 0 0;
+          .information__check--box {
+            height: 60px;
+            width: 306px;
+            position: relative;
+            .information-checkbox {
+              display: inline;
+              -ms-transform: scale(2.0, 2.0);
+              -webkit-transform: scale(2.0, 2.0);
+              transform: scale(2.0, 2.0);
+              margin-left: 0px;
+              position: absolute;
+              left: 155px;
+              top: 15px;
+            }
+            .information-checkbox--text {
+              width: 152px;
+              font-size: 14px;
+              line-height: 17px;
+              vertical-align: middle;
+              display: inline-block;
+              position: absolute;
+              top: 25px;
+              left: 50px;
+            }
+            .information__check--img {
+              display: inline-block;
+              position: absolute;
+              right: 10px;
+              top:10px;
+              .information--img {
+                display: inline-block;
+                height: 32px;
+                width: 32px;
+              }
+              .information__img--text {
+                font-size: 10px;
+                font-weight: 400;
+                line-height: 10px;
+                margin-top: -4px;
+                text-align: center;
+                text-align: left;
+              }
+            }
+          }
+          .information__ckeck--rule {
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 10px;
+            margin-top: 13px;
+            margin-right: 5px;
+            text-align: center;
+            float: right;
+            display: inline-flex;
+            padding-bottom: 5px;
+            &--first:hover {
+              text-decoration:underline;
+            }
+            &--second:hover {
+              text-decoration:underline;
+            }
+          }
+        }
+        .information__rule {
+          text-align: center;
+          margin: 40px 0 0;
+          font-size: 14px;
+        }
+        .information--next {
+          margin: 40px 0 0;
+          background-color: #ea352d;
+          height: 50px;
+          position: relative;
+          .btn--information--next {
+            color: white;
+            position: absolute;
+            top: 15px;
+            left: 130px;
+            font-size: 14px;
+          }
+        }
+        .information--about {
+          text-align: right;
+          font-size: 14px;
+          color: #0099e8;
+          margin: 40px 0 0;
+        }
+        .information--about:hover {
+          text-decoration:underline;
+        }
+      }
+    }
+  }
+}

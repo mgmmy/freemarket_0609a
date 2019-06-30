@@ -1,227 +1,223 @@
-// *{
-//   min-height: 100%;
-//   margin: 0;
-//   padding: 0;
-  .registration__container {
-    background-color: #EEEEEE;
-    padding: 0 0 220px;
-    width: 100%;
-    text-align: center;
-    //ヘッダー部分
-    .registration__header {
-      height: 128px;
-      &--logo {
-        width: 185px;
-        height: 49px;
-        line-height: 49px;
-        margin: 0 auto;
-        cursor: pointer;
-      }
+.registration__container {
+  background-color: #EEEEEE;
+  padding: 0 0 220px;
+  width: 100%;
+  text-align: center;
+  //ヘッダー部分
+  .registration__header {
+    height: 128px;
+    &--logo {
+      width: 185px;
+      height: 49px;
+      line-height: 49px;
+      margin: 0 auto;
+      cursor: pointer;
     }
-    //メイン部分
-    .login__main {
-      display: inline;
-      .login__mainbox {
-        width: 456px;
-        margin: 0 auto;
-        background-color: white;
-        //メインの上の段
-        .login__mainbox__upper {
-          font-size: 14px;
-          border-bottom: 1px solid #EEEEEE;
-          padding: 40px 64px;
-          .login__upper--message {
-            padding-bottom: 5px;
-          }
-          .login__upper--registration {
+  }
+  //メイン部分
+  .login__main {
+    display: inline;
+    .login__mainbox {
+      width: 456px;
+      margin: 0 auto;
+      background-color: white;
+      //メインの上の段
+      .login__mainbox__upper {
+        font-size: 14px;
+        border-bottom: 1px solid #EEEEEE;
+        padding: 40px 64px;
+        .login__upper--message {
+          padding-bottom: 5px;
+        }
+        .login__upper--registration {
+          background-color: #0099e8;
+          .btn-login {
+            height: 46px;
             background-color: #0099e8;
-            .btn-login {
-              height: 46px;
-              background-color: #0099e8;
-              margin: 8px 0 0;
-              color: white;
-              border: 1px solid #0099e8;
-              line-height: 40px;
-            }
+            margin: 8px 0 0;
+            color: white;
+            border: 1px solid #0099e8;
+            line-height: 40px;
           }
         }
-        //メイン部分の下の段
-        .login--panel {
-          .lonin_mainbox__bottom {
-            padding: 32px 64px;
-            font-size: 14px;
-            //facebookでログイン
-            .login__bottom--first {
-              background: #385185;
-              height: 46px;
+      }
+      //メイン部分の下の段
+      .login--panel {
+        .lonin_mainbox__bottom {
+          padding: 32px 64px;
+          font-size: 14px;
+          //facebookでログイン
+          .login__bottom--first {
+            background: #385185;
+            height: 46px;
+            display: flex;
+            position: relative;
+            .btn-registration--facebook {
+              cursor: pointer;
+              justify-content: center;
+              align-items: center;
+              color: white;
+              position: absolute;
+              top: 1px;
+              left: 20px;
+            }
+            .facebook--text {
+              color: white;
+              cursor: pointer;
+              font-size: 14px;
+              position: absolute;
+              top: 15px;
+              left: 100px;
+            }
+          }
+          //googleでログイン
+          .login__bottom--second {
+            margin: 16px 0 0;
+            border: #979797 solid 1px;
+            height: 46px;
+            position: relative;
+            .btn-registration--google {
+              color: #333;
               display: flex;
-              position: relative;
-              .btn-registration--facebook {
-                cursor: pointer;
-                justify-content: center;
-                align-items: center;
-                color: white;
-                position: absolute;
-                top: 1px;
-                left: 20px;
+              justify-content: center;
+              align-items: center;
+              position: absolute;
+              top: 10px;
+              left: 20px;
+            }
+            .google--text {
+              color:#333;
+              cursor: pointer;
+              font-size: 14px;
+              position: absolute;
+              top: 15px;
+              left: 100px;
+            }
+          } 
+        }
+        .login--form {
+          margin: 0;
+          &--inner {
+            padding: 24px 64px 32px;
+            .login--email {
+              height: 48px;
+              width: 328px;
+              .inputbox--email {
+                height: 46px;
+                width: 100%;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
               }
-              .facebook--text {
-                color: white;
-                cursor: pointer;
-                font-size: 14px;
-                position: absolute;
-                top: 15px;
-                left: 100px;
+              .inputbox--email:focus::placeholder { 
+                color: white; 
               }
             }
-            //googleでログイン
-            .login__bottom--second {
-              margin: 16px 0 0;
-              border: #979797 solid 1px;
-              height: 46px;
-              position: relative;
-              .btn-registration--google {
-                color: #333;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                position: absolute;
-                top: -1px;
-                left: 20px;
+            .login--password {
+              height: 48px;
+              width: 328px;
+              margin: 24px 0;
+              .inputbox--password {
+                height: 46px;
+                width: 100%;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                font-size: 16px;
               }
-              .google--text {
-                color:#333;
-                cursor: pointer;
+              .inputbox--password:focus::placeholder { 
+                color: white; 
+              }
+            }
+            .login__check {
+              border: 1px solid #ccc;
+              border-radius: 4px;
+              display: inline-block;
+              background-color: #eee;
+              
+              .login__check--box {
+                height: 63px;
+                width: 306px;
+                position: relative;
+                .login-checkbox {
+                  display: inline;
+                  -ms-transform: scale(2.0, 2.0);
+                  -webkit-transform: scale(2.0, 2.0);
+                  transform: scale(2.0, 2.0);
+                  margin-left: 0px;
+                  position: absolute;
+                  left: 20px;
+                  top: 30px;
+                }
+                .login-checkbox--text {
+                  width: 152px;
+                  font-size: 14px;
+                  line-height: 17px;
+                  vertical-align: middle;
+                  display: inline-block;
+                  position: absolute;
+                  top: 25px;
+                  left: 50px;
+                }
+                .login__check--img {
+                  display: inline-block;
+                  position: absolute;
+                  right: 20px;
+                  top:10px;
+                  .login--img {
+                    display: inline-block;
+                    height: 32px;
+                    width: 32px;
+                  }
+                  .login__img--text {
+                    font-size: 10px;
+                    font-weight: 400;
+                    line-height: 10px;
+                    margin-top: 5px;
+                    text-align: center;
+                    text-align: left;
+                  }
+                }
+              }
+              .login__ckeck--rule {
+                font-size: 10px;
+                font-weight: 400;
+                line-height: 10px;
+                margin-top: 5px;
+                margin-right: 5px;
+                text-align: center;
+                float: right;
+                display: inline-flex;
+                padding-bottom: 5px;
+                &--first:hover {
+                  text-decoration:underline;
+                }
+                &--second:hover {
+                  text-decoration:underline;
+                }
+              }
+            }
+            .login--login {
+              background: #ea352d;
+              border: 1px solid #ea352d;
+              margin: 24px 0 0;
+              cursor: pointer;
+              height: 50px;
+              position: relative;
+              .btn--login {
+                color: white;
                 font-size: 14px;
                 position: absolute;
                 top: 15px;
-                left: 100px;
+                left: 136px;
               }
-            } 
-          }
-          .login--form {
-            margin: 0;
-            &--inner {
-              padding: 24px 64px 32px;
-              .login--email {
-                height: 48px;
-                width: 328px;
-                .inputbox--email {
-                  height: 46px;
-                  width: 100%;
-                  border-radius: 4px;
-                  border: 1px solid #ccc;
-                  font-size: 16px;
-                }
-                .inputbox--email:focus::placeholder { 
-                  color: white; 
-                }
-              }
-              .login--password {
-                height: 48px;
-                width: 328px;
-                margin: 24px 0;
-                .inputbox--password {
-                  height: 46px;
-                  width: 100%;
-                  border-radius: 4px;
-                  border: 1px solid #ccc;
-                  font-size: 16px;
-                }
-                .inputbox--password:focus::placeholder { 
-                  color: white; 
-                }
-              }
-              .login__check {
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                display: inline-block;
-                background-color: #eee;
-                
-                .login__check--box {
-                  height: 63px;
-                  width: 306px;
-                  position: relative;
-                  .login-checkbox {
-                    display: inline;
-                    -ms-transform: scale(2.0, 2.0);
-                    -webkit-transform: scale(2.0, 2.0);
-                    transform: scale(2.0, 2.0);
-                    margin-left: 0px;
-                    position: absolute;
-                    left: 20px;
-                    top: 30px;
-                  }
-                  .login-checkbox--text {
-                    width: 152px;
-                    font-size: 14px;
-                    line-height: 17px;
-                    vertical-align: middle;
-                    display: inline-block;
-                    position: absolute;
-                    top: 25px;
-                    left: 50px;
-                  }
-                  .login__check--img {
-                    display: inline-block;
-                    position: absolute;
-                    right: 20px;
-                    top:10px;
-                    .login--img {
-                      display: inline-block;
-                      height: 32px;
-                      width: 32px;
-                    }
-                    .login__img--text {
-                      font-size: 10px;
-                      font-weight: 400;
-                      line-height: 10px;
-                      margin-top: 5px;
-                      text-align: center;
-                      text-align: left;
-                    }
-                  }
-                }
-                .login__ckeck--rule {
-                  font-size: 10px;
-                  font-weight: 400;
-                  line-height: 10px;
-                  margin-top: 5px;
-                  margin-right: 5px;
-                  text-align: center;
-                  float: right;
-                  display: inline-flex;
-                  padding-bottom: 5px;
-                  &--first:hover {
-                    text-decoration:underline;
-                  }
-                  &--second:hover {
-                    text-decoration:underline;
-                  }
-                }
-              }
-              .login--login {
-                background: #ea352d;
-                border: 1px solid #ea352d;
-                margin: 24px 0 0;
-                cursor: pointer;
-                height: 50px;
-                position: relative;
-                .btn--login {
-                  color: white;
-                  font-size: 14px;
-                  position: absolute;
-                  top: 15px;
-                  left: 136px;
-                }
-              }
-              .login--forget {
-                margin: 40px 0 0;
-                font-size: 14px;
-              }
+            }
+            .login--forget {
+              margin: 40px 0 0;
+              font-size: 14px;
             }
           }
         }
       }
     }
   }
+}

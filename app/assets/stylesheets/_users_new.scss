@@ -99,32 +99,5 @@
       }
     }
   }
-  //フッター部分
-  .new-member__footer {
-    width: 456px;
-    height: 220px;
-    margin: 0 auto;
-    padding: 40px 0;
-    &__nav {
-      cursor: pointer;
-      font-size: 12px;
-      .li {
-        display: inline-block;
-        padding: 0 8px;
-      }
-      .li:hover {
-        text-decoration: underline;
-      }
-      &__logo {
-        width: 80px;
-        height: 65px;
-        margin: 40px auto 0;
-      }
-      &__mercari {
-        font-size: 12px;
-        margin: 8px 0 0;
-      }
-    }
-  }
 }
 

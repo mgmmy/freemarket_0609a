@@ -1,0 +1,188 @@
+.purchase {
+  display: block;
+
+
+  @media screen and (min-width: 768px) {
+    &-container {
+    width: 700px;
+    margin: 0 auto;
+    }
+  }
+
+  &-container {
+    background: $bg-white;
+
+    &__header {
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.5;
+      padding: 16px;
+    }
+
+    .purchase-info:first-of-type {
+      margin: 0;
+    }
+
+    .purchase-info:last-of-type {
+      padding: 24px 12.5% 40px;
+    }
+
+    .purchase-info {
+      margin: 40px 0 0;
+      padding: 24px 12.5% 0;
+      border-top: 1px solid $off-white;
+
+      &--content {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 320px;
+        margin: 0 auto;
+
+        &__image {
+          width: 64px;
+        }
+
+        &__name {
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 1.5;
+          width: calc(100% - 80px);
+          margin-left: 16px;
+          text-align: left;
+        }
+
+       .purchase-form {
+         width: 100%;
+
+          &__price {
+            margin: 8px 0 16px;
+            font-size: 22px;
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: center;
+
+            span {
+              font-weight: 400;
+              font-size: 14px;
+              margin-left: 8px;
+            }
+          }
+
+          &--accordion {
+            
+            &-toggle {
+              padding: 16px;
+              border: 1px solid $light-gray;
+              position: relative;
+              cursor: pointer;
+              font-size: 14px;
+              text-align: center;
+
+              .accordion-icon {
+                -moz-transition: all, 0.3s, linear;
+                -o-transition: all, 0.3s, linear;
+                -webkit-transition: all, 0.3s, linear;
+                transition: all, 0.3s, linear;
+                font-size: 18px;
+              }
+
+              .open {
+                -moz-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+              }
+            }
+
+            .accordion-contents {
+              padding: 24px 40px;
+              background: $empty-gray;
+              text-align: left;
+              overflow: hidden;
+              display: none;
+
+              &--point {
+                font-weight: 600;
+              }
+
+              &--radio {
+                margin: 0;
+                
+                &-box {
+                  margin-left: 28px;
+                  font-weight: 400;
+                  cursor: pointer;
+                }
+              }
+
+                .input-default {
+                  height: initial;
+                  margin-top: 8px;
+              }
+            }
+          } 
+
+          &__amount {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-collapse: collapse;
+            width: 100%;
+            padding: 16px 0;
+            font-weight: 550;
+
+            &-text {
+              font-size: 16px;
+              
+            }
+
+            &-num {
+              font-size: 28px;
+            }
+          }
+
+          .pay-btn {
+            font-weight: 600;
+            cursor: pointer;
+          }
+        }       
+      }
+    }
+
+    .buyer-info {
+      -webkit-transition: all ease-out .3s;
+      transition: all ease-out .3s;
+
+      &--container {
+        max-width: 320px;
+        margin: 0 auto;
+        position: relative;
+        
+
+        h3 {
+          font-size: 14px;
+          font-weight: 550;
+        }
+
+        &__text {
+          margin: 8px 0 0;
+          font-size: 14px;
+          line-height: 1.4;
+        }
+
+        &--edit {
+          position: absolute;
+          color: $blue-link;
+          right: 0;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .card-logo {
+      width: 40px;
+      height: 20px;
+    }    
+  }
+}

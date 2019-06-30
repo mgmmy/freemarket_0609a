@@ -1,0 +1,105 @@
+=render partial: "header"
+
+.mid-main-wrapper.clearfix
+  .all-list-wrapper
+    %ul.navi-item-wrapper.clearfix
+      %li
+        %a{href:"#", class:"sml-category"}
+          ショルダーバッグ
+      %li
+        %a{href:"#", class:"sml-category"}
+          トートバッグ
+      %li
+        %a{href:"#", class:"sml-category"}
+          ハンドバッグ
+      %li
+        %a{href:"#", class:"sml-category"}
+          リュック/バックパック
+      %li
+        %a{href:"#", class:"sml-category"}
+          ポーチ/バニティ
+      %li
+        %a{href:"#", class:"sml-category"}
+          ショップ袋
+      %li
+        %a{href:"#", class:"sml-category"}
+          ボディーバッグ/ウエストバッグ
+      %li
+        %a{href:"#", class:"sml-category"}
+          かごバッグ
+      %li
+        %a{href:"#", class:"sml-category"}
+          旅行用バッグ/キャリーバッグ
+    .items-list-wrapper.clearfix
+      %h1.items-head_name
+        バッグの商品一覧
+      .items-wrapper
+        = render partial:"an-item" #1行目
+        = render partial:"an-item" #2行目
+        = render partial:"an-item" #3行目
+        = render partial:"an-item" #4行目
+        = render partial:"an-item" #5行目
+        = render partial:"an-item" #6行目
+        = render partial:"an-item" #7行目
+        = render partial:"an-item" #8行目
+        = render partial:"an-item" #9行目
+        = render partial:"an-item" #10行目
+        = render partial:"an-item" #11行目
+        = render partial:"an-item" #12行目
+        = render partial:"an-item" #13行目
+        = render partial:"an-item" #14行目
+        = render partial:"an-item" #15行目
+        = render partial:"an-item" #16行目
+        = render partial:"an-item" #17行目
+        = render partial:"an-item" #18行目
+        = render partial:"an-item" #19行目
+        = render partial:"an-item" #20行目
+        = render partial:"an-item" #21行目
+        = render partial:"an-item" #22行目
+        = render partial:"an-item" #23行目
+        = render partial:"an-item" #24行目
+        = render partial:"an-item" #25行目
+        = render partial:"an-item" #26行目
+    %ul.item-list-page
+      %li.item-list-page_prev
+        %ul
+          %li.page-box
+            %a{href: "#"}
+              %i.fa.fa-angle-double-left.icon-double
+          %li.page-box
+            %a{href: "#"}
+              %i.fa.fa-chevron-left.icon-single
+      %li.item-list-page_num
+        %ul
+          %li.page-box_active
+            1
+          %li.page-box
+            %a{href: "#"}
+            2
+          %li.page-box
+            %a{href: "#"}
+            3
+          %li.page-box
+            %a{href: "#"}
+            4
+          %li.page-box
+            %a{href: "#"}
+            5
+      %li.item-list-page_next
+        %ul
+          %li.page-box
+            %a{href: "#"}
+              %i.fa.fa-chevron-right.icon-single
+          %li.page-box
+            %a{href: "#"}
+              %i.fa.fa-angle-double-right.icon-double
+    .item-list-footer
+      .item-list-name_box
+        %h3.item-list-name
+          バッグ（レディース）
+
+=render partial: "app-notice"
+
+=render partial: "layouts/sell-btn" 
+
+=render partial: "footer"

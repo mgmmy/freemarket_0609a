@@ -1,0 +1,2 @@
+class SmlCategory < ApplicationRecord
+end

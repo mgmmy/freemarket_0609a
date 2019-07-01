@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20190630101909) do
     t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "prefecture_id"
     t.integer  "condition_id"
     t.integer  "status_id"
     t.integer  "brand_id"
@@ -103,7 +104,6 @@ ActiveRecord::Schema.define(version: 20190630101909) do
     t.integer  "mid_category_id"
     t.integer  "sml_category_id"
     t.integer  "size_id"
-    t.integer  "prefecture_id"
     t.integer  "delivery_method_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree

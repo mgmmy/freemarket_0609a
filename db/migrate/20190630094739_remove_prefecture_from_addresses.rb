@@ -1,4 +1,4 @@
-class RemovePrefectureFromAddress < ActiveRecord::Migration[5.0]
+class RemovePrefectureFromAddresses < ActiveRecord::Migration[5.0]
   def change
   end
 end

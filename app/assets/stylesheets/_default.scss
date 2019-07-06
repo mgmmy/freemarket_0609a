@@ -26,6 +26,12 @@
   color: #fff;
 }
 
+.btn-gray {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+}
+
 .btn-default {
   display: block;
   width: 100%;
@@ -38,6 +44,9 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 .radio-default {
   margin: 16px 0 0;
   position: relative;
@@ -62,4 +71,60 @@ input[type='radio'] {
 input[type='radio']:checked {
   border: 0;
   border: 6px solid $blue-link;
+  
+>>>>>>> origin/feature/products/sell/1.0
+.sell-upload-drop-box {
+  position: relative;
+  min-height: 162px;
+  background: #f5f5f5;
+  font-size: 0;
+  text-align: center;
+  transition: -webkit-box-shadow ease-out .3s;
+  transition: box-shadow ease-out .3s;
+  transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
+  cursor: pointer;
+  float: right;
+  margin-left: 2%;
+}
+
+.select-default {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+<<<<<<< HEAD
+=======
+.radio-default {
+  margin: 16px 0 0;
+  position: relative;
+}
+
+input[type='radio'] {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background: $bg-white;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+} 
+
+input[type='radio']:checked {
+  border: 0;
+  border: 6px solid $blue-link;
+>>>>>>> master
+=======
+>>>>>>> origin/feature/products/sell/1.0
 }

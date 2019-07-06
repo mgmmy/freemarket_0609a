@@ -1,0 +1,258 @@
+body {
+    position: relative;
+    min-height: 100%;
+    background: #f5f5f5;
+    font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1;
+}
+
+label {
+    display: inline-block;
+}
+
+.form-require {
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+}
+
+.form-question {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.sell-upload-items {
+    float: left;
+    display: block;
+}
+
+.sell-upload-items ul {
+    display: inline;
+    width: 100%;
+}
+
+.sell-upload-drop-box {
+    position: relative;
+    min-height: 80px;
+    background: #f5f5f5;
+    border: 1px dashed #ccc;
+    font-size: 0;
+    text-align: center;
+    float: right;
+    margin-left: 2%;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.sell-upload-drop-box pre {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    right: 16px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    transform: translate(0, -50%);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+a {
+    color: #0099e8;
+    text-decoration: none;
+}
+
+.single-main {
+    h2 {
+        display: block;
+        font-size: 1.5em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    h3 {
+        display: block;
+        font-size: 1.17em;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+    display: block;
+    .single-container {
+        background: #fff;
+        width: 700px;
+        margin: 0 auto;
+        .sell-container-inner {
+            &__single-head {
+                padding: 32px 16px;
+                font-size: 22px;
+                line-height: 1.5;
+                text-align: center;
+            }            
+            .sell-form {
+                border-top: 1px solid #eee;
+                &__upload-box {
+                    padding: 40px 2.5%;
+                    width: 620px;
+                    padding: 40px;
+                    &--head {
+                        margin: 0;
+                        font-size: 16px;
+                        .form-require {
+                            background: #ea352d;
+                        }
+                    }
+                    p {
+                        margin: 8px 0 0;
+                        line-height: 1.5;
+                    }
+                    &__dropbox-container {
+                        display: block;
+                        width: 620px;
+                        margin: 16px auto 0;
+                        .sell-upload-items-container {
+                            display: inline;
+                            ul {
+                                display: block;
+                            }    
+                        }
+                        .sell-upload-drop-box {
+                            margin-left: 0;
+                            float: right;
+                            width: 538px;
+                            padding: 40px;
+                        }
+                    }
+                }
+                .sell-content {
+                    padding: 40px;
+                    border-top: 1px solid #eee;
+                    .form-group {
+                        width: 100%;
+                        margin: 40px 0 0;
+                        .input-default {
+                            width: 100%;
+                            margin: 8px 0 0;
+                            height: 28px;
+                            width: 586px;
+                        }
+                        .textarea-default {
+                            margin: 8px 0 0;
+                            width: 598px;
+                        }
+                        label {
+                            font-weight: 600;
+                            .form-require {
+                                background: #ea352d;
+                            }
+                        }
+                        .select-wrap {
+                            position: relative;
+                            background: #fff;
+                            margin: 8px 0 0;
+                            .select-default {
+                                width: 100%;
+                                padding: 0 16px;
+                                -webkit-appearance: none;
+                            }
+                            .fa-chevron-down {
+                                position: absolute;
+                                right: 16px;
+                                top: 50%;
+                                z-index: 2;
+                                color: #888;
+                                font-size: 16px;
+                                -webkit-transform: translate(0, -50%);
+                                transform: translate(0, -50%);
+                            }
+                        }
+                    }
+                    .form-group:first-child {
+                        margin: 0;
+                    }
+                    &__sub-head {
+                        float: left;
+                        margin: 0;
+                        color: #888;
+                        font-size: 14px;
+                    }
+                    &__form-box {
+                        float: right;
+                        width: 400px;
+                        margin: 0;
+                        .sell-price {
+                            li {
+                                padding: 24px 0;
+                                border-top: 1px solid #ccc;
+                            }
+                            li:first-child {
+                                padding: 0 0 24px;
+                                border: 0;
+                            }
+                            .bold {
+                                font-weight: 600;
+                                font-size: 16px;
+                                .l-right {
+                                    font-size: 34px;
+                                    font-weight: normal;
+                                }
+                            }
+                            .form-group {
+                                .sell-price-input {
+                                    text-align: right;
+                                    .input-default {
+                                        margin: 0 28px 0 0;
+                                        text-align: right;
+                                        width: 126px;
+                                    }
+                                    div {
+                                        display: inline-block;
+                                        width: 80%;
+                                        margin: 0 0 0 5%;
+                                    }
+                                }
+                            }
+                            .clearfix {
+                                .l-left {
+                                    width: 50%;
+                                    float: left;
+                                    line-height: 48px;
+                                }
+                                .l-right {
+                                    float: right;
+                                }
+                            }
+                        }
+                    }
+                }
+                .sell-btn-box {
+                    p {
+                        line-height: 1.5;
+                    }
+                    .btn-red {
+                        margin: 40px 0 0;
+                    }
+                    .btn-gray {
+                        width: 45%;
+                        margin: 24px auto 0;
+                    }
+                }
+            }
+        }
+    }
+}

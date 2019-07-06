@@ -2,6 +2,7 @@
 @import "owl.carousel";
 @import "owl.theme.default";
 @import "./config/color";
+@import "./body";
 @import "font-awesome";
 @import "./default";
 @import "./modules/sell-btn";
@@ -12,7 +13,6 @@
 @import "./modules/purchase-tab";
 @import "./header";
 @import "./footer";
-@import "./item";
 @import "./modules/identification";
 @import "./profile";
 @import "./modules/item-detail";
@@ -20,6 +20,7 @@
 @import "./credit_unregistered";
 @import "./modules/advertisement";
 @import "./users/login.scss";
+@import "./registration-header";
 @import "./registration-footer";
 @import "./modules/comment";
 @import "./information";
@@ -28,3 +29,11 @@
 @import "./modules/detail-footer";
 @import "./modules/logout";
 @import "./complete";
+@import "./users/logout";
+@import "./products/item-list";
+@import "./products/item";
+@import "./modules/purchase";   
+@import "./complete";
+@import "./phonemumber";
+
+

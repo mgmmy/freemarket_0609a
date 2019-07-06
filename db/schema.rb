@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 20190703145537) do
     t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "prefecture_id"
     t.integer  "condition_id"
     t.integer  "status_id"
     t.integer  "brand_id"
@@ -116,7 +115,6 @@ ActiveRecord::Schema.define(version: 20190703145537) do
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
     t.index ["lar_category_id"], name: "index_products_on_lar_category_id", using: :btree
     t.index ["mid_category_id"], name: "index_products_on_mid_category_id", using: :btree
-    t.index ["prefecture_id"], name: "index_products_on_prefecture_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
     t.index ["sml_category_id"], name: "index_products_on_sml_category_id", using: :btree
     t.index ["status_id"], name: "index_products_on_status_id", using: :btree
@@ -139,8 +137,8 @@ ActiveRecord::Schema.define(version: 20190703145537) do
     t.integer  "buyer_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "card_id"
     t.integer  "address_id"
+    t.integer  "card_id"
     t.index ["address_id"], name: "index_purchases_on_address_id", using: :btree
     t.index ["buyer_id"], name: "index_purchases_on_buyer_id", using: :btree
     t.index ["card_id"], name: "index_purchases_on_card_id", using: :btree
@@ -226,7 +224,6 @@ ActiveRecord::Schema.define(version: 20190703145537) do
   add_foreign_key "products", "statuses"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "purchases", "addresses"
   add_foreign_key "purchases", "cards"
   add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "users", column: "buyer_id"

@@ -45,6 +45,34 @@
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+.radio-default {
+  margin: 16px 0 0;
+  position: relative;
+}
+
+input[type='radio'] {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background: $bg-white;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+} 
+
+input[type='radio']:checked {
+  border: 0;
+  border: 6px solid $blue-link;
+  
+>>>>>>> origin/feature/products/sell/1.0
 .sell-upload-drop-box {
   position: relative;
   min-height: 162px;
@@ -70,6 +98,7 @@
   font-size: 16px;
   line-height: 1.5;
   cursor: pointer;
+<<<<<<< HEAD
 =======
 .radio-default {
   margin: 16px 0 0;
@@ -96,4 +125,6 @@ input[type='radio']:checked {
   border: 0;
   border: 6px solid $blue-link;
 >>>>>>> master
+=======
+>>>>>>> origin/feature/products/sell/1.0
 }

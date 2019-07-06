@@ -5,6 +5,12 @@
     %h1.mercari-logo
       = image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2479985427')
     //検索キーワード入力部分
+    -# = search_form_for @products do |f|
+    -#   .index-header__search
+    -#     = f.label :keyword
+    -#     = f.text_field :keyword, class: 'search-keyword', placeholder: " 何かお探しですか？"
+    -#   = f.submit class: 'icon-serach__box'
+
     .index-header__search
       %label.search-keyword
         %input{:type => :search, :name => :search, :placeholder => :" 何かお探しですか？", :class => :searchKeyword}
@@ -12,6 +18,9 @@
       .icon-search__box
         .icon-search__box__icon
           =fa_icon 'search'
+
+      
+
 
   //ヘッダー部分の２段目
   .index-header__bottom

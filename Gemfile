@@ -57,6 +57,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'factory_bot_rails'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'

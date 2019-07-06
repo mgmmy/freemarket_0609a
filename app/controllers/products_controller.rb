@@ -14,4 +14,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
   end
+
+  def search
+  end
 end

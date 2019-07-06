@@ -1,0 +1,77 @@
+= render partial: "users/shared/registration-header"
+
+.purchase
+  .purchase-container
+    %h2.purchase-container__header
+      購入内容の確認
+    .purchase-info
+      .purchase-info--content
+        = image_tag("catig.jpg", class: "purchase-info--content__image")
+        %h3.purchase-info--content__name 猫の肖像画（限定版）
+
+        %form.purchase-form
+          .purchase-form__price
+            ¥90000
+            %span
+              送料込み
+
+          .purchase-form--accordion
+            .purchase-form--accordion-toggle
+              ポイントを使う
+              = fa_icon "chevron-down", class: "accordion-icon"
+            %ul.accordion-contents#accordion-contents
+              %li.accordion-contents--point
+                所持ポイント:P2,148
+              %li.accordion-contents--radio
+                .radio-default
+                  %input{ type: "radio", name: "point", value: ""}
+                  %label.accordion-contents--radio-box
+                    ポイントを使わない
+              %li.accordion-contents--raido
+                .radio-default
+                  %label.accordion-contents--radio-box
+                    %input{ type: "radio", name: "point", value: ""}
+                      全てのポイントを使う
+              %li.accordion-contents--raido
+                .radio-default
+                  %label.accordion-contents--radio-box
+                    %input{ type: "radio", name: "point", value: ""}
+                      一部のポイントを使う
+                %input.input-default{ type: "number", placeholder: "使うポイントを入力" }
+
+          .purchase-form__amount
+            .purchase-form__amount-text
+              支払金額
+            .purchase-form__amount-num
+              ¥90000
+
+          = button_tag("購入する", type: 'submit', class: 'pay-btn btn-default btn-red')
+
+    .buyer-info.purchase-info
+      .buyer-info--container
+        %h3 配送先
+        .buyer-info--container__text
+          〒150-0041
+          %br
+          東京都渋谷区神南1-12-16
+          %br
+          矢久保　拓朗
+
+        = link_to "#", class: "buyer-info--container--edit" do
+          %span 変更する
+          = fa_icon "chevron-right"
+
+    .buyer-info.purchase-info
+      .buyer-info--container
+        %h3 支払い方法
+        .buyer-info--container__text
+          ************7777
+          %br
+          07/30
+        = image_tag("visa.png", class: "card-logo")
+
+        = link_to "#", class: "buyer-info--container--edit" do
+          %span 変更する
+          = fa_icon "chevron-right"
+
+= render partial: "users/shared/registration-footer"

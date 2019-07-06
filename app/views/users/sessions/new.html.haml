@@ -10,7 +10,7 @@
       .login__mainbox__upper
         .login__upper--message アカウントをお持ちでない方はこちら
         .login__upper--registration
-          =link_to '新規会員登録', new_user_registration_path, class: "btn btn-login"
+          =link_to '新規会員登録', information_users_path, class: "btn btn-login"
       //メイン部分の下の段
       .login--panel
         .lonin_mainbox__bottom
@@ -54,6 +54,6 @@
                 パスワードをお忘れの方
 
   .login--footer 
-    = render partial: 'users/shared/registraion-footer'
+    = render partial: 'users/shared/registration-footer'
 
 

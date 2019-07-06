@@ -1,0 +1,45 @@
+%body
+  //ヘッダー部分
+  .newmember_registration__container
+    .newmember_registration__header
+      %h1.newmember_registration__header__logo
+        = image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1881812696')
+    //メイン部分
+    .newmember__main
+      .newmember__mainbox
+        .newmember__mainbox__upper
+          .newmember__mainbox__upper__title 新規会員登録
+        //メイン部分下側
+        .newmember__mainbox__main
+          .newmember__mainbox__main__contents
+            //メールアドレスで登録
+            .newmember__mainbox--email
+              = link_to new_user_registration_path do
+                %i.fa.fa-envelope
+              .mail--text メールアドレスで登録
+                
+            //フェイスブックで登録
+            .newmember__main__contents--facebook
+              = link_to new_user_registration_path do
+                %i.fa.fa-facebook-square
+              .facebook--text Facebookで登録
+              
+            //グーグルで登録
+            .newmember__main__contents--google
+              = link_to new_user_registration_path do
+                %i.fa.fa-google
+              .google--text Googleで登録
+              
+
+
+    //フッター部分
+    .new-member__footer
+      .new-member__footer__nav
+        %ul.new-member__footer__nav__nav
+          .li プライバシーポリシー
+          .li メルカリ利用規約
+          .li 特定商取引に関する表記
+        .new-member__footer__logo
+          = image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1881812696')
+        .new-member__footer__mercari © 2019 Mercari
+

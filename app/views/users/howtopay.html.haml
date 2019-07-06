@@ -1,0 +1,76 @@
+%body
+  .information-container
+    .infomation-header
+      .infomation-header--logo
+        = link_to image_tag(src= "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1905591235", class: "header--mercari"), root_path
+          
+      //配送状況
+      .progress-bar
+        %ul.progress-bar--bar
+          %li.through#through
+            会員情報
+            .progress-status
+            .progress-status_bar
+          %li.through#through
+            電話番号認証
+            .progress-status
+            .progress-status_bar
+          %li.through#through
+            お届け住所入力
+            .progress-status
+            .progress-status_bar
+          %li.active#active
+            支払い情報
+            .progress-status
+            .progress-status_bar--last
+          %li.end#end 
+            完了
+            .progress-status
+            
+
+    .howtopay--main
+      .howtopay__mainbox
+        //メインの上のだん
+        .howtopay__mainbox__upper
+          .howtopay__upper--message 支払い方法
+        //メインの下の段
+        .howtopay__mainbox__main
+          .howtopay__main
+            .howtopay--name
+              .howtopay--name--name カード番号
+              .howtopay--name--red 必須
+            %input{type: "name", placeholder: "半角数字のみ"}
+            %ul.howtopay--card
+              %li.card
+                = image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmdIAmwSx3jMGfpDrxpUibA5ETXuXQ2bBhigYFa7yToTXkG58KQ", class: "card")
+            .howtopay--name
+              .howtopay--name--name 有効期限
+              .howtopay--name--red 必須
+              //プルダウン
+              .howtopay__card
+                //カード月
+                .howtopay__card--month
+                  = select_tag 'card[month]', options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]) 
+                  .card__month--icon
+                    = fa_icon("chevron-down") 
+                  .card__month--month 月
+                //カード年
+                .howtopay__card--month
+                  = select_tag 'card[year]', options_for_select(["19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"]) 
+                  .card__year--icon
+                    = fa_icon("chevron-down") 
+                  .card__year--month 年
+            //セキュリティコード
+            .howtopay--name
+              .howtopay--name--name セキュリティコード
+              .howtopay--name--red 必須
+            %input{type: "number", placeholder: "カード背面4桁もしくは3桁の番号"}
+            //カード背面の番号とは
+            .howtopay--what カード背面の番号とは
+            //次へ進む
+            .howtopay--next
+              = link_to "次へ進む", complete_users_path, class: "btn btn-howtopay--next"
+            
+    .howtopay--footer
+      = render partial: 'users/shared/registration-footer'
+

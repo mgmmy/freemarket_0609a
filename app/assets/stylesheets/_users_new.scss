@@ -1,0 +1,103 @@
+.newmember_registration__container {
+  background-color: $off-white;
+  width: 100%;
+  text-align: center;
+
+  .newmember__main {
+    display: block;
+    .newmember__mainbox {
+      width: 700px;
+      margin: 0 auto;
+      background-color: white;
+      &__upper {
+        border-bottom: 1px solid #EEEEEE;
+        &__title {
+          font-size: 22px;
+          padding: 32px 16px;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+      //メイン下部分
+      .newmember__mainbox__main {
+        height: 311px;
+        &__contents {
+          max-width: 320px;
+          margin: 0 auto;
+          padding: 64px;
+          font-size: 14px;
+          //メールアドレスで登録
+          .newmember__mainbox--email {
+            border: solid 1px red;
+            border-radius: 4px;
+            background-color: red;
+            cursor: pointer;
+            height: 50px;
+            position: relative;
+            .fa-envelope {
+              position: absolute;
+              color: white;
+              font-size: 20px;
+              top: 15px;
+              left: 15px;
+            }
+            .mail--text {
+              color: white;
+              position: absolute;
+              top: 15px;
+              left: 90px;
+            }
+          }
+          .newmember__main__contents--facebook {
+            background: #385185;
+            border: solid 1px #385185;
+            border-radius: 4px;
+            cursor: pointer;
+            height: 50px;
+            position: relative;
+            margin: 16px 0 0;
+            
+            .fa-facebook-square {
+              position: absolute;
+              color: white;
+              font-size: 25px;
+              top: 15px;
+              left: 15px;
+              
+            }
+            .facebook--text {
+              color: white;
+              position: absolute;
+              top: 15px;
+              left: 90px;
+
+            }
+          }
+          .newmember__main__contents--google {
+            background: white;
+            border: solid 1px #979797;
+            border-radius: 4px;
+            cursor: pointer;
+            height: 50px;
+            position: relative;
+            margin: 16px 0 0;
+            .fa-google {
+              position: absolute;
+              color: #333;
+              font-size: 25px;
+              top: 15px;
+              left: 15px;
+            }
+            .google--text {
+              color: #333;
+              position: absolute;
+              top: 15px;
+              left: 110px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

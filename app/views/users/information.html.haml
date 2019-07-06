@@ -1,0 +1,113 @@
+%body
+  .information-container
+    .infomation-header
+      .infomation-header--logo
+        = link_to image_tag(src= "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1905591235", class: "header--mercari"), root_path
+          
+      //配送状況
+      .progress-bar
+        %ul.progress-bar--bar
+          %li.active#active 
+            会員情報
+            .progress-status
+            .progress-status_bar
+          %li.number#number 
+            電話番号認証
+            .progress-status
+            .progress-status_bar
+          %li.address#address 
+            お届け住所入力
+            .progress-status
+            .progress-status_bar
+          %li.payment#payment 
+            支払い情報
+            .progress-status
+            .progress-status_bar--last
+          %li.end#end 
+            完了
+            .progress-status
+            
+
+    .information--main
+      .information__mainbox
+        //メインの上のだん
+        .information__mainbox__upper
+          .inromation__upper--message 会員情報入力
+        //メインの下の段
+        .information__mainbox__main
+          .information__main
+            //ニックネーム
+            .information--nickname
+              .information--nickname--name ニックネーム
+              .information--nickname--red 必須
+            %input{type: "nickname", placeholder: "例）メルカリ太郎"}
+            //メールアドレス
+            .information--email
+              .information--email--name メールアドレス
+              .information--email--red 必須
+            %input{type: "email", placeholder: "PC・携帯どちらでも可"}
+            //パスワード
+            .information--pass
+              .information--pass--name パスワード
+              .information--pass--red 必須
+            %input{type: "pass", placeholder: "６文字以上"}
+            //パスワード（確認）
+            .information--pass
+              .information--pass--name パスワード (確認)
+              .information--pass--red 必須
+            %input{type: "pass", placeholder: "６文字以上"}
+            //本人確認
+            .forsafe 本人確認
+            .forsafe--text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            //姓
+            .information--lastname
+              .information--lastname--name 姓（全角）
+              .information--lastname--red 必須
+            %input{placeholder: "例)山田"}
+            //名
+            .information--firstname
+              .information--firstname--name 名（全角）
+              .information--firstname--red 必須
+            %input{placeholder: "例)彩"}
+            //姓カナ
+            .information--lastname--kana
+              .information--lastname--kana--name 姓カナ（全角）
+              .information--lastname--kana--red 必須
+            %input{placeholder: "例)ヤマダ"}
+            //名カナ
+            .information--firstname--kana
+              .information--firstname--kana--name 名カナ（全角）
+              .information--firstname--kana--red 必須
+            %input{placeholder: "例)アヤ"}
+            //生年月日
+            .information--birthday
+              .information--birthday--name 生年月日
+              .information--birthday--red 必須
+              //プルダウン
+              .information--birthday--select
+                = date_select :dirthday, Date.today, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), prompt: { year: '--', month: '--', day: '--' }, date_separator: '/'
+                
+              .information--select--text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+            //私はロボットではありません
+            .information__check
+              .information__check--box
+                %input.information-checkbox{ type: 'checkbox' }
+                %label.information-checkbox--text{ for: 'checkbox-id' } 私はロボットではありません
+                .information__check--img 
+                  = image_tag("https://www.gstatic.com/recaptcha/api2/logo_48.png", class: "login--img")
+                  .information__img--text reCAPTCHA
+              .information__ckeck--rule 
+                .information__ckeck--rule--first プライバシー
+                .information__ckeck--rule--second 利用規約
+            
+            .information__rule 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+            .information--next 
+              =link_to "次へ進む", phonemumber_users_path, class: "btn btn--information--next"
+
+            //本人情報の登録について
+            .information--about 本人情報の登録について〉
+                
+    .information-footer 
+      = render partial: 'users/shared/registration-footer'
+

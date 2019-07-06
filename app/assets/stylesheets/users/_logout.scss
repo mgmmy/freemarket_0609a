@@ -1,0 +1,23 @@
+.logout_wrapper{
+  width:705px;
+  height:179px;
+  background-color: #fff;
+   &_content{
+    width:320px;
+    padding:64px;
+    margin:0 auto;
+    .logout_btn{
+      display: block;
+      width: 100%;
+      margin:0;
+      font-family : 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+      font-size: 14px;
+      background-color: $mercari-red;
+      border:1px solid $mercari-red;
+      color:#fff;
+      line-height: 48px;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}

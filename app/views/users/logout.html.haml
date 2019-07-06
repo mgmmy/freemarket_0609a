@@ -1,0 +1,11 @@
+=render partial:"products/header"
+.user-menu
+  .user-content
+    =render partial:"sidebar"
+    .logout_wrapper
+      %form{action:"#", method:"POST"}
+        .logout_wrapper_content
+          %button{type: 'submit', class:'logout_btn'}
+            ログアウト
+=render partial: "layouts/sell-btn" 
+=render partial:'products/footer'

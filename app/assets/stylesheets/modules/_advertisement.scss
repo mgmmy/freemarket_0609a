@@ -1,9 +1,10 @@
 .notice-top{
   height:390px; 
-  width: 1440px;
-  margin:0;
-  padding:0;
+  width: 1020px;
+  
   &_image{
+    background-position: center;
+    background-size: cover;
     color: rgb(51, 51, 51);
     cursor:pointer;
   }
@@ -11,8 +12,8 @@
 
 .notice-bottom{
   height:260px; 
-  width:1440px;
-  background-image: url(download_bg_pc.jpg);
+  width:100%;
+  background-image: image-url("download_bg_pc.jpg");
   background-position: center;
   background-size: cover;
   .app-banner{
@@ -22,8 +23,6 @@
     position: relative;
   
     &_left{
-      width:420px;
-      height:166px;
       color:$bg-white;
       float:left;
       position: absolute;

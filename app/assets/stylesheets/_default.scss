@@ -26,6 +26,12 @@
   color: #fff;
 }
 
+.btn-gray {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+}
+
 .btn-default {
   display: block;
   width: 100%;
@@ -36,4 +42,31 @@
   transition: all ease-out .3s;
   cursor: pointer;
   text-align: center;
+}
+
+.sell-upload-drop-box {
+  position: relative;
+  min-height: 162px;
+  background: #f5f5f5;
+  font-size: 0;
+  text-align: center;
+  transition: -webkit-box-shadow ease-out .3s;
+  transition: box-shadow ease-out .3s;
+  transition: box-shadow ease-out .3s, -webkit-box-shadow ease-out .3s;
+  cursor: pointer;
+  float: right;
+  margin-left: 2%;
+}
+
+.select-default {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
 }

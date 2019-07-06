@@ -309,17 +309,22 @@
             line-height: 12px;
           }
           //プルダウン誕生日
-          .information--birthday--select {
-            .birthday_data {
-              
-              height: 50px;
-              font-size: 16px;
-              padding-left: 20px;
-              float: left;
-              display: inline-block;
-              width: auto;
-            }
-            
+          #dirthday_2019-07-06_1i {
+            width: 80px;
+            padding: 0 10px;
+            height: 45px;
+          }
+          #dirthday_2019-07-06_2i {
+            margin-left: 20px;
+            width: 80px;
+            padding: 0 10px;
+            height: 45px;
+          }
+          #dirthday_2019-07-06_3i {
+            margin-left: 20px;
+            width: 80px;
+            padding: 0 10px;
+            height: 45px;
           }
           .information--select--text {
             margin: 8px 0 0;

@@ -64,6 +64,10 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'bcrypt', '3.1.13'
 end
+group :test do
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
+end
 
 gem 'devise'	
 gem 'pry-rails'	

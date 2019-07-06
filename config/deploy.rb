@@ -1,4 +1,4 @@
-lock "~> 3.11.0"
+lock "3.11.0"
 
 set :application, "freemarket_0609a"
 set :repo_url, "git@github.com:mgmmy/freemarket_0609a.git"

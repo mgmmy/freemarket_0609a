@@ -291,6 +291,7 @@
         .information--birthday {
           font-size: 13px;
           margin: 40px 0 0;
+          position: relative;
           &--name {
             display: inline-block;
             font-weight: 600;
@@ -307,8 +308,24 @@
             width: 25px;
             line-height: 12px;
           }
-          //ここに非同期通信
-
+          //プルダウン誕生日
+          #dirthday_2019-07-06_1i {
+            width: 80px;
+            padding: 0 10px;
+            height: 45px;
+          }
+          #dirthday_2019-07-06_2i {
+            margin-left: 20px;
+            width: 80px;
+            padding: 0 10px;
+            height: 45px;
+          }
+          #dirthday_2019-07-06_3i {
+            margin-left: 20px;
+            width: 80px;
+            padding: 0 10px;
+            height: 45px;
+          }
           .information--select--text {
             margin: 8px 0 0;
             line-height: 1.5;

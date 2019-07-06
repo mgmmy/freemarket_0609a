@@ -62,6 +62,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'bcrypt', '3.1.13'
 end
 
 gem 'devise'	

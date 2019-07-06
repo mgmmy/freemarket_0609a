@@ -1,0 +1,2 @@
+class LarCategory < ApplicationRecord
+end

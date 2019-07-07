@@ -62,7 +62,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  
+  
 end
+
 
 gem 'devise'	
 gem 'pry-rails'	
@@ -75,3 +79,4 @@ gem 'mini_magick'
 gem 'ransack'	
 gem 'owlcarousel-rails'
 gem 'active_hash'
+

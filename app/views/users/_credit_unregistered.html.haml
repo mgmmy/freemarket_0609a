@@ -1,3 +1,18 @@
+-# パンくずリスト
+%nav.breadcrumb-wrapper
+  %ul
+    %li.item_scope
+      =link_to '#', class:'scope_name_prev' do 
+        メルカリ
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class:'scope_name_prev' do 
+        マイページ
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class: 'scope_name_current' do 
+        支払い方法
+
 .contener
   .content
     %section.content__setting-credit

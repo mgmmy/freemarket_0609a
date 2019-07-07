@@ -75,3 +75,4 @@ gem 'mini_magick'
 gem 'ransack'	
 gem 'owlcarousel-rails'
 gem 'active_hash'
+gem "gretel"

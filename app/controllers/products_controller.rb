@@ -16,6 +16,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-
+  end
+  
+  def search
   end
 end

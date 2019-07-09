@@ -63,7 +63,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
-  
+  gem 'sqlite3'
   
 end
 
@@ -79,4 +79,5 @@ gem 'mini_magick'
 gem 'ransack'	
 gem 'owlcarousel-rails'
 gem 'active_hash'
+
 

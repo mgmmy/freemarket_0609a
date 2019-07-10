@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20190705071536) do
-
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "zip_code",      null: false
@@ -26,7 +24,6 @@ ActiveRecord::Schema.define(version: 20190705071536) do
     t.index ["prefecture_id"], name: "index_addresses_on_prefecture_id", using: :btree
     t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
-
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -55,13 +52,11 @@ ActiveRecord::Schema.define(version: 20190705071536) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "delivery_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id", null: false
@@ -92,13 +87,11 @@ ActiveRecord::Schema.define(version: 20190705071536) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                             null: false
@@ -144,13 +137,9 @@ ActiveRecord::Schema.define(version: 20190705071536) do
     t.integer  "buyer_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "address_id"
-
     t.integer  "card_id"
-    t.index ["address_id"], name: "index_purchases_on_address_id", using: :btree
     t.index ["buyer_id"], name: "index_purchases_on_buyer_id", using: :btree
     t.index ["card_id"], name: "index_purchases_on_card_id", using: :btree
-
     t.index ["product_id"], name: "index_purchases_on_product_id", using: :btree
     t.index ["seller_id"], name: "index_purchases_on_seller_id", using: :btree
   end
@@ -217,16 +206,13 @@ ActiveRecord::Schema.define(version: 20190705071536) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-
   add_foreign_key "addresses", "prefectures"
   add_foreign_key "addresses", "users"
-
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
   add_foreign_key "images", "products"
-
   add_foreign_key "products", "brands"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "delivery_methods"
@@ -238,7 +224,6 @@ ActiveRecord::Schema.define(version: 20190705071536) do
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "purchases", "cards"
-
   add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "users", column: "buyer_id"
   add_foreign_key "purchases", "users", column: "seller_id"

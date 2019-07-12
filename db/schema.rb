@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(version: 20190707115303) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "delivery_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id", null: false
     t.integer  "user_id",    null: false
@@ -69,16 +75,32 @@ ActiveRecord::Schema.define(version: 20190707115303) do
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                        null: false
-    t.text     "detail",        limit: 65535
-    t.integer  "price",                       null: false
-    t.integer  "user_id",                     null: false
+    t.string   "name",                             null: false
+    t.text     "detail",             limit: 65535
+    t.integer  "price",                            null: false
+    t.integer  "user_id",                          null: false
     t.integer  "like"
     t.integer  "delivery_fee"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.integer  "condition_id"
+    t.integer  "status_id"
+    t.integer  "brand_id"
+    t.integer  "lar_category_id"
+    t.integer  "mid_category_id"
+    t.integer  "sml_category_id"
+    t.integer  "size_id"
+    t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
     t.string   "city"
+    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
+    t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
+    t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
+    t.index ["lar_category_id"], name: "index_products_on_lar_category_id", using: :btree
+    t.index ["mid_category_id"], name: "index_products_on_mid_category_id", using: :btree
+    t.index ["size_id"], name: "index_products_on_size_id", using: :btree
+    t.index ["sml_category_id"], name: "index_products_on_sml_category_id", using: :btree
+    t.index ["status_id"], name: "index_products_on_status_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
@@ -99,8 +121,10 @@ ActiveRecord::Schema.define(version: 20190707115303) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "address_id"
+    t.integer  "card_id"
     t.index ["address_id"], name: "index_purchases_on_address_id", using: :btree
     t.index ["buyer_id"], name: "index_purchases_on_buyer_id", using: :btree
+    t.index ["card_id"], name: "index_purchases_on_card_id", using: :btree
     t.index ["product_id"], name: "index_purchases_on_product_id", using: :btree
     t.index ["seller_id"], name: "index_purchases_on_seller_id", using: :btree
   end
@@ -171,8 +195,17 @@ ActiveRecord::Schema.define(version: 20190707115303) do
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "brands"
+  add_foreign_key "products", "conditions"
+  add_foreign_key "products", "delivery_methods"
+  add_foreign_key "products", "lar_categories"
+  add_foreign_key "products", "mid_categories"
+  add_foreign_key "products", "sizes"
+  add_foreign_key "products", "sml_categories"
+  add_foreign_key "products", "statuses"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "purchases", "cards"
   add_foreign_key "purchases", "products"
   add_foreign_key "purchases", "users", column: "buyer_id"
   add_foreign_key "purchases", "users", column: "seller_id"

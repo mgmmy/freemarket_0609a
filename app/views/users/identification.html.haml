@@ -1,4 +1,20 @@
 =render partial:"products/header"
+
+-# パンくずリスト
+%nav.breadcrumb-wrapper
+  %ul
+    %li.item_scope
+      =link_to '#', class:'scope_name_prev' do 
+        メルカリ
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class:'scope_name_prev' do 
+        マイページ
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class: 'scope_name_current' do 
+        本人情報の登録
+
 .user-menu
   .user-content
     =render partial:"sidebar"

@@ -38,18 +38,18 @@
           .information__main
             //ニックネーム
             .information--nickname
-              = form_for(@user) do |f|
-                = devise_error_messages!
-              .information--nickname--name 
-                = f.fields_for :profile, resource.build_profile do |g|
-                  = g.label :ニックネーム
+              .information--nickname--name ニックネーム
               .information--nickname--red 必須
-              
+              .test
+                = form_for(@user) do |f|
+                  .form-group
+                    = @user.name
+                    = f.file_field :nickname
+                    = f.submit "画像を投稿する"
+                %form_tag.label :email
+                %form.input :nickname
                 
-              -# = form_for @user do |f|
-              -#   %f.label :email
-              -#   %f.input :nickname
-              -# {type: "nickname", placeholder: "例）メルカリ太郎"}
+              
             //メールアドレス
             .information--email
               .information--email--name メールアドレス

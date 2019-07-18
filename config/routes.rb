@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
+  devise_scope :user do
+    get "sign_in", to: "users/sessions#new"
+    get "sign_out", to: "users/sessions#destroy"
+    get "users/registration", to: "users#registration"
+  end
   
   root "products#index"
   resources :products, only: [:show, :new, :create] do

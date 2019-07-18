@@ -65,22 +65,6 @@ describe User do
       user.valid?
       expect(user.errors[:tel]).to include("can't be blank")
     end
-
-    # 重複したemailが存在する場合登録できないこと
-    it "is invalid with a duplicate email address" do
-      user = create(:user)
-      another_user = build(:user, email: user.email)
-      another_user.valid?
-      expect(another_user.errors[:email]).to include("has already been taken")
-    end
-
-    # 重複したtelが存在する場合登録できないこと
-    it "is invalid with a duplicate tel number" do
-      user = create(:user)
-      another_user = build(:user, tel: user.tel)
-      another_user.valid?
-      expect(another_user.errors[:tel]).to include("has already been taken")
-    end
     
     # passwordが5文字以下であれば登録できないこと
     it "is invalid with a password that has less than 5 characters " do

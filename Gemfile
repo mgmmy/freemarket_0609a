@@ -42,7 +42,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -62,18 +62,32 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'sqlite3'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'faker-japanese'
+  gem 'gimei'
 end
 
-gem 'devise'	
-gem 'pry-rails'	
-gem 'haml-rails'	
-gem 'erb2haml'	
-gem 'font-awesome-rails'	
-gem 'rails-i18n', '~> 5.1'	
+group :test do
+  gem 'database_cleaner'
+  gem 'capybara', '~> 2.8'
+end
+
+
+gem 'devise'
+gem 'pry-rails'
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'font-awesome-rails'
+gem 'rails-i18n', '~> 5.1'
 gem 'fog-aws'
-gem 'carrierwave', '~> 1.0'	
-gem 'mini_magick'
-gem 'ransack'	
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '4.9.4'
+gem 'ransack'
 gem 'owlcarousel-rails'
 gem 'active_hash'
+gem 'dotenv-rails'
 gem "gretel"
+

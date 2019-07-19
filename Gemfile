@@ -65,7 +65,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'sqlite3'
   gem 'factory_bot_rails'
-
+  gem 'faker'
+  gem 'faker-japanese'
+  gem 'gimei'
 end
 
 group :test do

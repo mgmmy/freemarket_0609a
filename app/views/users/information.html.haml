@@ -35,11 +35,14 @@
           .inromation__upper--message 会員情報入力
         //メインの下の段
         .information__mainbox__main
+        = form_for(@user, as: user_name, url: registration_path(resource_name)) do |f|
           .information__main
             //ニックネーム
             .information--nickname
               .information--nickname--name ニックネーム
               .information--nickname--red 必須
+              = f.label '氏名'
+              = f.text_field :name, class: 'form-control', placeholder: '氏名を入力してください'
               .test
                 = form_for(@user) do |f|
                   .form-group

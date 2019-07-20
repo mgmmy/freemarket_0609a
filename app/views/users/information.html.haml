@@ -39,10 +39,8 @@
           .information__main
             //ニックネーム
             .information--nickname
-              -# .information--nickname--name 
               = f.label 'ニックネーム', class: "information--nickname--name"
-              .information--nickname--red 
-              = f.label '必須'
+              = f.label '必須',class: "information--nickname--red"
               = f.text_field :nickname, class: 'form-control', placeholder: '氏名を入力してください'
                 
               

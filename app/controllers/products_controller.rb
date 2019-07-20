@@ -14,6 +14,11 @@ class ProductsController < ApplicationController
   def new 
     @product = Product.new 
     @product.images.build
+    @sml_category = SmlCategory.all
+    @mid_category = MidCategory.all
+    @lar_category = LarCategory.all
+    @sizes = Size.all
+    @status = Status.all
   end
 
   def create

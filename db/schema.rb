@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190707115303) do
+ActiveRecord::Schema.define(version: 20190720093621) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "zip_code",      null: false
@@ -83,8 +83,10 @@ ActiveRecord::Schema.define(version: 20190707115303) do
 
   create_table "mid_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "lar_categories_id"
+    t.index ["lar_categories_id"], name: "index_mid_categories_on_lar_categories_id", using: :btree
   end
 
   create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -171,8 +173,10 @@ ActiveRecord::Schema.define(version: 20190707115303) do
 
   create_table "sml_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "mid_categories_id"
+    t.index ["mid_categories_id"], name: "index_sml_categories_on_mid_categories_id", using: :btree
   end
 
   create_table "social_media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -216,6 +220,7 @@ ActiveRecord::Schema.define(version: 20190707115303) do
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "mid_categories", "lar_categories", column: "lar_categories_id"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "delivery_methods"
@@ -233,5 +238,6 @@ ActiveRecord::Schema.define(version: 20190707115303) do
   add_foreign_key "ratings", "purchases"
   add_foreign_key "ratings", "users", column: "buyer_id"
   add_foreign_key "ratings", "users", column: "seller_id"
+  add_foreign_key "sml_categories", "mid_categories", column: "mid_categories_id"
   add_foreign_key "social_media", "users"
 end

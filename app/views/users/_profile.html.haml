@@ -1,4 +1,19 @@
-.contener
+-# パンくずリスト
+%nav.breadcrumb-wrapper
+  %ul
+    %li.item_scope
+      =link_to '#', class:'scope_name_prev' do 
+        メルカリ
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class:'scope_name_prev' do 
+        マイページ
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class: 'scope_name_current' do 
+        プロフィール
+
+contener
   .content
     %section.content__setting-profile
       %h2.content__setting-profile__head

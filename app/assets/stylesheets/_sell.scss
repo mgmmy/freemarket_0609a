@@ -254,6 +254,9 @@
                                 }
                             }
                             .form-group {
+                                .l-left {
+                                    line-height: 48px;
+                                }
                                 .sell-price-input {
                                     text-align: right;
                                     .input-default {
@@ -272,7 +275,6 @@
                                 .l-left {
                                     width: 50%;
                                     float: left;
-                                    line-height: 48px;
                                 }
                                 .l-right {
                                     float: right;

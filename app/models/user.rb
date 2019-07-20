@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_one :profile
   has_many :comments
   has_many :purchases
+
+  validates :nickname, :encrypted_password, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, :tel, presence: true
 end

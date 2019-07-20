@@ -199,10 +199,6 @@ ActiveRecord::Schema.define(version: 20190706072341) do
     t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> origin/feature/products/sell/1.0
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -4,7 +4,7 @@
       .sell-container-inner
         %h2.sell-container-inner__single-head
           商品の情報を入力
-        %form.sell-form
+        = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
           .sell-form__upload-box
             %h3.sell-form__upload-box--head
               出品画像
@@ -12,16 +12,29 @@
                 必須
             %p
               最大10枚までアップロードできます
-            .sell-form__upload-box__dropbox-container.clearfix
-              .sell-upload-items-container
-                .sell-upload-items
-                  %ul
-              .sell-upload-drop-box
-                %input{ type: "file", class: "sell-upload-drop-file", multiple: "", name: "image1", style: "display: none;" }
-                %pre
-                  ドラッグアンドドロップ
-                  またはクリックしてファイルをアップロード
-                %i.icon-camera
+            = f.fields_for :image do |image|
+              .dropzone-container.clearfix
+                #preview
+                .dropzone-container__upload
+                  =image.label :image, class: "dropzone-container__drop-field", for: "upload-image" do
+                    .dropzone-container__upload-area
+                      = image.file_field :image, multiple: true, name: 'images []', id: "upload-image", class: "upload-image", 'data-image': 0
+                      .dz-message.needsclick
+                        %p  
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+
+              .dropzone-container2.clearfix
+                #preview2
+                .dropzone-container__upload2
+                  =image.label :image, class: "dropzone-container__drop-field2", for: "upload-image" do
+                    .dropzone-container__upload-area
+                      = image.file_field :image, multiple: true, name: 'images []', id: "upload-image", class: "upload-image", 'data-image': 0
+                      .dz-message.needsclick
+                        %p  
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+                      
           .sell-content
             .form-group
               %label
@@ -288,7 +301,7 @@
                 = link_to "/jp/seller_terms/" do
                   加盟店規約
                 に同意したことになります。
-            %button{ type: "submit", class: "btn-default btn-red" }
+            %button{ type: "submit", class: "btn-default btn-red", id: "new-product" }
               出品する
-            %a.btn-default.btn-gray
+            %button.btn-default.btn-gray
               もどる

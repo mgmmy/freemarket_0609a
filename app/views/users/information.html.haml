@@ -40,7 +40,16 @@
             .information--nickname
               .information--nickname--name ニックネーム
               .information--nickname--red 必須
-            %input{type: "nickname", placeholder: "例）メルカリ太郎"}
+              .test
+                = form_for(@user) do |f|
+                  .form-group
+                    = @user.name
+                    = f.file_field :nickname
+                    = f.submit "画像を投稿する"
+                %form_tag.label :email
+                %form.input :nickname
+                
+              
             //メールアドレス
             .information--email
               .information--email--name メールアドレス

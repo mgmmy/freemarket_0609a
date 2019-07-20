@@ -28,6 +28,10 @@ class ProductsController < ApplicationController
       flash[:alert] = '未入力項目があります'
       redirect_back(fallback_location: root_path)
     end
+
+  end
+  
+  def search
   end
 
   private

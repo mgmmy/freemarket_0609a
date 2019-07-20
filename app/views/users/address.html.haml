@@ -36,6 +36,7 @@
         //メインの下の段
         .address__mainbox__main
           =form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          =form_for(@address, as: address, url: registration_path(address_name)) do |f|
             .address__main
               .address--name
                 = f.label 'お名前', class: "address--name--name"

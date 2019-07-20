@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   
   root "products#index"
   resources :products, only: [:show, :new, :create] do
+
+    resources :images, only: [:new, :create] 
+    
     collection do
       get 'itemlist'
       get 'purchase'
@@ -28,5 +31,7 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
+
+  
   
 end

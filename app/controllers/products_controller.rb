@@ -24,11 +24,10 @@ class ProductsController < ApplicationController
       end
       redirect_to product_path(@product)
     else
-      @item.item_images.build
+      @product.images.build
       flash[:alert] = '未入力項目があります'
       redirect_back(fallback_location: root_path)
     end
-
   end
   
   def search

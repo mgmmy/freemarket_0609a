@@ -12,6 +12,19 @@
 
 ActiveRecord::Schema.define(version: 20190707115303) do
 
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "zip_code",      null: false
+    t.integer  "prefecture_id", null: false
+    t.string   "city",          null: false
+    t.string   "block",         null: false
+    t.string   "building"
+    t.integer  "user_id",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["prefecture_id"], name: "index_addresses_on_prefecture_id", using: :btree
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
+
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -74,6 +87,12 @@ ActiveRecord::Schema.define(version: 20190707115303) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                             null: false
     t.text     "detail",             limit: 65535
@@ -120,7 +139,9 @@ ActiveRecord::Schema.define(version: 20190707115303) do
     t.integer  "buyer_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "address_id"
     t.integer  "card_id"
+    t.index ["address_id"], name: "index_purchases_on_address_id", using: :btree
     t.index ["buyer_id"], name: "index_purchases_on_buyer_id", using: :btree
     t.index ["card_id"], name: "index_purchases_on_card_id", using: :btree
     t.index ["product_id"], name: "index_purchases_on_product_id", using: :btree
@@ -184,11 +205,12 @@ ActiveRecord::Schema.define(version: 20190707115303) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "prefectures"
+  add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "favorites", "products"

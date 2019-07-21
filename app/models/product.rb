@@ -1,9 +1,7 @@
 class Product < ApplicationRecord
   belongs_to :user
   has_one :brand
-  has_one :lar_category
-  has_one :mid_category
-  has_one :sml_category
+  has_one :category
   has_one :status
   has_many :images
   has_many :favorites

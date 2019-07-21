@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190720093621) do
+ActiveRecord::Schema.define(version: 20190721021306) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "zip_code",      null: false
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 20190720093621) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -114,7 +120,9 @@ ActiveRecord::Schema.define(version: 20190720093621) do
     t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
     t.string   "city"
+    t.integer  "categories_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
+    t.index ["categories_id"], name: "index_products_on_categories_id", using: :btree
     t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
     t.index ["lar_category_id"], name: "index_products_on_lar_category_id", using: :btree
@@ -222,9 +230,9 @@ ActiveRecord::Schema.define(version: 20190720093621) do
   add_foreign_key "images", "products"
   add_foreign_key "mid_categories", "lar_categories", column: "lar_categories_id"
   add_foreign_key "products", "brands"
+  add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "delivery_methods"
-  add_foreign_key "products", "lar_categories"
   add_foreign_key "products", "mid_categories"
   add_foreign_key "products", "sizes"
   add_foreign_key "products", "sml_categories"
@@ -238,6 +246,5 @@ ActiveRecord::Schema.define(version: 20190720093621) do
   add_foreign_key "ratings", "purchases"
   add_foreign_key "ratings", "users", column: "buyer_id"
   add_foreign_key "ratings", "users", column: "seller_id"
-  add_foreign_key "sml_categories", "mid_categories", column: "mid_categories_id"
   add_foreign_key "social_media", "users"
 end

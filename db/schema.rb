@@ -149,9 +149,7 @@ ActiveRecord::Schema.define(version: 20190721021306) do
     t.integer  "buyer_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "address_id"
     t.integer  "card_id"
-    t.index ["address_id"], name: "index_purchases_on_address_id", using: :btree
     t.index ["buyer_id"], name: "index_purchases_on_buyer_id", using: :btree
     t.index ["card_id"], name: "index_purchases_on_card_id", using: :btree
     t.index ["product_id"], name: "index_purchases_on_product_id", using: :btree
@@ -217,6 +215,7 @@ ActiveRecord::Schema.define(version: 20190721021306) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -233,6 +232,7 @@ ActiveRecord::Schema.define(version: 20190721021306) do
   add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "delivery_methods"
+  add_foreign_key "products", "lar_categories"
   add_foreign_key "products", "mid_categories"
   add_foreign_key "products", "sizes"
   add_foreign_key "products", "sml_categories"
@@ -246,5 +246,6 @@ ActiveRecord::Schema.define(version: 20190721021306) do
   add_foreign_key "ratings", "purchases"
   add_foreign_key "ratings", "users", column: "buyer_id"
   add_foreign_key "ratings", "users", column: "seller_id"
+  add_foreign_key "sml_categories", "mid_categories", column: "mid_categories_id"
   add_foreign_key "social_media", "users"
 end

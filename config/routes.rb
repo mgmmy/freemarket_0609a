@@ -30,6 +30,7 @@ Rails.application.routes.draw do
       get 'complete'
       get 'logout'
     end
+    
   end
 
   

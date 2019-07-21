@@ -91,4 +91,5 @@ gem 'active_hash'
 gem 'dropzonejs-rails'
 gem 'dotenv-rails'
 gem "gretel"
+gem 'payjp'
 

@@ -1,2 +1,0 @@
-class MidCategory < ApplicationRecord
-end

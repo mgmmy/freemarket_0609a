@@ -52,25 +52,17 @@
             %h3.sell-content__sub-head
               商品の詳細
             .sell-content__form-box
+              .form-group#category-form
+                = f.label 'カテゴリー'
+                %span.form-require
+                  必須
+                .select-wrap
+                  = f.select :category, @parent_category, {prompt: "---"}, {class: "select-default", id: "parent-category"}
+                  = fa_icon "chevron-down"
+
+            
               .form-group
-                = f.label :name do
-                  カテゴリー
-                  %span.form-require
-                    必須
-                  .select-wrap
-                    = f.select :name, @lar_category.map{|t| [t.name, t.id]}, {prompt: "---"}, {class: "select-default"}
-                    = fa_icon "chevron-down"
-
-                  .select-wrap.select-mid
-                    = f.select :name, @mid_category.map{|t| [t.name, t.id]}, {prompt: "---"}, {class: "select-default"}
-                    = fa_icon "chevron-down"
-
-                  .select-wrap.select-sml
-                    = f.select :name, @sml_category.map{|t| [t.name, t.id]}, {prompt: "---"}, {class: "select-default"}
-                    = fa_icon "chevron-down"
-
-              .form-group
-                = f.label :name do
+                = f.label :size do
                   サイズ
                   %span.form-require
                     必須

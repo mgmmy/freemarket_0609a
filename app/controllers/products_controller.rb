@@ -14,9 +14,12 @@ class ProductsController < ApplicationController
   def new 
     @product = Product.new 
     @product.images.build
-    @sml_category = SmlCategory.all
-    @mid_category = MidCategory.all
-    @lar_category = LarCategory.all
+
+    @parent_category = []
+    Category.where(ancestry: nil).each do |parent|
+      @parent_category << parent.name
+    end
+    
     @sizes = Size.all
     @status = Status.all
   end
@@ -34,6 +37,14 @@ class ProductsController < ApplicationController
       redirect_back(fallback_location: root_path)
     end
   end
+
+  def get_child_category
+    @child_category = Category.find_by(name: "#{params[:parent_name]}").children
+  end
+
+  def get_grandchild_category
+    @grandchild_category = Category.find("#{params[:child_id]}").children
+  end
   
   def search
   end
@@ -41,7 +52,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status, :brand_id, :lar_category_id, :mid_category_id, :sml_category_id, :size_id, :user_id, :like, :delivery_fee, :method_id)
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status, :brand_id, :category_id, :size_id, :user_id, :like, :delivery_fee, :method_id)
   end
 
   def image_params

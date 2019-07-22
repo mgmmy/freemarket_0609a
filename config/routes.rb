@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     collection do
       get 'itemlist'
       get 'purchase'
+      get 'get_child_category', defaults: {format: 'json'}
+      get 'get_grandchild_category', defaults: {format: 'json'}
     end
   end
   resources :users, only: [:new, :show] do

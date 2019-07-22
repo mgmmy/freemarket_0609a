@@ -29,7 +29,6 @@ $(function () {
 
   $('#parent-category').on('change', function () {
     var parentName = document.getElementById('parent-category').value;
-    console.log(parentName);
     if(parentName != "") {
       $.ajax({
         url: 'get_child_category',
@@ -38,18 +37,13 @@ $(function () {
         dataType: 'json'
       })
       .done(function(children) {
-        console.log(children);
         $('#child').remove();
 
         var insertHTML = "";
         children.forEach(function (child) {
           insertHTML += appendOption(child)
         });
-        appendChildCategory(insertHTML);
-        
-      })
-      .fail(function() {
-        console.log('error');
+        appendChildCategory(insertHTML);   
       })
     } else {
       $('#child').remove();
@@ -58,7 +52,6 @@ $(function () {
 
   $(document).on('change', '#child-category', function () {
     var childId = $('#child-category option:selected').data('category');
-    console.log(childId);
     if(childId != "---") {
       $.ajax({
         url: 'get_grandchild_category',
@@ -67,7 +60,6 @@ $(function () {
         dataType: 'json'
       })
       .done(function(grandchildren) {
-        console.log(grandchildren);
         $('#grandchild').remove();
 
         var insertHTML = "";
@@ -75,10 +67,6 @@ $(function () {
           insertHTML += appendOption(grandchild)
         });
         appendGrandchildCategory(insertHTML);
-        
-      })
-      .fail(function() {
-        console.log('error');
       })
     } else {
       $('#grandchild').remove();

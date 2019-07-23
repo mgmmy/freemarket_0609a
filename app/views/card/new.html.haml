@@ -69,9 +69,7 @@
             .howtopay--what カード背面の番号とは
             //次へ進む
             .howtopay--next
-              = submit_tag "追加する", id: "token_submit"
-              -# = submit_tag "次へ進む", complete_users_path, class: "btn-howtopay--next", id: "token_submit"
-            
+              = link_to "次へ進む", complete_users_path, class: "btn-howtopay--next", id: "token_submit"
     .howtopay--footer
       = render partial: 'users/shared/registration-footer'
 

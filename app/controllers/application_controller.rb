@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
       username == ENV["BASIC_AUTH_USER"] && password == ENV["BASIC_AUTH_PASSWORD"]
     end
   end
+
+  def user_root_path
+    user_path(current_user.id)
+  end
 end

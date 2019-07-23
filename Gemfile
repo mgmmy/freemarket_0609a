@@ -77,3 +77,6 @@ gem 'ransack'
 gem 'owlcarousel-rails'
 gem 'active_hash'
 gem "gretel"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'

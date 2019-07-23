@@ -16,12 +16,12 @@
         .lonin_mainbox__bottom
           .login__bottom--first
             //リンク先はfacebookに変える
-            = link_to edit_user_registration_path,class: "btn btn-registration--facebook fa-2x" do
+            = link_to user_facebook_omniauth_authorize_path, class: "btn btn-registration--facebook fa-2x" do
               %i.fa.fa-facebook-square 
             .facebook--text Facebookでログイン
           .login__bottom--second
             //リンク先はgoogleに変える
-            = link_to edit_user_registration_path, class: "btn btn-registration--google fa-2x" do
+            = link_to user_google_omniauth_authorize_path, class: "btn btn-registration--google fa-2x" do
               %i.fa.fa-google 
             .google--text Googleでログイン
         //入力欄

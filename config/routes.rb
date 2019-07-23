@@ -5,12 +5,22 @@ Rails.application.routes.draw do
     registrations:      'users/registrations',
     sessions:           'users/sessions'
   }
+  devise_scope :user do
+    get "sign_in", to: "users/sessions#new"
+    get "sign_out", to: "users/sessions#destroy"
+    get "users/registration", to: "users#registration"
+  end
   
   root "products#index"
   resources :products, only: [:show, :new, :create] do
+
+    resources :images, only: [:new, :create] 
+    
     collection do
-     get 'itemlist'
+      get 'itemlist'
       get 'purchase'
+      get 'get_child_category', defaults: {format: 'json'}
+      get 'get_grandchild_category', defaults: {format: 'json'}
     end
   end
   resources :users, only: [:new, :show, :create, :destroy] do
@@ -24,5 +34,7 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
+
+  
   
 end

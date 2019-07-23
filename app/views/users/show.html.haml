@@ -1,6 +1,5 @@
 = render partial: "products/header"
 
--# パンくずリスト
 %nav.breadcrumb-wrapper
   %ul
     %li.item_scope
@@ -10,8 +9,7 @@
     %li.item_scope
       =link_to '#', class:'scope_name_current' do 
         マイページ
-
-
+        
 .user-menu
   .user-content
     = render partial: "sidebar"

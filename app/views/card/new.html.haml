@@ -39,7 +39,7 @@
             .howtopay--name
               .howtopay--name--name カード番号
               .howtopay--name--red 必須
-            %input{type: "name", placeholder: "半角数字のみ", class: "card_number"}
+            %input{type: "name", placeholder: "半角数字のみ", class: "card_number", id: "card_number"}
             %ul.howtopay--card
               %li.card
                 = image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlmdIAmwSx3jMGfpDrxpUibA5ETXuXQ2bBhigYFa7yToTXkG58KQ", class: "card")
@@ -50,13 +50,13 @@
               .howtopay__card
                 //カード月
                 .howtopay__card--month
-                  = select_tag 'card[month]', options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], class: "card_month") 
+                  = select_tag 'card[month]', options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], class: "card_month", id: "card_month") 
                   .card__month--icon
                     = fa_icon("chevron-down") 
                   .card__month--month 月
                 //カード年
                 .howtopay__card--month
-                  = select_tag 'card[year]', options_for_select(["19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"], class: "card_year") 
+                  = select_tag 'card[year]', options_for_select(["2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"], class: "card_year", id: "card_year") 
                   .card__year--icon
                     = fa_icon("chevron-down") 
                   .card__year--month 年
@@ -64,12 +64,13 @@
             .howtopay--name
               .howtopay--name--name セキュリティコード
               .howtopay--name--red 必須
-            %input{type: "number", placeholder: "カード背面4桁もしくは3桁の番号", class: "card_cvc"}
+            %input{type: "number", placeholder: "カード背面4桁もしくは3桁の番号", class: "card_cvc", id: "card_cvc"}
             //カード背面の番号とは
             .howtopay--what カード背面の番号とは
             //次へ進む
             .howtopay--next
-              = link_to "次へ進む", complete_users_path, class: "btn btn-howtopay--next"
+              = submit_tag "追加する", id: "token_submit"
+              -# = submit_tag "次へ進む", complete_users_path, class: "btn-howtopay--next", id: "token_submit"
             
     .howtopay--footer
       = render partial: 'users/shared/registration-footer'

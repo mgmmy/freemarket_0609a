@@ -88,16 +88,10 @@ gem 'mini_magick', '4.9.4'
 gem 'ransack'
 gem 'owlcarousel-rails'
 gem 'active_hash'
-<<<<<<< HEAD
-gem "gretel"
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
-=======
 gem 'dropzonejs-rails'
 gem 'dotenv-rails'
 gem "gretel"
 gem 'ancestry'
-
-
->>>>>>> master
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'

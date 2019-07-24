@@ -1,13 +1,10 @@
 class CreateAddresses < ActiveRecord::Migration[5.0]
   def change
     create_table :addresses do |t|
-      # add_column :addresses, :zip_code, :integer,            null: false, foreign_key: true
-      add_column :addresses, :prefectures_id, :reference, null: false
-      add_column :addresses, :city, :string, null: false
-      add_column :addresses, :block, :string,  null: false
-      add_column :addresses, :building, :string
-      add_column :addresses, :uers_id, :integer, null: false, foreign_key: true
-      # t.timestamps
+      t.reference :prefectures_id, null: false
+      t.string :city, null: false
+      t.string :block, null: false
+      t.integer :users_id, null: false, foreign_key: true
     end
   end
 end

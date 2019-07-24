@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get 'purchase'
       get 'get_child_category', defaults: {format: 'json'}
       get 'get_grandchild_category', defaults: {format: 'json'}
+      get 'get_sizes', defaults: {format: 'json'}
     end
   end
   resources :users, only: [:new, :show] do

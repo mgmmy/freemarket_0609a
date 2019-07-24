@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
       @parent_category << parent.name
     end
     
-    @sizes = Size.all
     @status = Status.all
   end
 
@@ -45,6 +44,15 @@ class ProductsController < ApplicationController
   def get_grandchild_category
     @grandchild_category = Category.find("#{params[:child_id]}").children
   end
+
+  def get_sizes
+    size_child = Category.find("#{params[:child_id]}")
+    if size_related_child = size_child.sizes[0]  
+      @sizes = size_related_child.children
+    end
+  end
+
+
   
   def search
   end

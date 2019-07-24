@@ -5,7 +5,7 @@ class CardController < ApplicationController
     if @card.save
       redirect_to complete_users_path
     else
-      redirect_to new_card_path
+      redirect_to new_card_pathgy
     end
   end
 

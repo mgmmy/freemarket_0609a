@@ -1,8 +1,12 @@
 class CardController < ApplicationController
+  
   def new
-    # ログインしてないとエラーになるのでとりあえずコメントアウト
-    # card = Card.where(user_id: current_user.id)
-    # redirect_to action: "show" if card.exists?
+    card = Card.where(user_id: current_user.id)
+    if @card.save
+      redirect_to complete_users_path
+    else
+      redirect_to new_card_path
+    end
   end
 
   def pay #payjpとCardのデータベース作成を実施
@@ -10,7 +14,7 @@ class CardController < ApplicationController
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
-      customer = Payjp::Customer.create(
+      customer = Payjp::Customer.create( 
       card: params['payjp-token'],
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
@@ -29,7 +33,7 @@ class CardController < ApplicationController
       redirect_to action: "new"
   end
 
-  def show #Cardのデータpayjpに送り情報を取り出す
+  def show #Cardのデータpayjpに送り情報を取り出
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to action: "new" 

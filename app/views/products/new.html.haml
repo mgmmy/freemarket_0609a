@@ -59,15 +59,6 @@
                     = f.select :category, @parent_category, {prompt: "---"}, {class: "select-default", id: "parent-category"}
                     = fa_icon "chevron-down"
 
-            
-              -# .form-group
-              -#   = f.label 'サイズ' 
-              -#   %span.form-require
-              -#     必須
-              -#   .select-wrap
-              -#     = f.select :size, @sizes, {prompt: "---"}, {class: "select-default"}
-              -#     = fa_icon "chevron-down"
-
               .form-group
                 = f.label :status do
                   商品の状態

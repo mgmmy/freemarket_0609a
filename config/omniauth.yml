@@ -1,0 +1,18 @@
+production: &production
+  facebook:
+    key: '428925057702384'
+    secret: '915b48689eb4b1d053ab99e13cdf430f'
+
+  google:
+    key: '1019426432589-p6mi01bgv8qjvvhnv2iud1i67qqtk6lt.apps.googleusercontent.com'
+    secret: '9JTBZqFPUwpLxJnfxpIYtdZG'
+
+  twitter:
+    key: ''
+    secret: ''
+
+development: &development
+  <<: *production
+
+test:
+  <<: *development

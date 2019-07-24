@@ -110,6 +110,9 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.integer  "condition_id"
     t.integer  "status_id"
     t.integer  "brand_id"
+    t.integer  "lar_category_id"
+    t.integer  "mid_category_id"
+    t.integer  "sml_category_id"
     t.integer  "size_id"
     t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
@@ -119,7 +122,10 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.index ["categories_id"], name: "index_products_on_categories_id", using: :btree
     t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
+    t.index ["lar_category_id"], name: "index_products_on_lar_category_id", using: :btree
+    t.index ["mid_category_id"], name: "index_products_on_mid_category_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
+    t.index ["sml_category_id"], name: "index_products_on_sml_category_id", using: :btree
     t.index ["status_id"], name: "index_products_on_status_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
@@ -169,6 +175,31 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.string   "ancestry"
   end
 
+  create_table "sml_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "url"
+    t.string   "image_url"
+    t.string   "description"
+    t.text     "other",       limit: 65535
+    t.text     "credentials", limit: 65535
+    t.text     "raw_info",    limit: 65535
+    t.index ["provider", "uid"], name: "index_sns_credentials_on_provider_and_uid", unique: true, using: :btree
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
+  end
+
   create_table "social_media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -187,12 +218,12 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.string   "nickname",                            null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.string   "last_name",                           null: false
-    t.string   "first_name",                          null: false
-    t.string   "last_name_kana",                      null: false
-    t.string   "first_name_kana",                     null: false
-    t.integer  "birthday",                            null: false
-    t.integer  "tel",                                 null: false
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "last_name_kana"
+    t.string   "first_name_kana"
+    t.integer  "birthday"
+    t.string   "tel"
     t.string   "avatar"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -216,7 +247,10 @@ ActiveRecord::Schema.define(version: 20190723132823) do
   add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "delivery_methods"
+  add_foreign_key "products", "lar_categories"
+  add_foreign_key "products", "mid_categories"
   add_foreign_key "products", "sizes"
+  add_foreign_key "products", "sml_categories"
   add_foreign_key "products", "statuses"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
@@ -227,5 +261,6 @@ ActiveRecord::Schema.define(version: 20190723132823) do
   add_foreign_key "ratings", "purchases"
   add_foreign_key "ratings", "users", column: "buyer_id"
   add_foreign_key "ratings", "users", column: "seller_id"
+  add_foreign_key "sns_credentials", "users"
   add_foreign_key "social_media", "users"
 end

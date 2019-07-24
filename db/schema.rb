@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(version: 20190721074412) do
 
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "prefectures_id", null: false
+    t.string  "city",           null: false
+    t.string  "block",          null: false
+    t.integer "users_id",       null: false
+  end
+
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false

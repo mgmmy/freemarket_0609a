@@ -17,20 +17,17 @@
               = link_to new_user_registration_path do
                 %i.fa.fa-envelope
               .mail--text メールアドレスで登録
-                
-            = render "devise/shared/links"
-            
             //フェイスブックで登録
             .newmember__main__contents--facebook
-              = link_to user_facebook_omniauth_authorize_path do
+              = link_to user_facebook_omniauth_authorize_path, method: :post do
                 %i.fa.fa-facebook-square
               .facebook--text Facebookで登録
               
             //グーグルで登録
             .newmember__main__contents--google
-              = link_to new_user_registration_path do
+              = link_to user_google_omniauth_authorize_path, method: :post do
                 = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg')
-              .google--text Googleで登録
+                .google--text Googleで登録
               
 
 

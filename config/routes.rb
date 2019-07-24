@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    sessions: 'users/sessions'
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations:      'users/registrations',
+    sessions:           'users/sessions'
   }
   devise_scope :user do
     get "sign_in", to: "users/sessions#new"
@@ -22,13 +23,13 @@ Rails.application.routes.draw do
       get 'get_grandchild_category', defaults: {format: 'json'}
     end
   end
-  resources :users, only: [:new, :show] do
+  resources :users, only: [:new, :show, :create, :destroy] do
     collection do
-      get 'identification' 
-      get 'information' 
-      get 'phonemumber' 
-      get 'address' 
-      get 'howtopay' 
+      get 'identification'
+      get 'information'
+      get 'phonemumber'
+      get 'address'
+      get 'howtopay'
       get 'complete'
       get 'logout'
     end

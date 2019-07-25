@@ -21,8 +21,8 @@
             .facebook--text Facebookでログイン
           .login__bottom--second
             //リンク先はgoogleに変える
-            = link_to edit_user_registration_path, class: "btn btn-registration--google fa-2x" do
-              %i.fa.fa-google 
+            = link_to edit_user_registration_path, class: "btn-registration--google" do
+              = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg', class: "google")
             .google--text Googleでログイン
         //入力欄
         .login--form

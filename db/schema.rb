@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190707115303) do
+ActiveRecord::Schema.define(version: 20190721042635) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20190707115303) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -93,7 +101,9 @@ ActiveRecord::Schema.define(version: 20190707115303) do
     t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
     t.string   "city"
+    t.integer  "categories_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
+    t.index ["categories_id"], name: "index_products_on_categories_id", using: :btree
     t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
     t.index ["lar_category_id"], name: "index_products_on_lar_category_id", using: :btree
@@ -154,6 +164,25 @@ ActiveRecord::Schema.define(version: 20190707115303) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "email"
+    t.string   "url"
+    t.string   "image_url"
+    t.string   "description"
+    t.text     "other",       limit: 65535
+    t.text     "credentials", limit: 65535
+    t.text     "raw_info",    limit: 65535
+    t.index ["provider", "uid"], name: "index_sns_credentials_on_provider_and_uid", unique: true, using: :btree
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
+  end
+
   create_table "social_media", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "user_id"
@@ -172,19 +201,18 @@ ActiveRecord::Schema.define(version: 20190707115303) do
     t.string   "nickname",                            null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.string   "last_name",                           null: false
-    t.string   "first_name",                          null: false
-    t.string   "last_name_kana",                      null: false
-    t.string   "first_name_kana",                     null: false
-    t.integer  "birthday",                            null: false
-    t.integer  "tel",                                 null: false
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "last_name_kana"
+    t.string   "first_name_kana"
+    t.integer  "birthday"
+    t.string   "tel"
     t.string   "avatar"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -195,6 +223,7 @@ ActiveRecord::Schema.define(version: 20190707115303) do
   add_foreign_key "favorites", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
+  add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "delivery_methods"
   add_foreign_key "products", "lar_categories"
@@ -211,5 +240,6 @@ ActiveRecord::Schema.define(version: 20190707115303) do
   add_foreign_key "ratings", "purchases"
   add_foreign_key "ratings", "users", column: "buyer_id"
   add_foreign_key "ratings", "users", column: "seller_id"
+  add_foreign_key "sns_credentials", "users"
   add_foreign_key "social_media", "users"
 end

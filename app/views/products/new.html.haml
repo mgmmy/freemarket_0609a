@@ -37,14 +37,12 @@
                       
           .sell-content
             .form-group
-              = f.label :name do
-                商品名
+              = f.label '商品名' do       
                 %span.form-require
                   必須
                 = f.text_field :name, class: "input-default", value: "", placeholder: "商品名（必須 40文字まで)"
             .form-group
-              = f.label :detail do
-                商品の説明
+              = f.label '商品の説明' do
                 %span.form-require
                   必須
                 = f.text_area :detail, class: "textarea-default", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" 
@@ -53,21 +51,12 @@
               商品の詳細
             .sell-content__form-box
               .form-group#category-form
-                = f.label 'カテゴリー'
-                %span.form-require
-                  必須
-                .select-wrap
-                  = f.select :category, @parent_category, {prompt: "---"}, {class: "select-default", id: "parent-category"}
-                  = fa_icon "chevron-down"
-
-            
-              .form-group
-                = f.label :size do
-                  サイズ
+                = f.label :category do
+                  カテゴリー
                   %span.form-require
                     必須
                   .select-wrap
-                    = f.select :name, @sizes.map{|t| [t.name, t.id]}, {prompt: "---"}, {class: "select-default"}
+                    = f.select :category, @parent_category, {prompt: "---"}, {class: "select-default", id: "parent-category"}
                     = fa_icon "chevron-down"
 
               .form-group

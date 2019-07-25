@@ -38,6 +38,8 @@ $(function () {
       })
       .done(function(children) {
         $('#child').remove();
+        $('#grandchild').remove();
+        $('#size-form').remove();
 
         var insertHTML = "";
         children.forEach(function (child) {
@@ -47,6 +49,8 @@ $(function () {
       })
     } else {
       $('#child').remove();
+      $('#grandchild').remove();
+      $('#size-form').remove();
     }
   })
 
@@ -61,6 +65,7 @@ $(function () {
       })
       .done(function(grandchildren) {
         $('#grandchild').remove();
+        $('#size-form').remove();
 
         var insertHTML = "";
         grandchildren.forEach(function (grandchild) {
@@ -70,6 +75,7 @@ $(function () {
       })
     } else {
       $('#grandchild').remove();
+      $('#size-form').remove();
     }
   })
 });

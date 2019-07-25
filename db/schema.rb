@@ -110,9 +110,6 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.integer  "condition_id"
     t.integer  "status_id"
     t.integer  "brand_id"
-    t.integer  "lar_category_id"
-    t.integer  "mid_category_id"
-    t.integer  "sml_category_id"
     t.integer  "size_id"
     t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
@@ -122,10 +119,7 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.index ["categories_id"], name: "index_products_on_categories_id", using: :btree
     t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
-    t.index ["lar_category_id"], name: "index_products_on_lar_category_id", using: :btree
-    t.index ["mid_category_id"], name: "index_products_on_mid_category_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
-    t.index ["sml_category_id"], name: "index_products_on_sml_category_id", using: :btree
     t.index ["status_id"], name: "index_products_on_status_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
@@ -173,12 +167,6 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.datetime "updated_at", null: false
     t.string   "size"
     t.string   "ancestry"
-  end
-
-  create_table "sml_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -247,10 +235,7 @@ ActiveRecord::Schema.define(version: 20190723132823) do
   add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "delivery_methods"
-  add_foreign_key "products", "lar_categories"
-  add_foreign_key "products", "mid_categories"
   add_foreign_key "products", "sizes"
-  add_foreign_key "products", "sml_categories"
   add_foreign_key "products", "statuses"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"

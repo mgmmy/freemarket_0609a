@@ -20,10 +20,22 @@ $(function () {
                       </div>`;
     $('#category-form').append(sizeBoxHtml);
   } 
+
+  function appendBrandForm() {
+    var brandBoxHtml = "";
+    brandBoxHtml = `<div class="form-group" id="brand-form">        
+                      <label for="ブランド">ブランド
+                        <span class="form-optional">任意</span>
+                      </label>
+                      <input class="input-default" value="" placeholder="例) シャネルなど" />
+                    </div>`;
+    $('#category-form').append(brandBoxHtml);
+  }       
+
   $(document).on('change', '#grandchild-category', function () {
     var childId = $('#child-category option:selected').data('category');
-    console.log(childId);
     if(childId !== "---") {
+      console.log(childId);
       $.ajax({
         url: 'get_sizes',
         type: 'GET',
@@ -32,15 +44,18 @@ $(function () {
       })
       .done(function(sizes) {
         $('#size-form').remove();
+        $('#brand-form').remove();
 
         var insertHTML = "";
         sizes.forEach(function (size) {
           insertHTML += sizeOption(size)
         });
         appendSize(insertHTML);
+        appendBrandForm();
       })
     } else {
       $('#size-form').remove();
+      $('#brand-form').remove();
     }
   })
 });

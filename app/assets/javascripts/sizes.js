@@ -45,13 +45,15 @@ $(function () {
         $('#size-form').remove();
         $('#brand-form').remove();
 
-        var insertHTML = "";
+        if (sizes.length != 0) {
+           var insertHTML = "";
         sizes.forEach(function (size) {
           insertHTML += sizeOption(size)
         });
         appendSize(insertHTML); 
-        appendBrandForm();
-      })
+        }
+      appendBrandForm();
+      })   
     } else {
       $('#size-form').remove();
       $('#brand-form').remove();

@@ -51,8 +51,6 @@ class ProductsController < ApplicationController
       @sizes = size_related_child.children
     end
   end
-
-
   
   def search
   end

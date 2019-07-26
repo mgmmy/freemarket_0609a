@@ -66,6 +66,7 @@ $(function () {
       .done(function(grandchildren) {
         $('#grandchild').remove();
         $('#size-form').remove();
+        $('#brand-form').remove();
 
         var insertHTML = "";
         grandchildren.forEach(function (grandchild) {
@@ -76,6 +77,7 @@ $(function () {
     } else {
       $('#grandchild').remove();
       $('#size-form').remove();
+      $('#brand-form').remove();
     }
   })
 });

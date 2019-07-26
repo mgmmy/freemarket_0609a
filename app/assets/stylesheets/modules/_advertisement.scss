@@ -1,12 +1,13 @@
 .notice-top{
   height:390px; 
-  width: 1020px;
+ 
   
   &_image{
     background-position: center;
     background-size: cover;
     color: rgb(51, 51, 51);
     cursor:pointer;
+     max-width: 100%;
   }
 }
 

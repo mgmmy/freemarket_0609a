@@ -10,7 +10,7 @@ $(function () {
                       <label for="サイズ">サイズ
                         <span class="form-require">必須</span>
                           <div class="select-wrap" id="size">
-                            <select class="select-default" id="size-form" name="size_id">
+                            <select class="select-default" id="size_id" name="size_id">
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             </select>
@@ -35,7 +35,6 @@ $(function () {
   $(document).on('change', '#grandchild-category', function () {
     var childId = $('#child-category option:selected').data('category');
     if(childId !== "---") {
-      console.log(childId);
       $.ajax({
         url: 'get_sizes',
         type: 'GET',
@@ -50,7 +49,7 @@ $(function () {
         sizes.forEach(function (size) {
           insertHTML += sizeOption(size)
         });
-        appendSize(insertHTML);
+        appendSize(insertHTML); 
         appendBrandForm();
       })
     } else {

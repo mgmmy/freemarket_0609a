@@ -7,17 +7,17 @@ $(function () {
   function appendSize(insertHTML) {
     var sizeBoxHtml = "";
     sizeBoxHtml =  `<div class="form-group" id="size-form">
-                      <label for="サイズ">サイズ
+                      <label for="size_id">サイズ
                         <span class="form-require">必須</span>
-                          <div class="select-wrap" id="size">
-                            <select class="select-default" id="size_id" name="size_id">
-                              <option value="---" data-category="---">---</option>
-                              ${insertHTML}
-                            </select>
-                            <i class="fa fa-chevron-down" />
-                          </div>
-                        </label>
-                      </div>`;
+                      </label>
+                      <div class="select-wrap" id="size">
+                        <select class="select-default" id="size_id" name="size_id">
+                          <option value="---" data-category="---">---</option>
+                          ${insertHTML}
+                        </select>
+                        <i class="fa fa-chevron-down" />
+                      </div>   
+                    </div>`;
     $('#category-form').append(sizeBoxHtml);
   } 
 

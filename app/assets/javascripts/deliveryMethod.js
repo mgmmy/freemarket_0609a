@@ -33,7 +33,6 @@ $(function () {
         dataType: 'json'
       })
       .done(function(packages) {
-        console.log(packages);
         $('#delivery-method-form').remove();
         
         var insertHTML = "";

@@ -2,7 +2,6 @@ class ProductsController < ApplicationController
   def index
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
-    # @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(124)
   end
 
   def show
@@ -52,7 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def get_delivery_method
-    charge = Charge.find_by(id: "#{params[:charge_id]}")
+    charge = Charge.find("#{params[:charge_id]}")
     if charge.id == 2
       @packages = DeliveryMethod.where(id: [1,6,7,3])
     else
@@ -66,7 +65,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :user_id, :like, :charge_id, :prefecture_id, :delivery_method_id)
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :categories_id, :size_id, :user_id, :like, :charges_id, :prefecture_id, :delivery_method_id)
   end
 
   def image_params

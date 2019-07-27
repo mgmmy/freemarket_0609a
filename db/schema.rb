@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190727041317) do
-
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "zip_code",      null: false
-    t.integer  "prefecture_id", null: false
-    t.string   "city",          null: false
-    t.string   "block",         null: false
-    t.string   "building"
-    t.integer  "user_id",       null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["prefecture_id"], name: "index_addresses_on_prefecture_id", using: :btree
-    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
-  end
+ActiveRecord::Schema.define(version: 20190727081630) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -84,12 +71,6 @@ ActiveRecord::Schema.define(version: 20190727041317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
-  end
-
-  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -213,8 +194,6 @@ ActiveRecord::Schema.define(version: 20190727041317) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "addresses", "prefectures"
-  add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "category_sizes", "categories"
   add_foreign_key "category_sizes", "sizes"

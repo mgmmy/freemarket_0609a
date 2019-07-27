@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     get "users/registration", to: "users#registration"
   end
   
+  get "howtopay" => "cards#howtopay"
+  
   root "products#index"
+
   resources :products, only: [:show, :new, :create] do
 
     resources :images, only: [:new, :create] 

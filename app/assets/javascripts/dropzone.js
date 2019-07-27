@@ -158,7 +158,7 @@ $(document).on("turbolinks:load", function() {
     var formData = new formData($(this).get(0));
 
     if (upload_images.length == 0) {
-      form.Data.append("new_images[images][]", " ")
+      formData.append("new_images[images][]", " ")
       
     } else {
       

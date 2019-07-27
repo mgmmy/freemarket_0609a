@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190723132823) do
+ActiveRecord::Schema.define(version: 20190727041317) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "zip_code",      null: false
@@ -69,12 +69,6 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "delivery_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id", null: false
     t.integer  "user_id",    null: false
@@ -104,7 +98,6 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.integer  "price",                            null: false
     t.integer  "user_id",                          null: false
     t.integer  "like"
-    t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "condition_id"
@@ -115,10 +108,14 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.integer  "prefecture_id"
     t.string   "city"
     t.integer  "categories_id"
+    t.integer  "shipments_id"
+    t.integer  "charges_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["categories_id"], name: "index_products_on_categories_id", using: :btree
+    t.index ["charges_id"], name: "index_products_on_charges_id", using: :btree
     t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
+    t.index ["shipments_id"], name: "index_products_on_shipments_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
     t.index ["status_id"], name: "index_products_on_status_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
@@ -196,12 +193,6 @@ ActiveRecord::Schema.define(version: 20190723132823) do
     t.index ["user_id"], name: "index_social_media_on_user_id", using: :btree
   end
 
-  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                            null: false
     t.string   "email",                  default: "", null: false
@@ -234,9 +225,7 @@ ActiveRecord::Schema.define(version: 20190723132823) do
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "conditions"
-  add_foreign_key "products", "delivery_methods"
   add_foreign_key "products", "sizes"
-  add_foreign_key "products", "statuses"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "purchases", "cards"

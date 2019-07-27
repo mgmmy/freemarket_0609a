@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
       @parent_category << parent.name
     end
     
-    @status = Status.all
   end
 
   def create
@@ -51,6 +50,15 @@ class ProductsController < ApplicationController
       @sizes = size_related_child.children
     end
   end
+
+  def get_delivery_method
+    charge = Charge.find_by(id: "#{params[:charge_id]}")
+    if charge.id == 2
+      @packages = DeliveryMethod.where(id: [1,6,7,3])
+    else
+      @packages = DeliveryMethod.all
+    end
+  end
   
   def search
   end
@@ -58,7 +66,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status, :brand_id, :category_id, :size_id, :user_id, :like, :delivery_fee, :method_id)
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :user_id, :like, :charge_id, :prefecture_id, :delivery_method_id)
   end
 
   def image_params

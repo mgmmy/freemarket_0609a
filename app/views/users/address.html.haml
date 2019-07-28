@@ -36,7 +36,7 @@
         //メインの下の段
         .address__mainbox__main
           =form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          =form_for(@address, as: address, url: registration_path(address_name)) do |f|
+          
             .address__main
               .address--name
                 = f.label 'お名前', class: "address--name--name"
@@ -51,7 +51,7 @@
               .address--name
                 = f.label '郵便番号', class: "address--name--name"
                 = f.label '必須',class: "address--name--red"
-                = f.text_field placeholder: '例）123-4567'
+                -# = f.text_field placeholder: '例）123-4567'
               .address--prefecture
                 .address--prefecture--name 都道府県
                 .address--prefecture--red 必須
@@ -81,7 +81,7 @@
 
               //次へ進む
               .address--next
-                = link_to "次へ進む", howtopay_users_path, class: "btn btn-address--next"
+                = link_to "次へ進む", howtopay_path, class: "btn-address--next"
               
 
 

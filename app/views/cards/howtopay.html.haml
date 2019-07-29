@@ -36,7 +36,7 @@
         //メインの下の段
         .howtopay__mainbox__main
           .howtopay__main
-            = form_for(complete_users_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            = form_for(howtopay_path, method: :post, id: 'charge-form',  name: "inputForm") do
               .howtopay--name
                 .howtopay--name--name カード番号
                 .howtopay--name--red 必須
@@ -52,13 +52,13 @@
                 .howtopay__card
                   //カード月
                   .howtopay__card--month
-                    = select_tag 'card[month]', options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]) 
+                    = select_tag 'card[month]', options_for_select(["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"], id: "exp_month") 
                     .card__month--icon
                       = fa_icon("chevron-down") 
                     .card__month--month 月
                   //カード年
                   .howtopay__card--month
-                    = select_tag 'card[year]', options_for_select(["2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"]) 
+                    = select_tag 'card[year]', options_for_select(["2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030"], id: "exp_year") 
                     .card__year--icon
                       = fa_icon("chevron-down") 
                     .card__year--month 年
@@ -71,7 +71,7 @@
               .howtopay--what カード背面の番号とは
               //次へ進む
               .howtopay--next
-                = submit_tag "次へ進む", class: "btn-howtopay--next"
+                = submit_tag "次へ進む", class: "btn-howtopay--next", id: "token_submit"
                 
             
     .howtopay--footer

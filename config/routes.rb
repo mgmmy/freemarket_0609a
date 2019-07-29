@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   end
   
   get "howtopay" => "cards#howtopay"
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'howtopay', to: 'card#howtopay'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
   
   root "products#index"
 
@@ -34,7 +41,6 @@ Rails.application.routes.draw do
       get 'information'
       get 'phonemumber'
       get 'address'
-      get 'howtopay'
       get 'complete'
       get 'logout'
     end

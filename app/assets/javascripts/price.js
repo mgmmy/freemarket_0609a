@@ -1,5 +1,4 @@
-$(function() {
-  
+$(function() { 
   $('#price-form').on('input', function () {
     var inputPrice = $('#price-form').val();
     var fee = inputPrice * 0.1;
@@ -14,6 +13,5 @@ $(function() {
       $('#sales-fee').text("-");
       $('#sales-benefit').text("-");
     };
-
   });
 })

@@ -1,7 +1,7 @@
 $(function () {
   function sizeOption(size) {
     
-    var html = `<option value="${size.size}">${size.size}</option>`;
+    var html = `<option value="${size.id}">${size.size}</option>`;
     return html;
   }
   function appendSize(insertHTML) {
@@ -11,7 +11,7 @@ $(function () {
                         <span class="form-require">必須</span>
                       </label>
                       <div class="select-wrap" id="size">
-                        <select class="select-default" id="size_id" name="size_id">
+                        <select class="select-default" id="size_id" name="product[size_id]">
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                         </select>
@@ -27,7 +27,7 @@ $(function () {
                       <label for="ブランド">ブランド
                         <span class="form-optional">任意</span>
                       </label>
-                      <input class="input-default" value="" placeholder="例) シャネルなど" />
+                      <input class="input-default" value="" placeholder="例) シャネルなど" name="product[brand_id]" />
                     </div>`;
     $('#category-form').append(brandBoxHtml);
   }       

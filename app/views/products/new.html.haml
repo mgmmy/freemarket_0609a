@@ -13,13 +13,13 @@
                 必須
             %p
               最大10枚までアップロードできます
-            = f.fields_for :image do |image|
+            = f.fields_for :images do |image|
               .dropzone-container.clearfix
                 #preview
                 .dropzone-container__upload
                   =image.label :image, class: "dropzone-container__drop-field", for: "upload-image" do
                     .dropzone-container__upload-area
-                      = image.file_field :image, multiple: true, name: 'images []', id: "upload-image", class: "upload-image", 'data-image': 0
+                      = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
                       .dz-message.needsclick
                         %p  
                           ドラッグアンドドロップ
@@ -30,7 +30,7 @@
                 .dropzone-container__upload2
                   =image.label :image, class: "dropzone-container__drop-field2", for: "upload-image" do
                     .dropzone-container__upload-area
-                      = image.file_field :image, multiple: true, name: 'images []', id: "upload-image", class: "upload-image", 'data-image': 0
+                      = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
                       .dz-message.needsclick
                         %p  
                           ドラッグアンドドロップ
@@ -59,7 +59,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.select :categories_id, @parent_category, {prompt: "---"}, {class: "select-default", id: "parent-category"}
+                  = f.select :category, @parent_category, {prompt: "---"}, {class: "select-default", id: "parent-category"}
                   = fa_icon "chevron-down"
 
               .form-group
@@ -78,13 +78,13 @@
               = fa_icon "question-circle"
             .sell-content__form-box
               .form-group#shipping-form
-                = f.label :payer do
+                = f.label :charge_id do
                   配送料の負担
                   %span.form-require
                     必須
                 .select-wrap
                   .select-wrap
-                  = f.collection_select :charges_id, Charge.all, :id, :payer, {prompt: "---"}, class: "select-default", id: "charge-form"
+                  = f.collection_select :charge_id, Charge.all, :id, :payer, {prompt: "---"}, class: "select-default", id: "charge-form"
                   = fa_icon "chevron-down"
               .form-group
                 = f.label :prefecture_id do
@@ -95,12 +95,12 @@
                   = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, class: "select-default"
                   = fa_icon "chevron-down"
               .form-group
-                = f.label :shipments_id do
+                = f.label :shipment_id do
                   発送までの日数
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.collection_select :shipments_id, Shipment.all, :id, :ship, {prompt: "---"}, class: "select-default"
+                  = f.collection_select :shipment_id, Shipment.all, :id, :ship, {prompt: "---"}, class: "select-default"
                   = fa_icon "chevron-down"
                   
           .sell-content.clearfix

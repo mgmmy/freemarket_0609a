@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_one :brand
-  has_one :category
+  belongs_to :category
   has_one :status
   has_many :images
   has_many :favorites
@@ -16,4 +16,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :condition
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :charge
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :status
 end

@@ -17,20 +17,28 @@ class ProductsController < ApplicationController
     @parent_category = []
     Category.where(ancestry: nil).each do |parent|
       @parent_category << parent.name
-    end
-    
+    end  
   end
 
   def create
+    if brand = Brand.find_by(name: params[:product][:brand_id])
+      params[:product][:brand_id] = brand.id
+    else
+      params[:product][:brand_id] = Brand.create(name: params[:product][:brand_id]).id
+    end
+
+    
+
     @product = Product.new(product_params)
-    if @product.save 
-      image_params[:images].each do |image|
-        @product.image.create(image: image, product_id: @product.id)
+    if @product.save && params[:images][:image] != ""
+      params[:images][:image].each do |image|
+        @product.images.create(image: image, product_id: @product.id)
       end
-      redirect_to product_path(@product)
+      redirect_to products_path(@product)
+      flash[:alert] = '出品が完了しました'
     else
       @product.images.build
-      flash[:alert] = '未入力項目があります'
+      flash.now.alert = '未入力項目があります'
       redirect_back(fallback_location: root_path)
     end
   end
@@ -65,11 +73,10 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :categories_id, :size_id, :user_id, :like, :charges_id, :prefecture_id, :delivery_method_id)
-  end
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id)
+  end  
 
   def image_params
-    params.require(:image).permit({images: []})
+    params.require(:new_images).permit(images: [])
   end
-  
 end

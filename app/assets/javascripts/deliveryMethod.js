@@ -1,7 +1,7 @@
 $(function () {
   function appendDeliveryOption(package) {
 
-    var html = `<option value="${package.package}" data-method=${package.id}">${package.package}</option>`
+    var html = `<option value="${package.id}" data-method=${package.id}">${package.package}</option>`
     return html;
   }
 
@@ -12,7 +12,7 @@ $(function () {
                         <span class="form-require">必須</span>
                       </label>
                       <div class="select-wrap" id="delivery-method">
-                        <select class="select-default" id="delivery_method_id" name="delivery_method_id">
+                        <select class="select-default" id="delivery_method_id" name="product[delivery_method_id]">
                           <option value="---" data-category="---">---</option>
                           ${insertHTML}
                         </select>

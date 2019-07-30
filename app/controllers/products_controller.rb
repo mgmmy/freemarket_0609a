@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [ :show, :edit, :update ]
   def index
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
@@ -6,6 +7,12 @@ class ProductsController < ApplicationController
   end
 
   def show
+    if @product.delivery_fee == 0
+      fee = "送料込み（出品者負担）"
+    else
+      fee = "着払い(購入者負担)"
+    end
+    @fee = fee
   end
 
   def purchase
@@ -59,4 +66,8 @@ class ProductsController < ApplicationController
     params.require(:image).permit({images: []})
   end
   
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
 end

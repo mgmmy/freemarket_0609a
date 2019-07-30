@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     get "users/registration", to: "users#registration"
   end
   
-  get "howtopay" => "cards#howtopay"
   resources :card, only: [:new, :show] do
     collection do
       post 'howtopay', to: 'card#howtopay'
@@ -35,7 +34,16 @@ Rails.application.routes.draw do
       get 'get_brands', defaults: {format: 'json'}
     end
   end
-  resources :users, only: [:new, :show, :create, :destroy] do
+  resources :users, only: [:new, :create, :destroy] do
+    resources :cards, only: [:index, :new, :destroy, :show] do
+      collection do
+        get 'howtopay', to: 'cards#howtopay'
+        post 'pay', to: 'cards#pay'
+      end
+    end
+    get 'users/address', to: 'users#address'
+    get 'users/complate', to: 'uers#complate'
+    
     collection do
       get 'identification'
       get 'information'

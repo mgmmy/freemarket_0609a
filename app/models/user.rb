@@ -16,6 +16,10 @@ class User < ApplicationRecord
 
   validates :nickname, :encrypted_password, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday, :tel, presence: true
 
+  
+
+
+
   def self.find_oauth(auth)
     uid = auth.uid
     provider = auth.provider

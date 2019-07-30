@@ -1,6 +1,9 @@
 class CardsController < ApplicationController
-
   require "payjp"
+
+  def new
+    Rails.application.secrets.PAYJP_KEY
+  end
 
   def howtopay
     card = Card.where(user_id: current_user.id)

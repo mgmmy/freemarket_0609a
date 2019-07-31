@@ -1,8 +1,13 @@
 class ProductsController < ApplicationController
   def index
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
-    # @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(124)
+    @ladies = Product.recent_category(1)
+    @mens = Product.recent_category(2)
+    @kids = Product.recent_category(3)
+    @cosmes = Product.recent_category(4)
+    @channels = Product.recent_brand(1)
+    @vuittons = Product.recent_brand(2)
+    @supremes = Product.recent_brand(3)
+    @nikes = Product.recent_brand(4)
   end
 
   def show

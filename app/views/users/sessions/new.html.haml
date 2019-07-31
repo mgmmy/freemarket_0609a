@@ -16,13 +16,13 @@
         .lonin_mainbox__bottom
           .login__bottom--first
             //リンク先はfacebookに変える
-            = link_to edit_user_registration_path,class: "btn btn-registration--facebook fa-2x" do
+            = link_to user_facebook_omniauth_authorize_path, method: :post, class: "btn btn-registration--facebook fa-2x" do
               %i.fa.fa-facebook-square 
             .facebook--text Facebookでログイン
           .login__bottom--second
             //リンク先はgoogleに変える
-            = link_to edit_user_registration_path, class: "btn btn-registration--google fa-2x" do
-              %i.fa.fa-google 
+            = link_to user_google_omniauth_authorize_path, method: :post, class: "btn btn-registration--google fa-2x" do
+              = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg')
             .google--text Googleでログイン
         //入力欄
         .login--form

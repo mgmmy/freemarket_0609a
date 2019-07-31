@@ -1,13 +1,13 @@
 $(function () {
   function appendOption(category) {
     
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   function appendChildCategory(insertHTML) {
     var childBoxHtml = "";
     childBoxHtml =  `<div class="select-wrap" id="child">
-                      <select class="select-default" id="child-category" name="category_id">
+                      <select class="select-default" id="child-category">
                         <option value="---" data-category="---">---</option>
                         ${insertHTML}
                       </select>
@@ -18,7 +18,7 @@ $(function () {
   function appendGrandchildCategory(insertHTML) {
     var grandchildBoxHtml = "";
     grandchildBoxHtml =  `<div class="select-wrap" id="grandchild">
-                            <select class="select-default" id="grandchild-category" name="category_id">
+                            <select class="select-default" id="grandchild-category" name="product[category_id]">
                               <option value="---" data-category="---">---</option>
                               ${insertHTML}
                             </select>
@@ -38,6 +38,8 @@ $(function () {
       })
       .done(function(children) {
         $('#child').remove();
+        $('#grandchild').remove();
+        $('#size-form').remove();
 
         var insertHTML = "";
         children.forEach(function (child) {
@@ -47,6 +49,8 @@ $(function () {
       })
     } else {
       $('#child').remove();
+      $('#grandchild').remove();
+      $('#size-form').remove();
     }
   })
 
@@ -61,6 +65,8 @@ $(function () {
       })
       .done(function(grandchildren) {
         $('#grandchild').remove();
+        $('#size-form').remove();
+        $('#brand-form').remove();
 
         var insertHTML = "";
         grandchildren.forEach(function (grandchild) {
@@ -70,6 +76,8 @@ $(function () {
       })
     } else {
       $('#grandchild').remove();
+      $('#size-form').remove();
+      $('#brand-form').remove();
     }
   })
 });

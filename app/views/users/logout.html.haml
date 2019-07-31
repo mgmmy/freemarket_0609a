@@ -19,9 +19,10 @@
   .user-content
     =render partial:"sidebar"
     .logout_wrapper
-      %form{action:"#", method:"POST"}
+      %form
+      = link_to destroy_user_session_path, method: :delete do
         .logout_wrapper_content
-          %button{type: 'submit', class:'logout_btn'}
+          %button.logout_btn
             ログアウト
 =render partial: "layouts/sell-btn" 
 =render partial:'products/footer'

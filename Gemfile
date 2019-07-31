@@ -92,5 +92,6 @@ gem 'dropzonejs-rails'
 gem 'dotenv-rails'
 gem "gretel"
 gem 'ancestry'
-
-
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"

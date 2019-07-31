@@ -10,4 +10,11 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :images
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
+
+  scope :recent_category, lambda { |count|
+  where(categories_id: count).order(created_at: :DESC).limit(4)
+}
+  scope :recent_brand, lambda { |count|
+    where(brand_id: count).order(created_at: :DESC).limit(4)
+  }
 end

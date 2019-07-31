@@ -82,6 +82,7 @@
         color: #333;
         margin-right: 10px;
         margin-top: 5px;
+        cursor: pointer;
         //カテゴリーから探す
         &__category::before {
           content: '\f0ca';
@@ -92,6 +93,29 @@
         &__category {
           margin-right: 20px;
         }
+        // カテゴリーアコーディオン
+        .acordion-category{
+          width:200px;
+          height:570px;
+          padding-left:18px;
+          position: absolute;
+          top:90px;
+          z-index: 5;
+          background:$bg-white;
+          border: 1px solid $active-gray;
+          list-style: none;
+          color:#333;
+          font-size: 15x;
+          font-weight: 200;
+          line-height: 40px;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          display: none;
+        }
+        .big-category :hover{
+          color:$bg-white;
+          background:$mercari-red;
+        }
+
         //ブランドから探す
         &__brand::before {
           content: '\f02b';
@@ -99,12 +123,49 @@
           line-height: 1;
           margin-right: 8px;
         }
+        // ブランドアコーディオン
+        .acordion-brand{
+          width:200px;
+          height:250px;
+          padding-left:18px;
+          position: absolute;
+          top:90px;
+          left:355px;
+          z-index: 5;
+          background:$bg-white;
+          border: 1px solid $active-gray;
+          list-style: none;
+          color:#333;
+          font-size: 15x;
+          font-weight: 200;
+          line-height: 40px;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          display: none;
+        }
+        .brand-category :hover{
+          color:$bg-white;
+          background:$mercari-red;
+        }
       }
       //右側
       &__right {
         float: right;
         display: flex;
         font-size: 14px;
+        cursor: pointer;
+        //いいね！一覧
+        &__like::before {
+          content: '\f004';
+          color: #ccc;
+          font-size: 20px;
+          margin-right: 8px;
+        }
+        &__like {
+          margin-right: 30px;
+        }
+        &__like:hover {
+          color: $blue-link;
+        }
         //お知らせ
         &__info::before {
           content: '\f0f3';
@@ -113,8 +174,10 @@
           margin-right: 8px;
         }
         &__info {
-          
           margin-right: 30px;
+        }
+        &__info:hover {
+          color: $blue-link;
         }
         //やることリスト
         &__todo::before {
@@ -126,6 +189,9 @@
         &__todo {
           margin-right: 30px;
         }
+        &__todo:hover {
+          color: $blue-link;
+        }
         //マイページ
         &__mypage::before {
           content: '\f599';
@@ -133,7 +199,9 @@
           font-size: 20px;
           margin-right: 8px;
         }
-
+        &__mypage:hover {
+          color: $blue-link;
+        }
       }
     }
   }

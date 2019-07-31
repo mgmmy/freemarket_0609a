@@ -1,47 +1,71 @@
 //ヘッダー部分
-.index-header
-  .index-header__top
-    //メルカリロゴ部分
-    %h1.mercari-logo
-      = image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2479985427')
-    //検索キーワード入力部分
-    -# = search_form_for @products do |f|
-    -#   .index-header__search
-    -#     = f.label :keyword
-    -#     = f.text_field :keyword, class: 'search-keyword', placeholder: " 何かお探しですか？"
-    -#   = f.submit class: 'icon-serach__box'
+.header
+  .index-header
+    .index-header__top
+      //メルカリロゴ部分
+      %h1.mercari-logo
+        =link_to root_path do
+          = image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2479985427')
+      //検索キーワード入力部分
+      -# = search_form_for @products do |f|
+      -#   .index-header__search
+      -#     = f.label :keyword
+      -#     = f.text_field :keyword, class: 'search-keyword', placeholder: " 何かお探しですか？"
+      -#   = f.submit class: 'icon-serach__box'
 
-    .index-header__search
-      %label.search-keyword
-        %input.search-field{ type: "search", name: "search", placeholder: " 何かお探しですか？" }
-      //虫眼鏡アイコン
-      .icon-search__box
-        .icon-search__box__icon
-          =fa_icon 'search'
+      .index-header__search
+        %label.search-keyword
+          %input.search-field{ type: "search", name: "search", placeholder: " 何かお探しですか？" }
+        //虫眼鏡アイコン
+        .icon-search__box
+          .icon-search__box__icon
+            =fa_icon 'search'
 
-      
+        
+    //ヘッダー部分の２段目
+    .index-header__bottom
+      %ul.index-header__bottom__left
+        //カテゴリーから探す
+        .li.index-header__bottom__left__category カテゴリーから探す
+            
+        -# カテゴリー一覧
+        %ul.acordion-category
+          %li.big-category レディース
+          %li.big-category メンズ
+          %li.big-category ベビー・キッズ
+          %li.big-category インテリア・住まい・小物
+          %li.big-category 本・音楽・ゲーム
+          %li.big-category おもちゃ・ホビー・グッズ
+          %li.big-category コスメ・香水・美容
+          %li.big-category 家電・スマホ・カメラ
+          %li.big-category スポーツ・レジャー
+          %li.big-category ハンドメイド
+          %li.big-category チケット
+          %li.big-category 自動車・オートバイ
+          %li.big-category その他
+          %li.big-category カテゴリー一覧   
 
+        //ブランドから探す
+        .li.index-header__bottom__left__brand ブランドから探す
 
-  //ヘッダー部分の２段目
-  .index-header__bottom
-    %ul.index-header__bottom__left
-      //カテゴリーから探す
-      .li.index-header__bottom__left__category カテゴリーから探す
-          
-      //ブランドから探す
-      .li.index-header__bottom__left__brand ブランドから探す
-          
-    %ul.index-header__bottom__right
-      //お知らせ
-      .li.index-header__bottom__right__info お知らせ
-          
-      //やることリスト
-      .li.index-header__bottom__right__todo やることリスト
-          
-      //マイページ
-      .li.index-header__bottom__right__mypage マイページ
+        -# ブランド一覧
+        %ul.acordion-brand
+          %li.brand-category シャネル
+          %li.brand-category ナイキ
+          %li.brand-category ルイヴィトン
+          %li.brand-category シュプリーム
+          %li.brand-category アディダス
+          %li.brand-category ブランド一覧
+            
+      %ul.index-header__bottom__right
+        //いいね一覧
+        .li.index-header__bottom__right__like いいね！一覧
 
-
-
-
-
+        //お知らせ
+        .li.index-header__bottom__right__info お知らせ
+            
+        //やることリスト
+        .li.index-header__bottom__right__todo やることリスト
+            
+        //マイページ
+        .li.index-header__bottom__right__mypage マイページ

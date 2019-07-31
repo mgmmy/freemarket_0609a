@@ -1,6 +1,6 @@
--@products.each do |product|
+-@ladies.each do |product|
   .item-wrapper
-    =link_to product_path(id: product.id) do
+    =link_to product_path(product.id) do
       .item-image
         =image_tag(product.images.first.image, class: "item-image_photo")
       .item-text-wrapper

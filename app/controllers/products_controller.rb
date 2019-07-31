@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
     
 
     @product = Product.new(product_params)
-    if @product.save && params[:images][:image] != ""
+    if @product.save && params[:images][:image]!= ""
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
@@ -73,10 +73,6 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id)
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {images: []})
   end  
-
-  def image_params
-    params.require(:new_images).permit(images: [])
-  end
 end

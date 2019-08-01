@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
-      redirect_to products_path(@product)
+      redirect_to products_path(params[:product_id])
       flash[:alert] = '出品が完了しました'
     else
       @product.images.build

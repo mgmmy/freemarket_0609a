@@ -12,6 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20190729100048) do
 
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "prefectures_id_id", null: false
+    t.string  "city",              null: false
+    t.string  "block",             null: false
+    t.integer "users_id",          null: false
+    t.index ["prefectures_id_id"], name: "index_addresses_on_prefectures_id_id", using: :btree
+  end
+
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -77,21 +85,26 @@ ActiveRecord::Schema.define(version: 20190729100048) do
     t.string   "name",                             null: false
     t.text     "detail",             limit: 65535
     t.integer  "price",                            null: false
-    t.integer  "user_id"
+    t.integer  "user_id",                          null: false
     t.integer  "like"
+    t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "status_id"
-    t.integer  "size_id"
-    t.integer  "prefecture_id"
     t.integer  "brand_id"
+    t.integer  "size_id"
+    t.integer  "delivery_method_id"
+    t.integer  "prefecture_id"
+    t.integer  "shipments_id"
     t.integer  "charge_id"
     t.integer  "condition_id"
-    t.integer  "delivery_method_id"
+    t.integer  "deliver_method_id"
     t.integer  "shipment_id"
     t.integer  "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
+    t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
+    t.index ["shipments_id"], name: "index_products_on_shipments_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
     t.index ["status_id"], name: "index_products_on_status_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
@@ -113,9 +126,7 @@ ActiveRecord::Schema.define(version: 20190729100048) do
     t.integer  "buyer_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "address_id"
     t.integer  "card_id"
-    t.index ["address_id"], name: "index_purchases_on_address_id", using: :btree
     t.index ["buyer_id"], name: "index_purchases_on_buyer_id", using: :btree
     t.index ["card_id"], name: "index_purchases_on_card_id", using: :btree
     t.index ["product_id"], name: "index_purchases_on_product_id", using: :btree

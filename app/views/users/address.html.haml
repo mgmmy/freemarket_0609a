@@ -35,7 +35,8 @@
           .address__upper--message 配送元・お届け先住所入力
         //メインの下の段
         .address__mainbox__main
-          =form_for(current_user.profile, user_address_create_path) do |f|
+          -# =link_to address_create_path
+          -# =form_for(current_user.address, user_address_create_path) do |f|
           
             .address__main
               .address--name

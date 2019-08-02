@@ -35,7 +35,7 @@
           .inromation__upper--message 会員情報入力
         //メインの下の段
         .information__mainbox__main
-          =form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          =form_for(resource, as: resource_name, url: registration_path(resource)) do |f|
             .information__main
               //ニックネーム
               .information--nickname
@@ -105,8 +105,8 @@
               
               .information__rule 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
               .information--next 
-                =link_to "次へ進む", phonemumber_users_path, class: "btn btn--information--next"
-
+                = f.submit '次へ進む', class: 'btn btn--information--next' do
+                  .btn.btn--information--next
               //本人情報の登録について
               .information--about 本人情報の登録について〉
                   

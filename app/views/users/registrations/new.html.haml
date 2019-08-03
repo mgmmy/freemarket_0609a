@@ -25,7 +25,7 @@
               
             //グーグルで登録
             .newmember__main__contents--google
-              = link_to user_google_omniauth_authorize_path, method: :post do
+              = link_to user_google_omniauth_authorize_path, method: :post, class: "icon-google" do
                 = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg')
                 .google--text Googleで登録
               

@@ -7,6 +7,16 @@
     vertical-align: top;
 }
 
+.form-optional {
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+    background: $light-gray;
+}
+
 .form-question {
     display: inline-block;
     width: 14px;
@@ -187,12 +197,9 @@
                         .input-default {
                             width: 100%;
                             margin: 8px 0 0;
-                            height: 28px;
-                            width: 586px;
                         }
                         .textarea-default {
                             margin: 8px 0 0;
-                            width: 598px;
                         }
                         label {
                             font-weight: 600;
@@ -293,6 +300,7 @@
                     .btn-gray {
                         width: 45%;
                         margin: 24px auto 0;
+                        color: $bg-white;
                     }
                 }
             }

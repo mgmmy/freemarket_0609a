@@ -21,6 +21,9 @@ Rails.application.routes.draw do
       get 'purchase'
       get 'get_child_category', defaults: {format: 'json'}
       get 'get_grandchild_category', defaults: {format: 'json'}
+      get 'get_sizes', defaults: {format: 'json'}
+      get 'get_brands', defaults: {format: 'json'}
+      get 'get_delivery_method', defaults: {format: 'json'}
     end
   end
   resources :users, only: [:new, :show, :create, :destroy] do

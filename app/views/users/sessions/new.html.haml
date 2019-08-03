@@ -22,7 +22,7 @@
           .login__bottom--second
             //リンク先はgoogleに変える
             = link_to user_google_omniauth_authorize_path, method: :post, class: "btn btn-registration--google fa-2x" do
-              %i.fa.fa-google 
+              = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg')
             .google--text Googleでログイン
         //入力欄
         .login--form

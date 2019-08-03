@@ -21,7 +21,7 @@ class Product < ApplicationRecord
   belongs_to_active_hash :status
 
   scope :recent_category, lambda { |count|
-  where(categories_id: count).order(created_at: :DESC).limit(4)
+  where(category_id: count).order(created_at: :DESC).limit(4)
 }
   scope :recent_brand, lambda { |count|
     where(brand_id: count).order(created_at: :DESC).limit(4)

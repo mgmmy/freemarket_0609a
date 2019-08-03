@@ -152,7 +152,7 @@
         cursor: pointer;
         //いいね！一覧
         &__like::before {
-          content: '\f004';
+          content: '\f08a';
           color: #ccc;
           font-size: 20px;
           margin-right: 8px;
@@ -165,7 +165,7 @@
         }
         //お知らせ
         &__info::before {
-          content: '\f0f3';
+          content: '\f0a2';
           color: #ccc;
           font-size: 20px;
           margin-right: 8px;

@@ -36,7 +36,8 @@
         //メインの下の段
         .address__mainbox__main
           -# =link_to address_create_path
-          -# =form_for(current_user.address, user_address_create_path) do |f|
+          =form_for :post, url: '/address/create' do |f|
+          -# =form_for(@user, url: address_create_path(@user), html: {method: "get"}) do |f|
           
             .address__main
               .address--name
@@ -82,7 +83,7 @@
 
               //次へ進む
               .address--next
-                = link_to "次へ進む", new_user_card_path, class: "btn-address--next"
+                = f.submit "次へ進む", class: "btn-address--next"
               
 
 

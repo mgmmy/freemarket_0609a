@@ -34,6 +34,8 @@ Rails.application.routes.draw do
       get 'get_brands', defaults: {format: 'json'}
     end
   end
+  get 'address/create' , to: 'users#address_create'
+  post 'user/sms_authenticate' , to: 'users#sms_authenticate'
   resources :users, only: [:new, :create, :destroy] do
     resources :cards, only: [:index, :new, :destroy, :show] do
       collection do
@@ -43,7 +45,6 @@ Rails.application.routes.draw do
     end
     get 'users/address', to: 'users#address'
     get 'users/complate', to: 'uers#complate'
-    
     collection do
       get 'identification'
       get 'information'

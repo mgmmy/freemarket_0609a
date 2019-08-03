@@ -6,16 +6,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
 
-
   def create
-    current_user.user.update(profile_params)
+    @user = User.new(user_params)
     binding.pry
-    super and return
+    if @user.save
+      redirect_to phonemumber_users_path
+    else
+      render 'new'
+    end
   end
 
   private
 
-  def profile_params
-    params.require(:profile).permit(:tel,:first_name, :last_name, :first_name_kana, :last_name_kana)
+
+    def user_params
+      params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :last_name, :first_name, :first_name_kana, :last_name_kana)
+    end
   end
-end

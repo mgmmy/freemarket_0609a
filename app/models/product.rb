@@ -8,7 +8,6 @@ class Product < ApplicationRecord
   has_one    :purchase
   has_many   :comments
   belongs_to :condition
-  belongs_to :delivery_method
   accepts_nested_attributes_for :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -23,4 +22,6 @@ class Product < ApplicationRecord
   belongs_to_active_hash :status
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_date
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :delivery_method
 end

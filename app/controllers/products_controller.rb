@@ -6,6 +6,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @products = Product.where(user_id: @product.user_id).limit(6)
+    @images = @product.images
     if @product.delivery_fee == 0
       fee = "送料込み（出品者負担）"
     else

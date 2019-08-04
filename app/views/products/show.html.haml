@@ -7,20 +7,13 @@
     .item-info 
       .item-info__image
         .slide-cont 
-          .owl-carousel 
-            = image_tag("mercari_profile.png", class: "image-select")
-            = image_tag("mercari_profile.png", class: "image-select")
-            = image_tag("mercari_profile.png", class: "image-select")
-            = image_tag("mercari_profile.png", class: "image-select")
-            = image_tag("mercari_profile.png", class: "image-select")
-            = image_tag("mercari_profile.png", class: "image-select")
-            = image_tag("mercari_profile.png", class: "image-select")
-            = image_tag("mercari_profile.png", class: "image-select")
-            = image_tag("mercari_profile.png", class: "image-select")
-            = image_tag("img_noImage_300x300.jpg", class: "image-select")
+          .owl-carousel
+            - @images.each do |image|
+              = image_tag(image[:image], class: "image-select")
       
       .item-info__price.vanish
-        %span.price-yen ¥92,000
+        %span.price-yen
+          = "¥ #{number_with_delimiter(@product.price)}"
         %span.price-tax (税込)
         %span.price-fee 送料込み
 
@@ -58,7 +51,7 @@
           %tr 
             %th 商品の状態
             %td
-              = @product.condition.conditions
+              = @product.condition.state
 
           %tr 
             %th 配送料の負担
@@ -68,12 +61,12 @@
           %tr 
             %th 配送の方法
             %td
-              = @product.delivery_method.name
+              = @product.delivery_method.package
 
           %tr 
             %th 配送元地域
             %td
-              = @product.city
+              = @product.prefecture.name
 
           %tr 
             %th 配送日の目安

@@ -8,9 +8,9 @@ class Product < ApplicationRecord
   has_one :purchase
   has_many :comments
   accepts_nested_attributes_for :images
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
-
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipment
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -19,6 +19,9 @@ class Product < ApplicationRecord
   belongs_to_active_hash :charge
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :status
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :delivery_method
+
 
   scope :recent_category, lambda { |count|
   where(category_id: count).order(created_at: :DESC).limit(4)
@@ -26,6 +29,5 @@ class Product < ApplicationRecord
   scope :recent_brand, lambda { |count|
     where(brand_id: count).order(created_at: :DESC).limit(4)
   }
-
 
 end

@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   def index
     @ladies = Product.recent_category(1)
-    @mens = Product.recent_category(2)
-    @kids = Product.recent_category(3)
-    @cosmes = Product.recent_category(4)
+    @mens = Product.recent_category(219)
+    @kids = Product.recent_category(378)
+    @cosmes = Product.recent_category(528)
     @channels = Product.recent_brand(1)
     @vuittons = Product.recent_brand(2)
     @supremes = Product.recent_brand(3)

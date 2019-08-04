@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   belongs_to :brand
   belongs_to :category
   has_one    :status
-  has_many   :images
+  has_many   :images, dependent: :destroy
   has_many   :favorites
   has_one    :purchase
   has_many   :comments
@@ -24,4 +24,12 @@ class Product < ApplicationRecord
   belongs_to_active_hash :shipping_date
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :delivery_method
+
+  scope :recent_category, lambda { |count|
+  where(category_id: count).order(created_at: :DESC).limit(4)
+}
+  scope :recent_brand, lambda { |count|
+    where(brand_id: count).order(created_at: :DESC).limit(4)
+  }
+
 end

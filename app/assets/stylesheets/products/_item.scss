@@ -18,9 +18,13 @@
       font-size:22px;
       margin:26px 11px;
       text-align: center;
-      .section-title{
+      a{
         color:#0099e8;
         font-weight: bold;
+      }
+      a:hover{
+        color:#b3d4fc;
+        border-bottom: 2px solid #b3d4fc;
       }
     }
     // アイテムビュー
@@ -52,6 +56,7 @@
           height:110px -16px;
           padding:16px;
           background-color:#fff;
+          color:black;
           .item-title{
             width:181px;
             height:48px;
@@ -75,7 +80,7 @@
               float:left;
             }
             .item-like{
-              width:28.59px;
+              width:33px;
               height:16px;
               font-weight:400;
               margin:0;
@@ -87,6 +92,7 @@
                 float:left;
               }
               .like-num{
+                display:block;
                 float:right;
               }
             }
@@ -105,12 +111,16 @@
       width:99.5%;
       padding:20px 0 30px;
       text-align: right;
-      &_message{
+      a{
         color:#0099e8;
         font-size:14px;
         margin:0;
         padding:0;
       }
+    }
+    a:hover{
+      color:#b3d4fc;
+      border-bottom: 1px solid #b3d4fc;
     }
   }
 }

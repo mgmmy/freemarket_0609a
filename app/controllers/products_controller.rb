@@ -1,8 +1,14 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [ :show, :edit, :update ]
   def index
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
+    @ladies = Product.recent_category(1)
+    @mens = Product.recent_category(2)
+    @kids = Product.recent_category(3)
+    @cosmes = Product.recent_category(4)
+    @channels = Product.recent_brand(1)
+    @vuittons = Product.recent_brand(2)
+    @supremes = Product.recent_brand(3)
+    @nikes = Product.recent_brand(4)
   end
 
   def show
@@ -39,7 +45,7 @@ class ProductsController < ApplicationController
     
 
     @product = Product.new(product_params)
-    if @product.save && params[:images][:image] != ""
+    if @product.save && params[:images][:image]!= ""
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
@@ -82,15 +88,10 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id)
-  end  
-
-  def image_params
-    params.require(:new_images).permit(images: [])
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {images: []})
   end
   
   def set_product
     @product = Product.find(params[:id])
   end
-
 end

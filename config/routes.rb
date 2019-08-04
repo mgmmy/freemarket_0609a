@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       get 'complete'
       get 'logout'
       get 'credit_unregistered'
+      get 'profile'
     end
   end
 

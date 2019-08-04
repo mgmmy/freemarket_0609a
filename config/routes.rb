@@ -34,6 +34,7 @@ Rails.application.routes.draw do
       get 'howtopay'
       get 'complete'
       get 'logout'
+      get 'credit_unregistered'
     end
   end
 

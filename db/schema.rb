@@ -89,9 +89,8 @@ ActiveRecord::Schema.define(version: 20190729100048) do
     t.string   "name",                             null: false
     t.text     "detail",             limit: 65535
     t.integer  "price",                            null: false
-    t.integer  "user_id",                          null: false
+    t.integer  "user_id"
     t.integer  "like"
-    t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "status_id"
@@ -100,14 +99,13 @@ ActiveRecord::Schema.define(version: 20190729100048) do
     t.integer  "mid_category_id"
     t.integer  "sml_category_id"
     t.integer  "size_id"
-    t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
     t.integer  "shipping_date_id"
     t.string   "date"
     t.integer  "shipments_id"
     t.integer  "charge_id"
     t.integer  "condition_id"
-    t.integer  "deliver_method_id"
+    t.integer  "delivery_method_id"
     t.integer  "shipment_id"
     t.integer  "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
@@ -138,7 +136,9 @@ ActiveRecord::Schema.define(version: 20190729100048) do
     t.integer  "buyer_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "address_id"
     t.integer  "card_id"
+    t.index ["address_id"], name: "index_purchases_on_address_id", using: :btree
     t.index ["buyer_id"], name: "index_purchases_on_buyer_id", using: :btree
     t.index ["card_id"], name: "index_purchases_on_card_id", using: :btree
     t.index ["product_id"], name: "index_purchases_on_product_id", using: :btree

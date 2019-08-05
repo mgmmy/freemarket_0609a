@@ -2,9 +2,9 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [ :show, :edit, :update ]
   def index
     @ladies = Product.recent_category(1)
-    @mens = Product.recent_category(2)
-    @kids = Product.recent_category(3)
-    @cosmes = Product.recent_category(4)
+    @mens = Product.recent_category(219)
+    @kids = Product.recent_category(378)
+    @cosmes = Product.recent_category(528)
     @channels = Product.recent_brand(1)
     @vuittons = Product.recent_brand(2)
     @supremes = Product.recent_brand(3)
@@ -83,9 +83,9 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {images: []})
-  end
-  
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {images: []}, user_id: current_user.id)
+  end  
+
   def set_product
     @product = Product.find(params[:id])
   end

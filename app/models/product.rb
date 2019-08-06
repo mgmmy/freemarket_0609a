@@ -1,12 +1,13 @@
 class Product < ApplicationRecord
   belongs_to :user, optional: true
-  has_one :brand
+  belongs_to :brand
   belongs_to :category
-  has_one :status
-  has_many :images, dependent: :destroy
-  has_many :favorites
-  has_one :purchase
-  has_many :comments
+  has_one    :status
+  has_many   :images, dependent: :destroy
+  has_many   :favorites
+  has_one    :purchase
+  has_many   :comments
+  belongs_to :condition
   accepts_nested_attributes_for :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -20,8 +21,9 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :status
   extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :shipping_date
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :delivery_method
-
 
   scope :recent_category, lambda { |count|
   where(category_id: count).order(created_at: :DESC).limit(4)

@@ -1,4 +1,5 @@
 class Condition < ActiveHash::Base
+  
   self.data = [
     {id:1, state: '新品、未使用'},
     {id:2, state: '未使用に近い'},
@@ -7,4 +8,5 @@ class Condition < ActiveHash::Base
     {id:5, state: '傷や汚れあり'},
     {id:6, state: '全体的に状態が悪い'}
   ]
+  
 end

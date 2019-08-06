@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [ :show, :edit, :update ]
   def index
     @ladies = Product.recent_category(1)
     @mens = Product.recent_category(219)
@@ -11,8 +12,11 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @products = Product.where(user_id: @product.user_id).limit(6)
+    @images = @product.images
+    @product.delivery_fee == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
   end
-
+  
   def purchase
   end
 
@@ -81,4 +85,8 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {images: []}, user_id: current_user.id)
   end  
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end

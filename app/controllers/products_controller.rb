@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [ :show, :edit, :update ]
+  before_action :set_product, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @ladies = Product.recent_category(1)
@@ -80,6 +80,11 @@ class ProductsController < ApplicationController
     # if @product.update(product_params)
     #   redirect_to 
     # end
+  end
+
+  def destroy
+    @product.destroy if @product.user_id == current_user.id
+    redirect_to user_path(current_user.id), notice: '商品を削除しました。'
   end
   
   def search

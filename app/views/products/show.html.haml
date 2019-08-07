@@ -111,13 +111,13 @@
 
   - if user_signed_in? && current_user.id == @product.user_id
     .item-change-box
-      %a.btn-default.btn-red
+      = link_to edit_product_path(@product.id), class: "btn-default btn-red" do
         商品の編集
       %p.text-center
         or
-      %a.btn-default.btn-gray
+      = link_to edit_product_path(@product.id), class: "btn-default btn-gray" do
         出品を一旦停止する
-      %a.btn-default.btn-gray
+      = link_to product_path(@product.id), method: :delete, data:{ confirm: '削除すると二度と復活できません。本当に削除しますか？' }, class: "btn-default btn-gray" do
         この商品を削除する
 
   .comment
@@ -125,7 +125,6 @@
       .comment-container__field
         = render partial: "item-comment"
       
-
       .comment-container__post
         %form.comment-form#comment-form
           .comment-form__notice

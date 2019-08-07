@@ -1,57 +1,34 @@
 =render partial: "products/header"
 
+-# パンくずリスト
+%nav.breadcrumb-wrapper
+  %ul
+    %li.item_scope
+      =link_to root_path , class:'scope_name_prev' do 
+        メルカリ
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class:'scope_name_prev' do 
+        カテゴリー一覧
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class: 'scope_name_current' do 
+        =@ladies.name
+
+-#ページメイン
 .mid-main-wrapper.clearfix
   .all-list-wrapper
     %ul.navi-item-wrapper.clearfix
-      %li
-        =link_to 'ショルダーバッグ','#', class:'sml-category'
-      %li
-        =link_to 'トートバッグ','#', class:'sml-category'
-      %li
-        =link_to 'ハンドバッグ','#', class:'sml-category'
-      %li
-        =link_to 'リュック/バックパック','#', class:'sml-category'
-      %li
-        =link_to 'ポーチ/バニティ','#', class:'sml-category'
-      %li
-        =link_to 'ショップ袋','#', class:'sml-category'
-      %li
-        =link_to 'ボディーバッグ/ウエストバッグ','#', class:'sml-category'          
-      %li
-        =link_to 'かごバッグ','#', class:'sml-category'
-      %li
-        =link_to '旅行用バッグ/キャリーバッグ','#', class:'sml-category'
+      -@ladies_child.each do |category|
+        %li
+          =link_to category.name,'#', class:'sml-category'
           
-    .items-list-wrapper.clearfix
+    .items-list-wrapper
       %h1.items-head_name
-        バッグの商品一覧
+        =@ladies.name+'の商品一覧'
       .items-wrapper
-        = render partial:"products/an-item" #1行目
-        = render partial:"products/an-item" #2行目
-        = render partial:"products/an-item" #3行目
-        = render partial:"products/an-item" #4行目
-        = render partial:"products/an-item" #5行目
-        = render partial:"products/an-item" #6行目
-        = render partial:"products/an-item" #7行目
-        = render partial:"products/an-item" #8行目
-        = render partial:"products/an-item" #9行目
-        = render partial:"products/an-item" #10行目
-        = render partial:"products/an-item" #11行目
-        = render partial:"products/an-item" #12行目
-        = render partial:"products/an-item" #13行目
-        = render partial:"products/an-item" #14行目
-        = render partial:"products/an-item" #15行目
-        = render partial:"products/an-item" #16行目
-        = render partial:"products/an-item" #17行目
-        = render partial:"products/an-item" #18行目
-        = render partial:"products/an-item" #19行目
-        = render partial:"products/an-item" #20行目
-        = render partial:"products/an-item" #21行目
-        = render partial:"products/an-item" #22行目
-        = render partial:"products/an-item" #23行目
-        = render partial:"products/an-item" #24行目
-        = render partial:"products/an-item" #25行目
-        = render partial:"products/an-item" #26行目
+        = render partial: 'products/an-item'
+
       %ul.item-list-page
         %li.item-list-page_prev
           %ul
@@ -85,7 +62,7 @@
       .item-list-footer
         .item-list-name_box
           %h3.item-list-name
-            バッグ（レディース）
+            =@ladies.name
 
 =render partial: "products/app-notice"
 

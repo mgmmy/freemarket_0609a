@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   
   root "products#index"
-  resources :products, only: [:show, :new, :create] do
+  resources :products, only: [:show, :new, :create, :edit, :update] do
 
     resources :images, only: [:new, :create] 
     

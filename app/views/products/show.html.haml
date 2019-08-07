@@ -23,13 +23,14 @@
             %th 出品者
             %td 
               = link_to @product.user.nickname, user_path(@product.user_id)
-              .user-rating
-                = fa_icon 'smile-o', class: "user-rating__icon"
-                %span 99
-                = fa_icon 'meh-o', class: "user-rating__icon"
-                %span 99
-                = fa_icon 'frown-o', class: "user-rating__icon"
-                %span 99
+              - unless user_signed_in? && current_user.id == @product.user_id
+                .user-rating
+                  = fa_icon 'smile-o', class: "user-rating__icon"
+                  %span 99
+                  = fa_icon 'meh-o', class: "user-rating__icon"
+                  %span 99
+                  = fa_icon 'frown-o', class: "user-rating__icon"
+                  %span 99
           %tr
             %th カテゴリー
             %td
@@ -82,14 +83,14 @@
           送料込み
 
       .buy-btn
-        = link_to "#", class: "buy-btn__link btn-default btn-red" do
-          購入画面に進む
-
-      = link_to 'アプリで買う', "#", class: "mercari-app-link"
+        - unless user_signed_in? && current_user.id == @product.user_id
+          = link_to "#", class: "buy-btn__link btn-default btn-red" do
+            購入画面に進む
+          = link_to 'アプリで買う', "#", class: "mercari-app-link"
 
       .item-info__description
         = @product.detail
-
+    - unless user_signed_in? && current_user.id == @product.user_id
       .item-info__button
         .item-info__button-like
           = button_to root_path, class: "item-button like-button" do
@@ -107,6 +108,17 @@
           = link_to "#", class: "item-info__policy-link" do
             = fa_icon 'lock'
             %span あんしん・あんぜんへの取り組み
+
+  - if user_signed_in? && current_user.id == @product.user_id
+    .item-change-box
+      %a.btn-default.btn-red
+        商品の編集
+      %p.text-center
+        or
+      %a.btn-default.btn-gray
+        出品を一旦停止する
+      %a.btn-default.btn-gray
+        この商品を削除する
 
   .comment
     .comment-container

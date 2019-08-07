@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [ :show, :edit, :update ]
+
   def index
     @ladies = Product.recent_category(1)
     @mens = Product.recent_category(219)
@@ -37,8 +38,6 @@ class ProductsController < ApplicationController
       params[:product][:brand_id] = Brand.create(name: params[:product][:brand_id]).id
     end
 
-    
-
     @product = Product.new(product_params)
     if @product.save && params[:images][:image]!= ""
       params[:images][:image].each do |image|
@@ -75,6 +74,12 @@ class ProductsController < ApplicationController
     else
       @packages = DeliveryMethod.all
     end
+  end
+
+  def update
+    # if @product.update(product_params)
+    #   redirect_to 
+    # end
   end
   
   def search

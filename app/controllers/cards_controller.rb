@@ -2,19 +2,11 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    Rails.application.secrets.PAYJP_KEY
-  end
-
-  def howtopay
-    card = Card.where(user_id: current_user.id)
-    if @card.save
-      redirect_to complete_users_path
-    else
-      redirect_to howtopay_path
-    end
+    gon.payjp_test_pk = Rails.application.secrets.PAYJP_KEY
   end
 
   def pay 
+    binding.pry
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     if params['payjp-token'].blank?
       redirect_to action: "howtopay"

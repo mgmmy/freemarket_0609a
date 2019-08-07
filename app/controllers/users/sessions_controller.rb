@@ -1,27 +1,19 @@
-# frozen_string_literal: true
-
 class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
 
-  # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  
+  # def index
+  #     session[:user_name]
+  #     @notice = "#{session[:user_name]}でログインしています。"
+  #     redirect_to phonemumber_users_path
+  #   end
 
-  # POST /resource/sign_in
-  # def create
-  #   super
-  # end
-
-  # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
-
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_in_params
-  #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
+  # if params.key?(:name) || params.key?(:password)
+  #   user = User.find_by_name(params[:name])
+  #   if user && user.authenticate(params[:password])
+  #     session[:user_name] = params[:name]
+  #   else
+  #     session[:user_name] = nil
+  #   end
   # end
 end
+

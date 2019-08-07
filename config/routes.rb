@@ -55,5 +55,4 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-
 end

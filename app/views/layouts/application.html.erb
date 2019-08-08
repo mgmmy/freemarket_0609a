@@ -8,7 +8,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body>  
+    <div>
+      <% if content_for?(:body_attributes) %>  
+        <%= yield(:body_attributes) %>
+      <% end %>
+      
+      <%= yield %>
+    </div>   
   </body>
 </html>

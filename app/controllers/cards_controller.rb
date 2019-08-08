@@ -13,13 +13,10 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.create(
       card: params["token_submit"],
       ) 
-      binding.pry
       @card = Card.new(user_id: (session[:user_id]), customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        binding.pry
         redirect_to complete_users_path
       else
-        binding.pry
         redirect_to action: "pay"
       end
     end

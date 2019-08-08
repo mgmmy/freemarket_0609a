@@ -134,17 +134,15 @@
               line-height: 12px;
             }
           }
-          .address--next {
-            background-color: $mercari-red;
-            height: 50px;
-            position: relative;
-            margin: 40px 0 0;
-            .btn-address--next {
+          .btn-address--next {
               color: $bg-white;
               position: absolute;
               top: 15px;
-              left: 120px;
-            }
+              left: 20px;
+              background-color: $mercari-red;
+              height: 50px;
+              position: relative;
+              margin: 40px 0 0;
           }
         }
       }

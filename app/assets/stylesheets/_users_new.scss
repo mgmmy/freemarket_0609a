@@ -44,7 +44,7 @@
             .mail--text {
               color: white;
               position: absolute;
-              top: 15px;
+              top: 18px;
               left: 90px;
             }
           }
@@ -68,9 +68,8 @@
             .facebook--text {
               color: white;
               position: absolute;
-              top: 15px;
-              left: 90px;
-
+              top: 18px;
+              left: 100px;
             }
           }
           .newmember__main__contents--google {
@@ -85,14 +84,16 @@
               position: absolute;
               color: #333;
               font-size: 25px;
-              top: 5p;
+              top: 2px;
               left: 5px;
             }
             .google--text {
               color: #333;
               position: absolute;
-              top: 15px;
-              left: 110px;
+              width: 100px;
+              font-size: 14px;
+              top: 18px;
+              left: 100px;
             }
           }
         }

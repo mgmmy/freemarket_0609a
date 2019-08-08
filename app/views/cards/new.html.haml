@@ -36,7 +36,7 @@
         //メインの下の段
         .howtopay__mainbox__main
           .howtopay__main
-            = form_for(pay_user_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
+            = form_tag(pay_user_cards_path(session[:user_id]), method: :post, id: 'charge-form',  name: "inputForm") do
               .howtopay--name
                 .howtopay--name--name カード番号
                 .howtopay--name--red 必須

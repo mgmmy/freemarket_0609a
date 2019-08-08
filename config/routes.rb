@@ -39,7 +39,6 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :destroy] do
     resources :cards, only: [:index, :new, :destroy, :show] do
       collection do
-        get 'howtopay', to: 'cards#howtopay'
         post 'pay', to: 'cards#pay'
       end
     end

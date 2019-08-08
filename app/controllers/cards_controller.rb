@@ -2,22 +2,24 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    gon.payjp_test_pk = Rails.application.secrets.PAYJP_KEY
+    gon.payjp_test_pk = 'pk_test_96c564d4594eefb82a8e0bfa'
   end
 
   def pay 
-    binding.pry
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    if params['payjp-token'].blank?
-      redirect_to action: "howtopay"
+    Payjp.api_key = 'sk_test_8bd97780242b34346ce182bf'
+    if params["token_submit"].blank?
+      redirect_to action: "pay"
     else
       customer = Payjp::Customer.create(
-      card: params['payjp-token'],
+      card: params["token_submit"],
       ) 
-      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      binding.pry
+      @card = Card.new(user_id: (session[:user_id]), customer_id: customer.id, card_id: customer.default_card)
       if @card.save
+        binding.pry
         redirect_to complete_users_path
       else
+        binding.pry
         redirect_to action: "pay"
       end
     end

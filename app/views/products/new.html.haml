@@ -13,13 +13,13 @@
                 必須
             %p
               最大10枚までアップロードできます
-            = f.fields_for :image do |image|
+            = f.fields_for :images do |image|
               .dropzone-container.clearfix
                 #preview
                 .dropzone-container__upload
                   =image.label :image, class: "dropzone-container__drop-field", for: "upload-image" do
                     .dropzone-container__upload-area
-                      = image.file_field :image, multiple: true, name: 'images []', id: "upload-image", class: "upload-image", 'data-image': 0
+                      = image.file_field :image, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
                       .dz-message.needsclick
                         %p  
                           ドラッグアンドドロップ
@@ -30,7 +30,7 @@
                 .dropzone-container__upload2
                   =image.label :image, class: "dropzone-container__drop-field2", for: "upload-image" do
                     .dropzone-container__upload-area
-                      = image.file_field :image, multiple: true, name: 'images []', id: "upload-image", class: "upload-image", 'data-image': 0
+                      = image.file_field :image, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
                       .dz-message.needsclick
                         %p  
                           ドラッグアンドドロップ
@@ -54,107 +54,81 @@
               商品の詳細
             .sell-content__form-box
               .form-group#category-form
-                = f.label :category do
+                = f.label :categories_id do
                   カテゴリー
                   %span.form-require
                     必須
-                  .select-wrap
-                    = f.select :category, @parent_category, {prompt: "---"}, {class: "select-default", id: "parent-category"}
-                    = fa_icon "chevron-down"
+                .select-wrap
+                  = f.select :category, @parent_category, {prompt: "---"}, {class: "select-default", id: "parent-category"}
+                  = fa_icon "chevron-down"
 
               .form-group
-                = f.label :status do
+                = f.label :condition_id do
                   商品の状態
                   %span.form-require
                     必須
-                  .select-wrap
-                    = f.select :status, @status.map{|t| [t.name, t.id]}, {prompt: "---"}, {class: "select-default"}
-                    = fa_icon "chevron-down"
-                    -# %option{ value: "" }
-                    -#   \---
-                    -# %option{ value: "1" }
-                    -#   新品、未使用
-                    -# %option{ value: "2" }
-                    -#   未使用に近い
-                    -# %option{ value: "3" }
-                    -#   目立った傷や汚れなし
-                    -# %option{ value: "4" }
-                    -#   やや傷や汚れあり
-                    -# %option{ value: "5" }
-                    -#   傷や汚れあり
-                    -# %option{ value: "6" }
-                    -#   全体的に状態が悪い
+                .select-wrap
+                  = f.collection_select :condition_id, Condition.all, :id, :state, {prompt: "---"}, class: "select-default"
+                  = fa_icon "chevron-down"
                   
           .sell-content.clearfix
             %h3.sell-content__sub-head
               配送について
             = link_to "",{ target: "_blank", class: "form-question" } do
-              %i.fa.fa-question-circle
+              = fa_icon "question-circle"
             .sell-content__form-box
-              .form-group
-                %label
+              .form-group#shipping-form
+                = f.label :charge_id do
                   配送料の負担
                   %span.form-require
                     必須
                 .select-wrap
-                  %select.select-default
-                    %option{ value: "" }
-                      \---
-                    %option{ value: "2" }
-                      送料込み(出品者負担)
-                    %option{ value: "1" }
-                      着払い(購入者負担)
-                  %i.fa.fa-chevron-down
+                  .select-wrap
+                  = f.collection_select :charge_id, Charge.all, :id, :payer, {prompt: "---"}, class: "select-default", id: "charge-form"
+                  = fa_icon "chevron-down"
               .form-group
-                %label
+                = f.label :prefecture_id do
                   発送元の地域
                   %span.form-require
                     必須
                 .select-wrap
                   = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, class: "select-default"
-                  %i.fa.fa-chevron-down
+                  = fa_icon "chevron-down"
               .form-group
-                %label
+                = f.label :shipment_id do
                   発送までの日数
                   %span.form-require
                     必須
                 .select-wrap
-                  %select.select-default
-                    %option{ value: "" }
-                      \---
-                    %option{ value: "1" }
-                      1~2日で発送
-                    %option{ value: "2" }
-                      2~3日で発送
-                    %option{ value: "3" }
-                      4~7日で発送
-                  %i.fa.fa-chevron-down
+                  = f.collection_select :shipment_id, Shipment.all, :id, :ship, {prompt: "---"}, class: "select-default"
+                  = fa_icon "chevron-down"
+                  
           .sell-content.clearfix
             %h3.sell-content__sub-head
               販売価格(300〜9,999,999)
             = link_to "",{ target: "_blank", class: "form-question" } do
-              %i.fa.fa-question-circle
+              = fa_icon "question-circle"
             .sell-content__form-box
               %ul.sell-price
                 %li.form-group
                   .clearfix
-                    %label.l-left
+                    = f.label :price, class: "l-left" do
                       価格
                       %span.form-require
                         必須
                     .l-right.sell-price-input
                       ¥
                       %div
-                        %input{ class: "input-default", value: "", placeholder: "例）300" }
+                        = f.text_field :price, class: "input-default", id: "price-form", value: "", placeholder: "例）300" 
                 %li.clearfix
                   .l-left
                     販売手数料 (10%)
-                  .l-right
+                  .l-right#sales-fee
                     \-
                 %li.clearfix.bold
                   .l-left
                     販売利益
-                  .l-right
+                  .l-right#sales-benefit
                     \-
           .modal{ role: "dialog", tabindex: "-1" }
             .modal-inner
@@ -177,8 +151,8 @@
                 = link_to "/jp/seller_terms/" do
                   加盟店規約
                 に同意したことになります。
-            %button{ type: "submit", class: "btn-default btn-red", id: "new-product" }
-              出品する
-            %button.btn-default.btn-gray
+            = f.submit "出品する", class: "btn-default btn-red", id: "new-product" 
+              
+            = link_to root_path, class: "btn-default btn-gray" do
               もどる
 = render partial: "users/shared/registration-footer"

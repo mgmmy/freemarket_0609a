@@ -1,13 +1,22 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [ :show, :edit, :update ]
   def index
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
-    # @products = Product.where('name LIKE(?)', "%#{params[:keyword]}%").limit(124)
+    @ladies = Product.recent_category(1)
+    @mens = Product.recent_category(219)
+    @kids = Product.recent_category(378)
+    @cosmes = Product.recent_category(528)
+    @channels = Product.recent_brand(1)
+    @vuittons = Product.recent_brand(2)
+    @supremes = Product.recent_brand(3)
+    @nikes = Product.recent_brand(4)
   end
 
   def show
+    @products = Product.where(user_id: @product.user_id).limit(6)
+    @images = @product.images
+    @product.delivery_fee == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
   end
-
+  
   def purchase
   end
 
@@ -18,21 +27,28 @@ class ProductsController < ApplicationController
     @parent_category = []
     Category.where(ancestry: nil).each do |parent|
       @parent_category << parent.name
-    end
-    
-    @status = Status.all
+    end  
   end
 
   def create
+    if brand = Brand.find_by(name: params[:product][:brand_id])
+      params[:product][:brand_id] = brand.id
+    else
+      params[:product][:brand_id] = Brand.create(name: params[:product][:brand_id]).id
+    end
+
+    
+
     @product = Product.new(product_params)
-    if @product.save 
-      image_params[:images].each do |image|
-        @product.image.create(image: image, product_id: @product.id)
+    if @product.save && params[:images][:image]!= ""
+      params[:images][:image].each do |image|
+        @product.images.create(image: image, product_id: @product.id)
       end
-      redirect_to product_path(@product)
+      redirect_to products_path(@product)
+      flash[:alert] = '出品が完了しました'
     else
       @product.images.build
-      flash[:alert] = '未入力項目があります'
+      flash.now.alert = '未入力項目があります'
       redirect_back(fallback_location: root_path)
     end
   end
@@ -51,6 +67,15 @@ class ProductsController < ApplicationController
       @sizes = size_related_child.children
     end
   end
+
+  def get_delivery_method
+    charge = Charge.find("#{params[:charge_id]}")
+    if charge.id == 2
+      @packages = DeliveryMethod.where(id: [1,6,7,3])
+    else
+      @packages = DeliveryMethod.all
+    end
+  end
   
   def search
   end
@@ -58,11 +83,10 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status, :brand_id, :category_id, :size_id, :user_id, :like, :delivery_fee, :method_id)
-  end
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {images: []}, user_id: current_user.id)
+  end  
 
-  def image_params
-    params.require(:image).permit({images: []})
+  def set_product
+    @product = Product.find(params[:id])
   end
-  
 end

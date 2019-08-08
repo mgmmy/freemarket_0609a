@@ -38,6 +38,8 @@ $(document).on("turbolinks:load", function() {
         preview.append(image);  
         
       })
+      console.log(upload_images.length);
+      console.log(images.length);
       
       dropzone.css({
         'width': `calc(100% - (20% * ${images.length} ))`
@@ -82,9 +84,9 @@ $(document).on("turbolinks:load", function() {
     }
 
     var new_image = $(
-      `<input multiple= "multiple" name="item_images[image][]" class="upload-image" data-image=${images.length} type="file" id="upload-image">`
+      `<input multiple= "multiple" name="images[image][]" class="upload-image" data-image=${images.length} type="file" id="upload-image">`
     );
-    upload_area.append(new_image);
+    upload_area.prepend(new_image);
   });
 
   $(document).on('click', '.btn-wrapper_delete', function() {
@@ -153,17 +155,14 @@ $(document).on("turbolinks:load", function() {
     }
   })
 
-  $('#new-product').on('submit', function(e) {
+  $('#new_product').on('submit', function(e) {
     e.preventDefault();
-    var formData = new formData($(this).get(0));
-
+    var formData = new FormData($(this).get(0));
     if (upload_images.length == 0) {
-      form.Data.append("new_images[images][]", " ")
-      
-    } else {
-      
+      formData.append("images[image][]", " ")
+    } else { 
       upload_images.forEach(function(file) {
-        formData.append("new_images[images][]", file)
+        formData.append("images[image][]", file)
       });
     }
 

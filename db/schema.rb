@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190728123809) do
+
+ActiveRecord::Schema.define(version: 20190729100048) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "prefectures_id_id", null: false
@@ -19,6 +20,8 @@ ActiveRecord::Schema.define(version: 20190728123809) do
     t.integer "users_id",          null: false
     t.index ["prefectures_id_id"], name: "index_addresses_on_prefectures_id_id", using: :btree
   end
+
+
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -66,12 +69,6 @@ ActiveRecord::Schema.define(version: 20190728123809) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "delivery_methods", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id", null: false
     t.integer  "user_id",    null: false
@@ -89,28 +86,50 @@ ActiveRecord::Schema.define(version: 20190728123809) do
     t.index ["product_id"], name: "index_images_on_product_id", using: :btree
   end
 
+  create_table "lar_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mid_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                             null: false
     t.text     "detail",             limit: 65535
     t.integer  "price",                            null: false
-    t.integer  "user_id",                          null: false
+    t.integer  "user_id"
     t.integer  "like"
-    t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "condition_id"
     t.integer  "status_id"
     t.integer  "brand_id"
+    t.integer  "lar_category_id"
+    t.integer  "mid_category_id"
+    t.integer  "sml_category_id"
     t.integer  "size_id"
-    t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
-    t.string   "city"
-    t.integer  "categories_id"
+    t.integer  "shipping_date_id"
+    t.string   "date"
+    t.integer  "shipments_id"
+    t.integer  "charge_id"
+    t.integer  "condition_id"
+    t.integer  "delivery_method_id"
+    t.integer  "shipment_id"
+    t.integer  "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
-    t.index ["categories_id"], name: "index_products_on_categories_id", using: :btree
-    t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
+    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
+    t.index ["lar_category_id"], name: "index_products_on_lar_category_id", using: :btree
+    t.index ["mid_category_id"], name: "index_products_on_mid_category_id", using: :btree
+    t.index ["shipments_id"], name: "index_products_on_shipments_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
+    t.index ["sml_category_id"], name: "index_products_on_sml_category_id", using: :btree
     t.index ["status_id"], name: "index_products_on_status_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
@@ -158,6 +177,12 @@ ActiveRecord::Schema.define(version: 20190728123809) do
     t.string   "ancestry"
   end
 
+  create_table "sml_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "provider"
     t.string   "uid"
@@ -183,12 +208,6 @@ ActiveRecord::Schema.define(version: 20190728123809) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_social_media_on_user_id", using: :btree
-  end
-
-  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -219,11 +238,11 @@ ActiveRecord::Schema.define(version: 20190728123809) do
   add_foreign_key "favorites", "users"
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
-  add_foreign_key "products", "categories", column: "categories_id"
-  add_foreign_key "products", "conditions"
-  add_foreign_key "products", "delivery_methods"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "lar_categories"
+  add_foreign_key "products", "mid_categories"
   add_foreign_key "products", "sizes"
-  add_foreign_key "products", "statuses"
+  add_foreign_key "products", "sml_categories"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "purchases", "cards"

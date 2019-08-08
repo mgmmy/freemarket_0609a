@@ -25,12 +25,12 @@ Rails.application.routes.draw do
     resources :images, only: [:new, :create] 
     
     collection do
-      get 'itemlist'
       get 'purchase'
       get 'get_child_category', defaults: {format: 'json'}
       get 'get_grandchild_category', defaults: {format: 'json'}
       get 'get_sizes', defaults: {format: 'json'}
       get 'get_brands', defaults: {format: 'json'}
+      get 'get_delivery_method', defaults: {format: 'json'}
     end
   end
   get 'address/create' , to: 'users#address_create'
@@ -51,6 +51,10 @@ Rails.application.routes.draw do
       get 'address'
       get 'complete'
       get 'logout'
+      get 'credit_unregistered'
+      get 'profile'
     end
   end
+  resources :categories, only: [:show]
+
 end

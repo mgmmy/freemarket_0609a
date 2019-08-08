@@ -35,8 +35,6 @@
             vertical-align: middle;
           }
           &__nickname {
-            width: 185px;
-            height: 30px;
             margin: 0 0 0 8px;
             vertical-align: middle;
           }
@@ -44,7 +42,6 @@
         &__introduction {
           padding: 40px 16px;
           textarea {
-            width: calc(100% - 22px);
             margin: 0;
             min-height: 194px;
           }

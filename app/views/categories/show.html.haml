@@ -1,0 +1,71 @@
+=render partial: "products/header"
+
+-# パンくずリスト
+%nav.breadcrumb-wrapper
+  %ul
+    %li.item_scope
+      =link_to root_path , class:'scope_name_prev' do 
+        メルカリ
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class:'scope_name_prev' do 
+        カテゴリー一覧
+      =fa_icon ("chevron-right")
+    %li.item_scope
+      =link_to '#', class: 'scope_name_current' do 
+        =@ladies.name
+
+-#ページメイン
+.mid-main-wrapper.clearfix
+  .all-list-wrapper
+    %ul.navi-item-wrapper.clearfix
+      -@ladies_child.each do |category|
+        %li
+          =link_to category.name,'#', class:'sml-category'
+          
+    .items-list-wrapper
+      %h1.items-head_name
+        =@ladies.name+'の商品一覧'
+      .items-wrapper
+        = render partial: 'products/an-item'
+
+      %ul.item-list-page
+        %li.item-list-page_prev
+          %ul
+            %li.progress-box
+              =link_to '#' do
+                =fa_icon 'angle-double-left', class:"icon-double"
+            %li.progress-box
+              =link_to '#' do
+                =fa_icon 'chevron-left', class:"icon-single"
+        %li.item-list-page_num
+          %ul
+            %li.page-btn.active
+              =link_to '1', '#'
+            %li.page-btn.box
+              =link_to '2','#'
+            %li.page-btn.box
+              =link_to '3','#'
+            %li.page-btn.box
+              =link_to '4','#'
+            %li.page-btn.box
+              =link_to '5','#'
+        %li.item-list-page_next
+          %ul
+            %li.progress-box
+              =link_to '#' do
+                =fa_icon 'chevron-right',class: "icon-single"
+            %li.progress-box
+              =link_to '#' do
+                =fa_icon 'angle-double-right', class:"icon-double"
+
+      .item-list-footer
+        .item-list-name_box
+          %h3.item-list-name
+            =@ladies.name
+
+=render partial: "products/app-notice"
+
+=render partial: "layouts/sell-btn" 
+
+=render partial: "products/footer"

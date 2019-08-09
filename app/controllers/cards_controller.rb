@@ -2,11 +2,11 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    gon.payjp_test_pk = 'pk_test_96c564d4594eefb82a8e0bfa'
+    gon.payjp_test_pk = ENV['PAYJP_KEY']
   end
 
   def pay 
-    Payjp.api_key = 'sk_test_8bd97780242b34346ce182bf'
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     if params["token_submit"].blank?
       redirect_to action: "pay"
     else
@@ -23,7 +23,7 @@ class CardsController < ApplicationController
   end
 
   def delete 
-    card = Card.where(user_id: session[:user_id]）.first
+    # card = Card.where(user_id: session[:user_id]）.first
     if card.present?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]

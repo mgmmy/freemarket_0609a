@@ -23,7 +23,7 @@ class CardsController < ApplicationController
   end
 
   def delete 
-    # card = Card.where(user_id: session[:user_id]）.first
+    
     if card.present?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]

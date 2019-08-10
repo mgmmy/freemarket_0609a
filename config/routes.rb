@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get 'address/create' , to: 'users#address_create'
   post 'address/create' => 'users#address_create'
   post 'user/sms_authenticate' , to: 'users#sms_authenticate'
-  resources :users, only: [:new, :create, :destroy] do
+  resources :users, only: [:new, :create, :destroy, :show] do
     resources :cards, only: [:index, :new, :destroy, :show] do
       collection do
         post 'pay', to: 'cards#pay'

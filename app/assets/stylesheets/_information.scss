@@ -406,18 +406,12 @@
           margin: 40px 0 0;
           font-size: 14px;
         }
-        .information--next {
-          margin: 40px 0 0;
+        .btn--information--next {
+          margin: 40px 5px 0;
           background-color: #ea352d;
           height: 50px;
           position: relative;
-          .btn--information--next {
-            color: white;
-            position: absolute;
-            top: 15px;
-            left: 130px;
-            font-size: 14px;
-          }
+          color: white;
         }
         .information--about {
           text-align: right;

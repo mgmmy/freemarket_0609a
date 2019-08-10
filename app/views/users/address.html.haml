@@ -35,8 +35,9 @@
           .address__upper--message 配送元・お届け先住所入力
         //メインの下の段
         .address__mainbox__main
-          =form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          =form_for(@address, as: address, url: registration_path(address_name)) do |f|
+          =form_for(:post, url: address_create_path) do |f|
+          
+          
             .address__main
               .address--name
                 = f.label 'お名前', class: "address--name--name"
@@ -81,7 +82,7 @@
 
               //次へ進む
               .address--next
-                = link_to "次へ進む", howtopay_users_path, class: "btn btn-address--next"
+                = f.submit "次へ進む", class: "btn-address--next"
               
 
 

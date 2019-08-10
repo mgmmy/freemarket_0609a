@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
   def show
     @products = Product.where(user_id: @product.user_id).limit(6)
     @images = @product.images
-    @product.delivery_fee == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
+    @product.charge_id == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
   end
   
   def purchase
@@ -83,7 +83,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {image: []})
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {image: []}, user_id: current_user.id)
   end  
 
   def set_product

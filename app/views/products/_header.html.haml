@@ -6,8 +6,6 @@
       %h1.mercari-logo
         =link_to image_tag('//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2479985427'), root_path
       //検索キーワード入力部分
-      
-
       .index-header__search
         = form_tag search_products_path, class: 'index-header__search', method: :get do
           = text_field_tag :keyword, params[:keyword], class: 'search-field', placeholder: "何かお探しですか？" 
@@ -61,3 +59,4 @@
         .li.index-header__bottom__right__todo やることリスト
             
         //マイページ
+        .li.index-header__bottom__right__mypage マイベージ

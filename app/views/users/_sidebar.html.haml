@@ -3,7 +3,7 @@
   .sidebar-content
     %ul.sidebar-list
       %li
-        = link_to '#', class: 'sidebar-list_contents' do
+        = link_to 'users/show', class: 'sidebar-list_contents' do
           マイページ
           = fa_icon("chevron-right")
       %li
@@ -19,7 +19,7 @@
           いいね！一覧
           = fa_icon("chevron-right")
       %li
-        = link_to '#', class: 'sidebar-list_contents' do
+        = link_to new_product_path, class: 'sidebar-list_contents' do
           出品する
           = fa_icon("chevron-right")
       %li
@@ -73,7 +73,7 @@
     %h3.sidebar-content_head 設定
     %ul.sidebar-list
       %li
-        = link_to '#', class: 'sidebar-list_contents' do
+        = link_to profile_users_path, class: 'sidebar-list_contents' do
           プロフィール
           = fa_icon("chevron-right")
       %li
@@ -81,7 +81,7 @@
           発送元・お届け先住所変更
           = fa_icon("chevron-right")
       %li
-        = link_to '#', class: 'sidebar-list_contents' do
+        = link_to credit_unregistered_users_path, class: 'sidebar-list_contents' do
           支払い方法
           = fa_icon("chevron-right")
       %li
@@ -89,7 +89,7 @@
           メール/パスワード
           = fa_icon("chevron-right")
       %li
-        = link_to '#', class: 'sidebar-list_contents' do
+        = link_to identification_users_path, class: 'sidebar-list_contents' do
           本人情報
           = fa_icon("chevron-right")
       %li
@@ -97,6 +97,6 @@
           電話番号の確認
           = fa_icon("chevron-right")
       %li
-        = link_to '#', class: 'sidebar-list_contents' do
+        = link_to logout_users_path, class: 'sidebar-list_contents' do
           ログアウト
           = fa_icon("chevron-right")

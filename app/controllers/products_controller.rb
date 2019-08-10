@@ -37,15 +37,12 @@ class ProductsController < ApplicationController
       params[:product][:brand_id] = Brand.create(name: params[:product][:brand_id]).id
     end
 
-    
-
     @product = Product.new(product_params)
     if @product.save && params[:images][:image]!= ""
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
-      redirect_to products_path(@product)
-      flash[:alert] = '出品が完了しました'
+      redirect_to products_path(@product.id)
     else
       @product.images.build
       flash.now.alert = '未入力項目があります'
@@ -78,12 +75,15 @@ class ProductsController < ApplicationController
   end
   
   def search
+    @result_products = params[:keyword]
+    @q = Product.ransack(params[:q])
+    @result_products = @q.result(distinct: true)
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {images: []}, user_id: current_user.id)
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {image: []})
   end  
 
   def set_product

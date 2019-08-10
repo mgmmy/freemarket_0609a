@@ -1,5 +1,4 @@
 //ヘッダー部分
-
 .header-main {
   width: 100%;
   height: 100px;
@@ -193,7 +192,10 @@
           font-size: 20px;
           margin-right: 8px;
         }
-        &__mypage:hover {
+        .my_page{
+          color:#333;
+        }
+        .my_page:hover{
           color: $blue-link;
         }
       }

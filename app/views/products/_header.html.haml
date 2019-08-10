@@ -59,4 +59,6 @@
         .li.index-header__bottom__right__todo やることリスト
             
         //マイページ
-        .li.index-header__bottom__right__mypage マイベージ
+        .li.index-header__bottom__right__mypage 
+          =link_to 'users/show' , class:'my_page' do
+            マイベージ

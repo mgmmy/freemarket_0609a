@@ -1,0 +1,30 @@
+.searched-contents {
+  margin: 40px auto 0;
+  width: 1020px;
+
+  &__sidebar {
+    width: 280px;
+    margin: 0 40px 0 0;
+
+    .select-wrap {
+      position: relative;
+      background: $bg-white;
+
+      .select-default {
+        width: 100%;
+        padding: 0 16px;
+        -webkit-appearance: none;
+      }
+      .fa-chevron-down {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        z-index: 2;
+        color: #888;
+        font-size: 16px;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+      }
+    }
+  }
+}

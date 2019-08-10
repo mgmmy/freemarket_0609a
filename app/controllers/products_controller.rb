@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
-      redirect_to products_path(@product.id)
+      redirect_to products_path(@product)
     else
       @product.images.build
       flash.now.alert = '未入力項目があります'
@@ -83,7 +83,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {image: []}, user_id: current_user.id)
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {image: []}).merge(user_id: session[:user_id])
   end  
 
   def set_product

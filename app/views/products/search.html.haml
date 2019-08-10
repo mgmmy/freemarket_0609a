@@ -1,7 +1,11 @@
 = render partial: "header"
 
 .searched-contents
-  = search_form_for @
+  .searched-contents__sidebar
+    = search_form_for @q, url: search_products_path do |f|
+      .select-wrap
+        = f.select :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, {}, {class: "select-default"}
+        = fa_icon "chevron-down"
 
 = render partial: "app-notice"
 = render partial: "layouts/sell-btn" 

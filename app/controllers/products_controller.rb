@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
-      redirect_to products_path(@product)
+      redirect_to product_path(@product)
     else
       @product.images.build
       flash.now.alert = '未入力項目があります'

@@ -100,7 +100,7 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.collection_select :shipment_id, Shipment.all, :id, :ship, {prompt: "---"}, class: "select-default"
+                  = f.collection_select :shipments_id, Shipment.all, :id, :ship, {prompt: "---"}, class: "select-default"
                   = fa_icon "chevron-down"
                   
           .sell-content.clearfix

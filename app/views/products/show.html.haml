@@ -8,8 +8,8 @@
       .item-info__image
         .slide-cont 
           .owl-carousel
-            - @images.each do |image|
-              = image_tag(image[:image], class: "image-select")
+            - @product.images.each do |image|
+              = image_tag(image.image.to_s, class: "image-select")
       
       .item-info__price.vanish
         %span.price-yen
@@ -22,7 +22,7 @@
           %tr
             %th 出品者
             %td 
-              = link_to @product.user.nickname, user_path(@product.user_id)
+              = link_to @product.user.nickname, user_path(@product.user_id), data: {turbolinks: false} 
               .user-rating
                 = fa_icon 'smile-o', class: "user-rating__icon"
                 %span 99

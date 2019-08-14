@@ -60,3 +60,11 @@ $(function () {
     }
   })
 });
+
+$(function (){
+  $('#size-select').on('change', function(){  
+    $('.invisible').css({
+      'display': 'block'
+    });
+  });
+});

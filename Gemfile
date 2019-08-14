@@ -98,3 +98,4 @@ gem "omniauth-rails_csrf_protection"
 gem 'payjp'
 gem 'gon'
 gem 'nokogiri'
+gem 'kaminari', '~> 0.17.0'

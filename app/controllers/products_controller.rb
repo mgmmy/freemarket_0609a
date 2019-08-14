@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [ :show, :edit, :update ]
+  include ProductsHelper
+
   def index
     @ladies = Product.recent_category(1)
     @mens = Product.recent_category(219)
@@ -75,10 +77,34 @@ class ProductsController < ApplicationController
   end
   
   def search
-    @result_products = params[:keyword]
+    new
+    @keyword = params[:keyword]
+    @result_products = Product.where("name LIKE(?)", "%#{@keyword}%")
     @q = Product.ransack(params[:q])
-    @result_products = @q.result(distinct: true)
+
+    select_size = get_size_search.find(:id)
+    if select_size = 1 || 4 
+      @seach_sizes = Size.where(ancestry: 1)
+    elsif select_size == 2
+      @seach_sizes = Size.where(ancestry: 29)
+    elsif select_size == 3
+      @seach_sizes = Size.where(ancestry: 12)
+    else
+      @seach_sizes = Size.all
+    end
   end
+
+  def search_category
+    @search_child = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def search_grandchild_category
+    @search_grandchild = Category.find("#{params[:child_id]}").children
+  end
+
+  
+   
+
 
   private
 

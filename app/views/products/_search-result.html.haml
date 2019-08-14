@@ -1,0 +1,36 @@
+.searched-contents__main
+  .searched-contents__main-head
+    - if @keyword.length != 0
+      = @keyword 
+      %span.searched-contents__main-head-text
+        の検索結果
+      .searched-contents__main-head-amount
+        - if @result_products.length != 0
+          %span 1 -
+          = @result_products.length 
+          %span 件表示
+        - else
+          %p 
+            該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+    - else
+      新着商品
+ 
+
+  .searched-contents__main-products
+    -@result_products.each do |product|
+      .item-wrapper
+        =link_to product_path(product.id), data: {turbolinks: false} do
+          .item-image
+            =image_tag(product.images, class: "item-image_photo")
+          .item-text-wrapper
+            %h3.item-title
+              = product.name
+            .item-num
+              .item-price
+                ='￥'+ product.price.to_s(:delimited)
+              .item-like
+                %i.fa.fa-heart-o
+                %span.like-num
+                  = product.like
+            %p.item-price-tax
+              （税込） 

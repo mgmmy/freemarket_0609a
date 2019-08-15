@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20190729100048) do
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "customer_id", null: false
-    t.integer  "card_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
     t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
   end
 
@@ -99,14 +99,14 @@ ActiveRecord::Schema.define(version: 20190729100048) do
     t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
     t.string   "city"
-    t.integer  "categories_id"
     t.integer  "shipping_date_id"
     t.string   "date"
     t.integer  "shipments_id"
     t.integer  "charge_id"
+    t.integer  "deliver_method_id"
+    t.integer  "shipment_id"
     t.integer  "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
-    t.index ["categories_id"], name: "index_products_on_categories_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
@@ -215,7 +215,6 @@ ActiveRecord::Schema.define(version: 20190729100048) do
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "conditions"
   add_foreign_key "products", "sizes"
   add_foreign_key "products", "users"

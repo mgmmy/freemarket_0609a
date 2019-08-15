@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'purchase/index'
-
-  get 'purchase/done'
+  
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
@@ -27,15 +25,22 @@ Rails.application.routes.draw do
   resources :products, only: [:show, :new, :create] do
 
     resources :images, only: [:new, :create] 
-    
+    get 'purchase'
     collection do
       get 'search'
-      get 'purchase'
+      
       get 'get_child_category', defaults: {format: 'json'}
       get 'get_grandchild_category', defaults: {format: 'json'}
       get 'get_sizes', defaults: {format: 'json'}
       get 'get_brands', defaults: {format: 'json'}
       get 'get_delivery_method', defaults: {format: 'json'}
+    end
+    resources :purchase, only: [:index] do
+      collection do
+        get 'index', to: 'purchase#index'
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
     end
   end
   get 'address/create' , to: 'users#address_create'

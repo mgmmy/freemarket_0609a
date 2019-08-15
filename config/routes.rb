@@ -25,10 +25,8 @@ Rails.application.routes.draw do
   resources :products, only: [:show, :new, :create] do
 
     resources :images, only: [:new, :create] 
-    get 'purchase'
     collection do
       get 'search'
-      
       get 'get_child_category', defaults: {format: 'json'}
       get 'get_grandchild_category', defaults: {format: 'json'}
       get 'get_sizes', defaults: {format: 'json'}

@@ -1,0 +1,147 @@
+= render partial: "users/shared/registration-header"
+
+%main.single-main
+  %section.single-container
+    #sell-container
+      .sell-container-inner
+        %h2.sell-container-inner__single-head
+          商品の情報を入力
+        = form_for @product, html: {class: "sell-form dropzone", id: "item-dropzone"} do |f|
+          .sell-form__upload-box
+            %h3.sell-form__upload-box--head
+              出品画像
+              %span.form-require
+                必須
+            %p
+              最大10枚までアップロードできます
+            = f.fields_for :images do |image|
+              .dropzone-container.clearfix
+                #preview
+                .dropzone-container__upload
+                  =image.label :image, class: "dropzone-container__drop-field", for: "upload-image" do
+                    .dropzone-container__upload-area
+                      = image.file_field :image, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                      .dz-message.needsclick
+                        %p  
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+
+              .dropzone-container2.clearfix
+                #preview2
+                .dropzone-container__upload2
+                  =image.label :image, class: "dropzone-container__drop-field2", for: "upload-image" do
+                    .dropzone-container__upload-area
+                      = image.file_field :image, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                      .dz-message.needsclick
+                        %p  
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+                      
+          .sell-content
+            .form-group
+              = f.label :name do
+                商品名 
+                %span.form-require
+                  必須
+              = f.text_field :name, class: "input-default", placeholder: "商品名（必須 40文字まで)"
+            .form-group
+              = f.label :detail do
+                商品の説明
+                %span.form-require
+                  必須
+              = f.text_area :detail, class: "textarea-default", rows: "5", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" 
+          .sell-content.clearfix
+            %h3.sell-content__sub-head
+              商品の詳細
+            .sell-content__form-box
+              .form-group#category-form
+                = f.label :categories_id do
+                  カテゴリー
+                  %span.form-require
+                    必須
+                .select-wrap
+                  = f.collection_select :category_id, @parent_category, :id, :name, {prompt: "---"}, {selected: 2, class: "select-default", id: "parent-category"}
+                  = fa_icon "chevron-down"
+                .select-wrap
+                  = f.collection_select :category_id, @child_category, :id, :name, {prompt: "---"}, {class: "select-default", id: "child-category"}
+                  = fa_icon "chevron-down"
+                .select-wrap
+                  = f.collection_select :category_id, @grandchild_categories, :id, :name, {prompt: "---"}, {class: "select-default", id: "grandchild-category"}
+                  = fa_icon "chevron-down"
+
+              .form-group
+                = f.label :condition_id do
+                  商品の状態
+                  %span.form-require
+                    必須
+                .select-wrap
+                  = f.collection_select :condition_id, Condition.all, :id, :state, {prompt: "---"}, class: "select-default"
+                  = fa_icon "chevron-down"
+                  
+          .sell-content.clearfix
+            %h3.sell-content__sub-head
+              配送について
+            = link_to "",{ target: "_blank", class: "form-question" } do
+              = fa_icon "question-circle"
+            .sell-content__form-box
+              .form-group#shipping-form
+                = f.label :charge_id do
+                  配送料の負担
+                  %span.form-require
+                    必須
+                .select-wrap
+                  .select-wrap
+                  = f.collection_select :charge_id, Charge.all, :id, :payer, {prompt: "---"}, class: "select-default", id: "charge-form"
+                  = fa_icon "chevron-down"
+              .form-group
+                = f.label :prefecture_id do
+                  発送元の地域
+                  %span.form-require
+                    必須
+                .select-wrap
+                  = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, class: "select-default"
+                  = fa_icon "chevron-down"
+              .form-group
+                = f.label :shipment_id do
+                  発送までの日数
+                  %span.form-require
+                    必須
+                .select-wrap
+                  = f.collection_select :shipment_id, Shipment.all, :id, :ship, {prompt: "---"}, class: "select-default"
+                  = fa_icon "chevron-down"
+                  
+          .sell-content.clearfix
+            %h3.sell-content__sub-head
+              販売価格(300〜9,999,999)
+            = link_to "",{ target: "_blank", class: "form-question" } do
+              = fa_icon "question-circle"
+            .sell-content__form-box
+              %ul.sell-price
+                %li.form-group
+                  .clearfix
+                    = f.label :price, class: "l-left" do
+                      価格
+                      %span.form-require
+                        必須
+                    .l-right.sell-price-input
+                      ¥
+                      %div
+                        = f.text_field :price, class: "input-default", id: "price-form", placeholder: "例）300" 
+                %li.clearfix
+                  .l-left
+                    販売手数料 (10%)
+                  .l-right#sales-fee
+                    = "¥#{number_with_delimiter(@commission)}"
+                %li.clearfix.bold
+                  .l-left
+                    販売利益
+                  .l-right#sales-benefit
+                    = "¥#{number_with_delimiter(@profit)}"
+          .modal{ role: "dialog", tabindex: "-1" }
+            .modal-inner
+          .sell-content.sell-btn-box
+            = f.submit "更新する", class: "btn-default btn-red", id: "update-product" 
+              
+            = link_to root_path, class: "btn-default btn-gray" do
+              もどる
+= render partial: "users/shared/registration-footer"

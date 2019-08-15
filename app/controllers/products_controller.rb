@@ -76,10 +76,27 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @products = Product.where(user_id: @product.user_id).limit(6)
+    @images = @product.images
+    @product.delivery_fee == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
+    @commission = (@product.price * 0.1).round
+    @profit = @product.price - @commission
+
+    @grandchild_category = Category.where(id: @product.category_id)
+    categories = @grandchild_category[0][:ancestry].split('/')
+    @parent_category = Category.where(id: categories[0])
+    @child_category = Category.where(id: categories[1])
+
+    @parent_categories = Category.where(ancestry: nil)
+    @child_categories = Category.where('ancestry LIKE ?', "#{@parent_category[0][:id]}")
+    @grandchild_categories = Category.where('ancestry LIKE ?', "%/#{@child_category[0][:id]}")
+  end
+
   def update
-    # if @product.update(product_params)
-    #   redirect_to 
-    # end
+    if @product.update(product_params)
+      render :show
+    end
   end
 
   def destroy

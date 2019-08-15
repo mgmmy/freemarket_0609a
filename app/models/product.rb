@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   has_one    :purchase
   has_many   :comments
   belongs_to :condition
+  belongs_to :size
   accepts_nested_attributes_for :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions

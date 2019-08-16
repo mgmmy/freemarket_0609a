@@ -1,0 +1,19 @@
+.searched-contents__main
+  .searched-contents__main-head
+    - if @keyword.present?
+      = @keyword
+      %span.searched-contents__main-head-text
+        の検索結果
+      .searched-contents__main-head-amount
+        - if @result_products.present?
+          %span 1 -
+          = @result_products.length 
+          %span 件表示
+        - else
+          %p 
+            該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+    - else
+      新着商品
+
+  .searched-contents__main-products
+    = render partial: "products_list", collection: @result_products, as: "product"

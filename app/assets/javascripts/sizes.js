@@ -60,3 +60,34 @@ $(function () {
     }
   })
 });
+
+$(function (){
+  function appendSizeBox(size) {
+    var sizeBoxHtml = "";
+    sizeBoxHtml =  `<input type="checkbox" class="size_box" id="${size.id}" name="q[size_id_eq]", value= ${size.id} >
+                    <label class="check_style" id="size_checkbox" for="${size.id}">${size.size}</label> 
+                    `;
+    $('#search_sizes').append(sizeBoxHtml);
+  };
+
+  $('#size-select').on('change', function(){  
+    var sizeId = document.getElementById('size-select').value;
+    if(sizeId != "") {
+      $.ajax({
+        url: 'search_size_id',
+        type: 'GET',
+        data: { size_id: sizeId },
+        dataType: 'json'
+      })
+      .done(function(sizes) {
+        sizes.forEach(function (size) {
+          $('#size-checkbox').remove();
+          var size_checkboxes = appendSizeBox(size);
+          $('#size-select').append(size_checkboxes);
+        });  
+      });
+    } else {
+      $('#size-checkbox').remove();
+    }
+  });
+});

@@ -60,27 +60,17 @@
         .owl-dot.active {
           opacity: 1;
           cursor: default;
-      
-        }
-
-        .image-carousel {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .image-slide {
-          line-height: 0;
 
           .image-select {
+            line-height: 0;
             position: absolute;
             top: 0;
             left: 50%;
             width: auto;
-            height: 100%;
+            min-height: 280px;
             -webkit-transform: translate(-50%, 0);
             transform: translate(-50%, 0);
           }
-          
         }
       }
 

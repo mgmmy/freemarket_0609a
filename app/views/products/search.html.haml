@@ -2,11 +2,92 @@
 
 .searched-contents
   .searched-contents__sidebar
-    = search_form_for @q, url: search_products_path do |f|
+    = search_form_for @search, url: search_products_path, html: { method: :post } do |f|
       .select-wrap
-        = f.select :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, {}, {class: "select-default"}
+        = f.select :sorts, options_for_select(get_sorts), { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()', class: "select-default"}
         = fa_icon "chevron-down"
+      .search-methods
+        .search-methods__title
+          詳細検索
+        .form-group
+          = f.label :search, class: "form-group_label" do
+            = fa_icon "plus"
+            キーワードを追加する
+          = f.search_field :name_or_detail_cont, {value: @keyword, class: 'input-default', placeholder: "値下げ"}
+        .search-methods__category
+          .form-group#search_category
+            = f.label :search, class: "form-group_label" do 
+              = fa_icon "list-ul"
+              カテゴリーを検索する
+            .select-wrap
+              = f.select :category_id, @parent_category, { include_blank: "すべて"}, {class: "select-default", id: "search-parent"}
+              = fa_icon "chevron-down"
 
+        .search-methods__brands
+          .form-group
+            = f.label :search, class: "form-group_label" do 
+              = fa_icon "tag"
+              ブランド名から探す
+            = f.text_field :brand_id_cont, class: 'input-default', placeholder: "例）シャネル"
+
+        .search-methods__size
+          .form-group#search_sizes
+            = f.label :search, class: "form-group_label" do 
+              = fa_icon "compress"
+              サイズを指定する
+            .select-wrap
+              = f.select :size_id, options_for_select(get_size_search), {include_blank: 'すべて'}, {class: 'select-default', id: 'size-select'}
+              = fa_icon "chevron-down"
+
+        .search-methods__price
+          .form-group
+            = f.label :search, class: "form-group_label" do 
+              = fa_icon "cny"
+              価格
+            .select-wrap
+              = f.select :price, options_for_select(get_price_search), {include_blank: '選択してください'}, {class: 'select-default', id: 'select-price'}
+              = fa_icon "chevron-down"
+            = f.text_field :price_gteq, class: 'input-default input-short', id: 'price-min', placeholder: '¥ Min'
+            %span ~
+            = f.text_field :price_lteq, class: 'input-default input-short', id: 'price-max', placeholder: '¥ Max'
+        
+        .search-methods__condition
+          .form-group
+            = f.label :search, class: "form-group_label" do
+              = fa_icon "star"
+              商品の状態
+            .checkbox-wrap.checkbox-default
+              = f.collection_check_boxes(:condition_id_eq_any, Condition.all, :id, :state) do |c|
+                = c.check_box {c.check_box + c.text}
+                = c.label(class: "check_style") 
+               
+        .search-methods__shipment
+          .form-group
+            = f.label :search, class: "form-group_label" do
+              = fa_icon "truck"
+              配送料の負担
+            .checkbox-wrap.checkbox-default
+              = f.collection_check_boxes(:charge_id_eq_any, Charge.all, :id, :payer, include_blank: 'すべて') do |c|
+                = c.check_box {c.check_box + c.text}
+                = c.label(class: "check_style") 
+                
+        .search-methods__status
+          .form-group
+            = f.label :search, class: "form-group_label" do
+              = fa_icon "shopping-cart"
+              販売状況
+            .checkbox-wrap.checkbox-default
+              = f.collection_check_boxes(:status_id_eq_any, Status.all, :id, :status, include_blank: 'すべて') do |c|
+                = c.check_box {c.check_box + c.text}
+                = c.label(class: "check_style") 
+
+        .search-methods__btn
+          .search-methods__btn-clear.btn-default.btn-gray
+            クリア
+          .search-methods__btn-submit.btn-default.btn-red
+            = f.submit "完了"
+  
+  = render partial: "search-result"      
 = render partial: "app-notice"
 = render partial: "layouts/sell-btn" 
 = render partial: "footer"

@@ -1,12 +1,19 @@
 .searched-contents {
-  margin: 40px auto 0;
+  margin: 40px auto;
   width: 1020px;
+  display: flex;
+  display : -webkit-box;
+  display : -webkit-flex;    
+  display : -ms-flexbox; 
+
+  
 
   &__sidebar {
     width: 280px;
     margin: 0 40px 0 0;
 
     .select-wrap {
+      margin: 10px 0 0;
       position: relative;
       background: $bg-white;
 
@@ -15,6 +22,7 @@
         padding: 0 16px;
         -webkit-appearance: none;
       }
+
       .fa-chevron-down {
         position: absolute;
         right: 16px;
@@ -26,5 +34,94 @@
         transform: translate(0, -50%);
       }
     }
+
+    .search-methods {
+      margin: 40px 0 0; 
+      background: $bg-white;
+      padding: 16px;
+
+      &__title {
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .form-group {
+        margin: 24px 0 0;
+        
+        &_label {
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        span {
+          display: inline-block;
+          width: 10%;
+          font-size: 14px;
+          text-align: center;
+        }
+        
+        .fa {
+          color: $icon-gray;
+        }
+
+        .input-default {
+          width: 100%;
+          margin: 10px 0 0;
+        }
+
+        .input-short {
+          width: 43%;
+        }
+      }
+
+      &__btn {
+        padding: 40px 0 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        &-clear {
+          width: 45%;
+        }
+
+        &-submit {
+          width: 45%;
+        }
+        
+        &-submit input{
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          outline: none;
+          appearance: none;
+          padding: 0;
+          color: $bg-white;
+        }
+      }
+    }
+  }
+
+  &__main {
+    width: calc(100% - 280px);
+
+    &-head {
+      font-weight: 700;
+      font-size: 22px;
+
+      &-text {
+        font-size: 18px;
+        font-weight: normal;
+        margin: 0 0 0 4px;
+      }
+
+      &-amount {
+        margin: 16px 0;
+        font-size: 12px;
+        font-weight: normal;
+        color: $dark-gray;
+      }
+    }
+
+   
   }
 }

@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   has_many   :comments
   belongs_to :condition
   accepts_nested_attributes_for :images
-
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   extend ActiveHash::Associations::ActiveRecordExtensions

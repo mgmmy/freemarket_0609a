@@ -9,7 +9,7 @@
         = image_tag("catig.jpg", class: "purchase-info--content__image")
         %h3.purchase-info--content__name 猫の肖像画（限定版）
 
-        %form.purchase-form
+        .purchase-form
           .purchase-form__price
             ¥90000
             %span
@@ -45,7 +45,8 @@
             .purchase-form__amount-num
               ¥90000
 
-          = button_tag("購入する", type: 'submit', class: 'pay-btn btn-default btn-red')
+          = form_tag(pay_product_purchase_index_path(@product), method: :post) do
+            = submit_tag "購入する", class: 'pay-btn btn-default btn-red'
 
     .buyer-info.purchase-info
       .buyer-info--container

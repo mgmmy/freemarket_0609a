@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
     registrations:      'users/registrations',
@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   resources :products, only: [:show, :new, :create] do
 
     resources :images, only: [:new, :create] 
-    
     collection do
+
       match 'search' => 'products#search', via: [:get, :post]
       get 'search_category', defaults: {format: 'json'}
       get 'search_grandchild_category', defaults: {format: 'json'}
@@ -35,6 +35,13 @@ Rails.application.routes.draw do
       get 'get_sizes', defaults: {format: 'json'}
       get 'get_brands', defaults: {format: 'json'}
       get 'get_delivery_method', defaults: {format: 'json'}
+    end
+    resources :purchase, only: [:index] do
+      collection do
+        get 'index', to: 'purchase#index'
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
     end
   end
 

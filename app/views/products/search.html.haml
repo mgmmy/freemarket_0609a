@@ -4,13 +4,13 @@
   .searched-contents__sidebar
     = search_form_for @search, url: search_products_path, html: { method: :post } do |f|
       .select-wrap
-        = f.select :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()', class: "select-default"}
+        = f.select :sorts, options_for_select(get_sorts), { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()', class: "select-default"}
         = fa_icon "chevron-down"
       .search-methods
         .search-methods__title
           詳細検索
         .form-group
-          = f.label :q, class: "form-group_label" do
+          = f.label :search, class: "form-group_label" do
             = fa_icon "plus"
             キーワードを追加する
           = f.search_field :name_or_detail_cont, {value: @keyword, class: 'input-default', placeholder: "値下げ"}
@@ -45,7 +45,7 @@
               = fa_icon "cny"
               価格
             .select-wrap
-              = f.select :sorts, options_for_select(get_price_search), {include_blank: '選択してください'}, {class: 'select-default', id: 'select-price'}
+              = f.select :price, options_for_select(get_price_search), {include_blank: '選択してください'}, {class: 'select-default', id: 'select-price'}
               = fa_icon "chevron-down"
             = f.text_field :price_gteq, class: 'input-default input-short', id: 'price-min', placeholder: '¥ Min'
             %span ~
@@ -61,7 +61,6 @@
                 = c.check_box {c.check_box + c.text}
                 = c.label(class: "check_style") 
                
-
         .search-methods__shipment
           .form-group
             = f.label :search, class: "form-group_label" do
@@ -72,7 +71,6 @@
                 = c.check_box {c.check_box + c.text}
                 = c.label(class: "check_style") 
                 
-
         .search-methods__status
           .form-group
             = f.label :search, class: "form-group_label" do
@@ -90,7 +88,6 @@
             = f.submit "完了"
   
   = render partial: "search-result"      
-
 = render partial: "app-notice"
 = render partial: "layouts/sell-btn" 
 = render partial: "footer"

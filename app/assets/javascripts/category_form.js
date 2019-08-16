@@ -3,7 +3,7 @@ $(function () {
     
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
-  }
+  };
   function appendChildCategory(insertHTML) {
     var childBoxHtml = "";
     childBoxHtml =  `<div class="select-wrap" id="child">
@@ -14,7 +14,7 @@ $(function () {
                       <i class="fa fa-chevron-down" />
                     </div>`;
     $('#category-form').append(childBoxHtml);
-  } 
+  }; 
   function appendGrandchildCategory(insertHTML) {
     var grandchildBoxHtml = "";
     grandchildBoxHtml =  `<div class="select-wrap" id="grandchild">
@@ -25,7 +25,7 @@ $(function () {
                             <i class="fa fa-chevron-down" />
                           </div>`;
     $('#category-form').append(grandchildBoxHtml);
-  } 
+  };
 
   $('#parent-category').on('change', function () {
     var parentName = document.getElementById('parent-category').value;
@@ -52,7 +52,7 @@ $(function () {
       $('#grandchild').remove();
       $('#size-form').remove();
     }
-  })
+  });
 
   $(document).on('change', '#child-category', function () {
     var childId = $('#child-category option:selected').data('category');

@@ -13,4 +13,4 @@ $(function () {
     $(this).css('color','#333');
     $('.acordion-brand').hide();
   });
-})
+});

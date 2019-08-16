@@ -93,7 +93,6 @@ class ProductsController < ApplicationController
     new
   end
 
-
   def search_category
     @search_child = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
   end

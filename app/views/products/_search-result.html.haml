@@ -5,7 +5,7 @@
       %span.searched-contents__main-head-text
         の検索結果
       .searched-contents__main-head-amount
-        - if @result_products.length != 0
+        - if @result_products.present?
           %span 1 -
           = @result_products.length 
           %span 件表示
@@ -14,7 +14,6 @@
             該当する商品が見つかりません。検索条件を変えて、再度お試しください。
     - else
       新着商品
- 
 
   .searched-contents__main-products
     -@result_products.each do |product|
@@ -34,4 +33,3 @@
                   = product.like
             %p.item-price-tax
               （税込） 
-

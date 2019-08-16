@@ -37,6 +37,7 @@ Rails.application.routes.draw do
       get 'get_delivery_method', defaults: {format: 'json'}
     end
   end
+
   get 'address/create' , to: 'users#address_create'
   post 'address/create' => 'users#address_create'
   post 'user/sms_authenticate' , to: 'users#sms_authenticate'
@@ -46,6 +47,7 @@ Rails.application.routes.draw do
         post 'pay', to: 'cards#pay'
       end
     end
+
     get 'users/address', to: 'users#address'
     get 'users/complate', to: 'uers#complate'
     collection do
@@ -59,6 +61,7 @@ Rails.application.routes.draw do
       get 'profile'
     end
   end
+  
   resources :categories, only: [:show]
 
 end

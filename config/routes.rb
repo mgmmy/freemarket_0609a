@@ -25,9 +25,10 @@ Rails.application.routes.draw do
     resources :images, only: [:new, :create] 
     
     collection do
-      get 'search'
-      get 'search_category'
-      get 'search_grandchild_category'
+      match 'search' => 'products#search', via: [:get, :post]
+      get 'search_category', defaults: {format: 'json'}
+      get 'search_grandchild_category', defaults: {format: 'json'}
+      get 'search_size_id', defaults: {format: 'json'}
       get 'purchase'
       get 'get_child_category', defaults: {format: 'json'}
       get 'get_grandchild_category', defaults: {format: 'json'}

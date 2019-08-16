@@ -38,8 +38,6 @@ $(document).on("turbolinks:load", function() {
         preview.append(image);  
         
       })
-      console.log(upload_images.length);
-      console.log(images.length);
       
       dropzone.css({
         'width': `calc(100% - (20% * ${images.length} ))`

@@ -6,11 +6,14 @@
   display : -webkit-flex;    
   display : -ms-flexbox; 
 
+  
+
   &__sidebar {
     width: 280px;
     margin: 0 40px 0 0;
 
     .select-wrap {
+      margin: 10px 0 0;
       position: relative;
       background: $bg-white;
 
@@ -19,6 +22,7 @@
         padding: 0 16px;
         -webkit-appearance: none;
       }
+
       .fa-chevron-down {
         position: absolute;
         right: 16px;
@@ -35,7 +39,7 @@
       margin: 40px 0 0; 
       background: $bg-white;
       padding: 16px;
-      
+
       &__title {
         font-size: 16px;
         font-weight: 600;
@@ -55,30 +59,7 @@
           font-size: 14px;
           text-align: center;
         }
-
-        .select-wrap {
-          margin: 10px 0 0;
-          position: relative;
-          background: $bg-white;
-    
-          .select-default {
-            width: 100%;
-            padding: 0 16px;
-            margin: 10px 0 0;
-            -webkit-appearance: none;
-          }
-          .fa-chevron-down {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            z-index: 2;
-            color: #888;
-            font-size: 16px;
-            -webkit-transform: translate(0, -50%);
-            transform: translate(0, -50%);
-          }
-        }
-
+        
         .fa {
           color: $icon-gray;
         }

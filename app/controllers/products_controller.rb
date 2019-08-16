@@ -75,24 +75,24 @@ class ProductsController < ApplicationController
       @packages = DeliveryMethod.all
     end
   end
-  
-  def search
-    new
-    @keyword = params[:keyword]
-    @result_products = Product.where("name LIKE(?)", "%#{@keyword}%")
-    @q = Product.ransack(params[:q])
 
-    select_size = get_size_search.find(:id)
-    if select_size = 1 || 4 
-      @seach_sizes = Size.where(ancestry: 1)
-    elsif select_size == 2
-      @seach_sizes = Size.where(ancestry: 29)
-    elsif select_size == 3
-      @seach_sizes = Size.where(ancestry: 12)
+  def search
+    @keyword = params[:keyword]
+    if params[:keyword].present?
+      @search = Product.ransack(name_or_detail_cont: params[:keyword])
+      @result_products = @search.result.order('created_at desc').page(params[:page]).per(48)
+    elsif params[:q].present?
+      @search = Product.ransack(search_params)
+      @keyword = search_params[:name_or_detail_cont] 
+      @result_products = @search.result.order('created_at desc').page(params[:page]).per(48)
     else
-      @seach_sizes = Size.all
+      @result_products = Product.order('created_at desc').page(params[:page]).per(48)
     end
+    params[:q] ||= {sorts: 'id desc'}
+    @search ||= Product.ransack()
+    new
   end
+
 
   def search_category
     @search_child = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
@@ -102,15 +102,25 @@ class ProductsController < ApplicationController
     @search_grandchild = Category.find("#{params[:child_id]}").children
   end
 
+  def search_size_id
+    if params[:size_id] == "1"
+      @size_id = Size.where(ancestry: 1)
+    elsif params[:size_id] == "2" 
+      @size_id = Size.where(ancestry: 29)
+    elsif params[:size_id] == "3"
+      @size_id = Size.where(ancestry: 12)
+    end
+  end
   
-   
-
-
   private
 
   def product_params
     params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {image: []}).merge(user_id: session[:user_id])
   end  
+
+  def search_params
+    params.require(:q).permit(:sorts, :name_or_detail_cont, :category_id_eq, :brand_id_cont, :size_id_eq, :price_gteq, :price_lteq, {condition_id_eq_any: []}, {charge_id_eq_any: []}, {status_id_eq_any: []})
+  end
 
   def set_product
     @product = Product.find(params[:id])

@@ -9,7 +9,7 @@
         .slide-cont 
           .owl-carousel
             - @product.images.each do |image|
-              = image_tag(image.image.to_s, class: "image-select")
+              = image_tag(image.image.url, class: "image-select")
       
       .item-info__price.vanish
         %span.price-yen

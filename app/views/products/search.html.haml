@@ -2,61 +2,54 @@
 
 .searched-contents
   .searched-contents__sidebar
-    = search_form_for @q, url: search_products_path do |f|
+    = search_form_for @search, url: search_products_path, html: { method: :post } do |f|
       .select-wrap
-        = f.select :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, { onchange: 'this.form.submit()'}, {class: "select-default"}
+        = f.select :sorts, { '並び替え': 'id desc', '価格の安い順': 'price asc', '価格の高い順': 'price desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' }, { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()', class: "select-default"}
         = fa_icon "chevron-down"
-
       .search-methods
         .search-methods__title
           詳細検索
         .form-group
-          = f.label :keyword do
+          = f.label :q, class: "form-group_label" do
             = fa_icon "plus"
             キーワードを追加する
-          = f.text_field :keyword, value: @keyword, class: 'input-default', placeholder: "値下げ"
-
+          = f.search_field :name_or_detail_cont, {value: @keyword, class: 'input-default', placeholder: "値下げ"}
         .search-methods__category
           .form-group#search_category
-            = f.label :search do 
+            = f.label :search, class: "form-group_label" do 
               = fa_icon "list-ul"
               カテゴリーを検索する
             .select-wrap
-              = f.select :category_id_cont, @parent_category, { prompt: "すべて", onchange: 'this.form.submit()'}, {class: "select-default", id: "search-parent"}
+              = f.select :category_id, @parent_category, { include_blank: "すべて"}, {class: "select-default", id: "search-parent"}
               = fa_icon "chevron-down"
 
         .search-methods__brands
           .form-group
-            = f.label :search do 
+            = f.label :search, class: "form-group_label" do 
               = fa_icon "tag"
               ブランド名から探す
             = f.text_field :brand_id_cont, class: 'input-default', placeholder: "例）シャネル"
 
         .search-methods__size
-          .form-group
-            = f.label :search do 
+          .form-group#search_sizes
+            = f.label :search, class: "form-group_label" do 
               = fa_icon "compress"
               サイズを指定する
             .select-wrap
-              = f.select :size_id_cont, options_for_select(get_size_search), {}, {class: 'select-default', id: 'size-select'}
+              = f.select :size_id, options_for_select(get_size_search), {include_blank: 'すべて'}, {class: 'select-default', id: 'size-select'}
               = fa_icon "chevron-down"
 
-            .checkbox-wrap.checkbox-default.invisible#size_checkbox
-              = f.collection_check_boxes(:category_id_cont, @seach_sizes, :id, :size) do |c|
-                = c.check_box {c.check_box + c.text}
-                = c.label(class: "check_style")
-
-        .search-methods__size
+        .search-methods__price
           .form-group
-            = f.label :search do 
+            = f.label :search, class: "form-group_label" do 
               = fa_icon "cny"
               価格
             .select-wrap
-              = f.select :sorts, options_for_select(get_price_search), {prompt: '選択してください'}, {class: 'select-default'}
+              = f.select :sorts, options_for_select(get_price_search), {include_blank: '選択してください'}, {class: 'select-default', id: 'select-price'}
               = fa_icon "chevron-down"
-            = f.text_field :price_gt, class: 'input-default input-short', placeholder: '¥ Min'
+            = f.text_field :price_gteq, class: 'input-default input-short', id: 'price-min', placeholder: '¥ Min'
             %span ~
-            = f.text_field :price_lt, class: 'input-default input-short', placeholder: '¥ Max'
+            = f.text_field :price_lteq, class: 'input-default input-short', id: 'price-max', placeholder: '¥ Max'
         
         .search-methods__condition
           .form-group
@@ -64,7 +57,7 @@
               = fa_icon "star"
               商品の状態
             .checkbox-wrap.checkbox-default
-              = f.collection_check_boxes(:condition_id_eq, Condition.all, :id, :state) do |c|
+              = f.collection_check_boxes(:condition_id_eq_any, Condition.all, :id, :state) do |c|
                 = c.check_box {c.check_box + c.text}
                 = c.label(class: "check_style") 
                
@@ -75,7 +68,7 @@
               = fa_icon "truck"
               配送料の負担
             .checkbox-wrap.checkbox-default
-              = f.collection_check_boxes(:charge_id_eq, Charge.all, :id, :payer) do |c|
+              = f.collection_check_boxes(:charge_id_eq_any, Charge.all, :id, :payer, include_blank: 'すべて') do |c|
                 = c.check_box {c.check_box + c.text}
                 = c.label(class: "check_style") 
                 
@@ -86,7 +79,7 @@
               = fa_icon "shopping-cart"
               販売状況
             .checkbox-wrap.checkbox-default
-              = f.collection_check_boxes(:status_id_eq, Status.all, :id, :status) do |c|
+              = f.collection_check_boxes(:status_id_eq_any, Status.all, :id, :status, include_blank: 'すべて') do |c|
                 = c.check_box {c.check_box + c.text}
                 = c.label(class: "check_style") 
 

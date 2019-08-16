@@ -14,4 +14,17 @@ $(function() {
       $('#sales-benefit').text("-");
     };
   });
-})
+});
+
+$(function() {
+  $('#select-price').on('change', function() {
+    var price_range = $(this).children('option:selected').text().split('~', 2);
+    var min_price = price_range[0];
+    var max_price = price_range[1];
+
+    $('#price-min').val(min_price);
+    $('#price-max').val(max_price);
+  });
+});
+
+

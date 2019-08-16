@@ -1,7 +1,7 @@
 .searched-contents__main
   .searched-contents__main-head
-    - if @keyword.length != 0
-      = @keyword 
+    - if @keyword.present?
+      = @keyword
       %span.searched-contents__main-head-text
         の検索結果
       .searched-contents__main-head-amount
@@ -21,7 +21,7 @@
       .item-wrapper
         =link_to product_path(product.id), data: {turbolinks: false} do
           .item-image
-            =image_tag(product.images, class: "item-image_photo")
+            =image_tag(product.images.first.image.url, class: "item-image_photo")
           .item-text-wrapper
             %h3.item-title
               = product.name
@@ -34,3 +34,4 @@
                   = product.like
             %p.item-price-tax
               （税込） 
+

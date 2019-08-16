@@ -16,4 +16,4 @@
       新着商品
 
   .searched-contents__main-products
-    = render partial: "products_list"
+    = render partial: "products_list", collection: @result_products, as: "product"

@@ -1,0 +1,17 @@
+-@result_products.each do |product|
+  .item-wrapper
+    =link_to product_path(product.id), data: {turbolinks: false} do
+      .item-image
+        =image_tag(product.images.first.image.url, class: "item-image_photo")
+      .item-text-wrapper
+        %h3.item-title
+          = product.name
+        .item-num
+          .item-price
+            ='￥'+ product.price.to_s(:delimited)
+          .item-like
+            %i.fa.fa-heart-o
+            %span.like-num
+              = product.like
+        %p.item-price-tax
+          （税込） 

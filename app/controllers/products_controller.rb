@@ -3,10 +3,10 @@ class ProductsController < ApplicationController
   include ProductsHelper
 
   def index
-    @ladies = Product.recent_category(1)
-    @mens = Product.recent_category(219)
-    @kids = Product.recent_category(378)
-    @cosmes = Product.recent_category(528)
+    @ladies = Product.recent_category(1..218)
+    @mens = Product.recent_category(219..377)
+    @kids = Product.recent_category(378..529)
+    @cosmes = Product.recent_category(528..714)
     @channels = Product.recent_brand(1)
     @vuittons = Product.recent_brand(2)
     @supremes = Product.recent_brand(3)

@@ -149,27 +149,7 @@ $(document).on("turbolinks:load", function() {
           'display': 'block',
           'width': `calc(100% - (20% * ${images.length - 5}))`
         })
-      })
-    }
-  })
-
-  $('#new_product').on('submit', function(e) {
-    e.preventDefault();
-    var formData = new FormData($(this).get(0));
-    if (upload_images.length == 0) {
-      formData.append("images[image][]", " ")
-    } else { 
-      upload_images.forEach(function(file) {
-        formData.append("images[image][]", file)
       });
-    }
-
-    $.ajax({
-      url: '/products',
-      type: "POST",
-      data: formData,
-      contentType: false,
-      processData: false
-    })
+    };
   });
 });

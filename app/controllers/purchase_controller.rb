@@ -2,7 +2,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def index
-    @card = Card.find_by(user_id: session[:user_id]).first
+    @card = Card.where(user_id: session[:user_id]).first
     if @card.blank?
       redirect_to controller: "card", action: "new"
     else

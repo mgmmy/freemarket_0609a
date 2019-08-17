@@ -40,6 +40,7 @@ $(function () {
         $('#child').remove();
         $('#grandchild').remove();
         $('#size-form').remove();
+        $('#brand-form').remove();
 
         var insertHTML = "";
         children.forEach(function (child) {
@@ -51,6 +52,7 @@ $(function () {
       $('#child').remove();
       $('#grandchild').remove();
       $('#size-form').remove();
+      $('#brand-form').remove();
     }
   });
 

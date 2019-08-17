@@ -57,6 +57,7 @@
         .li.index-header__bottom__right__todo やることリスト
             
         //マイページ
-        .li.index-header__bottom__right__mypage 
-          =link_to user_path(session[:user_id]), class:'my_page' do
-            マイぺージ
+        - if user_signed_in?
+          .li.index-header__bottom__right__mypage 
+            =link_to user_path(session[:user_id]), class:'my_page' do
+              マイぺージ

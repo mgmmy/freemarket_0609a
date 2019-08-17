@@ -60,10 +60,10 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.collection_select :category_id, @parent_category, :id, :name, {prompt: "---"}, {selected: 2, class: "select-default", id: "parent-category"}
+                  = f.collection_select :category, @parent_categories, :id, :name, {prompt: "---", selected: @parent_category[0][:id]}, {class: "select-default", id: "parent-category"}
                   = fa_icon "chevron-down"
                 .select-wrap
-                  = f.collection_select :category_id, @child_category, :id, :name, {prompt: "---"}, {class: "select-default", id: "child-category"}
+                  = f.collection_select :category, @child_categories, :id, :name, {prompt: "---", selected: @child_category[0][:id]}, {class: "select-default", id: "child-category"}
                   = fa_icon "chevron-down"
                 .select-wrap
                   = f.collection_select :category_id, @grandchild_categories, :id, :name, {prompt: "---"}, {class: "select-default", id: "grandchild-category"}

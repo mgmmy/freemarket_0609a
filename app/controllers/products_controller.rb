@@ -78,6 +78,7 @@ class ProductsController < ApplicationController
 
   def search
     @keyword = params[:keyword]
+    
     if params[:keyword].present?
       @search = Product.ransack(name_or_detail_cont: params[:keyword])
       @result_products = @search.result.order('created_at desc').page(params[:page]).per(48)
@@ -118,7 +119,15 @@ class ProductsController < ApplicationController
   end  
 
   def search_params
-    params.require(:q).permit(:sorts, :name_or_detail_cont, :category_id_eq, :brand_id_cont, :size_id_eq, :price_gteq, :price_lteq, {condition_id_eq_any: []}, {charge_id_eq_any: []}, {status_id_eq_any: []})
+    params.require(:q).permit(:sorts, :name_or_detail_cont, :category_id_eq, :size_id_eq, :price_gteq, :price_lteq, {condition_id_eq_any: []}, {charge_id_eq_any: []}, {status_id_eq_any: []}).merge(search_brand_params)
+  end
+
+  def search_brand_params
+    params[:q][:brand_id_cont].present?
+    if brand = Brand.find_by(name: params[:q][:brand_id_eq])
+      brand_id = brand.id
+    end
+    {brand_id_eq: brand_id}
   end
 
   def set_product

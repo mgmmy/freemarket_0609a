@@ -3,7 +3,7 @@
     .other-items--box
       = link_to product_path(product.id) do
         .other-items--box__image
-          = image_tag(product.images.first[:image], class: "other-items__image")
+          = image_tag(product.images.first.image.url, class: "other-items__image")
         .other-items--box__text
           %h3.other-items__name
             = product.name

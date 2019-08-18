@@ -48,7 +48,7 @@ namespace :deploy do
   task :seed do
     run "cd #{current_path}; bundle exec rake db:seed_fu RAILS_ENV=#{rails_env}"
   end
-end
+  
   after :deploy, "deploy:seed"
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'

@@ -43,11 +43,13 @@ namespace :deploy do
   end
   
   desc "Load the seed data from db/seeds.rb"
-  task :seed do
-    run "cd #{current_path}; bundle exec rake db:seed_fu RAILS_ENV=production "
+  task :apply_seedfu do
+    on primary :db do
+      invoke 'seed_fu:apply'
+    end
   end
 
-  after :deploy, "deploy:seed"
+  after 'deploy:migrating', 'deploy:apply_seedfu'
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
 end

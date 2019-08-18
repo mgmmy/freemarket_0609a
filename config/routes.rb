@@ -48,23 +48,20 @@ Rails.application.routes.draw do
   get 'address/create' , to: 'users#address_create'
   post 'address/create' => 'users#address_create'
   post 'user/sms_authenticate' , to: 'users#sms_authenticate'
-  resources :users, only: [:new, :create, :destroy, :show] do
+  resources :users do
     resources :cards, only: [:index, :new, :destroy, :show] do
       collection do
         post 'pay', to: 'cards#pay'
       end
     end
 
-    get 'users/address', to: 'users#address'
-    get 'users/complate', to: 'uers#complate'
-    get 'logout'
     collection do
       get 'identification'
       get 'information'
       get 'phonemumber'
       get 'address'
       get 'complete'
-      
+      get 'logout'
       get 'credit_unregistered'
       get 'profile'
     end

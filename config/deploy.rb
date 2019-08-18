@@ -41,6 +41,13 @@ namespace :deploy do
       upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
     end
   end
+
+  task :apply_seedfu do
+    on primary :db do
+      invoke 'seed_fu:apply'
+    end
+  end
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
+  after 'deploy:migrating', 'deploy:apply_seedfu'
 end

@@ -27,7 +27,6 @@ set :default_env, {
 set :linked_files, %w{ config/secrets.yml }
 
 after 'deploy:publishing', 'deploy:restart'
-
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
@@ -42,12 +41,7 @@ namespace :deploy do
       upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
     end
   end
-
-  desc 'Load the seed data from db/seeds.rb'
-  task :seed do
-    run "cd #{current_path}; bundle exec rake db:seed_fu #{shared_path}"
-  end
-  after :deploy, "deploy:seed"
+  
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
 end

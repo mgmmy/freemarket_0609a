@@ -30,7 +30,6 @@ set :linked_files, %w{ config/secrets.yml }
 SSHKit.config.command_map[:rake] = 'bundle exec rake'
 
 after 'deploy:publishing', 'deploy:restart'
-after 'deploy:migrating', 'deploy:apply_seedfu'
 
 namespace :deploy do
   task :restart do

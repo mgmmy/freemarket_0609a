@@ -45,7 +45,7 @@ namespace :deploy do
 
   desc 'Load the seed data from db/seeds.rb'
   task :seed do
-    run "cd #{current_path}; bundle exec rake db:seed_fu RAILS_ENV=#{rails_env}"
+    run "cd #{current_path}; bundle exec rake db:seed_fu #{shared_path}"
   end
   after :deploy, "deploy:seed"
   before :starting, 'deploy:upload'

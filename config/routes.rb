@@ -57,13 +57,14 @@ Rails.application.routes.draw do
 
     get 'users/address', to: 'users#address'
     get 'users/complate', to: 'uers#complate'
+    get 'logout'
     collection do
       get 'identification'
       get 'information'
       get 'phonemumber'
       get 'address'
       get 'complete'
-      get 'logout'
+      
       get 'credit_unregistered'
       get 'profile'
     end

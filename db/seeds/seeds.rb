@@ -1,3 +1,7 @@
+load(Rails.root.join('db', 'seeds', "#{Rails.env.downcase}.rb"))
+
+
+
 require 'faker/japanese'
 
 50.times do |n|

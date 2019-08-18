@@ -55,8 +55,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get 'users/address', to: 'users#address'
-    get 'users/complate', to: 'uers#complate'
+    
     collection do
       get 'identification'
       get 'information'

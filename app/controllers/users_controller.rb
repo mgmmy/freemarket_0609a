@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     binding.pry
     @user = User.where(email: params[:user][:email], passwprd: params[:user][:password])
     if @user
-      redirect_to user_logout_path(session[:user_id])
+      redirect_to user_path(session[:user_id])
     else
       # @error_messageを定義してください
       @error_message = "メールアドレスまたはパスワードが間違っています"

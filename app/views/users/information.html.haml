@@ -65,12 +65,12 @@
               .information--lastname
                 = f.label '姓（全角)', class: "information--lastname--name"
                 = f.label '必須', class: "information--lastname--red"
-                = f.text_field :last_name, placeholder: "例)山田"
+                = f.text_field :first_name, placeholder: "例)山田"
               //名
               .information--firstname
                 = f.label '名（全角）', class: "ininformation--firstname--name"
                 = f.label '必須', class: "information--firstname--red"
-                = f.text_field :first_name, placeholder: "例)彩"
+                = f.text_field :last_name, placeholder: "例)彩"
               //姓カナ
               .information--lastname--kana
                 = f.label '姓カナ（全角）', class: "information--lastname--kana--name"

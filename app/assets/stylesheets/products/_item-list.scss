@@ -9,12 +9,11 @@
   height:100%;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   .all-list-wrapper{
-    width:1020px;
+    width:1040px;
     margin:0 auto;
     padding:0 0 40px;
     .navi-item-wrapper{
       display:block;
-      width:1020px;
       height:60px;
       padding-top:40px;
       li{
@@ -33,7 +32,7 @@
       }
     }
     .items-list-wrapper{
-      width:1040px;
+      width:100%;
       margin:0;
       padding:0;
       h1{
@@ -44,8 +43,8 @@
       }
       // アイテムビュー
       .items-wrapper{
-        width:1040x;
-        height:8268px;
+        width:1040px;
+        min-height:2000px;
         .item-wrapper{
           width:188px;
           height:298px;
@@ -71,10 +70,10 @@
             height:110px -16px;
             padding:16px;
             background-color:#fff;
+            color:$black;
             .item-title{
               width:156px;
               height:48px;
-              color:$black;
               font-size:16px;
               font-weight:400;
               height:3em;
@@ -94,9 +93,10 @@
                 margin:0;
                 padding:0;
                 float:left;
+                color:$black;
               }
               .item-like{
-                width:28.59px;
+                width:35px;
                 height:16px;
                 font-weight:400;
                 margin:0;
@@ -206,7 +206,6 @@
         width: 44px;
         height: 44px;
         border-radius: 4px;
-        background: #fff;
         border: 1px solid #ccc;
         font-size: 14px;
         line-height: 42px;
@@ -221,10 +220,10 @@
       border-radius: 4px;
       .item-list-name_box{
         height:54px;
+        line-height: 54px;
         text-align: center;
         background-color: $mercari-red;
         h3{
-          padding:9px 8px;
           color:$bg-white;
           font-size: 22px;
           font-weight: bold;

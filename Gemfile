@@ -95,3 +95,8 @@ gem 'ancestry'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+gem 'payjp'
+gem 'gon'
+gem 'nokogiri'
+gem 'kaminari', '~> 0.17.0'
+gem 'seed-fu'

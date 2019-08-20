@@ -137,17 +137,13 @@
             text-decoration:underline;
           }
           //次へ進む
-          .howtopay--next {
+            
+          .btn-howtopay--next {
+            color: $bg-white;
             background-color: $mercari-red;
             height: 50px;
             position: relative;
             margin: 40px 0 0;
-            .btn-howtopay--next {
-              color: $bg-white;
-              position: absolute;
-              top: 15px;
-              left: 120px;
-            }
           }
         }
       }

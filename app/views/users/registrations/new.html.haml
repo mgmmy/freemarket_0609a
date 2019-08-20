@@ -14,9 +14,9 @@
           .newmember__mainbox__main__contents
             //メールアドレスで登録
             .newmember__mainbox--email
-              = link_to new_user_registration_path do
+              = link_to information_users_path  do
                 %i.fa.fa-envelope
-              .mail--text メールアドレスで登録
+                .mail--text メールアドレスで登録
             //フェイスブックで登録
             .newmember__main__contents--facebook
               = link_to user_facebook_omniauth_authorize_path, method: :post do

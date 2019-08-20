@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [ :show, :edit, :update, :destroy ]
+  include ProductsHelper
 
   def index
-    @ladies = Product.recent_category(1)
-    @mens = Product.recent_category(219)
-    @kids = Product.recent_category(378)
-    @cosmes = Product.recent_category(528)
+    @ladies = Product.recent_category(1..218)
+    @mens = Product.recent_category(219..377)
+    @kids = Product.recent_category(378..529)
+    @cosmes = Product.recent_category(528..714)
     @channels = Product.recent_brand(1)
     @vuittons = Product.recent_brand(2)
     @supremes = Product.recent_brand(3)
@@ -15,7 +16,7 @@ class ProductsController < ApplicationController
   def show
     @products = Product.where(user_id: @product.user_id).limit(6)
     @images = @product.images
-    @product.delivery_fee == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
+    @product.charge_id == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
   end
   
   def purchase
@@ -43,8 +44,7 @@ class ProductsController < ApplicationController
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
-      redirect_to products_path(@product)
-      flash[:alert] = '出品が完了しました'
+      redirect_to product_path(@product)
     else
       @product.images.build
       flash.now.alert = '未入力項目があります'
@@ -111,17 +111,63 @@ class ProductsController < ApplicationController
   end
   
   def search
+    @keyword = params[:keyword]
+    
+    if params[:keyword].present?
+      @search = Product.ransack(name_or_detail_cont: params[:keyword])
+      @result_products = @search.result.order('created_at desc').page(params[:page]).per(48)
+    elsif params[:q].present?
+      @search = Product.ransack(search_params)
+      @keyword = search_params[:name_or_detail_cont] 
+      @result_products = @search.result.order('created_at desc').page(params[:page]).per(48)
+    elsif 
+      @result_products = Product.order('created_at desc').page(params[:page]).per(48)
+    end
+    
+    params[:q] ||= {sorts: 'id desc'}
+    @search ||= Product.ransack()
+    new
   end
 
+  def search_category
+    @search_child = Category.find_by(name: params[:parent_name], ancestry: nil).children
+  end
+
+  def search_grandchild_category
+    @search_grandchild = Category.find("#{params[:child_id]}").children
+  end
+
+  def search_size_id
+    if params[:size_id] == "1"
+      @size_id = Size.where(ancestry: 1)
+    elsif params[:size_id] == "2" 
+      @size_id = Size.where(ancestry: 29)
+    elsif params[:size_id] == "3"
+      @size_id = Size.where(ancestry: 12)
+    end
+  end
+  
   private
 
   def product_params
-    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {images: []}, user_id: current_user.id)
+    params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {image: []}).merge(user_id: session[:user_id])
   end
 
   def update_params
     parameter = params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, :parent_category, :child_category, user_id: current_user.id)
     update_params = parameter.except(:parent_category, :child_category)
+  end
+
+  def search_params
+    params.require(:q).permit(:sorts, :name_or_detail_cont, :category_id_eq, :size_id_eq, :price_gteq, :price_lteq, {condition_id_eq_any: []}, {charge_id_eq_any: []}, {status_id_eq_any: []}).merge(search_brand_params)
+  end
+
+  def search_brand_params
+    params[:q][:brand_id_cont].present?
+    if brand = Brand.find_by(name: params[:q][:brand_id_eq])
+      brand_id = brand.id
+    end
+    {brand_id_eq: brand_id}
   end
 
   def set_product

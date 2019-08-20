@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   belongs_to :condition
   belongs_to :size
   accepts_nested_attributes_for :images
-
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -32,5 +32,8 @@ class Product < ApplicationRecord
   scope :recent_brand, lambda { |count|
     where(brand_id: count).order(created_at: :DESC).limit(4)
   }
+  scope :list_category, lambda { |count|
+  where(category_id: count).order(created_at: :DESC).limit(130)
+}
 
 end

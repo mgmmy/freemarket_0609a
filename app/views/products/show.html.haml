@@ -8,8 +8,8 @@
       .item-info__image
         .slide-cont 
           .owl-carousel
-            - @images.each do |image|
-              = image_tag(image[:image], class: "image-select")
+            - @product.images.each do |image|
+              = image_tag(image.image.url, class: "image-select")
       
       .item-info__price.vanish
         %span.price-yen
@@ -22,7 +22,7 @@
           %tr
             %th 出品者
             %td 
-              = link_to @product.user.nickname, user_path(@product.user_id)
+              = link_to @product.user.nickname, user_path(@product.user_id), data: {turbolinks: false} 
               - unless user_signed_in? && current_user.id == @product.user_id
                 .user-rating
                   = fa_icon 'smile-o', class: "user-rating__icon"
@@ -72,7 +72,7 @@
           %tr 
             %th 配送日の目安
             %td
-              = @product.shipping_date.name
+              = @product.shipment.ship
       
       .item-info__price
         %span.price-yen
@@ -84,7 +84,7 @@
 
       .buy-btn
         - unless user_signed_in? && current_user.id == @product.user_id
-          = link_to "#", class: "buy-btn__link btn-default btn-red" do
+          = link_to product_purchase_index_path(@product.id), class: "buy-btn__link btn-default btn-red", data: {turbolinks: false}  do
             購入画面に進む
           = link_to 'アプリで買う', "#", class: "mercari-app-link"
 

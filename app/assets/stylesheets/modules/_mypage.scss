@@ -4,10 +4,11 @@
 
   &-link {
     width: 100%;
+    color: $black;
   }
 
-  a:visited {
-    color: black;
+  a {
+    color: $black;
   }
 
   &-user {

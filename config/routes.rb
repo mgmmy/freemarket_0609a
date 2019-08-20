@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "sign_in", to: "users/sessions#new"
     get "sign_out", to: "users/sessions#destroy"
     get "users/registration", to: "users#registration"
+    post "login", to: "users#login"
   end
   
   resources :card, only: [:new, :show] do

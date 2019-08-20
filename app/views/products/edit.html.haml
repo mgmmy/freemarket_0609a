@@ -14,29 +14,18 @@
                 必須
             %p
               最大10枚までアップロードできます
-            = f.fields_for :images do |image|
-              .dropzone-container.clearfix
-                #preview
-                .dropzone-container__upload
-                  =image.label :image, class: "dropzone-container__drop-field", for: "upload-image" do
-                    .dropzone-container__upload-area
-                      = image.file_field :image, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                      .dz-message.needsclick
-                        %p  
-                          ドラッグアンドドロップ
-                          またはクリックしてファイルをアップロード
-
-              .dropzone-container2.clearfix
-                #preview2
-                .dropzone-container__upload2
-                  =image.label :image, class: "dropzone-container__drop-field2", for: "upload-image" do
-                    .dropzone-container__upload-area
-                      = image.file_field :image, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                      .dz-message.needsclick
-                        %p  
-                          ドラッグアンドドロップ
-                          またはクリックしてファイルをアップロード
-                      
+            -# = f.fields_for :images do |image|
+            -#   .dropzone-container.clearfix
+                -# - @product.images.each do |img|
+                -#   #preview
+                -#     .preview-image
+                -#       .preview-image_area
+                -#         = image_tag img[:image], class: 'item-img'
+                -#       .btn-wrapper
+                -#         = link_to '', class: "btn-wrapper_edit" do
+                -#           - "編集"
+                -#         = link_to '', class: "btn-wrapper_delete" do
+                -#           - "削除"
           .sell-content
             .form-group
               = f.label :name do
@@ -60,14 +49,32 @@
                   %span.form-require
                     必須
                 .select-wrap
-                  = f.collection_select :category, @parent_categories, :id, :name, {prompt: "---", selected: @parent_category[0][:id]}, {class: "select-default", id: "parent-category"}
+                  = f.collection_select :parent_category, @parent_categories, :id, :name, {prompt: "---", selected: @parent_category[0][:id]}, {class: "select-default", id: "parent-category"}
                   = fa_icon "chevron-down"
                 .select-wrap
-                  = f.collection_select :category, @child_categories, :id, :name, {prompt: "---", selected: @child_category[0][:id]}, {class: "select-default", id: "child-category"}
+                  = f.collection_select :child_category, @child_categories, :id, :name, {prompt: "---", selected: @child_category[0][:id]}, {class: "select-default", id: "child-category"}
                   = fa_icon "chevron-down"
                 .select-wrap
                   = f.collection_select :category_id, @grandchild_categories, :id, :name, {prompt: "---"}, {class: "select-default", id: "grandchild-category"}
                   = fa_icon "chevron-down"
+
+              .form-group#size-form
+                = f.label :size_id do
+                  サイズ
+                  %span.form-require
+                    必須
+                .select-wrap
+                  = f.collection_select :size_id, @sizes, :id, :size, {prompt: "---", selected: @size[0][:id]}, {class: "select-default", id: "size-form"}
+                  = fa_icon "chevron-down"
+
+              -# .form-group#brand-form
+              -#   = f.label :brand_id do
+              -#     ブランド
+              -#     %span.form-optional
+              -#       任意
+              -#   .select-wrap
+              -#     = f.fields_for :brands do |brand|
+              -#       = brand.text_field :name, class: "input-default", placeholder: "例）シャネル", id: "brand-form"
 
               .form-group
                 = f.label :condition_id do
@@ -92,6 +99,15 @@
                 .select-wrap
                   .select-wrap
                   = f.collection_select :charge_id, Charge.all, :id, :payer, {prompt: "---"}, class: "select-default", id: "charge-form"
+                  = fa_icon "chevron-down"
+              .form-group
+                = f.label :delivery_method_id do
+                  配送方法
+                  %span.form-require
+                    必須
+                .select-wrap
+                  .select-wrap
+                  = f.collection_select :delivery_method_id, DeliveryMethod.all, :id, :package, {prompt: "---"}, class: "select-default", id: "delivery-method-form"
                   = fa_icon "chevron-down"
               .form-group
                 = f.label :prefecture_id do
@@ -142,6 +158,6 @@
           .sell-content.sell-btn-box
             = f.submit "更新する", class: "btn-default btn-red", id: "update-product" 
               
-            = link_to root_path, class: "btn-default btn-gray" do
-              もどる
+            = link_to product_path(@product.id), class: "btn-default btn-gray" do
+              キャンセル
 = render partial: "users/shared/registration-footer"

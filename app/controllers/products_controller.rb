@@ -91,11 +91,17 @@ class ProductsController < ApplicationController
     @parent_categories = Category.where(ancestry: nil)
     @child_categories = Category.where('ancestry LIKE ?', "#{@parent_category[0][:id]}")
     @grandchild_categories = Category.where('ancestry LIKE ?', "%/#{@child_category[0][:id]}")
+
+    @size = Size.where(id: @product.size_id)
+    @sizes = Size.where(ancestry: @size[0][:ancestry])
   end
 
   def update
-    if @product.update(product_params)
-      render :show
+    edit
+    if @product.update!(update_params)
+      redirect_to product_path(@product.id), notice: '商品を更新しました。'
+    else
+      render :edit, alert: 'error'
     end
   end
 
@@ -111,7 +117,12 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {images: []}, user_id: current_user.id)
-  end  
+  end
+
+  def update_params
+    parameter = params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, :parent_category, :child_category, user_id: current_user.id)
+    update_params = parameter.except(:parent_category, :child_category)
+  end
 
   def set_product
     @product = Product.find(params[:id])

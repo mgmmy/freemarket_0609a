@@ -54,14 +54,13 @@ Rails.application.routes.draw do
         post 'pay', to: 'cards#pay'
       end
     end
-
+    get 'logout'
     collection do
       get 'identification'
       get 'information'
       get 'phonemumber'
       get 'address'
       get 'complete'
-      get 'logout'
       get 'credit_unregistered'
       get 'profile'
     end

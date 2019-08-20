@@ -97,6 +97,6 @@
           電話番号の確認
           = fa_icon("chevron-right")
       %li
-        = link_to logout_users_path, class: 'sidebar-list_contents' do
+        = link_to user_logout_path(session[:user_id]), class: 'sidebar-list_contents' do
           ログアウト
           = fa_icon("chevron-right")

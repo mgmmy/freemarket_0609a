@@ -9,8 +9,9 @@ class UsersController < ApplicationController
 
   def show 
   end
-  
 
+  def destroy_user_session
+    session[:user_id]=nil
+  end
 
 end
-

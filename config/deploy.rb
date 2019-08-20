@@ -26,7 +26,11 @@ set :default_env, {
 
 set :linked_files, %w{ config/secrets.yml }
 
+# SSHKit.conifg
+SSHKit.config.command_map[:rake] = 'bundle exec rake'
+
 after 'deploy:publishing', 'deploy:restart'
+
 namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
@@ -39,6 +43,17 @@ namespace :deploy do
         execute "mkdir -p #{shared_path}/config"
       end
       upload!('config/secrets.yml', "#{shared_path}/config/secrets.yml")
+    end
+  end
+  
+  desc 'db_seed must be run only one time right after the first deploy'
+  task :db_seed do
+    on roles(:db) do |host|
+      within current_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'db:seed'
+        end
+      end
     end
   end
   before :starting, 'deploy:upload'

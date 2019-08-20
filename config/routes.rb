@@ -55,7 +55,9 @@ Rails.application.routes.draw do
         post 'pay', to: 'cards#pay'
       end
     end
+
     get 'logout'
+
     collection do
       get 'identification'
       get 'information'

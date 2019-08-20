@@ -31,26 +31,22 @@
 |------|----|------|
 |name|string|null: false|
 |detail|text|
-|condition_id|reference|foreign_key: true|
+|condition_id|integer|
+|delivery_method_id|integer|
+|shipment_id|integer|
+|charge_id|integer|
 |price|integer|null: false|
-|status|string|null: false|
+|status_id|string|null: false, foreign_key: true|
 |brand_id|reference|foreign_key: true|
-|lar_category_id|reference|foreign_key: true|
-|mid_category_id|reference|foreign_key: true|
-|sml_category_id|reference|foreign_key: true|
+|category_id|reference|foreign_key: true|
 |size_id|reference|foreign_key: true|
 |user_id|reference|null, false, foreign_key: true|
 |like|integer|
-|delivery_fee|bit|
-|method_id|reference|foreign_key: true|
-|prefectures_id|reference|foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has_one :brand
-- has_one :lar_category
-- has_one :mid_category
-- has_one :sml_category
+- has_one :category
 - has_one :size
 - has_many :images
 - has_many :favorites

@@ -86,9 +86,10 @@ class ProductsController < ApplicationController
       @search = Product.ransack(search_params)
       @keyword = search_params[:name_or_detail_cont] 
       @result_products = @search.result.order('created_at desc').page(params[:page]).per(48)
-    else
+    elsif 
       @result_products = Product.order('created_at desc').page(params[:page]).per(48)
     end
+    
     params[:q] ||= {sorts: 'id desc'}
     @search ||= Product.ransack()
     new

@@ -82,7 +82,7 @@
           送料込み
 
       .buy-btn
-        = link_to product_purchase_index_path(@product.id), class: "buy-btn__link btn-default btn-red" do
+        = link_to product_purchase_index_path(@product.id), class: "buy-btn__link btn-default btn-red", data: {turbolinks: false}  do
           購入画面に進む
 
       = link_to 'アプリで買う', "#", class: "mercari-app-link"

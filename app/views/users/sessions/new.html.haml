@@ -27,31 +27,33 @@
         //入力欄
         .login--form
           .login--form--inner
-            .login--email
-              %input{name: "email", autofocus: true, autocomplete: "email", class: "inputbox--email", placeholder: "  メールアドレス"}
-            .login--password
-              %input{name: "password", autocomplete: "current-password", class: "inputbox--password", placeholder: "  パスワード"}
-            .login__check
-              .login__check--box
-                %input.login-checkbox{ type: 'checkbox' }
-                %label.login-checkbox--text{ for: 'checkbox-id' } 私はロボットではありません
-                .login__check--img 
-                  = image_tag("https://www.gstatic.com/recaptcha/api2/logo_48.png", class: "login--img")
-                  .login__img--text reCAPTCHA
-              .login__ckeck--rule 
-                .login__ckeck--rule--first プライバシー
-                .login__ckeck--rule--second 利用規約
+            =form_for(resource, as: resource_name, url: login_path(resource)) do |f| 
+              .login--email
+                = f.text_field :email, class: "inputbox--email", placeholder: "  メールアドレス"
+              .login--password
+                = f.text_field :password, class: "inputbox--password", placeholder: "  パスワード"
+                
+              .login__check
+                .login__check--box
+                  %input.login-checkbox{ type: 'checkbox' }
+                  %label.login-checkbox--text{ for: 'checkbox-id' } 私はロボットではありません
+                  .login__check--img 
+                    = image_tag("https://www.gstatic.com/recaptcha/api2/logo_48.png", class: "login--img")
+                    .login__img--text reCAPTCHA
+                .login__ckeck--rule 
+                  .login__ckeck--rule--first プライバシー
+                  .login__ckeck--rule--second 利用規約
 
-            //ログイン
-            .login--login
-              //ログインパスは変更する
-              = link_to identification_users_path, class: "btn btn--login" do
-                ログイン
+              //ログイン
+              .login--login
+                //ログインパスは変更する
+                = f.submit 'ログイン', method: :post, class: "btn btn--login"
+                
 
-            //パスワード忘れ
-            .login--forget
-              = link_to edit_user_registration_path, class: "btn btn--forget" do
-                パスワードをお忘れの方
+              //パスワード忘れ
+              .login--forget
+                = link_to edit_user_registration_path, class: "btn btn--forget" do
+                  パスワードをお忘れの方
 
   .login--footer 
     = render partial: 'users/shared/registration-footer'

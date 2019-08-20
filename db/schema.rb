@@ -86,23 +86,21 @@ ActiveRecord::Schema.define(version: 20190817074959) do
     t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "condition_id"
     t.integer  "status_id"
     t.integer  "brand_id"
     t.integer  "size_id"
     t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
-    t.string   "city"
+    t.integer  "shipments_id"
     t.integer  "shipping_date_id"
     t.string   "date"
-    t.integer  "shipments_id"
     t.integer  "charge_id"
+    t.integer  "condition_id"
     t.integer  "deliver_method_id"
     t.integer  "shipment_id"
     t.integer  "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
-    t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
     t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
     t.index ["shipments_id"], name: "index_products_on_shipments_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
@@ -188,7 +186,7 @@ ActiveRecord::Schema.define(version: 20190817074959) do
     t.string   "first_name"
     t.string   "last_name_kana"
     t.string   "first_name_kana"
-    t.integer  "birthday"
+    t.date     "birthday"
     t.string   "tel"
     t.string   "avatar"
     t.string   "reset_password_token"

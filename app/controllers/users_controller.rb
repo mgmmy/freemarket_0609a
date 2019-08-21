@@ -14,17 +14,5 @@ class UsersController < ApplicationController
     session[:user_id]=nil
   end
 
-  def login
-    @user = User.where(email: params[:user][:email], passwprd: params[:user][:password])
-    binding.pry
-    if @user
-      redirect_to user_path(session[:user_id])
-    else
-      @error_message = "メールアドレスまたはパスワードが間違っています"
-      redirect_to 'sessions/new'
-      @email = params[:email]
-      @password = params[:password]
-      
-    end
-  end
+  
 end

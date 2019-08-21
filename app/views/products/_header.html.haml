@@ -57,15 +57,7 @@
         .li.index-header__bottom__right__todo やることリスト
             
         //マイページ
-        - if session[:user_id]=nil
-          .li.index-header__bottom__right__mypage 
-            = link_to new_user_registration_path, class:'my_page' do
-              新規登録
-          
-          .li.index-header__bottom__right__mypage 
-            = link_to new_user_session_path, class:'my_page' do
-              ログイン
-        - else 
+        - if current_user
           .li.index-header__bottom__right__mypage 
             =link_to 'users/show', class:'my_page' do
               マイぺージ
@@ -73,5 +65,12 @@
           .li.index-header__bottom__right__mypage 
             = link_to '/users/:user_id/logout', class:'my_page' do
               ログアウト
+        - else 
+          .li.index-header__bottom__right__mypage 
+            = link_to new_user_registration_path, class:'my_page' do
+              新規登録
           
+          .li.index-header__bottom__right__mypage 
+            = link_to new_user_session_path, class:'my_page' do
+              ログイン
 

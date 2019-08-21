@@ -27,7 +27,7 @@
         //入力欄
         .login--form
           .login--form--inner
-            =form_for(resource, as: resource_name, url: login_path(resource)) do |f| 
+            =form_for(resource, as: resource_name, url: user_session_path) do |f| 
               .login--email
                 = f.text_field :email, class: "inputbox--email", placeholder: "  メールアドレス"
               .login--password

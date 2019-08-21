@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def login
     @user = User.where(email: params[:user][:email], passwprd: params[:user][:password])
+    binding.pry
     if @user
       redirect_to user_path(session[:user_id])
     else

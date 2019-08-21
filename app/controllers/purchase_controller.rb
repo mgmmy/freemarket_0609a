@@ -19,7 +19,7 @@ class PurchaseController < ApplicationController
     customer: @card.customer_id,
     amount: product.price,
     currency: 'jpy'
-  )
+    )
   redirect_to root_path, id: session[:user_id]
   end
 end

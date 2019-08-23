@@ -1,0 +1,24 @@
+.item-info__button-like
+  -# - if @product.heart?(current_user)
+  -#   = form_for(@product.favorites.find_by(user_id: current_user.id), method: :delete, remote: true) do |f|
+  -#     = f.button class: "item-button like-button" do
+  -#       = fa_icon 'heart'
+  -#       %span いいね！
+  -#       %span
+  -#         = @product.like
+  -# - else
+  -#   = form_for(@product.favorites.build, remote: true) do |f|
+  -#     = hidden_field_tag :product_id, @product.id 
+  -#     = f.button class: "item-button like-button" do
+  -#       = fa_icon 'heart-o'
+  -#       %span いいね！
+  -#       %span
+  -#         = @product.like
+  - if product.liked_user(session[:user]).present?
+    = button_to product_favorites_path(product_id: product.id), method: :delete, class: 'item-button like-button', remote: true do
+      = fa_icon 'heart'
+      %span いいね！
+  -else
+    = button_to product_favorites_path(@product.id), method: :post, class: 'item-button like-button', remote: true do
+      = fa_icon 'heart-o'
+      %span いいね！

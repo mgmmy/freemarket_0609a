@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook, :google]
 
   has_one  :address
+  has_many :favorites, dependent: :destroy
   has_many :cards
   has_many :products
   has_many :buyer_purchases, class_name: 'Purchases', :foreign_key => 'buyer_id'

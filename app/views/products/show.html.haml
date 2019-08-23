@@ -90,13 +90,8 @@
       .item-info__description
         = @product.detail
 
-      .item-info__button
-        .item-info__button-like
-          = button_to root_path, class: "item-button like-button" do
-            = fa_icon 'heart-o'
-            %span いいね！
-            %span
-              = @product.like
+      .item-info__button{id: "product_id-#{@product.id}", data: {product: {id: @product.id }}} 
+        = render partial: "likes/like", locals: { product: @product, likes: @likes}
 
         .item-info__button-report
           = button_to root_path, class: "item-button report-button" do

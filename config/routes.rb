@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :products, only: [:show, :new, :create] do
 
     resources :images, only: [:new, :create] 
+    resources :favorites, only: [:create, :destroy]
     collection do
 
       match 'search' => 'products#search', via: [:get, :post]
@@ -69,5 +70,6 @@ Rails.application.routes.draw do
   end
   
   resources :categories, only: [:show]
+  
 
 end

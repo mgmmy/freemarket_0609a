@@ -94,12 +94,6 @@
         }
       }
 
-      @media screen and (min-width: 768px) {
-        .vanish {
-          display: none;
-        }
-      }
-      
       .buy-btn__link {
         margin-top: 16px;
         line-height: 60px;
@@ -110,6 +104,10 @@
           max-width: 300px !important;
           height: 300px !important;
           margin: 0 auto;
+        }
+        
+        .vanish {
+          display: none;
         }
       }
         
@@ -200,10 +198,6 @@
         margin: 16px 0 0;
         font-size: 0;
 
-        &-like {
-          display: inline-block;
-        }
-
         &-report {
           display: inline-block;
         }
@@ -216,11 +210,28 @@
           transition: all ease-out .3s;
         }
 
-        .like-button {
-          color: $black;
-          border: 1px solid $off-white;
-          background: $off-white;
+        &-like {
+          display: inline-block;
+
+          .like-button {
+            color: $black;
+            border: 1px solid $off-white;
+            background: $off-white;
+  
+            .fa-heart-o {
+              color: $icon-gray;
+              font-size: 15px;
+            }
+  
+            .fa-heart {
+              color: $mercari-red;
+              font-size: 15px;
+              font-weight: bold;
+            }
+          }
         }
+
+        
 
         .report-button {
           margin-left: 8px;

@@ -60,12 +60,6 @@ ActiveRecord::Schema.define(version: 20190817074959) do
     t.index ["product_id"], name: "index_comments_on_product_id", using: :btree
   end
 
-  create_table "conditions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "conditions"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "product_id", null: false
     t.integer  "user_id",    null: false
@@ -92,25 +86,20 @@ ActiveRecord::Schema.define(version: 20190817074959) do
     t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "condition_id"
     t.integer  "status_id"
     t.integer  "brand_id"
     t.integer  "size_id"
-    t.integer  "delivery_method_id"
     t.integer  "prefecture_id"
     t.string   "city"
     t.integer  "shipping_date_id"
     t.string   "date"
-    t.integer  "shipments_id"
-    t.integer  "charge_id"
-    t.integer  "deliver_method_id"
-    t.integer  "shipment_id"
     t.integer  "category_id"
+    t.integer  "charge_id"
+    t.integer  "condition_id"
+    t.integer  "delivery_method_id"
+    t.integer  "shipment_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
-    t.index ["condition_id"], name: "index_products_on_condition_id", using: :btree
-    t.index ["delivery_method_id"], name: "index_products_on_delivery_method_id", using: :btree
-    t.index ["shipments_id"], name: "index_products_on_shipments_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
     t.index ["status_id"], name: "index_products_on_status_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
@@ -186,6 +175,12 @@ ActiveRecord::Schema.define(version: 20190817074959) do
     t.index ["user_id"], name: "index_social_media_on_user_id", using: :btree
   end
 
+  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                            null: false
     t.string   "email",                  default: "", null: false
@@ -215,8 +210,8 @@ ActiveRecord::Schema.define(version: 20190817074959) do
   add_foreign_key "images", "products"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
-  add_foreign_key "products", "conditions"
   add_foreign_key "products", "sizes"
+  add_foreign_key "products", "statuses"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "purchases", "cards"

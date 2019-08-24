@@ -108,8 +108,12 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy if @product.user_id == current_user.id
-    redirect_to user_path(current_user.id), notice: '商品を削除しました。'
+    if @product.user_id == current_user.id
+      @product.destroy
+      redirect_to user_path(current_user.id), notice: '商品を削除しました。'
+    else
+      render :show
+    end
   end
   
   def search

@@ -17,7 +17,7 @@ class CardsController < ApplicationController
       if @card.save
         redirect_to complete_users_path
       else
-        render: pay
+        render: "pay"
       end
     end
   end

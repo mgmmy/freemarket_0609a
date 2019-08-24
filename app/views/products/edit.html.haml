@@ -57,15 +57,15 @@
                 .select-wrap
                   = f.collection_select :category_id, @grandchild_categories, :id, :name, {prompt: "---"}, {class: "select-default", id: "grandchild-category"}
                   = fa_icon "chevron-down"
-
-              .form-group#size-form
-                = f.label :size_id do
-                  サイズ
-                  %span.form-require
-                    必須
-                .select-wrap
-                  = f.collection_select :size_id, @sizes, :id, :size, {prompt: "---", selected: @size[0][:id]}, {class: "select-default", id: "size-form"}
-                  = fa_icon "chevron-down"
+              = unless @size.blank?
+                .form-group#size-form
+                  = f.label :size_id do
+                    サイズ
+                    %span.form-require
+                      必須
+                  .select-wrap
+                    = f.collection_select :size_id, @sizes, :id, :size, {prompt: "---", selected: @size[0][:id]}, {class: "select-default", id: "size-form"}
+                    = fa_icon "chevron-down"
 
               -# .form-group#brand-form
               -#   = f.label :brand_id do

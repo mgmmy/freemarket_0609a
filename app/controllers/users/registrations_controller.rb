@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     if @user.save
+      sign_in(@user)
       session[:user_id] = @user.id
       redirect_to phonemumber_users_path
     else

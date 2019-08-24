@@ -2,7 +2,7 @@
   .item-wrapper
     =link_to product_path(product.id) do
       .item-image
-        =image_tag(product.images.first.image, class: "item-image_photo")
+        =image_tag(product.images.last.image, class: "item-image_photo")
       .item-text-wrapper
         %h3.item-title
           = product.name

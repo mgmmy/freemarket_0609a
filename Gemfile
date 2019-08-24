@@ -63,7 +63,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'faker-japanese'

@@ -5,9 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   
   def create
-    binding.pry
     @user = User.new(user_params)
-    
     if @user.save
       sign_in(@user)
       session[:user_id] = @user.id
@@ -19,6 +17,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
     def user_params
-      params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :last_name, :first_name, :first_name_kana, :last_name_kana, :birthday(1i), birthday(2i), birthday(3i))
+      params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :last_name, :first_name, :first_name_kana, :last_name_kana, :birthday)
     end
 end

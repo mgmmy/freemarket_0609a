@@ -105,109 +105,109 @@
       %a.view-all_message
         =link_to 'すべての商品を見る', category_path(528)
         
-.main-wrapper
-  %h1.main-wrapper_title
-    ピックアップブランド
-  .section-wrapper
-    %h2.section-wrapper-title
-      %a.section-title
-        =link_to 'シャネル 新着アイテム', src:'#'
-    .items-wrapper
-      -@channels.each do |product|
-        .item-wrapper
-          =link_to product_path(product.id) do
-            .item-image
-              =image_tag(product.images.first.image, class: "item-image_photo")
-            .item-text-wrapper
-              %h3.item-title
-                = product.name
-              .item-num
-                .item-price
-                  ='￥'+ product.price.to_s(:delimited)
-                .item-like
-                  %i.fa.fa-heart-o
-                  %span.like-num
-                    = product.like
-              %p.item-price-tax
-                （税込）
-    .view-all
-      %a.view-all_message
-        =link_to 'すべての商品を見る', src:'#'
+-# .main-wrapper
+-#   %h1.main-wrapper_title
+-#     ピックアップブランド
+-#   .section-wrapper
+-#     %h2.section-wrapper-title
+-#       %a.section-title
+-#         =link_to 'シャネル 新着アイテム', src:'#'
+-#     .items-wrapper
+-#       -@channels.each do |product|
+-#         .item-wrapper
+-#           =link_to product_path(product.id) do
+-#             .item-image
+-#               =image_tag(product.images.first.image, class: "item-image_photo")
+-#             .item-text-wrapper
+-#               %h3.item-title
+-#                 = product.name
+-#               .item-num
+-#                 .item-price
+-#                   ='￥'+ product.price.to_s(:delimited)
+-#                 .item-like
+-#                   %i.fa.fa-heart-o
+-#                   %span.like-num
+-#                     = product.like
+-#               %p.item-price-tax
+-#                 （税込）
+-#     .view-all
+-#       %a.view-all_message
+-#         =link_to 'すべての商品を見る', src:'#'
 
-  .section-wrapper
-    %h2.section-wrapper-title
-      %a.section-title
-        =link_to 'ルイ ヴィトン 新着アイテム', src:'#'
-    .items-wrapper
-      -@vuittons.each do |product|
-        .item-wrapper
-          =link_to product_path(product.id) do
-            .item-image
-              =image_tag(product.images.first.image, class: "item-image_photo")
-            .item-text-wrapper
-              %h3.item-title
-                = product.name
-              .item-num
-                .item-price
-                  ='￥'+ product.price.to_s(:delimited)
-                .item-like
-                  %i.fa.fa-heart-o
-                  %span.like-num
-                    = product.like
-              %p.item-price-tax
-                （税込）
-    .view-all
-      %a.view-all_message
-        =link_to 'すべての商品を見る', src:'#'
+-#   .section-wrapper
+-#     %h2.section-wrapper-title
+-#       %a.section-title
+-#         =link_to 'ルイ ヴィトン 新着アイテム', src:'#'
+-#     .items-wrapper
+-#       -@vuittons.each do |product|
+-#         .item-wrapper
+-#           =link_to product_path(product.id) do
+-#             .item-image
+-#               =image_tag(product.images.first.image, class: "item-image_photo")
+-#             .item-text-wrapper
+-#               %h3.item-title
+-#                 = product.name
+-#               .item-num
+-#                 .item-price
+-#                   ='￥'+ product.price.to_s(:delimited)
+-#                 .item-like
+-#                   %i.fa.fa-heart-o
+-#                   %span.like-num
+-#                     = product.like
+-#               %p.item-price-tax
+-#                 （税込）
+-#     .view-all
+-#       %a.view-all_message
+-#         =link_to 'すべての商品を見る', src:'#'
 
-  .section-wrapper
-    %h2.section-wrapper-title
-      %a.section-title
-        =link_to 'シュプリーム 新着アイテム', src:'#'
-    .items-wrapper
-      -@supremes.each do |product|
-        .item-wrapper
-          =link_to product_path(product.id) do
-            .item-image
-              =image_tag(product.images.first.image, class: "item-image_photo")
-            .item-text-wrapper
-              %h3.item-title
-                = product.name
-              .item-num
-                .item-price
-                  ='￥'+ product.price.to_s(:delimited)
-                .item-like
-                  %i.fa.fa-heart-o
-                  %span.like-num
-                    = product.like
-              %p.item-price-tax
-                （税込）
-    .view-all
-      %a.view-all_message
-        =link_to 'すべての商品を見る',src:'#'
+-#   .section-wrapper
+-#     %h2.section-wrapper-title
+-#       %a.section-title
+-#         =link_to 'シュプリーム 新着アイテム', src:'#'
+-#     .items-wrapper
+-#       -@supremes.each do |product|
+-#         .item-wrapper
+-#           =link_to product_path(product.id) do
+-#             .item-image
+-#               =image_tag(product.images.first.image, class: "item-image_photo")
+-#             .item-text-wrapper
+-#               %h3.item-title
+-#                 = product.name
+-#               .item-num
+-#                 .item-price
+-#                   ='￥'+ product.price.to_s(:delimited)
+-#                 .item-like
+-#                   %i.fa.fa-heart-o
+-#                   %span.like-num
+-#                     = product.like
+-#               %p.item-price-tax
+-#                 （税込）
+-#     .view-all
+-#       %a.view-all_message
+-#         =link_to 'すべての商品を見る',src:'#'
 
-  .section-wrapper
-    %h2.section-wrapper-title
-      %a.section-title
-        =link_to 'ナイキ 新着アイテム', src:'#'
-    .items-wrapper
-      -@nikes.each do |product|
-        .item-wrapper
-          =link_to product_path(product.id) do
-            .item-image
-              =image_tag(product.images.first.image, class: "item-image_photo")
-            .item-text-wrapper
-              %h3.item-title
-                = product.name
-              .item-num
-                .item-price
-                  ='￥'+ product.price.to_s(:delimited)
-                .item-like
-                  %i.fa.fa-heart-o
-                  %span.like-num
-                    = product.like
-              %p.item-price-tax
-                （税込）
-    .view-all
-      %a.view-all_message
-        =link_to 'すべての商品を見る', src:'#'
+-#   .section-wrapper
+-#     %h2.section-wrapper-title
+-#       %a.section-title
+-#         =link_to 'ナイキ 新着アイテム', src:'#'
+-#     .items-wrapper
+-#       -@nikes.each do |product|
+-#         .item-wrapper
+-#           =link_to product_path(product.id) do
+-#             .item-image
+-#               =image_tag(product.images.first.image, class: "item-image_photo")
+-#             .item-text-wrapper
+-#               %h3.item-title
+-#                 = product.name
+-#               .item-num
+-#                 .item-price
+-#                   ='￥'+ product.price.to_s(:delimited)
+-#                 .item-like
+-#                   %i.fa.fa-heart-o
+-#                   %span.like-num
+-#                     = product.like
+-#               %p.item-price-tax
+-#                 （税込）
+-#     .view-all
+-#       %a.view-all_message
+-#         =link_to 'すべての商品を見る', src:'#'

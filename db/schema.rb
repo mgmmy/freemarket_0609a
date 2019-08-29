@@ -13,11 +13,18 @@
 ActiveRecord::Schema.define(version: 20190817074959) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "prefectures_id_id", null: false
-    t.string  "city",              null: false
-    t.string  "block",             null: false
-    t.integer "users_id",          null: false
-    t.index ["prefectures_id_id"], name: "index_addresses_on_prefectures_id_id", using: :btree
+    t.string  "first_name",      null: false
+    t.string  "last_name",       null: false
+    t.string  "first_name_kana", null: false
+    t.string  "last_name_kana",  null: false
+    t.string  "postalcode"
+    t.integer "prefectures_id",  null: false
+    t.string  "city",            null: false
+    t.string  "block",           null: false
+    t.string  "building"
+    t.integer "user_id",         null: false
+    t.string  "tel",             null: false
+    t.index ["prefectures_id"], name: "index_addresses_on_prefectures_id", using: :btree
   end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -190,7 +197,6 @@ ActiveRecord::Schema.define(version: 20190817074959) do
     t.string   "last_name_kana"
     t.string   "first_name_kana"
     t.date     "birthday"
-    t.string   "tel"
     t.string   "avatar"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

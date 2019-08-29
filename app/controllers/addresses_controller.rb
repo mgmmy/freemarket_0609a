@@ -4,13 +4,14 @@ class AddressesController < ApplicationController
   end
 
   def tel
+    @address=Address.new(address_params)
     params[:address][:user_id]=session[:user_id]
-    @address=params[:address][:tel],params[:address][:user_id]
+    # @address=current_user.address.assign_attributes(address_params)
     if @address=nil?
       redirect_to new_user_session_path
     else 
-      address = params.require(:address).permit(:tel, :user_id)
-      @address=Address.new(address)
+      binding.pry
+      current_user.address.update(address_params)
       redirect_to address_address_path
     end
   end
@@ -33,7 +34,7 @@ class AddressesController < ApplicationController
   private
 
   def address_params
-    params.require(:address).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postalcode, :prefectures_id, :city, :block, :buiding)
+    params.require(:address).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postalcode, :prefectures_id, :city, :block, :buiding, :tel, :user_id)
   end
   end
 

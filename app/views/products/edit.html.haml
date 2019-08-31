@@ -57,7 +57,7 @@
                 .select-wrap
                   = f.collection_select :category_id, @grandchild_categories, :id, :name, {prompt: "---"}, {class: "select-default", id: "grandchild-category"}
                   = fa_icon "chevron-down"
-              = unless @size.blank?
+              - unless @size.blank?
                 .form-group#size-form
                   = f.label :size_id do
                     サイズ

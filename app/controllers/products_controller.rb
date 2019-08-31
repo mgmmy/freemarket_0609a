@@ -79,7 +79,7 @@ class ProductsController < ApplicationController
   def edit
     @products = Product.where(user_id: @product.user_id).limit(6)
     @images = @product.images
-    @product.delivery_fee == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
+    @product.charge_id == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
     @commission = (@product.price * 0.1).round
     @profit = @product.price - @commission
 

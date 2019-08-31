@@ -44,9 +44,14 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  
   get 'address/create' , to: 'users#address_create'
-  post 'address/create' => 'users#address_create'
+  post 'address/create' , to: 'users#address_create'
+  get 'address/phonemumber', to: 'addresses#phonemumber'
+  post 'address/tel' , to: 'addresses#tel'
+  get 'address/address', to: 'addresses#address'
+  post 'address/address_comp', to: 'addresses#address_comp'
+    
   post 'user/sms_authenticate' , to: 'users#sms_authenticate'
   resources :users do
     resources :cards, only: [:index, :new, :destroy, :show] do
@@ -54,14 +59,10 @@ Rails.application.routes.draw do
         post 'pay', to: 'cards#pay'
       end
     end
-
     get 'logout'
-
     collection do
       get 'identification'
       get 'information'
-      get 'phonemumber'
-      get 'address'
       get 'complete'
       get 'credit_unregistered'
       get 'profile'

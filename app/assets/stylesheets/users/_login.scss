@@ -202,9 +202,12 @@
               cursor: pointer;
               height: 50px;
               position: relative;
+              border-radius: 4px;
               .btn--login {
+                background: #ea352d;
                 color: white;
-                font-size: 14px;
+                border:none;
+                font-size: 16px;
                 position: absolute;
                 top: 15px;
                 left: 136px;

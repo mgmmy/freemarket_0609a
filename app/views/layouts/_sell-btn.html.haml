@@ -1,4 +1,9 @@
-= link_to new_product_path, class: "sell-btn", id: "sell-btn", data: {turbolinks: false} do
- .sell-btn_title 出品
- = fa_icon "camera", class: "sell-btn_icon"
+- if current_user 
+  = link_to new_product_path, class: "sell-btn", id: "sell-btn", data: {turbolinks: false} do
+    .sell-btn_title 出品
+    = fa_icon "camera", class: "sell-btn_icon"
+- else
+  = link_to new_user_session_path, class: "sell-btn", id: "sell-btn" do
+    .sell-btn_title 出品
+    = fa_icon "camera", class: "sell-btn_icon"
  

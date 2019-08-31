@@ -5,7 +5,7 @@ class ChangeColumnToProducts < ActiveRecord::Migration[5.0]
     change_column_null :users, :last_name_kana, true
     change_column_null :users, :first_name_kana, true
     change_column_null :users, :birthday, true
-    change_column_null :users, :tel, true
+    # change_column_null :users, :tel, true
   end
 
   def down

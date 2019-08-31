@@ -244,15 +244,20 @@
             display: inline-block;
             margin-left: 97px;
           }
-         
-        }
-
-        
-      }
-      
-      
+        } 
+      } 
     }
-
-    
+  }
+  .item-change-box {
+    background-color: $bg-white;
+    padding: 10px 40px 10px !important;
+    width: 620px;
+    margin: 24px auto;
+    .btn-default {
+      margin: 16px 0;
+    }
+    .text-center {
+      text-align: center;
+    }
   }
 }

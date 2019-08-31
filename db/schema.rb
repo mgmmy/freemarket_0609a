@@ -10,21 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190828074442) do
+ActiveRecord::Schema.define(version: 20190831041711) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "first_name",      null: false
-    t.string  "last_name",       null: false
-    t.string  "first_name_kana", null: false
-    t.string  "last_name_kana",  null: false
-    t.string  "postalcode"
-    t.integer "prefectures_id",  null: false
-    t.string  "city",            null: false
-    t.string  "block",           null: false
-    t.string  "building"
-    t.integer "user_id",         null: false
-    t.string  "tel",             null: false
-    t.index ["prefectures_id"], name: "index_addresses_on_prefectures_id", using: :btree
+    t.integer "prefectures_id_id", null: false
+    t.string  "city",              null: false
+    t.string  "block",             null: false
+    t.integer "users_id",          null: false
+    t.index ["prefectures_id_id"], name: "index_addresses_on_prefectures_id_id", using: :btree
   end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -90,7 +83,6 @@ ActiveRecord::Schema.define(version: 20190828074442) do
     t.integer  "price",                            null: false
     t.integer  "user_id",                          null: false
     t.integer  "like"
-    t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "status_id"
@@ -98,11 +90,11 @@ ActiveRecord::Schema.define(version: 20190828074442) do
     t.integer  "size_id"
     t.integer  "prefecture_id"
     t.string   "city"
+    t.integer  "category_id"
     t.integer  "charge_id"
     t.integer  "condition_id"
     t.integer  "delivery_method_id"
     t.integer  "shipment_id"
-    t.integer  "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
@@ -194,7 +186,8 @@ ActiveRecord::Schema.define(version: 20190828074442) do
     t.string   "first_name"
     t.string   "last_name_kana"
     t.string   "first_name_kana"
-    t.date     "birthday"
+    t.integer  "birthday"
+    t.string   "tel"
     t.string   "avatar"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

@@ -59,7 +59,7 @@
         //マイページ
         - if current_user
           .li.index-header__bottom__right__mypage 
-            =link_to 'users/show', class:'my_page' do
+            =link_to user_path(current_user.id), class:'my_page' do
               マイぺージ
           
           .li.index-header__bottom__right__mypage 

@@ -15,3 +15,10 @@ $(function () {
     $($(this).attr("href")).addClass('active-item');
   });
 });
+
+$(function(){
+  $(".sidebar-list_contents").on('click', function(){
+    $(".sidebar-list_contents .selected").removeClass("selected");
+    $(this).addClass("selected");
+  });
+});

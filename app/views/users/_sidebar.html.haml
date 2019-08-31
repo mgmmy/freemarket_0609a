@@ -3,7 +3,7 @@
   .sidebar-content
     %ul.sidebar-list
       %li
-        = link_to 'users/show', class: 'sidebar-list_contents' do
+        = link_to user_path(current_user.id), class: 'sidebar-list_contents' do
           マイページ
           = fa_icon("chevron-right")
       %li

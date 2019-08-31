@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
-    @user.build_address
+    @user.build_profile
   end
   
   def create
@@ -17,6 +17,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
     def user_params
-      params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :last_name, :first_name, :first_name_kana, :last_name_kana, :birthday, address_attributes:[:tel, :id, :postalcode, :prefectures_id, :city, :block, :buiding, :user_id])
+      params.require(:user).permit(:nickname, :email, :password, :password_confirmation, :last_name, :first_name, :first_name_kana, :last_name_kana, :birthday, profile_attributes:[:id, :user_id, :last_name, :first_name, :first_name_kana, :last_name_kana, :birthday])
     end
 end

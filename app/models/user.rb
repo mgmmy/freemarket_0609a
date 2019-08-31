@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :seller_purchases, class_name: 'Purchases', :foreign_key => 'seller_id'
   has_many :ratings
   has_one  :profile
+  accepts_nested_attributes_for :profile
   has_many :comments
   has_many :purchases
   has_many :sns_credentials, dependent: :destroy

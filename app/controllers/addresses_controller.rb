@@ -10,7 +10,6 @@ class AddressesController < ApplicationController
     if @address=nil?
       redirect_to new_user_session_path
     else 
-      binding.pry
       current_user.address.update(address_params)
       redirect_to address_address_path
     end

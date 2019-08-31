@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook, :google]
 
   has_one  :address
+  accepts_nested_attributes_for :address
   has_many :cards
   has_many :products
   has_many :buyer_purchases, class_name: 'Purchases', :foreign_key => 'buyer_id'
@@ -13,8 +14,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :purchases
   has_many :sns_credentials, dependent: :destroy
-
-  validates :nickname, :encrypted_password, :last_name, :first_name, :last_name_kana, :first_name_kana, presence: true
+  
+  # validates :nickname, :encrypted_password, :last_name, :first_name, :last_name_kana, :first_name_kana
 
   
 

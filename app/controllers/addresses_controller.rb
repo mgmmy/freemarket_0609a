@@ -24,7 +24,7 @@ class AddressesController < ApplicationController
       @profile=current_user.profile
       @error='未記入の箇所があります。'
     else
-      @profile=Profile.update(profile_params)
+      @profile=current_user.profile.update(profile_params)
       redirect_to new_user_card_path(current_user.id)
     end
   end

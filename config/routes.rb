@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   get 'address/phonemumber', to: 'addresses#phonemumber'
   post 'address/tel' , to: 'addresses#tel'
   get 'address/address', to: 'addresses#address'
-  post 'address/address_comp', to: 'addresses#address_comp'
+  patch 'address/address_comp', to: 'addresses#address_comp'
     
   post 'user/sms_authenticate' , to: 'users#sms_authenticate'
   resources :users do
@@ -62,7 +62,6 @@ Rails.application.routes.draw do
     get 'logout'
     collection do
       get 'identification'
-      get 'information'
       get 'complete'
       get 'credit_unregistered'
       get 'profile'

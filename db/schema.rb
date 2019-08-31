@@ -103,10 +103,21 @@ ActiveRecord::Schema.define(version: 20190831041711) do
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "introduce",  limit: 65535
+    t.text     "introduce",       limit: 65535
     t.integer  "user_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "first_name_kana"
+    t.string   "last_name_kana"
+    t.string   "postalcode"
+    t.string   "prefecture_id"
+    t.string   "city"
+    t.string   "block"
+    t.string   "building"
+    t.string   "tel"
+    t.date     "birthday"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 

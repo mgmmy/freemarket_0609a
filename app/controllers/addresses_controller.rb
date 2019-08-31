@@ -1,38 +1,41 @@
 class AddressesController < ApplicationController
   def phonemumber
-    @address=Address.new
+    @profile=Profile.new
   end
 
   def tel
-    @address=Address.new(address_params)
-    params[:address][:user_id]=session[:user_id]
-    if @address=nil?
+    @profile=Profile.new(tel_params)
+    params[:profile][:user_id]=session[:user_id]
+    if @profile=nil?
       redirect_to new_user_session_path
     else 
-      current_user.address.update(address_params)
+      current_user.profile.update(tel_params)
       redirect_to address_address_path
     end
   end
 
   def address
-    @address=Address.new
+    @peofile=Profile.new
   end
 
   def address_comp
-    @address=params[:address]
-    if @address=nil?
-      @address=current_user.address
+    @profile=params[:profile]
+    if @profile=nil?
+      @profile=current_user.profile
       @error='未記入の箇所があります。'
     else
-      @address=Address.update(address_params)
+      @profile=current_user.profile.update(profile_params)
       redirect_to new_user_card_path(current_user.id)
     end
   end
 
   private
+  def tel_params
+    params.require(:profile).permit(:tel)
+  end
 
-  def address_params
-    params.require(:address).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :postalcode, :prefectures_id, :city, :block, :buiding, :tel, :user_id)
+  def profile_params
+    params.require(:profile).permit(:last_name, :first_name, :first_name_kana, :last_name_kana, :tel, :postalcode, :city, :block, :building, :prefecture_id)
   end
-  end
+end
 

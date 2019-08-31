@@ -1,44 +1,116 @@
 %body
-  //ヘッダー部分
-  .newmember_registration__container
-    .newmember_registration__header
-      %h1.newmember_registration__header__logo
-        
-    //メイン部分
-    .newmember__main
-      .newmember__mainbox
-        .newmember__mainbox__upper
-          .newmember__mainbox__upper__title 新規会員登録
-        //メイン部分下側
-        .newmember__mainbox__main
-          .newmember__mainbox__main__contents
-            //メールアドレスで登録
-            .newmember__mainbox--email
-              = link_to information_users_path  do
-                %i.fa.fa-envelope
-                .mail--text メールアドレスで登録
-            //フェイスブックで登録
-            .newmember__main__contents--facebook
-              = link_to user_facebook_omniauth_authorize_path, method: :post do
-                %i.fa.fa-facebook-square
-              .facebook--text Facebookで登録
-              
-            //グーグルで登録
-            .newmember__main__contents--google
-              = link_to user_google_omniauth_authorize_path, method: :post, class: "icon-google" do
-                = image_tag('https://www.mercari.com/jp/assets/img/common/common/google.svg')
-                .google--text Googleで登録
-              
+  .information-container
+    .infomation-header
+      .infomation-header--logo
+        = link_to image_tag(src= "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1905591235", class: "header--mercari"), root_path
+          
+      //配送状況
+      .progress-bar
+        %ul.progress-bar--bar
+          %li.active#active 
+            会員情報
+            .progress-status
+            .progress-status_bar
+          %li.number#number 
+            電話番号認証
+            .progress-status
+            .progress-status_bar
+          %li.address#address 
+            お届け住所入力
+            .progress-status
+            .progress-status_bar
+          %li.payment#payment 
+            支払い情報
+            .progress-status
+            .progress-status_bar--last
+          %li.end#end 
+            完了
+            .progress-status
+            
 
+    .information--main
+      .information__mainbox
+        //メインの上のだん
+        .information__mainbox__upper
+          .inromation__upper--message 会員情報入力
+        //メインの下の段
+        .information__mainbox__main
+          =form_for(resource, as: resource_name, url: registration_path(resource)) do |f|
+            .information__main
+              //ニックネーム
+              .information--nickname
+                = f.label 'ニックネーム', class: "information--nickname--name"
+                = f.label '必須',class: "information--nickname--red"
+                = f.text_field :nickname, placeholder: '氏名を入力してください'
+                  
+              //メールアドレス
+              .information--email
+                = f.label 'メールアドレス', class: "information--email--name"
+                = f.label '必須', class: "information--email--red"
+                = f.text_field :email, placeholder: "PC・携帯どちらでも可"
+              //パスワード
+              .information--pass
+                = f.label 'パスワード', class: "information--pass--name"
+                = f.label '必須', class: "information--pass--red"
+                = f.text_field :password, placeholder: "６文字以上"
+              //パスワード（確認）
+              .information--pass
+                = f.label 'パスワード (確認)', class: "information--pass--name"
+                = f.label '必須', class: "information--pass--red" 
+                = f.text_field :password_confirmation, placeholder: "６文字以上"
+              //本人確認
+              .forsafe 本人確認
+              .forsafe--text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            = f.fields_for :profile do |f|
+              //姓
+              .information--lastname
+                = f.label '姓（全角)', class: "information--lastname--name"
+                = f.label '必須', class: "information--lastname--red"
+                = f.text_field :first_name, placeholder: "例)山田"
+              //名
+              .information--firstname
+                = f.label '名（全角）', class: "information--firstname--name"
+                = f.label '必須', class: "information--firstname--red"
+                = f.text_field :last_name, placeholder: "例)彩"
+              //姓カナ
+              .information--lastname--kana
+                = f.label '姓カナ（全角）', class: "information--lastname--kana--name"
+                = f.label '必須', class: "information--lastname--kana--red"
+                = f.text_field :first_name_kana, placeholder: "例)ヤマダ"
+              //名カナ
+              .information--firstname--kana
+                = f.label '名カナ（全角）', class: "information--firstname--kana--name"
+                = f.label '必須', class: "information--firstname--kana--red"
+                = f.text_field :last_name_kana, placeholder: "例)アヤ"
+              //生年月日
+              .information--birthday
+                = f.label '生年月日', class: "information--birthday--name"
+                = f.label '必須', class: "information--birthday--red"
+                //プルダウン
+                .information--birthday--select
+                  = f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), prompt: { year: '--', month: '--', day: '--' }
+                  
+                .information--select--text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
-    //フッター部分
-    .new-member__footer
-      .new-member__footer__nav
-        %ul.new-member__footer__nav__nav
-          .li プライバシーポリシー
-          .li メルカリ利用規約
-          .li 特定商取引に関する表記
-        .new-member__footer__logo
-          = image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?1881812696')
-        .new-member__footer__mercari © 2019 Mercari
+              //私はロボットではありません
+              .information__check
+                .information__check--box
+                  %input.information-checkbox{ type: 'checkbox' }
+                  %label.information-checkbox--text{ for: 'checkbox-id' } 私はロボットではありません
+                  .information__check--img 
+                    = image_tag("https://www.gstatic.com/recaptcha/api2/logo_48.png", class: "login--img")
+                    .information__img--text reCAPTCHA
+                .information__ckeck--rule 
+                  .information__ckeck--rule--first プライバシー
+                  .information__ckeck--rule--second 利用規約
+              
+              .information__rule 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+              .information--next 
+                = f.submit '次へ進む', class: 'btn btn--information--next' do
+                  .btn.btn--information--next
+              //本人情報の登録について
+              .information--about 本人情報の登録について〉
+                  
+    .information-footer 
+      = render partial: 'users/shared/registration-footer'
 

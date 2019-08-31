@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [ :show, :edit, :update ]
+  before_action :set_product, only: [ :show, :edit, :update, :destroy ]
   include ProductsHelper
 
   def index
@@ -76,6 +76,49 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @products = Product.where(user_id: @product.user_id).limit(6)
+    @images = @product.images
+    @product.charge_id == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
+    @commission = (@product.price * 0.1).round
+    @profit = @product.price - @commission
+
+    @grandchild_category = Category.where(id: @product.category_id)
+    categories = @grandchild_category[0][:ancestry].split('/')
+    @parent_category = Category.where(id: categories[0])
+    @child_category = Category.where(id: categories[1])
+
+    @parent_categories = Category.where(ancestry: nil)
+    @child_categories = Category.where('ancestry LIKE ?', "#{@parent_category[0][:id]}")
+    @grandchild_categories = Category.where('ancestry LIKE ?', "%/#{@child_category[0][:id]}")
+
+    unless @product.size_id.nil?
+      @size = Size.where(id: @product.size_id)
+      @sizes = Size.where(ancestry: @size[0][:ancestry])  
+    end
+  end
+
+  def update
+    edit
+    if @product.update!(update_params)
+      redirect_to product_path(@product.id), notice: '商品を更新しました。'
+    else
+      render :edit, alert: 'error'
+    end
+  end
+
+  def destroy
+    if @product.user_id == current_user.id
+       if @product.destroy
+        redirect_to user_path(current_user.id), notice: '商品を削除しました。'
+       else
+        render :show
+       end
+    else
+      render :show
+    end
+  end
+  
   def search
     @keyword = params[:keyword]
     
@@ -117,7 +160,12 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, images_attributes: {image: []}).merge(user_id: current_user.id)
-  end  
+  end
+
+  def update_params
+    parameter = params.require(:product).permit(:name, :detail, :condition_id, :price, :status_id, :brand_id, :category_id, :size_id, :charge_id, :prefecture_id, :delivery_method_id, :shipment_id, :parent_category, :child_category, user_id: current_user.id)
+    update_params = parameter.except(:parent_category, :child_category)
+  end
 
   def search_params
     params.require(:q).permit(:sorts, :name_or_detail_cont, :category_id_eq, :size_id_eq, :price_gteq, :price_lteq, {condition_id_eq_any: []}, {charge_id_eq_any: []}, {status_id_eq_any: []}).merge(search_brand_params)

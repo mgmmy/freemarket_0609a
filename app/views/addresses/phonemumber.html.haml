@@ -35,14 +35,15 @@
           .phonenumber__upper--message 電話番号の確認
         //メインの下の段
         .phonenumber__mainbox__main
-          =form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          =form_for(@profile, url: address_tel_path) do |f|
             .phonenumber__main
               .phonenumber--phonenumber
                 = f.label '携帯電話の番号', class: "phonenumber--number"
                 = f.text_field :tel, placeholder: "携帯電話の番号を入力"
               .phonenumber--text 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
               .phonenumber--next
-                = link_to "SNSを送信する", address_users_path, class: "btn btn-phonenumber--next"
+              
+                = f.submit "SNSを送信する", class: "btn btn-phonenumber--next"
               .phonenumber--test--second ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
               .phonenumber--test--third 電話番号の確認が必要な理由
                 

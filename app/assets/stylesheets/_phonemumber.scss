@@ -58,11 +58,12 @@
             cursor: pointer;
             height: 50px;
             position: relative;
+            border-radius: 4px;
             .btn-phonenumber--next {
+              background-color: $mercari-red;
               color: $bg-white;
               position: absolute;
-              top: 18px;
-              left: 110px;
+              border: none;
             }
           }
           .phonenumber--test--second {

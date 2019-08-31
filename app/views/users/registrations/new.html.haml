@@ -69,7 +69,7 @@
                 = f.text_field :first_name, placeholder: "例)山田"
               //名
               .information--firstname
-                = f.label '名（全角）', class: "ininformation--firstname--name"
+                = f.label '名（全角）', class: "information--firstname--name"
                 = f.label '必須', class: "information--firstname--red"
                 = f.text_field :last_name, placeholder: "例)彩"
               //姓カナ
@@ -88,7 +88,7 @@
                 = f.label '必須', class: "information--birthday--red"
                 //プルダウン
                 .information--birthday--select
-                  = f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), prompt: { year: '--', month: '--', day: '--' }, date_separator: '/'
+                  = f.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), prompt: { year: '--', month: '--', day: '--' }
                   
                 .information--select--text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 

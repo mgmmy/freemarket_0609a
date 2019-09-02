@@ -11,9 +11,11 @@ class Product < ApplicationRecord
   belongs_to :size
   accepts_nested_attributes_for :images
 
-  validates :name, :detail, :price, :user_id, :charge_id, 
+  validates :name, :detail, :price, :user_id, :charge_id, :prefecture_id, 
             :condition_id, :delivery_method_id, :shipment_id,
             :category_id, presence: true
+            
+  validates :price, presence: true, numericality: {only_integer: true, greater_than: 299, less_than: 10000000}
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture

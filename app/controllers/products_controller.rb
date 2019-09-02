@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
     @product = Product.new 
     @product.images.build
 
+
     @parent_category = []
     Category.where(ancestry: nil).each do |parent|
       @parent_category << parent.name
@@ -38,6 +39,8 @@ class ProductsController < ApplicationController
     else
       params[:product][:brand_id] = Brand.create(name: params[:product][:brand_id]).id
     end
+
+    params[:product][:status_id] ||= 1 
 
     @product = Product.new(product_params)
     if @product.save && params[:images][:image]!= ""

@@ -18,4 +18,3 @@
 /public/uploads/*
 config/omniauth.yml
 /.env
-app/controllers/application_controller.rb

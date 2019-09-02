@@ -76,6 +76,7 @@ group :test do
 end
 
 
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'devise'
 gem 'pry-rails'
 gem 'haml-rails'
@@ -89,7 +90,6 @@ gem 'ransack'
 gem 'owlcarousel-rails'
 gem 'active_hash'
 gem 'dropzonejs-rails'
-gem 'dotenv-rails'
 gem "gretel"
 gem 'ancestry'
 gem 'omniauth-facebook'

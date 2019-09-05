@@ -1,4 +1,4 @@
-$(document).on("turbolinks:load", function() {
+$(function() {
   var dropzone = $(".dropzone-container__drop-field");
   var dropzone2 = $(".dropzone-container__drop-field2");
   var dzContainer2 = $(".dropzone-container2");

@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :brand
   belongs_to :category
-  has_one    :status
+  belongs_to :status
   has_many   :images, dependent: :destroy
   has_many   :favorites
   has_one    :purchase

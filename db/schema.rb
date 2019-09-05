@@ -12,21 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20190905121801) do
 
-  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "first_name",      null: false
-    t.string  "last_name",       null: false
-    t.string  "first_name_kana", null: false
-    t.string  "last_name_kana",  null: false
-    t.string  "postalcode"
-    t.integer "prefectures_id",  null: false
-    t.string  "city",            null: false
-    t.string  "block",           null: false
-    t.string  "building"
-    t.integer "user_id",         null: false
-    t.string  "tel",             null: false
-    t.index ["prefectures_id"], name: "index_addresses_on_prefectures_id", using: :btree
-  end
-
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -189,12 +174,6 @@ ActiveRecord::Schema.define(version: 20190905121801) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_social_media_on_user_id", using: :btree
-  end
-
-  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

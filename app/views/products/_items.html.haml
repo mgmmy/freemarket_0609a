@@ -4,7 +4,7 @@
   .section-wrapper
     %h2.section-wrapper-title
       %a.section-title
-        =link_to 'レディース 新着アイテム', category_path(1)
+        =link_to 'レディース 新着アイテム', src:'#'
     .items-wrapper
       -@ladies.each do |product|
         .item-wrapper
@@ -25,12 +25,12 @@
                 （税込） 
     .view-all
       %a.view-all_message
-        =link_to 'すべての商品を見る', category_path(1)
+        =link_to 'すべての商品を見る', src:'#'
 
   .section-wrapper
     %h2.section-wrapper-title
       %a.section-title
-        =link_to 'メンズ 新着アイテム', category_path(219)
+        =link_to 'メンズ 新着アイテム', src:'#'
     .items-wrapper
       -@mens.each do |product|
         .item-wrapper
@@ -51,12 +51,12 @@
                 （税込） 
     .view-all
       %a.view-all_message
-        =link_to 'すべての商品を見る', category_path(219)
+        =link_to 'すべての商品を見る', src:'#'
 
   .section-wrapper
     %h2.section-wrapper-title
       %a.section-title
-        =link_to 'ベビー・キッズ 新着アイテム', category_path(378)
+        =link_to 'ベビー・キッズ 新着アイテム', src:'#'
     .items-wrapper
       -@kids.each do |product|
         .item-wrapper
@@ -77,12 +77,12 @@
                 （税込）
     .view-all
       %a.view-all_message
-        =link_to 'すべての商品を見る', category_path(378)
+        =link_to 'すべての商品を見る', src:'#'
 
   .section-wrapper
     %h2.section-wrapper-title
       %a.section-title
-        =link_to 'コスメ・香水・美容 新着アイテム', category_path(528)
+        =link_to 'コスメ・香水・美容 新着アイテム', src:'#'
     .items-wrapper
       -@cosmes.each do |product|
         .item-wrapper
@@ -103,7 +103,7 @@
                 （税込）
     .view-all
       %a.view-all_message
-        =link_to 'すべての商品を見る', category_path(528)
+        =link_to 'すべての商品を見る', src:'#'
         
 -# .main-wrapper
 -#   %h1.main-wrapper_title

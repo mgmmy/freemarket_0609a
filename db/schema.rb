@@ -12,6 +12,21 @@
 
 ActiveRecord::Schema.define(version: 20190831041711) do
 
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "first_name",      null: false
+    t.string  "last_name",       null: false
+    t.string  "first_name_kana", null: false
+    t.string  "last_name_kana",  null: false
+    t.string  "postalcode"
+    t.integer "prefectures_id",  null: false
+    t.string  "city",            null: false
+    t.string  "block",           null: false
+    t.string  "building"
+    t.integer "user_id",         null: false
+    t.string  "tel",             null: false
+    t.index ["prefectures_id"], name: "index_addresses_on_prefectures_id", using: :btree
+  end
+
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -22,8 +37,8 @@ ActiveRecord::Schema.define(version: 20190831041711) do
     t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "customer_id", null: false
-    t.integer  "card_id",     null: false
+    t.string   "customer_id", null: false
+    t.string   "card_id",     null: false
     t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
   end
 
@@ -73,14 +88,16 @@ ActiveRecord::Schema.define(version: 20190831041711) do
     t.string   "name",                             null: false
     t.text     "detail",             limit: 65535
     t.integer  "price",                            null: false
-    t.integer  "user_id"
+    t.integer  "user_id",                          null: false
     t.integer  "like"
+    t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "status_id"
+    t.integer  "brand_id"
     t.integer  "size_id"
     t.integer  "prefecture_id"
-    t.integer  "brand_id"
+    t.string   "city"
     t.integer  "charge_id"
     t.integer  "condition_id"
     t.integer  "delivery_method_id"
@@ -94,10 +111,21 @@ ActiveRecord::Schema.define(version: 20190831041711) do
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "introduce",  limit: 65535
+    t.text     "introduce",       limit: 65535
     t.integer  "user_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "first_name_kana"
+    t.string   "last_name_kana"
+    t.string   "postalcode"
+    t.string   "prefecture_id"
+    t.string   "city"
+    t.string   "block"
+    t.string   "building"
+    t.string   "tel"
+    t.date     "birthday"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
@@ -109,9 +137,7 @@ ActiveRecord::Schema.define(version: 20190831041711) do
     t.integer  "buyer_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "address_id"
     t.integer  "card_id"
-    t.index ["address_id"], name: "index_purchases_on_address_id", using: :btree
     t.index ["buyer_id"], name: "index_purchases_on_buyer_id", using: :btree
     t.index ["card_id"], name: "index_purchases_on_card_id", using: :btree
     t.index ["product_id"], name: "index_purchases_on_product_id", using: :btree
@@ -165,6 +191,12 @@ ActiveRecord::Schema.define(version: 20190831041711) do
     t.index ["user_id"], name: "index_social_media_on_user_id", using: :btree
   end
 
+  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                            null: false
     t.string   "email",                  default: "", null: false
@@ -173,8 +205,7 @@ ActiveRecord::Schema.define(version: 20190831041711) do
     t.string   "first_name"
     t.string   "last_name_kana"
     t.string   "first_name_kana"
-    t.integer  "birthday"
-    t.string   "tel"
+    t.date     "birthday"
     t.string   "avatar"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -195,6 +226,7 @@ ActiveRecord::Schema.define(version: 20190831041711) do
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "sizes"
+  add_foreign_key "products", "statuses"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "purchases", "cards"

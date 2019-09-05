@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190831041711) do
+ActiveRecord::Schema.define(version: 20190905121801) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -211,7 +211,6 @@ ActiveRecord::Schema.define(version: 20190831041711) do
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "sizes"
-  add_foreign_key "products", "statuses"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "purchases", "cards"

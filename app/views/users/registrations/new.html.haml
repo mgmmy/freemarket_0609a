@@ -63,10 +63,10 @@
               .forsafe--text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
             = f.fields_for :profile do |i|
               //姓
-              .information--lastname
-                = i.label '姓（全角)', class: "information--lastname--name"
-                = i.label '必須', class: "information--lastname--red"
-                = i.text_field :first_name, placeholder: "例)山田"
+              -# .information--lastname
+              -#   = i.label '姓（全角)', class: "information--lastname--name"
+              -#   = i.label '必須', class: "information--lastname--red"
+              -#   = i.text_field :first_name, placeholder: "例)山田"
               //名
               .information--firstname
                 = i.label '名（全角）', class: "information--firstname--name"

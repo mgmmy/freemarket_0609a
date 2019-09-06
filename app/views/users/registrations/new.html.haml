@@ -87,8 +87,8 @@
             -#     = i.label '生年月日', class: "information--birthday--name"
             -#     = i.label '必須', class: "information--birthday--red"
                 //プルダウン
-                .information--birthday--select
-                  = i.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), prompt: { year: '--', month: '--', day: '--' }
+                -# .information--birthday--select
+                -#   = i.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), prompt: { year: '--', month: '--', day: '--' }
                   
                 .information--select--text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 

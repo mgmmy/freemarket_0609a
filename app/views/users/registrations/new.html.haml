@@ -28,88 +28,88 @@
             .progress-status
             
 
-    -# .information--main
-    -#   .information__mainbox
-    -#     //メインの上のだん
-    -#     .information__mainbox__upper
-    -#       .inromation__upper--message 会員情報入力
-    -#     //メインの下の段
-    -#     .information__mainbox__main
-    -#       =form_for(resource, as: resource_name, url: registration_path(resource)) do |f|
-    -#         .information__main
-    -#           //ニックネーム
-    -#           .information--nickname
-    -#             = f.label 'ニックネーム', class: "information--nickname--name"
-    -#             = f.label '必須',class: "information--nickname--red"
-    -#             = f.text_field :nickname, placeholder: '氏名を入力してください'
+    .information--main
+      .information__mainbox
+        //メインの上のだん
+        .information__mainbox__upper
+          .inromation__upper--message 会員情報入力
+        //メインの下の段
+        .information__mainbox__main
+          =form_for(resource, as: resource_name, url: registration_path(resource)) do |f|
+            .information__main
+              //ニックネーム
+              .information--nickname
+                = f.label 'ニックネーム', class: "information--nickname--name"
+                = f.label '必須',class: "information--nickname--red"
+                = f.text_field :nickname, placeholder: '氏名を入力してください'
                   
-    -#           //メールアドレス
-    -#           .information--email
-    -#             = f.label 'メールアドレス', class: "information--email--name"
-    -#             = f.label '必須', class: "information--email--red"
-    -#             = f.text_field :email, placeholder: "PC・携帯どちらでも可"
-    -#           //パスワード
-    -#           .information--pass
-    -#             = f.label 'パスワード', class: "information--pass--name"
-    -#             = f.label '必須', class: "information--pass--red"
-    -#             = f.text_field :password, placeholder: "６文字以上"
-    -#           //パスワード（確認）
-    -#           .information--pass
-    -#             = f.label 'パスワード (確認)', class: "information--pass--name"
-    -#             = f.label '必須', class: "information--pass--red" 
-    -#             = f.text_field :password_confirmation, placeholder: "６文字以上"
-    -#           //本人確認
-    -#           .forsafe 本人確認
-    -#           .forsafe--text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-    -#         -# = f.fields_for :profile do |i|
-    -#         -#   //姓
-    -#         -#   .information--lastname
-    -#         -#     = i.label '姓（全角)', class: "information--lastname--name"
-    -#         -#     = i.label '必須', class: "information--lastname--red"
-    -#         -#     = i.text_field :first_name, placeholder: "例)山田"
-    -#         -#   //名
-    -#         -#   .information--firstname
-    -#         -#     = i.label '名（全角）', class: "information--firstname--name"
-    -#         -#     = i.label '必須', class: "information--firstname--red"
-    -#         -#     = i.text_field :last_name, placeholder: "例)彩"
-    -#         -#   //姓カナ
-    -#         -#   .information--lastname--kana
-    -#         -#     = i.label '姓カナ（全角）', class: "information--lastname--kana--name"
-    -#         -#     = i.label '必須', class: "information--lastname--kana--red"
-    -#         -#     = i.text_field :first_name_kana, placeholder: "例)ヤマダ"
-    -#         -#   //名カナ
-    -#         -#   .information--firstname--kana
-    -#         -#     = i.label '名カナ（全角）', class: "information--firstname--kana--name"
-    -#         -#     = i.label '必須', class: "information--firstname--kana--red"
-    -#         -#     = i.text_field :last_name_kana, placeholder: "例)アヤ"
-    -#         -#   //生年月日
-    -#         -#   .information--birthday
-    -#         -#     = i.label '生年月日', class: "information--birthday--name"
-    -#         -#     = i.label '必須', class: "information--birthday--red"
-    -#             //プルダウン
-    -#             -# .information--birthday--select
-    -#             -#   = i.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), prompt: { year: '--', month: '--', day: '--' }
+              //メールアドレス
+              .information--email
+                = f.label 'メールアドレス', class: "information--email--name"
+                = f.label '必須', class: "information--email--red"
+                = f.text_field :email, placeholder: "PC・携帯どちらでも可"
+              //パスワード
+              .information--pass
+                = f.label 'パスワード', class: "information--pass--name"
+                = f.label '必須', class: "information--pass--red"
+                = f.text_field :password, placeholder: "６文字以上"
+              //パスワード（確認）
+              .information--pass
+                = f.label 'パスワード (確認)', class: "information--pass--name"
+                = f.label '必須', class: "information--pass--red" 
+                = f.text_field :password_confirmation, placeholder: "６文字以上"
+              //本人確認
+              .forsafe 本人確認
+              .forsafe--text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            = f.fields_for :profile do |i|
+              //姓
+              .information--lastname
+                = i.label '姓（全角)', class: "information--lastname--name"
+                = i.label '必須', class: "information--lastname--red"
+                = i.text_field :first_name, placeholder: "例)山田"
+              //名
+              .information--firstname
+                = i.label '名（全角）', class: "information--firstname--name"
+                = i.label '必須', class: "information--firstname--red"
+                = i.text_field :last_name, placeholder: "例)彩"
+              //姓カナ
+              .information--lastname--kana
+                = i.label '姓カナ（全角）', class: "information--lastname--kana--name"
+                = i.label '必須', class: "information--lastname--kana--red"
+                = i.text_field :first_name_kana, placeholder: "例)ヤマダ"
+              //名カナ
+              .information--firstname--kana
+                = i.label '名カナ（全角）', class: "information--firstname--kana--name"
+                = i.label '必須', class: "information--firstname--kana--red"
+                = i.text_field :last_name_kana, placeholder: "例)アヤ"
+              //生年月日
+              .information--birthday
+                = i.label '生年月日', class: "information--birthday--name"
+                = i.label '必須', class: "information--birthday--red"
+                //プルダウン
+                .information--birthday--select
+                  = i.date_select :birthday, use_month_numbers: true, start_year: 1930, end_year: (Time.now.year - 10), prompt: { year: '--', month: '--', day: '--' }
                   
-    -#             .information--select--text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+                .information--select--text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
-    -#           //私はロボットではありません
-    -#           .information__check
-    -#             .information__check--box
-    -#               %input.information-checkbox{ type: 'checkbox' }
-    -#               %label.information-checkbox--text{ for: 'checkbox-id' } 私はロボットではありません
-    -#               .information__check--img 
-    -#                 = image_tag("https://www.gstatic.com/recaptcha/api2/logo_48.png", class: "login--img")
-    -#                 .information__img--text reCAPTCHA
-    -#             .information__ckeck--rule 
-    -#               .information__ckeck--rule--first プライバシー
-    -#               .information__ckeck--rule--second 利用規約
+              //私はロボットではありません
+              .information__check
+                .information__check--box
+                  %input.information-checkbox{ type: 'checkbox' }
+                  %label.information-checkbox--text{ for: 'checkbox-id' } 私はロボットではありません
+                  .information__check--img 
+                    = image_tag("https://www.gstatic.com/recaptcha/api2/logo_48.png", class: "login--img")
+                    .information__img--text reCAPTCHA
+                .information__ckeck--rule 
+                  .information__ckeck--rule--first プライバシー
+                  .information__ckeck--rule--second 利用規約
               
-    -#           .information__rule 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-    -#           .information--next 
-    -#             = f.submit '次へ進む', class: 'btn btn--information--next' do
-    -#               .btn.btn--information--next
-    -#           //本人情報の登録について
-    -#           .information--about 本人情報の登録について〉
+              .information__rule 「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+              .information--next 
+                = f.submit '次へ進む', class: 'btn btn--information--next' do
+                  .btn.btn--information--next
+              //本人情報の登録について
+              .information--about 本人情報の登録について〉
                   
     .information-footer 
       = render partial: 'users/shared/registration-footer'

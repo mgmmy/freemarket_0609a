@@ -75,23 +75,20 @@ ActiveRecord::Schema.define(version: 20190905121801) do
     t.integer  "price",                            null: false
     t.integer  "user_id",                          null: false
     t.integer  "like"
-    t.integer  "delivery_fee"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "status_id"
     t.integer  "brand_id"
     t.integer  "size_id"
     t.integer  "prefecture_id"
-    t.string   "city"
     t.integer  "charge_id"
     t.integer  "condition_id"
     t.integer  "delivery_method_id"
     t.integer  "shipment_id"
+    t.integer  "status_id"
     t.integer  "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
-    t.index ["status_id"], name: "index_products_on_status_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 

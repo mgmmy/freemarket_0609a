@@ -6,7 +6,6 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.integer :price,   null: false
       t.references :user, null: false,foreign_key: true
       t.integer :like
-      t.integer :delivery_fee
       t.timestamps
     end
   end

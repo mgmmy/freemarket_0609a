@@ -21,70 +21,73 @@
     .personal_info
       %h1.personal_headTitle
         本人情報の登録
-      .personal_form
-        %p.personal_form_explainText
-          お客さまの本人情報をご登録ください。
-          %br
-          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-        %p.personal_form_linkUp
-          =link_to "", class: 'personal_info_link'
-          本人確認書類のアップロードについて
-          %i.fa.fa-chevron-right
-        %p.personal_details
-          %p.personal_title.personal_name
-            お名前
-          %p.persol_content 
-            井津 小百合
-        %p.personal_details
-          %p.personal_title.personal_kananame
-            お名前カナ
-          %p.persol_content 
-            イヅ サユリ
-        %p.personal_details
-          %p.personal_title.personal_birthday
-            生年月日
-          %p.persol_content 
-            19XX/10/16
-        %p.personal_details
-          %p.personal_title.personal_zipcode
-            郵便番号
-          %span.font-arbitary
-            任意
-          %input.personal_input
-
-        %p.personal_details
-          %p.personal_title.personal_prefecture
-            都道府県
-          %span.font-arbitary
-            任意
-          .personal_select_wrap
-            %input.personal_select
-              %i.fa.fa-chevron-down
-
-        %p.personal_details
-          %p.personal_title.personal_city
-            市区町村
-          %span.font-arbitary
-            任意
-          %input.personal_input
-        %p.personal_details
-          %p.personal_title.personal_block
-            番地
-          %span.font-arbitary
-            任意
-          %input.personal_input
-        %p.personal_details
-          %p.personal_title.personal_building
-            建物名
-          %span.font-arbitary
-            任意
-          %input.personal_input
-        .register_btn
-          登録する
-        %p.personal_details
+      =form_for(current_user.profile, url: identification_users_path) do |f|
+        .personal_form
+          %p.personal_form_explainText
+            お客さまの本人情報をご登録ください。
+            %br
+            登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
           %p.personal_form_linkUp
-            =link_to "", class:'personal_info_link'
-            本人情報の登録について
+            =link_to "", class: 'personal_info_link'
+            本人確認書類のアップロードについて
             %i.fa.fa-chevron-right
+          %p.personal_details
+            %p.personal_title.personal_name
+              お名前
+            %p.persol_content 
+              = current_user.profile.first_name
+              = current_user.profile.last_name
+          %p.personal_details
+            %p.personal_title.personal_kananame
+              お名前カナ
+            %p.persol_content 
+              = current_user.profile.first_name_kana
+              = current_user.profile.last_name_kana
+          %p.personal_details
+            %p.personal_title.personal_birthday
+              生年月日
+            %p.persol_content 
+              = current_user.profile.birthday.strftime("%Y/%m/%d")
+          %p.personal_details
+            %p.personal_title.personal_zipcode
+              郵便番号
+            %span.font-arbitary
+              任意
+            %input.personal_input
+
+          %p.personal_details
+            %p.personal_title.personal_prefecture
+              都道府県
+            %span.font-arbitary
+              任意
+            .personal_select_wrap
+              %input.personal_select
+                %i.fa.fa-chevron-down
+
+          %p.personal_details
+            %p.personal_title.personal_city
+              市区町村
+            %span.font-arbitary
+              任意
+            %input.personal_input
+          %p.personal_details
+            %p.personal_title.personal_block
+              番地
+            %span.font-arbitary
+              任意
+            %input.personal_input
+          %p.personal_details
+            %p.personal_title.personal_building
+              建物名
+            %span.font-arbitary
+              任意
+            %input.personal_input
+          .register_btn
+            登録する
+          %p.personal_details
+            %p.personal_form_linkUp
+              =link_to "", class:'personal_info_link'
+              本人情報の登録について
+              %i.fa.fa-chevron-right
 
 =render partial:'products/footer'

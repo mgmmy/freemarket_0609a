@@ -2,7 +2,8 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    gon.payjp_test_pk = ENV['PAYJP_KEY']
+    # この記述が必要ない可能性
+    gon.payjp_test_pk = ENV['PAYJP_KEY'] 
   end
 
   def pay 
@@ -13,7 +14,7 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.create(
       card: params["token_submit"],
       ) 
-      @card = Card.new(user_id: (session[:user_id]), customer_id: customer.id, card_id: customer.default_card)
+      @card = Card.new(user_id: (current_user.id), customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to complete_users_path
       else
@@ -22,8 +23,19 @@ class CardsController < ApplicationController
     end
   end
 
+  def show 
+    card = Card.where(user_id: current_user.id).first
+    if card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(card.customer_id)
+      @default_card_information = customer.cards.retrieve(card.card_id)
+    end
+  end
+
+  # routes.rb内にdeleteが許可されてない
   def delete 
-    
     if card.blank?
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)

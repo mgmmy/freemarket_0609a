@@ -2,8 +2,7 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    # この記述が必要ない可能性
-    gon.payjp_test_pk = ENV['PAYJP_KEY'] 
+    card = Card.where(user_id: current_user.id)
   end
 
   def pay 
@@ -44,5 +43,4 @@ class CardsController < ApplicationController
     end
       redirect_to action: "howtopay"
   end
-
 end

@@ -4,11 +4,7 @@ $(function(){
   });
 }); 
 
-$(function() {
-  $('.owl-dot').on('keyup', function (){
-    
-  })
-	 
+$(function() {	 
   dotcount = 1;
 
   $('.owl-dot').each(function() {
@@ -30,10 +26,10 @@ $(function() {
       $(this).css("background-image", "url("+slidegrab+")");  
   });
   
-  amount = $('.owl-dot').length;
-  gotowidth = 100/amount;
+  // amount = $('.owl-dot').length;
+  // gotowidth = 100/amount;
   
-  $('.owl-dot').css("width", gotowidth+"%");
-  newwidth = $('.owl-dot').width();
-  $('.owl-dot').css("height", newwidth+"px"); 	
+  $('.owl-dot').css({'width': '20%'});
+  // newwidth = $('.owl-dot').width();
+  $('.owl-dot').css({"height": '60px'}); 	
 });

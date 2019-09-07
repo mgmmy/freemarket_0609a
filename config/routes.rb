@@ -29,7 +29,6 @@ Rails.application.routes.draw do
       get 'search_category', defaults: {format: 'json'}
       get 'search_grandchild_category', defaults: {format: 'json'}
       get 'search_size_id', defaults: {format: 'json'}
-      get 'purchase'
       get 'get_child_category', defaults: {format: 'json'}
       get 'get_grandchild_category', defaults: {format: 'json'}
       get 'get_sizes', defaults: {format: 'json'}

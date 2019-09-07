@@ -1,4 +1,6 @@
 class PurchaseController < ApplicationController
+
+  before_action :authenticate_user!, only: [:index]
   require 'payjp'
 
   def index

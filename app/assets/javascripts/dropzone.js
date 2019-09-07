@@ -95,6 +95,8 @@ $(function() {
 
     images.splice(delete_image_num, 1);
     upload_images.splice(delete_image_num, 1);
+    console.log(upload_images);
+    console.log(images);
 
     if(images.length == 0) {
       $('input[type= "file"].upload-image').attr({

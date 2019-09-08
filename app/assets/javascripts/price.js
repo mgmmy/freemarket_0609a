@@ -8,7 +8,7 @@ $(function() {
       var fee = String(fee).replace(/(\d)(?=(\d\d\d)+$)/g, "$1,");
       $('#sales-fee').text(fee);
       var usersBenefit = String(usersBenefit).replace(/(\d)(?=(\d\d\d)+$)/g, "$1,");
-      $('#sales-benefit').text(usersBenefit);
+      $('#sales-benefit').text('¥' + usersBenefit);
     }else{
       $('#sales-fee').text("-");
       $('#sales-benefit').text("-");

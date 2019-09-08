@@ -7,8 +7,8 @@ class ProductsController < ApplicationController
   def index
     @ladies = Product.recent_category(1..218)
     @mens = Product.recent_category(219..377)
-    @kids = Product.recent_category(378..529)
-    @cosmes = Product.recent_category(528..714)
+    @kids = Product.recent_category(378..527)
+    @cosmes = Product.recent_category(528..638)
     @channels = Product.recent_brand(1)
     @vuittons = Product.recent_brand(2)
     @supremes = Product.recent_brand(3)
@@ -19,6 +19,9 @@ class ProductsController < ApplicationController
     @products = Product.where(user_id: @product.user_id).limit(6)
     @images = @product.images
     @product.charge_id == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
+    @grandchild_category = @product.category
+    @child_category  = @product.category.parent
+    @parent_category = @product.category.parent.parent
   end
   
   def purchase
@@ -49,6 +52,8 @@ class ProductsController < ApplicationController
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
+
+      # Purchase.create(seller_id: current_user.id, product_id: @product.id)
       redirect_to product_path(@product)
     else
       @product.images.build

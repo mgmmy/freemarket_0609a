@@ -34,16 +34,20 @@
           float: left;
           min-width: 300px;
           max-width: 300px !important;
-          min-height: 375px !important;
+          min-height: 360px !important;
         }
       }
 
       &__image {
         position: relative;
         width: 300px;
-        height: 280px;
+        min-height: 280px;
         margin: 0 auto;
         background: $empty-gray;
+
+        img {
+          max-height: 300px;
+        }
 
         .owl-dot {
           position: relative;

@@ -52,6 +52,8 @@ class ProductsController < ApplicationController
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
+
+      # Purchase.create(seller_id: current_user.id, product_id: @product.id)
       redirect_to product_path(@product)
     else
       @product.images.build

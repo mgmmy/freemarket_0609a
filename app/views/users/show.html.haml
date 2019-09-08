@@ -22,10 +22,12 @@
           .mypage-user_info
             .mypage-user_info--rate
               評価
-              %span.user-rate 3
+              %span.user-rate 
+                0
             .mypage-user_info--item
               出品数
-              %span.user-rate 5
+              %span.user-rate 
+                = @user.products.length
       .mypage-tab
         %ul.mypage-tab_area
           %li

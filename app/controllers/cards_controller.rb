@@ -34,14 +34,5 @@ class CardsController < ApplicationController
     end
   end
 
-  # routes.rb内にdeleteが許可されてない
-  def delete 
-    if card.blank?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      customer.delete
-      card.delete
-    end
-      redirect_to action: "howtopay"
-  end
+  
 end

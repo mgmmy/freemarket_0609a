@@ -1,7 +1,7 @@
 $(function() { 
   $('#price-form').on('input', function () {
     var inputPrice = $('#price-form').val();
-    var fee = inputPrice * 0.1;
+    var fee = Math.floor(inputPrice * 0.1);
     var usersBenefit = inputPrice - fee;
     
     if(fee > 10 && inputPrice !== '' && inputPrice <= 9999999) {

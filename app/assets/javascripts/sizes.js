@@ -62,10 +62,17 @@ $(function () {
 });
 
 $(function (){
-  function appendSizeBox(size) {
+  function sizeBox(size){
+    var html = `<input type="checkbox" class="size_box" id="${size.id}" name="q[size_id_eq]", value= ${size.id} >
+                <label class="check_style" id="size_checkbox" for="${size.id}">${size.size}</label> 
+              `;
+    return html;
+  }
+  function appendSizeBox(insertHTML) {
     var sizeBoxHtml = "";
-    sizeBoxHtml =  `<input type="checkbox" class="size_box" id="${size.id}" name="q[size_id_eq]", value= ${size.id} >
-                    <label class="check_style" id="size_checkbox" for="${size.id}">${size.size}</label> 
+    sizeBoxHtml =  `<div id="check_size">
+                      ${insertHTML}
+                    </div>
                     `;
     $('#search_sizes').append(sizeBoxHtml);
   };
@@ -80,14 +87,15 @@ $(function (){
         dataType: 'json'
       })
       .done(function(sizes) {
+        $('#check_size').remove();
+        var insertHTML = "";
         sizes.forEach(function (size) {
-          $('#size-checkbox').remove();
-          var size_checkboxes = appendSizeBox(size);
-          $('#size-select').append(size_checkboxes);
+          insertHTML += sizeBox(size);
         });  
+        appendSizeBox(insertHTML);
       });
     } else {
-      $('#size-checkbox').remove();
+      $('#check_size').remove();
     }
   });
 });

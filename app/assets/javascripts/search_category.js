@@ -1,6 +1,5 @@
 $(function () {
   function appendOption(category) {
-    
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
@@ -14,14 +13,22 @@ $(function () {
                       <i class="fa fa-chevron-down" />
                     </div>`;
     $('#search_category').append(childBoxHtml);
-  } 
-  function appendGrandchildCategory(grandchild) {
+  };
+
+  function appendGrandchildBox(grandchild) {
+    var html = `<input type="checkbox" class="grandchild" id="${grandchild.id}" name="q[category_id_eq]", value= ${grandchild.id} >
+                <label class="check_style" id="select-grandchild" for="${grandchild.id}">${grandchild.name}</label> 
+                `;
+    return html;
+  };
+
+  function appendGrandchildCategory(insertHTML) {
     var grandchildBoxHtml = "";
-    grandchildBoxHtml =  `<input type="checkbox" class="grandchild" id="${grandchild.id}" name="q[category_id_eq]", value= ${grandchild.id} >
-                          <label class="check_style" id="select-grandchild" for="${grandchild.id}">${grandchild.name}</label> 
-                          `;
+    grandchildBoxHtml = `<div id="grandchild-box">
+                          ${insertHTML}
+                        </div>`;
     $('#search_category').append(grandchildBoxHtml);
-  } 
+  }; 
 
   $('#search-parent').on('change', function () {
     var parentName = document.getElementById('search-parent').value;
@@ -34,7 +41,7 @@ $(function () {
       })
       .done(function(children) {
         $('#child').remove();
-        $('#select-grandchild').remove();
+        $('#grandchild-box').remove();
         var insertHTML = "";
         children.forEach(function (child) {
           insertHTML += appendOption(child)
@@ -43,7 +50,7 @@ $(function () {
       })
     } else {
       $('#child').remove();
-      $('#select-grandchild').remove();
+      $('#grandchild-box').remove();
     }
   })
 
@@ -57,14 +64,15 @@ $(function () {
         dataType: 'json'
       })
       .done(function(grandchildren) {
-        $('#select-grandchild').remove();
+        $('#grandchild-box').remove();
+        var insertHTML = "";
         grandchildren.forEach(function (grandchild) {
-          var checkboxes = appendGrandchildCategory(grandchild);
-          $('#child-category').append(checkboxes);
-        });
-      })
+          insertHTML += appendGrandchildBox(grandchild);
+        })
+        appendGrandchildCategory(insertHTML);
+      });
     } else {
-      $('#select-grandchild').remove();
+      $('#grandchild-box').remove();
     }
   })
 });

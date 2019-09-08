@@ -19,9 +19,9 @@ class ProductsController < ApplicationController
     @products = Product.where(user_id: @product.user_id).limit(6)
     @images = @product.images
     @product.charge_id == 0 ? @fee = "送料込み（出品者負担）" : @fee = "着払い(購入者負担)"
-    @grandchild_category = Category.find(params[:id])
-    @child_category  = @grandchild_category.parent
-    @parent_category = @child_category.parent
+    @grandchild_category = @product.category
+    @child_category  = @product.category.parent
+    @parent_category = @product.category.parent.parent
   end
   
   def purchase

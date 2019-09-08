@@ -11,7 +11,13 @@
             .owl-carousel
               - @product.images.each do |image|
                 = image_tag(image.image.url, class: "image-select")
-      
+
+        .item-info--box__price.vanish
+          %span.price-yen
+            = "¥ #{number_with_delimiter(@product.price)}"
+          %span.price-tax (税込)
+          %span.price-fee 送料込み
+    
         %table.item-info--box__detail
           %tbody
             %tr

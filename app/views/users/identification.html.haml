@@ -8,7 +8,7 @@
         メルカリ
       =fa_icon ("chevron-right")
     %li.item_scope
-      =link_to '/users/show', class:'scope_name_prev' do 
+      =link_to user_path(current_user.id), class:'scope_name_prev' do 
         マイページ
       =fa_icon ("chevron-right")
     %li.item_scope

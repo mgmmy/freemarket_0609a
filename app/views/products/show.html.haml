@@ -34,15 +34,16 @@
           %tr
             %th カテゴリー
             %td
-              = link_to '大カテゴリー', "#"
+              = link_to "#" do
+                = @parent_category
               .item-info__detail__midcategory
                 = link_to "#" do
                   = fa_icon 'chevron-right'
-                  中カテゴリー
+                  = @child_category
               .item-info__detail__smallcategory
                 = link_to "#" do
                   = fa_icon 'chevron-right'
-                  小カテゴリー
+                  = @grandchild_category
 
           %tr 
             %th ブランド

@@ -27,57 +27,138 @@
 
     .item-info {
       margin-top: 16px;
-      // clear: both;
 
-      @media screen and (min-width: 768px) {
+      .item-info--box{
+
+        @media screen and (min-width: 768px) {
+          &__image {
+            float: left;
+            min-width: 300px;
+            max-width: 300px !important;
+            min-height: 360px !important;
+          }
+        }
+
         &__image {
-          float: left;
-          min-width: 300px;
-          max-width: 300px !important;
-          min-height: 360px !important;
-        }
-      }
-
-      &__image {
-        position: relative;
-        width: 300px;
-        min-height: 280px;
-        margin: 0 auto;
-        background: $empty-gray;
-
-        img {
-          max-height: 300px;
-        }
-
-        .owl-dot {
           position: relative;
-          overflow: hidden; 
-          display: inline-block;
-          background-size: 60px 60px !important;
-          max-height: 90px;
-          opacity: .4;
-          cursor: pointer;
+          width: 300px;
+          min-height: 280px;
+          margin: 0 auto;
+          background: $empty-gray;
+
+          img {
+            max-height: 300px;
+          }
+
+          .owl-dot {
+            position: relative;
+            overflow: hidden; 
+            display: inline-block;
+            background-size: 60px 60px !important;
+            max-height: 90px;
+            opacity: .4;
+            cursor: pointer;
+          }
+
+          .owl-dot.active {
+            opacity: 1;
+            cursor: default;
+
+            .image-select {
+              line-height: 0;
+              position: absolute;
+              top: 0;
+              left: 50%;
+              width: auto;
+              height: 280px;
+              -webkit-transform: translate(-50%, 0);
+              transform: translate(-50%, 0);
+            }
+          }
         }
 
-        .owl-dot.active {
-          opacity: 1;
-          cursor: default;
+        @media screen and (min-width: 768px) {
+          &__detail {
+            float: right;
+          }
+        }
 
-          .image-select {
-            line-height: 0;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: auto;
-            height: 280px;
-            -webkit-transform: translate(-50%, 0);
-            transform: translate(-50%, 0);
+        &__detail {
+          width: 100%;
+          max-width: 300px;
+          margin: 8px auto 0;
+          border-collapse: collapse;
+          border: 1px solid $off-white;
+          font-size: 14px;
+  
+          a {
+            color: $blue-link;
+          }
+          
+          tr {
+            border: 1px solid #f5f5f5;
+            padding: 16px 8px;
+          }
+  
+          @media screen and (min-width: 768px) {
+            tr th {
+              padding: 8px !important;
+            }
+          }
+  
+          th {
+            width: 39%;
+            text-align: left;
+            font-weight: 400;
+            background: #fafafa;
+            border: 1px solid #f5f5f5;
+            padding: 16px 8px;
+          }
+  
+          td {
+            width: 61%;
+            background: $bg-white;
+            padding: 16px 12px;
+            border: 1px solid #f5f5f5;
+      
+            
+  
+            .user-rating {
+              display: inline-block;
+              
+  
+              &_icon:first-child {
+                margin: 0;
+              }
+  
+              &__icon {
+                margin: 8px 0 0 5px;
+              }
+  
+              .fa-smile-o {
+                color:  #ef5185;
+              }
+  
+              .fa-meh-o {
+                color: #fba933;
+              }
+  
+              .fa-frown-o {
+                color: #6ab5d8;
+              }
+           
+              span {
+                vertical-align: middle;
+              }
+            }
           }
         }
       }
 
+        
+
       &__price {
-        margin-top: 60px;
+        margin-top: 50px;
         text-align: center;
   
         .price-yen {
@@ -116,76 +197,7 @@
       }
         
 
-      &__detail {
-        width: 100%;
-        max-width: 360px;
-        margin: 8px auto 0;
-        border-collapse: collapse;
-        border: 1px solid $off-white;
-        font-size: 14px;
-
-        a {
-          color: $blue-link;
-        }
-        
-        tr {
-          border: 1px solid #f5f5f5;
-          padding: 16px 8px;
-        }
-
-        @media screen and (min-width: 768px) {
-          tr th {
-            padding: 8px !important;
-          }
-        }
-
-        th {
-          width: 39%;
-          text-align: left;
-          font-weight: 400;
-          background: #fafafa;
-          border: 1px solid #f5f5f5;
-          padding: 16px 8px;
-        }
-
-        td {
-          width: 61%;
-          background: $bg-white;
-          padding: 16px 12px;
-          border: 1px solid #f5f5f5;
-    
-          
-
-          .user-rating {
-            display: inline-block;
-            
-
-            &_icon:first-child {
-              margin: 0;
-            }
-
-            &__icon {
-              margin: 8px 0 0 5px;
-            }
-
-            .fa-smile-o {
-              color:  #ef5185;
-            }
-
-            .fa-meh-o {
-              color: #fba933;
-            }
-
-            .fa-frown-o {
-              color: #6ab5d8;
-            }
-         
-            span {
-              vertical-align: middle;
-            }
-          }
-        }
-      }
+     
 
       .mercari-app-link {
         color: $blue-link;

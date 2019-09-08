@@ -35,15 +35,15 @@
             %th カテゴリー
             %td
               = link_to "#" do
-                = @parent_category
+                = @parent_category.name
               .item-info__detail__midcategory
                 = link_to "#" do
                   = fa_icon 'chevron-right'
-                  = @child_category
+                  = @child_category.name
               .item-info__detail__smallcategory
                 = link_to "#" do
                   = fa_icon 'chevron-right'
-                  = @grandchild_category
+                  = @grandchild_category.name
 
           %tr 
             %th ブランド

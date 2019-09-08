@@ -16,8 +16,9 @@
     .mypage
       .mypage-user
         = link_to '#', class: 'mypage-link' do
-          = image_tag("https://octodex.github.com/images/gangnamtocat.png", class: "mypage-user_foto")
-          %h2.mypage-user_name Bourne
+          = image_tag("member_photo_noimage_thumb.png", class: "mypage-user_foto")
+          %h2.mypage-user_name 
+            = @user.nickname
           .mypage-user_info
             .mypage-user_info--rate
               評価
@@ -37,7 +38,7 @@
           #tab_notification.tab_panel.active-item
             %li  
               = link_to "#", class: "tab_panel-link" do
-                = image_tag("/assets/images/mercari_profile.png", class: "tab_panel-image")
+                = image_tag("mercari_profile.png", class: "tab_panel-image")
                 .tab-body
                   .tab-body_message
                     事務局から個別メッセージ「《このお知らせを受け取った方限定》セブン-イレブンからの発送でP150プレゼント！」
@@ -47,7 +48,7 @@
                 = fa_icon("chevron-right")
             %li 
               = link_to "#", class: "tab_panel-link" do
-                = image_tag("/assets/images/mercari_profile.png", class: "tab_panel-image")
+                = image_tag("mercari_profile.png", class: "tab_panel-image")
                 .tab-body
                   .tab-body_message
                     事務局から個別メッセージ「《このお知らせを受け取った方限定》セブン-イレブンからの発送でP150プレゼント！」

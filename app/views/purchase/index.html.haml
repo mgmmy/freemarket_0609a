@@ -54,11 +54,15 @@
       .buyer-info--container
         %h3 配送先
         .buyer-info--container__text
-          〒150-0041
+          = @profile.postalcode
           %br
-          東京都渋谷区神南1-12-16
+          = @profile.name
+          = @profile.city
+          = @profile.block
+          = @profile.building
           %br
-          矢久保　拓朗
+          = @user.first_name
+          = @user.last_name
 
         = link_to "#", class: "buyer-info--container--edit" do
           %span 変更する
@@ -68,7 +72,10 @@
       .buyer-info--container
         %h3 支払い方法
         .buyer-info--container__text
-          ************7777
+          -# = "**** **** **** " + @card.last4
+          -#   - exp_month = @card.exp_month.to_s
+          -#   - exp_year = @card.exp_year.to_s.slice(2,3)
+          -#   = exp_month + " / " + exp_year
           %br
           07/30
         = image_tag("visa.png", class: "card-logo")

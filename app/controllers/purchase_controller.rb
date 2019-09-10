@@ -25,6 +25,8 @@ class PurchaseController < ApplicationController
     amount: @product.price,
     currency: 'jpy'
     )
+  @product.update(status_id: 2)
+  
   redirect_to root_path, id: session[:user_id]
   end
 end

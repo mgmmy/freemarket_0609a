@@ -52,7 +52,7 @@ $(function () {
       $('#child').remove();
       $('#grandchild-box').remove();
     }
-  })
+  });
 
   $(document).on('change', '#child-category', function () {
     var childId = $('#child-category option:selected').data('category');

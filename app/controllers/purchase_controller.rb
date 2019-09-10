@@ -6,19 +6,13 @@ class PurchaseController < ApplicationController
   def index
     @user = User.find(current_user)
     @profile = Profile.find(current_user.id)
-    binding.pry
-    # @prefecture = Profile.find(@profile.prefecture_id)
     @card = Card.find(current_user.id)
     if @card.blank?
       redirect_to controller: "card", action: "new"
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       @product = Product.find(params[:product_id])
-      binding.pry
-      # customer = Payjp::Customer.retrieve(@card.user_id)
       
-      # @card_information = customer.cards.retrieve(@card.card_id)
-    
     end
   end
 

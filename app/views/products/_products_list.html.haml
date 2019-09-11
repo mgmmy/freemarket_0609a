@@ -1,5 +1,5 @@
 .item-wrapper
-  =link_to product_path(product.id), data: {turbolinks: false} do
+  =link_to product_path(product.id) do
     .item-image
       =image_tag(product.images.first.image.url, class: "item-image_photo")
     .item-text-wrapper

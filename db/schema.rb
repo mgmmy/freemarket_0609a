@@ -12,6 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20190910070909) do
 
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "prefectures_id_id", null: false
+    t.string  "city",              null: false
+    t.string  "block",             null: false
+    t.integer "users_id",          null: false
+    t.index ["prefectures_id_id"], name: "index_addresses_on_prefectures_id_id", using: :btree
+  end
+
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -77,37 +85,28 @@ ActiveRecord::Schema.define(version: 20190910070909) do
     t.integer  "like"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.integer  "status_id"
     t.integer  "brand_id"
     t.integer  "size_id"
     t.integer  "prefecture_id"
+    t.string   "city"
+    t.integer  "category_id"
     t.integer  "charge_id"
     t.integer  "condition_id"
     t.integer  "delivery_method_id"
     t.integer  "shipment_id"
-    t.integer  "status_id"
-    t.integer  "category_id"
     t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree
     t.index ["size_id"], name: "index_products_on_size_id", using: :btree
+    t.index ["status_id"], name: "index_products_on_status_id", using: :btree
     t.index ["user_id"], name: "index_products_on_user_id", using: :btree
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "introduce",       limit: 65535
+    t.text     "introduce",  limit: 65535
     t.integer  "user_id"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "first_name_kana"
-    t.string   "last_name_kana"
-    t.string   "postalcode"
-    t.string   "prefecture_id"
-    t.string   "city"
-    t.string   "block"
-    t.string   "building"
-    t.string   "tel"
-    t.date     "birthday"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
@@ -172,6 +171,12 @@ ActiveRecord::Schema.define(version: 20190910070909) do
     t.index ["user_id"], name: "index_social_media_on_user_id", using: :btree
   end
 
+  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "nickname",                            null: false
     t.string   "email",                  default: "", null: false
@@ -180,7 +185,8 @@ ActiveRecord::Schema.define(version: 20190910070909) do
     t.string   "first_name"
     t.string   "last_name_kana"
     t.string   "first_name_kana"
-    t.date     "birthday"
+    t.integer  "birthday"
+    t.string   "tel"
     t.string   "avatar"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -201,6 +207,7 @@ ActiveRecord::Schema.define(version: 20190910070909) do
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "sizes"
+  add_foreign_key "products", "statuses"
   add_foreign_key "products", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "purchases", "cards"

@@ -16,9 +16,9 @@ $(function () {
   });
 });
 
-$(function(){
-  $(".sidebar-list_contents").on('click', function(){
-    $(".sidebar-list_contents .selected").removeClass("selected");
-    $(this).addClass("selected");
-  });
-});
+// $(function(){
+//   $(".sidebar-list_contents").on('click', function(){
+//     $(".sidebar-list_contents .selected").removeClass("selected");
+//     $(this).addClass("selected");
+//   });
+// });

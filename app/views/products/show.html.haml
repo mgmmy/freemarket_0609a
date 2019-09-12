@@ -10,9 +10,9 @@
           .slide-cont 
             .owl-carousel
               - @product.images.each do |image|
-                = image_tag(image.image.url, class: "image-select")
-                -if @product.status_id == 2
-                  = render partial: "soldout"
+                = image_tag(image.image.url, class: "image-select") 
+            -if @product.status_id == 2  
+              = render partial: "soldout"     
 
         .item-info--box__price.vanish
           %span.price-yen

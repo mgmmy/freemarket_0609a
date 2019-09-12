@@ -207,6 +207,10 @@
           display: none;
         }
       }
+
+      .buy-btn .btn-gray {
+        cursor: not-allowed;
+      }
       
       .buy-btn__link {
         margin-top: 16px;

@@ -1,6 +1,7 @@
 class PurchaseController < ApplicationController
 
   before_action :authenticate_user!, only: [:index]
+  before_action :move_to_show
   require 'payjp'
 
   def index
@@ -32,7 +33,8 @@ class PurchaseController < ApplicationController
 
   private
 
-  def set_product
-    @product = Product.find(params[:id])
+  def move_to_show
+    @product = Product.find(params[:product_id])
+    redirect_to product_path(@product.id) if @product.status_id == 2
   end
 end

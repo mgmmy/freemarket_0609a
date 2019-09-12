@@ -9,16 +9,16 @@ class PurchaseController < ApplicationController
     @card = Card.find(current_user.id)
     if @card.blank?
       redirect_to controller: "card", action: "new"
+    elsif @product.status_id == 2
+      redirect_to product_path(@product.id)
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      @product = Product.find(params[:product_id])
-      
+      @product = Product.find(params[:product_id])      
     end
   end
 
   def pay
     @card = Card.find_by(user_id: current_user.id)
-    @product = Product.find(params[:product_id])
     @purchase = Purchase.find_by(params[:product_id])
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
@@ -29,5 +29,11 @@ class PurchaseController < ApplicationController
   @product.update(status_id: 2)
   @purchase.update(buyer_id: current_user.id)
   redirect_to root_path, id: session[:user_id]
+  end
+
+  private
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 end

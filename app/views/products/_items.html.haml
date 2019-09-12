@@ -6,23 +6,8 @@
       %a.section-title
         =link_to 'レディース 新着アイテム', src:'#'
     .items-wrapper
-      -@ladies.each do |product|
-        .item-wrapper
-          =link_to product_path(product.id) do
-            .item-image
-              =image_tag(product.images.first.image, class: "item-image_photo")
-            .item-text-wrapper
-              %h3.item-title
-                = product.name
-              .item-num
-                .item-price
-                  ='￥'+ product.price.to_s(:delimited)
-                .item-like
-                  %i.fa.fa-heart-o
-                  %span.like-num
-                    = product.like
-              %p.item-price-tax
-                （税込） 
+      = render partial: "products_list", collection: @ladies, as: "product"
+
     .view-all
       %a.view-all_message
         =link_to 'すべての商品を見る', src:'#'
@@ -32,23 +17,8 @@
       %a.section-title
         =link_to 'メンズ 新着アイテム', src:'#'
     .items-wrapper
-      -@mens.each do |product|
-        .item-wrapper
-          =link_to product_path(product.id) do
-            .item-image
-              =image_tag(product.images.first.image, class: "item-image_photo")
-            .item-text-wrapper
-              %h3.item-title
-                = product.name
-              .item-num
-                .item-price
-                  ='￥'+ product.price.to_s(:delimited)
-                .item-like
-                  %i.fa.fa-heart-o
-                  %span.like-num
-                    = product.like
-              %p.item-price-tax
-                （税込） 
+      = render partial: "products_list", collection: @mens, as: "product"
+    
     .view-all
       %a.view-all_message
         =link_to 'すべての商品を見る', src:'#'
@@ -58,23 +28,7 @@
       %a.section-title
         =link_to 'ベビー・キッズ 新着アイテム', src:'#'
     .items-wrapper
-      -@kids.each do |product|
-        .item-wrapper
-          =link_to product_path(product.id) do
-            .item-image
-              =image_tag(product.images.first.image, class: "item-image_photo")
-            .item-text-wrapper
-              %h3.item-title
-                = product.name
-              .item-num
-                .item-price
-                  ='￥'+ product.price.to_s(:delimited)
-                .item-like
-                  %i.fa.fa-heart-o
-                  %span.like-num
-                    = product.like
-              %p.item-price-tax
-                （税込）
+      = render partial: "products_list", collection: @kids, as: "product"
     .view-all
       %a.view-all_message
         =link_to 'すべての商品を見る', src:'#'
@@ -84,23 +38,7 @@
       %a.section-title
         =link_to 'コスメ・香水・美容 新着アイテム', src:'#'
     .items-wrapper
-      -@cosmes.each do |product|
-        .item-wrapper
-          =link_to product_path(product.id) do
-            .item-image
-              =image_tag(product.images.first.image, class: "item-image_photo")
-            .item-text-wrapper
-              %h3.item-title
-                = product.name
-              .item-num
-                .item-price
-                  ='￥'+ product.price.to_s(:delimited)
-                .item-like
-                  %i.fa.fa-heart-o
-                  %span.like-num
-                    = product.like
-              %p.item-price-tax
-                （税込）
+      = render partial: "products_list", collection: @cosmes, as: "product"
     .view-all
       %a.view-all_message
         =link_to 'すべての商品を見る', src:'#'

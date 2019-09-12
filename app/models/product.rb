@@ -4,9 +4,9 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :status
   has_many   :images, dependent: :destroy
-  has_many   :favorites
-  has_one    :purchase
-  has_many   :comments
+  has_many   :favorites, dependent: :destroy
+  has_one    :purchase, dependent: :destroy
+  has_many   :comments, dependent: :destroy
   belongs_to :condition
   belongs_to :size
   accepts_nested_attributes_for :images

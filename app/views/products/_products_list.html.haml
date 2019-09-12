@@ -1,7 +1,9 @@
 .item-wrapper
   =link_to product_path(product.id) do
     .item-image
-      =image_tag(product.images.first.image.url, class: "item-image_photo")
+      = image_tag(product.images.first.image.url, class: "item-image_photo")
+      -if product.status_id == 2
+        = render partial: "soldout"
     .item-text-wrapper
       %h3.item-title
         = product.name

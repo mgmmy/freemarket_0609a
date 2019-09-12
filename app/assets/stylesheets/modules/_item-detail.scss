@@ -72,6 +72,7 @@
 
           img {
             max-height: 300px;
+            position: relative;
           }
 
           .owl-dot {
@@ -90,7 +91,7 @@
 
             .image-select {
               line-height: 0;
-              position: absolute;
+              
               top: 0;
               left: 50%;
               width: auto;

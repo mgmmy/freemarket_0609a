@@ -5,5 +5,7 @@ class Profile < ApplicationRecord
   belongs_to :user
   has_one :prefecture
   has_many :purchases
+
+  
   
 end

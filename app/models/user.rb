@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :purchases
   has_many :sns_credentials, dependent: :destroy
   
-  
+
 
   def self.find_oauth(auth)
     uid = auth.uid

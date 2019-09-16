@@ -6,6 +6,6 @@ class Profile < ApplicationRecord
   has_one :prefecture
   has_many :purchases
 
-  validates :postalcode, :city, :block, :tel, presence: true
+  
   
 end

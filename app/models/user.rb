@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :purchases
   has_many :sns_credentials, dependent: :destroy
   
-  # validates :nickname, :encrypted_password, :last_name, :first_name, :last_name_kana, :first_name_kana
+  validates :nickname, :encrypted_password, :last_name, :first_name, :last_name_kana, :first_name_kana, presence: true
 
   def self.find_oauth(auth)
     uid = auth.uid

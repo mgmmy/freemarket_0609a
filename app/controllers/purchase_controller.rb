@@ -5,7 +5,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def index
-    @user = User.find(current_user)
+    @user = User.find(current_user.id)
     @profile = Profile.find(current_user.id)
     @card = Card.find(current_user.id)
     if @card.blank?

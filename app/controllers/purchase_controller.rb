@@ -7,13 +7,13 @@ class PurchaseController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @profile = Profile.find(current_user.id)
-    @card = Card.find(current_user.id)
-    if @card.blank?
-      redirect_to controller: "card", action: "new"
-    else
+    # @card = Card.find_by(user_id: current_user.id)
+    # if @card.blank?
+    #   redirect_to controller: "cards", action: "new"
+    # else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       @product = Product.find(params[:product_id])      
-    end
+    # end
   end
 
   def pay

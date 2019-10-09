@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
       redirect_to product_path(@product)
     else
       @product.images.build
-      flash.now.alert = '未入力項目があります'
+      flash[:notice] = '未入力項目があります'
       redirect_back(fallback_location: root_path)
     end
   end

@@ -13,13 +13,13 @@
                 必須
             %p
               最大10枚までアップロードできます
-            = f.fields_for :images do |image|
+            = f.fields_for :images, @product.images.first do |image|
               .dropzone-container.clearfix
                 #preview
                 .dropzone-container__upload
                   =image.label :image, class: "dropzone-container__drop-field", for: "upload-image" do
                     .dropzone-container__upload-area
-                      = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                      = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
                       .dz-message.needsclick
                         %p  
                           ドラッグアンドドロップ
@@ -30,7 +30,7 @@
                 .dropzone-container__upload2
                   =image.label :image, class: "dropzone-container__drop-field2", for: "upload-image" do
                     .dropzone-container__upload-area
-                      = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                      = image.file_field :image, id: "upload-image", class: "upload-image", 'data-image': 0
                       .dz-message.needsclick
                         %p  
                           ドラッグアンドドロップ
